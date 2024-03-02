@@ -1,0 +1,145 @@
+.header {
+    position: sticky;
+    box-shadow: 1px 5px 5px 1px rgb(0 0 0 / 20%);
+    background-color: white;
+}
+.header-logo {
+    width: 7.5em;
+    margin-left: 3.2em;
+}
+
+.moon-icon {
+    position: absolute;
+    right:1%;
+    top: 1%;
+    margin-top: 0.5em;
+    padding: 0 0.5em 0.5em 0.5em;
+    background-color: white;
+    border: 2px solid #2979FF ;
+    border-radius: 5px;
+    color: #2979FF;
+}
+
+.back {
+    text-decoration: none;
+}
+.back-btn {
+    position: absolute;
+    top: 4.5em;
+    right: 6em;
+    margin-right: 4em;
+    background-color: white;
+    border: 1px solid #01bce9;
+    border-radius:5px;
+    background: transparent;
+}
+.formpart {
+    margin-top: 6em;
+}
+.header-text {
+    margin: 1em 0 ;
+    padding-top: 0.5em;
+}   
+body{
+    background-color: #FAFAFA;
+}
+.patient-main {
+    background-color: white;
+}
+.same-text {
+    margin: 1em 0;
+}
+
+.checkmail {
+    display: none;
+}
+
+.btn-color-for-upload {
+    color: white;
+    background-color: #01bce9;
+    border: 1px solid #01bce9;
+    width: 100px;
+    height: 40px;
+    /* border-radius : ; */
+}
+ 
+@media (max-width : 994px) {
+    .back-btn {
+        right: 3.5em;
+    }
+}
+@media (max-width : 758px) {
+    .back-btn {
+        right: 3em;
+    }
+}
+@media (max-width : 668px) {
+    .back-btn {
+        right: 1em;
+    }
+}
+@media (max-width : 562px) {
+    .back-btn {
+        right: 5px;
+    }
+}
+@media (max-width : 320px) {
+    .back-btn {
+        right: 0;
+    }
+}
+
+.submit {
+    background-color: #01bce9;
+    color: black;
+}
+.cancel {
+    border: 1px solid black;
+    margin-left:1em;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    color: #fff;
+    padding-top : 0.5em;
+}
+
+.footertext {
+    color: gray;
+    text-decoration: none;
+    padding: 0.5em;
+    margin: 0 0 3em 0;
+}
+.footertext2 {
+    color: gray;
+    text-decoration: none;
+    padding: 0.5em;
+    margin-right : 2em;
+    margin-bottom: 1em;
+}
+.iti__flag-container {
+    z-index: 5;
+}
+
+.iti {
+    width: 100%;
+}
+.infoicon {
+    color: orange;
+    font-size: 40px;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: #01bce9;
+    width: 4em;
+    height: 3em;
+    border: #01bce9;
+}
+
+.form-control:focus {
+    border-color: #0DCAF0;
+    box-shadow: none;
+    border-radius: 5px;
+}

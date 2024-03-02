@@ -1,0 +1,97 @@
+.doctorlogo {
+    width: 9em;
+    height: 6em;
+}
+/* header {
+    position: sticky;
+    box-shadow: 1px 1px 10px -3px gray; 
+    margin: 0;
+    padding: 0;
+} */
+
+.header {
+    position: sticky;
+    box-shadow: 1px 5px 5px 1px rgb(0 0 0 / 20%);
+    background-color: white;
+}
+.header-logo {
+    width: 7.5em;
+    margin-left: 3.2em;
+}
+
+.moon-icon {
+    position: absolute;
+    right:1%;
+    top: 1%;
+    margin-top: 0.5em;
+    padding: 0 0.5em 0.5em 0.5em;
+    background-color: white;
+    border: 2px solid #2979FF ;
+    border-radius: 5px;
+    color: #2979FF;
+}
+.iam {
+    margin-top : 1em;
+    margin-right:4em;    
+    justify-content: right;   
+}
+
+
+.backbtn {
+    position: absolute;
+    top: 6em;
+    right: 10%;
+    color: #2979FF;
+    border: 2px solid #2979FF;
+    border-radius: 5px; 
+    background-color: white;
+    font-weight: 600;
+    padding: 0.3em;
+    text-decoration: none;
+}
+.box {
+    margin-top: 1em;
+    border-radius: 8px;
+    width: 16em;    
+    height: 3em;
+    text-align: left;
+    padding : 0.2em 0 0 1em;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.box-patient {
+    border: 1px solid rgb(150, 71, 210);
+    background-color: rgb(222, 222, 246);
+    color: rgb(150, 71, 210);
+}
+.box-family {
+    border: 1px solid rgb(59, 79, 226);
+    background-color: rgb(204, 239, 255);
+    color: rgb(59, 79, 226);
+}
+.box-concierge {
+    border: 1px solid green;
+    background-color: rgb(200, 242, 214);
+    color: green;
+}
+.box-partner {
+    border: 1px solid rgb(211, 53, 211);
+    background-color: rgb(246, 219, 243);
+    color: rgb(211, 53, 211);
+}
+
+@media (max-width : 480px) {
+    .iam {
+        padding-top: 15px ;
+    }
+}
+
+.redirect {
+    text-decoration: none;
+}
+.form-control:focus {
+    border-color: #0DCAF0;
+    box-shadow: none;
+    border-radius: 5px;
+}

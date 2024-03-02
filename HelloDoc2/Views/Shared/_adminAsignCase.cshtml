@@ -1,0 +1,111 @@
+﻿@model DAL.ViewModel.AdminAsignVm;
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<div class="modal fade" id="myModalAssign" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <form method="post" id="assignrequestform" asp-action="AsignCase">
+
+            @*     <input hidden /> *@
+
+                @*HEADER*@
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Assign Request </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                @*BODY*@
+                <div class="modal-body">
+
+                    <p style="font-size:0.8rem;">
+                        To assign this request, search and select another Physician!
+                    </p>
+
+                    <select class="form-select my-3" aria-label="Default select example" id="regionSelect">
+                        <option selected>Narrow Search by Region</option>
+                        @foreach(var obj in Model.regions)
+                        {
+                            <option value="@obj.RegionId">
+                                @obj.Name
+                            </option>
+                        }                        
+                    </select>
+
+                    <select class="form-select my-3" id="physicianSelect" aria-label="Floating label select example">
+                        <option selected>Select Physician</option>
+                    </select>
+
+                    <div class="form-floating mb-3 h-100" style="width: 100%;">
+                        <textarea class="form-control bg-transparent h-100" id="floatingInput"
+                                  placeholder="Textarea" rows="3"></textarea>
+                        <label for="floatingInput" class="text-wrap">Description</label>
+                    </div>
+
+                </div>
+
+                @*FOOTER*@
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info text-white border rounded-2">Submit</button>
+                    <button type="button" class="btn btn-outline-info rounded-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+ <script>
+
+        // function getPhysiciansByRegionId() {
+        //     var regionId = $("#regionSelect").val();
+        //     $("#physicianSelect").empty();
+        //     $.get("/Admin/GetPhysiciansByRegionId", { regionId: regionId }, function (data) {
+        //     console.log(data.adminAsignVm.physicians.length);
+        //         console.log(data.lenght);
+        //         console.log(data.physicians);
+        //     $("#physicianSelect").append('<option selected>Select Physician</option>');
+            
+        //         for (var i = 0; i < data.adminAsignVm.physicians.lenght; i++) {
+        //             console.log("hellos");
+        //             console.log(data.adminAsignVm.physicians[i]);
+        //         $("#physicianSelect").append('<option value="' + data.adminAsignVm.physicians[i].physicianId + '">' + data.adminAsignVm.physicians[i].firstName + '</option>');
+        //         }
+               
+        //     });
+        // }
+
+    $("#regionSelect").on("change", function () {
+
+        getPhysiciansByRegionId($(this).val());
+    })
+     function getPhysiciansByRegionId(regid) {
+         alert("hello");
+
+         let action = "/Admin" + "/" + "GetPhysiciansByRegionId"
+         event.preventDefault();
+         $.ajax({
+             url: action,
+             type: 'GET',
+             data: { regionId: regid },
+             success: function (data) {
+                 console.log(data.adminAsignVm.physicianList)
+                 $('#physicianSelect').html("<option>" + "Select Physician" + "</option>");
+                 for (var i = 0; i < data.adminAsignVm.physicianList.length; i++){
+                    $("#physicianSelect").append('<option value="' + data.adminAsignVm.physicianList[i].physicianId + '">' + data.adminAsignVm.physicianList[i].firstName + '</option>');
+                };
+             },
+             error: function () {
+                 alert('Error loading partial view');
+             },
+         });
+     }
+
+</script>
+

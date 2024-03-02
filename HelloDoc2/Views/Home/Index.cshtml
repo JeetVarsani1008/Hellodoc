@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutNone.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/patientreqform.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+
+<div class="bgimg">
+</div>
+<main class="container-fluid forback">
+    <i onclick="myFunction()" class="bi bi-moon moonclass"></i>
+    <div class="d-flex justify-content-center align-items-center imglogo">
+        <img class="d-sm-block d-none" src="~/SRS Screen Shorts/doctorlogo.png" alt="">
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <button class=" d-flex justify-content-center align-items-center submitbtn" onclick="@("window.location.href='" + @Url.Action("Submit_Request", "Home") + "'");">Submit A Request</button>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <button class=" d-flex justify-content-center align-items-center registrationbtn" 
+        onclick="@("window.location.href='" + @Url.Action("Patient_Login", "Home") + "'");">Registrated Patients</button>
+    </div>
+</main>

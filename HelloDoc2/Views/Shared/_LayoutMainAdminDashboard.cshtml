@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HelloDoc2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HelloDoc2.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AdminDashboard.css"/>
+    <link rel="stylesheet" href="~/css/AllModel.css" />
+    <!-- bootstrap CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    @* TOASTER *@
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- Option 1: Include in HTML -->
+</head>
+
+<body>
+
+    
+    <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler d-block d-md-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation" style="height: 50%;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand header-logo" href="#"><img src="~/SRS Screen Shorts/doctorlogo.png" alt="doctor-logo" class="doctor-img logo"></a>
+            </div>
+            <div>
+                <ul class="navbar-nav ms-auto d-flex flex-nowrap">
+                    <div class="d-none d-sm-flex ">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Welcome</a>
+                    </li>
+                    <li class="nav-item p-2 fw-bolder">
+                            Admin admin2
+                    </li>
+            </div>
+            <li class="nav-item">
+                <a>
+                    <button type="button" class="btn logout-btn ">
+                        <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="btn moonicon" onclick="changeTheme()">
+                    <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
+                </button>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <hr class="m-0 hr_line">
+
+    <nav class="navbar navbar-expand-lg py-0 pt-2" style="z-index: 10;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link links active" asp-action="AdminDashboard" asp-controller="Admin">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links">Provider Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links">My Profile</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link w-100 p-auto links" href="#" role="button" data-bs-toggle="dropdown">Providers</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Provider</a></li>
+                            <li><a class="dropdown-item" href="#">Scheduling</a></li>
+                            <li><a class="dropdown-item" href="#">Invoicing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links">Partners</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link w-100 p-auto links" href="#" role="button" data-bs-toggle="dropdown">Access</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links">Records</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+
+    <div class="container-fluid p-0 mt-3">
+        <main role="main" class="">
+            <partial name="_ToastNotification" />
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

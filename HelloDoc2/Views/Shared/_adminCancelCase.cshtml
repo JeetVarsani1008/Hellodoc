@@ -1,0 +1,40 @@
+﻿@model DAL.ViewModel.AdminDashboardViewModel;
+
+<div class="modal fade" id="newRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Confirm Cancellation</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="CancelCase" asp-controller="Admin" method="post">
+                    <input hidden id="requestid" name="requestid" value="" />
+                    <div>
+                        Patient Name : <span id="Fullname" value=""></span>
+                    </div>
+                    <div>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" asp-for="CaseTagss">
+                            <option hidden>Reason For cancellation</option>
+                            @foreach (var obj in Model.CaseTags)
+                            {
+                                <option value="@obj.CaseTagId">@obj.Name</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-floating">
+
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                  style="height: 100px" asp-for="Notes"></textarea>
+                        <label for="floatingTextarea2" class="text_area_placeholder">Provider Aditional Notes</label>
+                    </div>
+                    <div id="pop_buttons_container">
+                        <button type="submit" id="pop_submit">Confirm</button>
+                        <button id="pop_cancle">Cancle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

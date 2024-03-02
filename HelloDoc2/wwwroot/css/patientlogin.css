@@ -1,0 +1,118 @@
+body {
+    background-image: url("SRS Screen Shorts/11116016_415.jpg");
+}
+
+.doctorimage {
+    margin: 0em 1em 5em 2em;
+    padding: 0 2em 2em 2em;
+}
+.back {
+    font-size :large;
+    color: #2979FF;
+}
+.user {
+    width: 100%;
+    height : auto;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    background-color: #2979FF;
+}
+
+.bgimg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    /* background-blend-mode: overlay; */
+    /* background-color: rgba(255,255,255,0.8); */
+    filter: blur(4px);
+    opacity: 0.2;
+}
+
+
+.sideimg {
+    justify-content: right;
+    align-items: right;
+}
+
+.forgot {
+    color: #2979FF;
+    margin-top: 5%;
+    text-decoration: none;
+}
+.terms {
+    margin-right : 0.5em;
+}
+.privacy {
+    margin-left: 0.5em;
+}
+.downtext {
+    margin-top: 10em;
+}
+
+@media  (max-width : 767px) {
+    .downtext {
+        margin-top: 10em;
+    }
+}
+.pipe {
+    margin: 0;
+    padding: 0;
+}
+
+.bi-moon {
+    position: fixed;
+    right:1%;
+    top: 1%;
+    padding: 0 0.5em 0.5em 0.5em;
+    background-color: white;
+    border: 2px solid #2979FF ;
+    border-radius: 5px;
+    color: #2979FF;
+}
+
+.moonbutton {
+    border-radius: 5px;
+
+}
+.person{
+    position : absolute;
+    right: 1em;
+    top: 1em;
+
+}
+.bi-eye {
+    position: absolute;
+    right: 1em;
+    top : 1em;
+    
+}
+.bi-eye-slash
+{
+    position: absolute;
+    right: 1em;
+    top : 1em;
+}
+.redirect {
+    text-decoration: none;
+}
+.form-control:focus {
+    border-color: #0DCAF0;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.dark-mode {
+    background-color: black;
+    color : gray;
+}
+
+
+@media screen (max-width : 370px ) {
+    .doctorimage {
+        margin-left : -1em;
+    }
+}
+   

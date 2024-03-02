@@ -1,0 +1,117 @@
+﻿@model DAL.ViewModel.AdminDashboardViewModel;
+@{
+    Layout = "/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script> 
+</head><div class="container-fluid bg-bodybg-body-tertiary vh-100">    <div class="container d-flex flex-column gap-2 p-3 ">        @*Header of view page*@        <div class="container d-flex justify-content-between p-0 my-2">            <div>                <h5>                    View Reservation                    <span class="badge bg-success p-2 bg-gradient border rounded-5" style="--bs-bg-opacity: .9; font-size: 0.8rem; padding: 8px 12px;">                        Patient                    </span>                </h5>            </div>            <a asp-controller="Admin" asp-action="AdminDashboard">                <span class="border border-info text-info p-2 rounded-2">                    < Back                </span>            </a>        </div>        @foreach(var item in Model.requestListAdminDash)
+        {
+            <form method="post" enctype="multipart/form-data" class="container d-flex flex-column shadow gap-4 p-4">
+                <div class="container">
+                    <h4 class="ms-auto me-auto mb-4">Patient Information</h4>
+
+                    <h6 style="font-size: 14px">Confirmation Number</h6>
+                    <p class="text-info fs-5 mb-3">MD092723TETE0002</p>
+
+                    <div>
+                        <div class="form-floating mb-3 h-100">
+                            <textarea class="form-control bg-transparent h-100" id="floatingInput" placeholder="Textarea" rows="3" value="@item.Notes"></textarea>
+                            <label for="floatingInput" class="text-wrap ">Patient Notes</label>
+                        </div>
+
+                        <div class="mt-1">
+                            <div class="row">
+
+                                <div class="form-floating mb-3 col-12 col-sm-6">
+                                    <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="John" required value="@item.FirstName" disabled>
+                                    <label for="floatingInput" class="ms-2 ">First Name</label>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12 col-sm-6">
+                                    <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Wick" value="@item.LastName" disabled>
+                                    <label for="floatingInput" class="ms-2 ">Last Name</label>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12 col-sm-6">
+                                    <input type="date" class="form-control bg-transparent" id="floatingInput" placeholder="02-10-2002" value="@item.DateOfBirth">
+                                    <label for="floatingInput" class="ms-2 ">Date of Birth</label>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12 col-md-5">
+                                    <input type="tel" class=" form-control bg-transparent w-100" style="height: 60px;" id="phone" placeholder="23464544564" value="@item.rPhonenumber" disabled>
+                                </div>
+
+                                <div class="form-floating mb-3 col-12 col-sm-1 ">
+                                    <i class="btn bi bi-telephone border border-info rounded-2 px-4 py-3 text-info"></i>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="email" class="form-control bg-transparent emailInp" id="floatingInput1" placeholder="test@google.com" value="@item.Email" disabled>
+                                <label for="floatingInput" class="ms-2 ">Email</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <h4 class="ms-auto me-auto">Location Information</h4>
+
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Maryland">
+                                <label for="floatingInput" class="ms-2 ">Region</label>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-5">
+                                <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Maryland">
+                                <label for="floatingInput" class="ms-2 ">Business Name / Address</label>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-1 ">
+                                <i class="btn bi bi-geo-alt border border-info rounded-2 text-info px-4 py-3 text-info"></i>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="007">
+                                <label for="floatingInput" class="ms-2 ">Room #</label>
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex justify-content-end mb-3">
+
+                            <div class="d-flex">
+                                <div class="form-floating mx-2">
+                                    <button type="button" class="btn text-white btn-info">Assign</button>
+                                </div>
+
+                                <div class="form-floating mx-2">
+                                    <button type="button" class="btn text-white btn-info">View Notes</button>
+                                </div>
+
+                                <div class="form-floating mx-2">
+                                    <button type="button" class="btn text-white btn-danger">Cancel</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+            </form>
+        }                @*FORM*@    </div></div><script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>

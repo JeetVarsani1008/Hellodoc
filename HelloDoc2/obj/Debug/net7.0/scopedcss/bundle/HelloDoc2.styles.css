@@ -1,0 +1,60 @@
+/* _content/HelloDoc2/Views/Shared/_Layout.cshtml.rz.scp.css */
+
+footer[b-uvbqhtpt9g] {
+    position: absolute;
+    bottom: -2em;
+    color: #fff;
+    padding-top: 0.5em;
+}
+
+.footertext[b-uvbqhtpt9g] {
+    color: gray;
+    text-decoration: none;
+    padding: 0.5em;
+    margin: 0 0 3em 0;
+}
+
+.footertext2[b-uvbqhtpt9g] {
+    color: gray;
+    text-decoration: none;
+    padding: 0.5em;
+    margin-right: 2em;
+    margin-bottom: 1em;
+}
+
+
+.doctorlogo[b-uvbqhtpt9g] {
+    width: 9em;
+    height: 6em;
+}
+
+
+
+.header[b-uvbqhtpt9g] {
+    position: sticky;
+    box-shadow: 1px 5px 5px 1px rgb(0 0 0 / 20%);
+    background-color: white;
+}
+
+.header-logo[b-uvbqhtpt9g] {
+    width: 7.5em;
+    margin-left: 3.2em;
+}
+
+.moon-icon[b-uvbqhtpt9g] {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    margin-top: 0.5em;
+    padding: 0 0.5em 0.5em 0.5em;
+    background-color: white;
+    border: 2px solid #2979FF;
+    border-radius: 5px;
+    color: #2979FF;
+}
+
+/*.dark-mode {
+    background-color: black;
+    color : darkgreen;
+}
+*/

@@ -1,0 +1,15 @@
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\ref\DAL.dll

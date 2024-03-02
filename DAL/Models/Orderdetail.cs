@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace DAL.Models;
+
+public partial class OrderDetail
+{
+    [Key]
+    public int Id { get; set; }
+
+    public int? VendorId { get; set; }
+
+    public int? RequestId { get; set; }
+
+    [StringLength(50)]
+    public string? FaxNumber { get; set; }
+
+    [StringLength(50)]
+    public string? Email { get; set; }
+
+    [StringLength(100)]
+    public string? BusinessContact { get; set; }
+
+    [Column(TypeName = "character varying")]
+    public string? Prescription { get; set; }
+
+    public int? NoOfRefill { get; set; }
+
+    public DateOnly? CreatedDate { get; set; }
+
+    [StringLength(100)]
+    public string? CreatedBy { get; set; }
+}

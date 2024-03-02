@@ -1,0 +1,381 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .searchlogo {
+    margin:0em 1em 0em 8em;
+    height: 1em;
+    width: 1em;
+  }
+  .headerbar {
+    background-color: white;
+  }
+  
+  .header-logo {
+    margin: 25px 0px 0px 72px;
+  }
+  .profile {
+    margin-right:1.25em;
+  }
+  .name {
+    margin-right: 1em;
+  }
+  .notification {
+    margin-right: 2em;
+  }
+  .searchname {
+    color: #000000;
+    font-size: small;
+  }
+  
+  .menu {
+    margin-right: 1em;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    
+  }
+  .sidebar img {
+    width :1.7em;
+    height:1.7em;
+    margin-right: 2px;
+    background-color: #FAFAFA;
+   
+  }
+  .logo{
+    display: flex;
+    margin: 2em 2em 0em 2em;
+  }
+  
+.formclass {
+    background-color: white;
+    margin: 0em;
+    justify-content: center;
+  
+  }
+  
+  
+  .dropdown {
+    align-items: top;
+    justify-self :baseline;
+  }
+  
+  .onecolumn {
+    margin : 0 0.5em;
+    padding-right:30px;
+  }
+  .twocolumn {
+    margin: 0 0.5em 0 0.5em;
+  }
+  .threecolumn {
+    margin: 0 0.5em 0 0.5em;
+    padding-right:1.4rem;
+  }
+  .fourcolumn {
+    margin: 0 0.5em 0 0.5em;
+    padding-right:30px;
+  }
+  .onetext {
+    padding-left: 2em;
+    width:51em;
+    height: 3em;
+    margin: 1em 1.5em 1em 1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  
+  .multitext {
+    padding-left: 2em;
+    width:51em;
+    height: 8.12em;
+    margin: 1em 1.5em 1em 1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  .dropdown {
+    padding-left: 2em;
+    width:51em;
+    height: 3em;
+    margin: 1em 1.5em 1em 1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  
+  .twotext {
+    padding-left :2em;
+    width:92.5%;
+    height :3em;
+    margin: 1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  .nametext1 {
+    align-items: center;
+    padding-left :2em;
+    width:92.5%;
+    height :3em;
+    margin:1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  .threetext {
+    align-items: center;
+    padding-left :2em;
+    width: 95%;
+    height :3em;
+    margin:1em 3em 1em 1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  .fourtext {
+    align-items: center;
+    padding-left :2em;
+    width:97%;
+    height :3em;
+    margin:1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  
+  .nametext2 {
+    align-items: center;
+    padding-left :2em;
+    width:97%;
+    height :3em;
+    margin:1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+
+p {
+  margin : 20px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.validdata {
+  color: red;
+  margin: 0 0 0 2em;
+  padding: 0;
+}
+.fullnamedata {
+  margin: 0 0 0 2em;
+  padding: 0;
+  color: #ADADAD;
+
+}
+.label {
+  padding:10px;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+}
+  .fix {
+    margin: 0 0 0 1em;
+    padding: 0;
+  }
+  .fix1 {
+    margin:0 0 0 2em;
+  }
+  
+  .mainbut {
+    margin:1em;
+  }
+  .button {
+    margin:0em;
+    width:7.75em;
+    height:2em;
+    border: 1px solid #C8242F;
+    border-radius: 18px;
+    opacity: 1;
+  }
+  .noitem {
+    width : 10%;
+    margin: 0.8em;
+    height:1em;
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #ADADAD;
+    opacity: 1;
+  }
+  .buttonradio {
+        margin: 0 0 0 1em;
+        padding: 0;
+  }
+  .radio1 {
+    margin: 1em 0em 0 0;
+  }
+  .radio2 {
+    margin: 1em 0em 0 2em;
+  }
+  
+  .checkbox1 {
+    margin: 1em 0em 0 0;
+  }
+  .checkbox2 {
+    margin: 1em 0em 0 2em;
+  }
+  
+  .lastbox {
+    align-items: center;
+    padding-left :2em;
+    width:95%;
+    height :3em;
+    margin:1em;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+  }
+  
+  #html2 {
+    accent-color: red;
+  }
+
+  #html3 {
+    accent-color: #ADADAD;
+  }
+  
+  .imgall {
+    width: 2em;
+    height :2em;
+    margin: 0 1em 0 0;
+    padding: 0;
+  }
+  
+  .colsnakbar {
+    
+    padding: 7px;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+    color: #ADADAD; 
+    margin: 1em 0 1em 1em;
+  }
+  .colheading {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #3E3E3E;
+  }
+
+  .lowerbutton1 {
+    color: white;
+  }
+
+  .lowerbutton2 {
+    color: red;
+  }
+  .fix {
+    font-size: 1.5em;
+    margin-bottom: 0.31em;
+    margin-left: 1em;
+    font-weight: 500;
+    text-align: left;
+    font: normal normal medium 1.1em/1.5em Roboto;
+    letter-spacing: 0px;
+    color: #3E3E3E;
+    opacity: 1
+  }
+
+  .other {
+    font-size: 1.5em;
+    margin-left: 0.5em;
+    font-weight: 500;
+    text-align: left;
+    font: normal normal medium 1.1em/1.5em Roboto;
+    letter-spacing: 0px;
+    color: #3E3E3E;
+    opacity: 1
+  }
+  .fix3 {
+    width: 5.62em;
+    height: 1.5em;
+    margin-left: 1em;    
+    font-weight: 500;
+    text-align: left;
+    font: normal normal medium 1.1em/1.5em Roboto;
+    letter-spacing: 0px;
+    color: #3E3E3E;
+    opacity: 1
+  }
+  .forbutton {
+    margin : 1em 0 1em 1em;
+  }
+  .otherdesign {
+    margin: 1em 0 0 1em;
+  }
+  .lowerbutton1 {
+    width: 7.75em;
+    height: 2.81em;
+    background: #C8242F 0% 0% no-repeat padding-box;
+    border-radius: 23px;
+    opacity: 1;
+    margin: 0 1em 0 0;
+  }
+  .lowerbutton2 {
+    width: 9em;
+    height: 2.8em;
+    border: 1px solid #C8242F;
+    border-radius: 22px;
+    opacity: 1;
+    margin : 0 0 0 1em;
+  }
+  
+  .button {
+        margin: 0 1em 0 0;
+  }
+  
+  .noitem {
+
+  }
+  
+  .tab1, .tab2, .tab3 {
+    margin: 1em 0 0 1em;  
+    color: #ADADAD;  
+    margin:0 1em 1em 0;
+  }
+  
+  .tab1:hover, .tab2:hover, .tab3:hover {
+    margin: 0 1em 1em 0   ;
+    color: #C8242F;
+    border-bottom: 2px solid #C8242F;
+  }
+  
+  .fix2 {
+    position : relative;
+  }
+  
+  .breakline {
+    position:absolute;
+    width: 80.5%;
+    height :3px;
+    background-color: lightgray;
+  }
+  
+  .fixmain {
+    text-align: left;
+    font: normal normal medium 5em/1.8em Roboto;
+    letter-spacing: 0px;
+    color: #3E3E3E;
+    opacity: 1;
+  }
+  
+  .thistext1 {
+    margin: 0.2em 0 0 0;
+    color: #FF3535;
+  }
+  .thistext2 {
+    margin: 0.2em 0 0 0;
+    color: #00B9E1;
+  }
+  .thistext3 {
+    margin: 0.2em 0 0 0;
+    color: #FFA800ed;
+  }
+  .thistext4 {
+    margin: 0.2em 0 0 0;
+    color: #00AF27;
+  }
+
