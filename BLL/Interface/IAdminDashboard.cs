@@ -25,5 +25,19 @@ namespace BLL.Interface
         List<Region> asignCase();
 
         List<Physician> asignPhysician(int regionId);
+
+        void blockCase(AdminBlockVm model, int regionId);
+        AdminBlockVm adminBlockVm(int RequestId);
+
+        void asignCasePost(AdminAsignVm model, int requestId, int newStatus);
+
+        //view upload section 
+        AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId);
+
+        List<RequestWiseFile> GetFilesByRequestId(int requestId);
+        List<RequestWiseFile> GetAllFilesByRequestId(int reqId);
+
+        RequestWiseFile GetFileById(int fileId);
+
     }
 }

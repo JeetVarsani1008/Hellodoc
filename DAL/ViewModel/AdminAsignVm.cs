@@ -12,7 +12,14 @@ namespace DAL.ViewModel
 {
     public class AdminAsignVm
     {
+        public string Description { get; set; }
+
+        public int PhysicianId { get; set; }
+
+        public int RequestId { get; set; }
+
         public List<Region> regions {  get; set; }
+
         public List<Physician> physicianList { get; set; }
     }
     public class regions

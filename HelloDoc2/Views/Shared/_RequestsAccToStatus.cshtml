@@ -62,24 +62,24 @@
         </div>
 
         <div class="d-flex gap-2 align-items-center mb-2">
-            <button class="btn btn-outline-secondary d-none d-md-block">All</button>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, '1',@Model.Regin_Short)">
+            <button class="btn btn-outline-secondary d-none d-md-block" onclick="fetchRequests(@Model.StatusForName,@Model.Regin_Short)">All</button>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[1],@Model.Regin_Short)">
                 <i class="bi bi-circle-fill color_p"></i>
                 <div class="common-txt">Patient</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, '2', @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[2], @Model.Regin_Short)">
                 <i class="bi bi-circle-fill  color_f"></i>
                 <div class="common-txt">Family/Friends</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, '3' ,@Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[3] ,@Model.Regin_Short)">
                 <i class="bi bi-circle-fill color_b"></i>
                 <div class="common-txt">Business</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, '4', @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, [4], @Model.Regin_Short)">
                 <i class="bi bi-circle-fill color_c"></i>
                 <div class="common-txt">Concierge</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, '5', @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, [5], @Model.Regin_Short)">
                 <i class="bi bi-circle-fill color_v"></i>
                 <div class="common-txt">Vip</div>
             </div>
@@ -188,7 +188,7 @@
 
                                     @if(Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status ==6))
                                     {
-                                        <li><a class="dropdown-item" asp-action="ViewUploads" asp-controller="Admin">View Uploads</a></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("ViewUploads","Admin", new {requestId = @obj.RequestId})'">View Uploads</button></li>
                                     }
                                     <li><a class="dropdown-item" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a></li>
                                     @if(Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 ))
@@ -217,7 +217,7 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 1))
                                     {
-                                        <li><a class="dropdown-item" href="#">Block Patient</a></li>
+                                        <li><button class="dropdown-item" onclick="blockcase(@obj.RequestId)">Block Patient</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
                                     {
@@ -305,14 +305,25 @@
 @* -------------------------pagination end------------------ *@
 
 
-@* -------------- this is cancel case popup div ------------------ *@
+
+@* for cancel case  *@
 <div id="contentCancelNote">
-
 </div>
-@* ------------------cancel case pop up end---------------------- *@
 
+
+@* for asign case *@
 <div id="contentAsignNote">
 </div>
+
+
+@* for block case *@
+<div id="contentBlockNote">
+</div>
+
+
+@* for admin view upload *@
+<div id="adminViewUpload"></div>
+
 
 
 <script>
@@ -327,7 +338,7 @@
     //     });
     // }
 
-
+    //ajax for cancel case model
     function cancelcase(reqid) {
 
         console.log("CLicked")
@@ -350,7 +361,7 @@
         });
     }
 
-
+    //ajax for asign case model
     function asigncase(reqid) {
 
         console.log("CLicked")
@@ -372,6 +383,67 @@
             }
         });
     }
+
+
+    //ajax for block case model
+    function blockcase(reqid) {
+        console.log("CLicked block case")
+        let action = "/Admin" + "/" + "BlockCase"
+        event.preventDefault();
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { req: reqid },
+            success: function (result) {
+                console.log(result);
+                $('#contentBlockNote').html(result);
+                $('#JeetbhaiModel').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
+
+
+    //ajax for view uploads page
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         url: "@Url.Action("ViewUploads", "Admin")",
+    //         type: "GET",
+    //         success: function (result) {
+    //             $("#adminViewUpload").html(result);
+    //         }
+    //     });
+    // });
+    // document.getElementById("viewUploadsBtn").addEventListener("click", function () {
+    //     $.ajax({
+    //         url: "@Url.Action("ViewUploads", "Admin")",
+    //         type: "GET",
+    //         success: function (result) {
+    //             $("#adminViewUpload").html(result);
+    //         }
+    //     });
+    // });
+
+
+    function fetchNotes() {
+        console.log("done")
+        $.ajax({
+            method: "GET",
+            url: "/Admin/ViewUploads",
+            success: function (response) {
+                console.log("jeet")
+                $('#adminViewUpload').html(response)
+                console.log("Function Success")
+            },
+            error: function () {
+                console.log("Function Fail")
+            }
+        })
+    }
+
 
 </script>
 

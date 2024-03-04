@@ -213,7 +213,6 @@ namespace DAL.Controllers
         }
 
 
-
         public IActionResult ViewDocument(int reqId)
         {
             ViewBag.userName = HttpContext.Session.GetString("session1");
@@ -319,35 +318,6 @@ namespace DAL.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult ResetPasswordPatient(CreateAccount req)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var aspnetuser = _context.AspNetUsers.FirstOrDefault(a => a.Email == req.UserName);
-        //        if (aspnetuser != null)
-        //        {
-        //            if (req.PasswordHash != req.ConfirmPassword)
-        //            {
-        //                TempData["passerror"] = "Password and Confirmpassword doesn't match";
-        //                return View();
-        //            }
-
-        //            aspnetuser.PasswordHash = req.PasswordHash;
-        //            _context.AspNetUsers.Update(aspnetuser);
-        //            _context.SaveChanges();
-        //            TempData["pwdupdate"] = "Password is updated successfully";
-        //            return RedirectToAction("Patient_Login", "Home");
-        //        }
-        //        TempData["notvalidemail"] = "You are entered wrong email";
-        //        return RedirectToAction("ResetPasswordPatient", "Home", new { code = req.Token, email = req.UserName });
-
-        //    }
-        //    TempData["passerror"] = "Password and Confirmpassword doesn't match";
-        //    return RedirectToAction("ResetPasswordPatient", "Home", new { code = req.Token, email = req.UserName });
-
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -374,30 +344,6 @@ namespace DAL.Controllers
             return RedirectToAction("ResetPasswordPatient", "Home", new { code = req.Token, email = req.UserName });
         }
 
-
-
-        //public async Task SendEmailAsync(string toEmail, string subject, string body)
-        //{
-        //    var message = new MimeMessage();
-        //    message.From.Add(new MailboxAddress("HelloDoc2", "testinghere1008@outlook.com"));
-        //    message.To.Add(new MailboxAddress("HelloDoc2 Member", toEmail));
-        //    message.Subject = subject;
-
-        //    var bodyBuilder = new BodyBuilder();
-        //    bodyBuilder.HtmlBody = body;
-
-        //    message.Body = bodyBuilder.ToMessageBody();
-
-        //    using (var client = new MailKit.Net.Smtp.SmtpClient())
-        //    {
-        //        await client.ConnectAsync("smtp.office365.com", 587, false);
-        //        //await client.AuthenticateAsync("fakeidofjd00@gmail.com", "gzskmjedfwsnulle");
-        //        await client.AuthenticateAsync("testinghere1008@outlook.com", "Simple@12345");
-        //        await client.SendAsync(message);
-        //        await client.DisconnectAsync(true);
-        //    }
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendEmailAsync(string username, string subject, string body)
@@ -406,26 +352,6 @@ namespace DAL.Controllers
                 TempData["emailsuccess"] = "Email is sent successfully";
                 return RedirectToAction("Index", "Home");
         }
-
-        //private const int TokenExpirationHours = 24;
-
-        //public string GenerateToken()
-        //{
-        //    byte[] tokenBytes = new byte[32];
-        //    using (var rng = RandomNumberGenerator.Create())
-        //    {
-        //        rng.GetBytes(tokenBytes);
-        //    }
-
-        //    string token = Convert.ToBase64String(tokenBytes);
-
-        //    return token;
-        //}
-
-        //public DateTime GetTokenExpiration()
-        //{
-        //    return DateTime.UtcNow.AddHours(TokenExpirationHours);
-        //}
 
         public IActionResult GetTokenExpiration()
         {
@@ -481,6 +407,5 @@ namespace DAL.Controllers
             var emailExists = _context.AspNetUsers.Any(u => u.Email == email);
             return Json(new { exists = emailExists });
         }
-
     }
 }

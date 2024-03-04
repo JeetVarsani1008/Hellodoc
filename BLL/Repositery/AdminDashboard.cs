@@ -207,5 +207,96 @@ namespace BLL.Repositery
             var data = _context.Physicians.Where(p => p.RegionId == regionId).ToList();
             return data;
         }
+
+
+        public AdminBlockVm adminBlockVm(int requestId)
+        {
+            AdminBlockVm adminBlockVm = new AdminBlockVm()
+            {
+                RequestId = requestId,
+            };
+            return adminBlockVm;
+        }
+
+        public void blockCase(AdminBlockVm model, int requestId)
+        {
+            var request1 = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            request1.Status = 11;
+
+            var email = request1.Email;
+            var phoneNumber = request1.PhoneNumber;
+
+            var request2 = _context.Requests.Where(x => (x.Email == email || x.PhoneNumber == phoneNumber) && x.Status == 1).ToList();
+
+            var blockreq = new BlockRequest();
+            foreach (var obj in request2)
+            {
+                obj.Status = 11;
+                blockreq.RequestId = obj.RequestId.ToString();
+                blockreq.PhoneNumber = phoneNumber;
+                blockreq.Email = email;
+                blockreq.Reason = model.Reason;
+                blockreq.CreatedDate = DateOnly.FromDateTime(DateTime.Now);
+
+                _context.BlockRequests.Add(blockreq);
+                _context.Requests.Update(request1);
+            }
+            _context.SaveChanges();
+        }
+
+
+        public void asignCasePost(AdminAsignVm model, int requestId, int newStatus)
+        {
+            var request = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            request.Status = (short)newStatus;
+            request.ModifiedDate = DateTime.Now;
+            //_context.SaveChanges();
+            var reqstatus = new RequestStatusLog
+            {
+                RequestId = requestId,
+                Status = (short)newStatus,
+                Notes = model.Description,
+                CreatedDate = DateTime.Now,
+                PhysicianId = model.PhysicianId,
+            };
+            if(newStatus == 2)
+            {
+                reqstatus.TransToPhysicianId = model.PhysicianId;
+                request.PhysicianId = model.PhysicianId;
+            }
+            _context.Requests.Update(request);
+            _context.RequestStatusLogs.Add(reqstatus);
+            _context.SaveChanges();
+        }
+
+        public AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId)
+        {
+            var user = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            if(user == null)
+            {
+                return new AdminViewUploadVm();
+            }
+            var mymodel = new AdminViewUploadVm
+            {
+                Name = user.FirstName + " " + user.LastName,
+            };
+            return mymodel;
+        }
+
+        public List<RequestWiseFile> GetFilesByRequestId(int requestId)
+        {
+            return _context.RequestWiseFiles.Where(u => u.RequestId == requestId).ToList();
+        }
+
+        public RequestWiseFile GetFileById(int fileId)
+        {
+            return _context.RequestWiseFiles.FirstOrDefault(u => u.RequestWiseFileId == fileId);
+        }
+
+        public List<RequestWiseFile> GetAllFilesByRequestId(int reqId)
+        {
+            return _context.RequestWiseFiles.Where(x => x.RequestId == reqId).ToList();
+        }
+
     }
 }

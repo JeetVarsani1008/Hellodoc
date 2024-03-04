@@ -1,7 +1,10 @@
 ﻿using BLL.Interface;
+using BLL.Repositery;
 using DAL.Models;
 using DAL.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
+using System.IO.Compression;
 using System.Net.NetworkInformation;
 
 namespace DAL.Controllers
@@ -92,9 +95,6 @@ namespace DAL.Controllers
         }
 
 
-        public IActionResult ViewUploads() {
-            return View();
-        }
 
         public IActionResult CancelCase(int req)
         {
@@ -115,6 +115,7 @@ namespace DAL.Controllers
 
         public IActionResult AsignCase(int req)
         {
+            HttpContext.Session.SetInt32("asignReq", req);
             AdminAsignVm adminAsignVm = new AdminAsignVm();
             adminAsignVm.regions = _adminDashboard.asignCase();
             return PartialView("_adminAsignCase",adminAsignVm);
@@ -125,6 +126,94 @@ namespace DAL.Controllers
             AdminAsignVm adminAsignVm=new AdminAsignVm();
             adminAsignVm.physicianList =  _adminDashboard.asignPhysician(regionId);
             return Json(new { adminAsignVm });
+        }
+
+        public IActionResult BlockCase(int req)
+        {
+            HttpContext.Session.SetInt32("requestid", req);
+            AdminBlockVm adminBlockVm = new AdminBlockVm();
+            adminBlockVm = _adminDashboard.adminBlockVm(req);
+            return PartialView("_adminBlockCase", adminBlockVm);
+        }
+
+        [HttpPost]
+        public IActionResult BlockCasePost(AdminBlockVm model)
+        {
+            var req = HttpContext.Session.GetInt32("requestid");
+            _adminDashboard.blockCase(model, req ?? 0);
+            return RedirectToAction("AdminDashboard", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult AsignCasePost(AdminAsignVm model)
+        {
+            var req = HttpContext.Session.GetInt32("asignReq");
+            _adminDashboard.asignCasePost(model, req ?? 0,2);
+            return RedirectToAction("AdminDashboard", "Admin");
+        }
+
+        public IActionResult ViewUploads(AdminViewUploadVm model,int requestId)
+        {
+            ViewBag.RequestIdForDownloadAll = requestId;
+            var returnViewData= _adminDashboard.GetAdminViewUploadData(model, requestId);
+            var documents = _adminDashboard.GetFilesByRequestId(requestId);
+            ViewBag.document = documents;
+            return View(returnViewData);
+        }
+
+        public IActionResult ViewUploadDownload(int documentId)
+        {
+            var filename = _adminDashboard.GetFileById(documentId);
+            if (filename == null)
+            {
+                return NotFound();
+            }
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
+            return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
+        }
+
+        public IActionResult ViewUploadDownloadAll(int requestId)
+        {
+            var filesRow = _adminDashboard.GetAllFilesByRequestId(requestId);
+            MemoryStream ms = new MemoryStream();
+            using (ZipArchive zip = new ZipArchive(ms, ZipArchiveMode.Create, true))
+                filesRow.ForEach(file =>
+                {
+                    var path = "D:\\main project\\HelloDoc\\Hellodoc2\\wwwroot\\upload\\" + file.FileName;
+                    ZipArchiveEntry zipEntry = zip.CreateEntry(file.FileName);
+                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    using (Stream zipEntryStream = zipEntry.Open())
+                    {
+                        fs.CopyTo(zipEntryStream);
+                    }
+                });
+            return File(ms.ToArray(), "application/zip", "download.zip");
+        }
+
+        public IActionResult ViewUploadDelete(int documentId)
+        {
+            var fileToDelete = _adminDashboard.GetFileById(documentId);
+            if (fileToDelete == null)
+            {
+                return NotFound();
+            }
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", fileToDelete.FileName);
+            
+            try
+            {
+                System.IO.File.Delete(filePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting file : {ex.Message}");
+                return StatusCode(500); // this is for internal server error
+            }
+            //now delete this file record from requestwisefile 
+            _context.RequestWiseFiles.Remove(fileToDelete);
+            _context.SaveChanges();
+
+            TempData["success"] = "File deleted successfully.";
+            return RedirectToAction("ViewUploads","Admin");
         }
     }
 }
