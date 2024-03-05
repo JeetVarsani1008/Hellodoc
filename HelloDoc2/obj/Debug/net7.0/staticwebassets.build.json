@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zeG37ryXK0AGPoQmBFovn5hfR0QhERtK9J9m/bDcpK8=",
+  "Hash": "RPc/ppwq9+f1OSsQU4NK7FVkzyWTI2Ars+JQ/1GWWwk=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -4501,6 +4501,25 @@
       "OriginalItemSpec": "wwwroot\\upload\\downward-arrow.svg"
     },
     {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "upload/Fig1. Platform login page.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\Fig1. Platform login page.jpg"
+    },
+    {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig18.Clear Case.png",
       "SourceId": "HelloDoc2",
       "SourceType": "Discovered",
@@ -4556,25 +4575,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Fig23.Request Support.png"
-    },
-    {
-      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig3. Admin Dashboard.jpg",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/Fig3. Admin Dashboard.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\Fig3. Admin Dashboard.jpg"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig33. Month wise Scheduling.jpg",
@@ -4634,25 +4634,6 @@
       "OriginalItemSpec": "wwwroot\\upload\\Fig4. Admin dashboard in New state.jpg"
     },
     {
-      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig6. Admin dashboard in Active state.jpg",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/Fig6. Admin dashboard in Active state.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\Fig6. Admin dashboard in Active state.jpg"
-    },
-    {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig68. View Documents.jpg",
       "SourceId": "HelloDoc2",
       "SourceType": "Discovered",
@@ -4689,25 +4670,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Fig7. Admin dashboard in Conclude state.jpg"
-    },
-    {
-      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig8. Admin dashboard in To Close state.jpg",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/Fig8. Admin dashboard in To Close state.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\Fig8. Admin dashboard in To Close state.jpg"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\HelloDoc.xlsx",

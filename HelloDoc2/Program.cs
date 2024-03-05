@@ -1,6 +1,7 @@
 using BLL.Interface;
 using BLL.Repositery;
 using DAL.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,8 @@ builder.Services.AddScoped<IPatientRequest, PatientRequest>();
 builder.Services.AddScoped<IPatientDashboard, PatientDashboard>();
 builder.Services.AddScoped<IAdminDashboard, AdminDashboard>();
 builder.Services.AddSession();
+
+
 var app = builder.Build();
 
 

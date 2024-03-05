@@ -36,7 +36,7 @@
                         <i class="bi bi-cloud-arrow-up mr-1"></i>
                         <span class="for-remove-upload">Upload</span>
                     </button>
-                    <input id="uploadfile" multiple class="file-input-hover-effect" type="file" style="position: absolute; right: -8px;top: 0.5rem; opacity: 0;" onchange="uploadFile(@ViewBag.reqid)">
+                    <input id="uploadfile" multiple class="file-input-hover-effect" type="file" style="position: absolute; right: -8px;top: 0.5rem; opacity: 0;" onchange="uploadFile(@Model.RequestId)">
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <h4>Documents</h4>
             <div class="d-flex justify-content-around ">
                 <a class="btn btn-white border-1 border-info text-info rounded-1 me-2" asp-route-requestId="@ViewBag.RequestIdForDownloadAll" asp-action="ViewUploadDownloadAll" asp-controller="Admin">Download All</a>
-            <a class="btn btn-white border-1 border-info text-info rounded-1 me-2">Delete All</a>
+            <a class="btn btn-white border-1 border-info text-info rounded-1 me-2" asp-route-requestId="@ViewBag.RequestIdForDeleteAll" asp-action="ViewUploadDeleteAll" asp-controller="Admin">Delete All</a>
             <a class="btn btn-white border-1 border-info text-info rounded-1">Send Mail</a>
             </div>
         </div>
@@ -83,7 +83,7 @@
 
                         <td class="d-flex justify-content-end">
                             <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDownload" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-cloud-arrow-down text-info"></i></a>
-                            <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDelete" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-trash"></i></a>
+                            <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDelete" asp-route-documentId="@item.RequestWiseFileId" asp-route-requestId="@item.RequestId"><i class="bi bi-trash"></i></a>
                         </td>
                 </tr>
                 }
@@ -114,5 +114,31 @@
             }
         });
     });
+
+    function uploadFile(x) {
+        console.log(x)
+        const url = document.getElementById('uploadfile');
+        const file = url.files[0]
+        const formData = new FormData();
+        formData.append('Filepath', file);
+
+        $.ajax({
+            method: "POST",
+            url: "/Admin/Upload/",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log("success");
+                window.location.href = "/Admin/ViewUploads/" + x;
+            },
+            error: function (xhr, status, error) {
+                console.log("eroor123")
+                console.error(xhr.responseText);
+
+            },
+        });
+
+    }
 
 </script>

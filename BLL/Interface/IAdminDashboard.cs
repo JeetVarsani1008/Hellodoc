@@ -32,12 +32,16 @@ namespace BLL.Interface
         void asignCasePost(AdminAsignVm model, int requestId, int newStatus);
 
         //view upload section 
+        void UploadFile(int requestId, string fileName);
+
         AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId);
 
         List<RequestWiseFile> GetFilesByRequestId(int requestId);
         List<RequestWiseFile> GetAllFilesByRequestId(int reqId);
 
         RequestWiseFile GetFileById(int fileId);
+
+        //void DeleteFile(int RequestWiseFileId);
 
     }
 }

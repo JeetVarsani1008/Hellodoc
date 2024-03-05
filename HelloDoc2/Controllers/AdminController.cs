@@ -4,6 +4,7 @@ using DAL.Models;
 using DAL.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
+using System.Collections;
 using System.IO.Compression;
 using System.Net.NetworkInformation;
 
@@ -154,11 +155,36 @@ namespace DAL.Controllers
 
         public IActionResult ViewUploads(AdminViewUploadVm model,int requestId)
         {
+            model.RequestId = requestId;
+            HttpContext.Session.SetInt32("reqIdUpload",requestId);
             ViewBag.RequestIdForDownloadAll = requestId;
+            ViewBag.RequestIdForDeleteAll = requestId;
             var returnViewData= _adminDashboard.GetAdminViewUploadData(model, requestId);
             var documents = _adminDashboard.GetFilesByRequestId(requestId);
             ViewBag.document = documents;
             return View(returnViewData);
+        }
+
+
+        [HttpPost]
+        public IActionResult Upload([FromForm] IFormFile Filepath)
+        {
+            int? reqid = HttpContext.Session.GetInt32("reqIdUpload");
+            if (!reqid.HasValue)
+            {
+                return BadRequest();
+            }
+            string fileName = Path.GetFileName(Filepath.FileName);
+            _adminDashboard.UploadFile(reqid.Value, fileName);
+
+            var filePath = Path.Combine("wwwroot", "upload", fileName);
+            using (FileStream stream = System.IO.File.Create(filePath))
+            {
+                // The file is saved in a buffer before being processed
+                Filepath.CopyTo(stream);
+            }
+            TempData["Uploadscs"] = "File Uploaded Successfully.Please Refresh Page";
+            return View();
         }
 
         public IActionResult ViewUploadDownload(int documentId)
@@ -190,7 +216,7 @@ namespace DAL.Controllers
             return File(ms.ToArray(), "application/zip", "download.zip");
         }
 
-        public IActionResult ViewUploadDelete(int documentId)
+        public IActionResult ViewUploadDelete(int documentId, int requestId)
         {
             var fileToDelete = _adminDashboard.GetFileById(documentId);
             if (fileToDelete == null)
@@ -208,11 +234,50 @@ namespace DAL.Controllers
                 Console.WriteLine($"Error deleting file : {ex.Message}");
                 return StatusCode(500); // this is for internal server error
             }
-            //now delete this file record from requestwisefile 
-            _context.RequestWiseFiles.Remove(fileToDelete);
+
+
+            //now delete this file only from upload but isdeleted is change in requestwisefile 
+
+            BitArray bitarray = new BitArray(1);
+            bitarray.Set(0,true);
+
+            RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == documentId);
+            requestWiseFile.IsDeleted = bitarray;
+            _context.RequestWiseFiles.Update(requestWiseFile);
             _context.SaveChanges();
 
             TempData["success"] = "File deleted successfully.";
+            return RedirectToAction("ViewUploads","Admin", new { requestId });
+        }
+
+        public IActionResult ViewUploadDeleteAll(int requestId)
+        {
+            var filesToDelete = _adminDashboard.GetAllFilesByRequestId(requestId);
+            if(!filesToDelete.Any())
+            {
+                return NotFound();
+            }
+            foreach (var fileToDelete in filesToDelete)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/upload", fileToDelete.FileName);
+                try
+                {
+                    System.IO.File.Delete(filePath);
+
+                    //delete all files records that store in database
+                    // inplemetation remaining 
+                    //_adminDashboard.DeleteFile(fileToDelete.RequestWiseFileId);
+
+                    _context.RequestWiseFiles.Remove(fileToDelete);
+                    _context.SaveChanges();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"Error while deleting File{ex.Message}");
+                    return StatusCode(500);// 500 is for internal server
+                }
+            }
+            TempData["success"] = "All Files are deleted Sucessfully.";
             return RedirectToAction("ViewUploads","Admin");
         }
     }

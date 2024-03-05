@@ -3,6 +3,7 @@ using DAL.Models;
 using DAL.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace BLL.Repositery
 {
     public class AdminDashboard : IAdminDashboard
     {
+        private BitArray _isDeleted = new BitArray(1);
+
         private readonly HellodocContext _context;
         public AdminDashboard(HellodocContext context) 
         {
@@ -249,7 +252,7 @@ namespace BLL.Repositery
         {
             var request = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
             request.Status = (short)newStatus;
-            request.ModifiedDate = DateTime.Now;
+            request.ModifiedDate = DateTime.UtcNow;
             //_context.SaveChanges();
             var reqstatus = new RequestStatusLog
             {
@@ -269,6 +272,22 @@ namespace BLL.Repositery
             _context.SaveChanges();
         }
 
+
+
+        public void UploadFile(int requestId, string fileName)
+        {
+            RequestWiseFile requestWiseFile = new RequestWiseFile()
+            {
+                RequestId = requestId,
+                FileName = fileName,
+                IsDeleted = _isDeleted,
+                CreatedDate = DateTime.Now,
+            };
+            _context.Add(requestWiseFile);
+            _context.SaveChanges();
+        }
+
+
         public AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId)
         {
             var user = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
@@ -278,6 +297,7 @@ namespace BLL.Repositery
             }
             var mymodel = new AdminViewUploadVm
             {
+                RequestId=requestId,
                 Name = user.FirstName + " " + user.LastName,
             };
             return mymodel;
@@ -285,7 +305,8 @@ namespace BLL.Repositery
 
         public List<RequestWiseFile> GetFilesByRequestId(int requestId)
         {
-            return _context.RequestWiseFiles.Where(u => u.RequestId == requestId).ToList();
+            List<RequestWiseFile> files = _context.RequestWiseFiles.Where(u => u.RequestId == requestId).ToList();
+            return files.Where(u => !u.IsDeleted[0]).ToList();
         }
 
         public RequestWiseFile GetFileById(int fileId)
@@ -298,5 +319,9 @@ namespace BLL.Repositery
             return _context.RequestWiseFiles.Where(x => x.RequestId == reqId).ToList();
         }
 
+        //public void DeleteFile(int RequestWiseFileId)
+        //{
+
+        //}
     }
 }

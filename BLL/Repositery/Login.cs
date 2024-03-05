@@ -51,6 +51,7 @@ namespace BLL.Repositery
             var bodyBuilder = new BodyBuilder();
             bodyBuilder.HtmlBody = body;
 
+
             message.Body = bodyBuilder.ToMessageBody();
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())

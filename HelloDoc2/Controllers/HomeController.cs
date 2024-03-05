@@ -14,6 +14,8 @@ using BLL.Interface;
 using BLL.Repositery;
 using DAL.Models;
 using Org.BouncyCastle.Ocsp;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 namespace DAL.Controllers
 {
     public class HomeController : Controller
@@ -46,7 +48,6 @@ namespace DAL.Controllers
             return View();
         }
 
-
         public IActionResult PatientDashboard()
         {
             int? uid = HttpContext.Session.GetInt32("userId");
@@ -64,6 +65,8 @@ namespace DAL.Controllers
                 if (_login.ValidateLogin(loginVm))
                 {
                     var user = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
+
+
                     HttpContext.Session.SetInt32("userId", user.UserId);
                     HttpContext.Session.SetString("email", user.Email);
                     //HttpContext.Session.SetString("session1", user.UserName);
@@ -86,6 +89,7 @@ namespace DAL.Controllers
 
         public IActionResult patient_logout()
         {
+            HttpContext.SignOutAsync();
             HttpContext.Session.Remove("session1");
             return View("Patient_Login");
         }

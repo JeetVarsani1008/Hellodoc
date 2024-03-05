@@ -921,6 +921,10 @@
       "PackagePath": "staticwebassets\\upload\\Create Role-Physician_mobile.png"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
+      "PackagePath": "staticwebassets\\upload\\Fig1. Platform login page.jpg"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig18.Clear Case.png",
       "PackagePath": "staticwebassets\\upload\\Fig18.Clear Case.png"
     },
@@ -931,10 +935,6 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig23.Request Support.png",
       "PackagePath": "staticwebassets\\upload\\Fig23.Request Support.png"
-    },
-    {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig3. Admin Dashboard.jpg",
-      "PackagePath": "staticwebassets\\upload\\Fig3. Admin Dashboard.jpg"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig33. Month wise Scheduling.jpg",
@@ -949,20 +949,12 @@
       "PackagePath": "staticwebassets\\upload\\Fig4. Admin dashboard in New state.jpg"
     },
     {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig6. Admin dashboard in Active state.jpg",
-      "PackagePath": "staticwebassets\\upload\\Fig6. Admin dashboard in Active state.jpg"
-    },
-    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig68. View Documents.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig68. View Documents.jpg"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig7. Admin dashboard in Conclude state.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig7. Admin dashboard in Conclude state.jpg"
-    },
-    {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig8. Admin dashboard in To Close state.jpg",
-      "PackagePath": "staticwebassets\\upload\\Fig8. Admin dashboard in To Close state.jpg"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\HelloDoc.xlsx",

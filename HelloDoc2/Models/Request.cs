@@ -39,6 +39,7 @@ public partial class Request
     [Column(TypeName = "bit(1)")]
     public BitArray? IsDeleted { get; set; }
 
+    [Column(TypeName = "timestamp without time zone")]
     public DateTime? ModifiedDate { get; set; }
 
     [StringLength(250)]
