@@ -597,6 +597,10 @@
       "PackagePath": "staticwebassets\\css\\AdminDashboard.css"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminLogin.css",
+      "PackagePath": "staticwebassets\\css\\AdminLogin.css"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AllModel.css",
       "PackagePath": "staticwebassets\\css\\AllModel.css"
     },

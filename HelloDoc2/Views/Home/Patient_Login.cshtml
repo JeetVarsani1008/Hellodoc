@@ -30,6 +30,8 @@
                                    placeholder="name@example.com">
                             <label for="Email">Email address</label>
                             <i class="bi bi-person-circle person"></i>
+@*                             <span asp-validation-for="Email" class="text-danger"></span>
+ *@
                         </div>
                     </div>
 @*                     <div class="form-floating">
@@ -45,8 +47,8 @@
 @*                         <span asp-validation-for="PasswordHash" class="text-danger"></span>
  *@                    </div>
                     <br>
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    <button type="submit" class="user" >Log In</button>
+@*                         <span asp-validation-for="Email" class="text-danger"></span>
+ *@                    <button type="submit" class="user" >Log In</button>
                     <a asp-action="Forgot_Password" asp-controller="Home" class="forgot d-flex justify-content-center align-items-center">Forgot Password?</a>
                 </div>
             </div>

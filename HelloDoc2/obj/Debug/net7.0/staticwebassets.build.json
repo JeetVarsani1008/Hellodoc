@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RPc/ppwq9+f1OSsQU4NK7FVkzyWTI2Ars+JQ/1GWWwk=",
+  "Hash": "rueyn9omEo/5LI2tP0ICKmUXwqd8CJrlzHUX+VgazYw=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\AdminDashboard.css"
+    },
+    {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminLogin.css",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "css/AdminLogin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AdminLogin.css"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AllModel.css",

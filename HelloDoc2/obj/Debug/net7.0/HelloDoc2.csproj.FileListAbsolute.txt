@@ -720,3 +720,11 @@ D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
 D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
 D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
 D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

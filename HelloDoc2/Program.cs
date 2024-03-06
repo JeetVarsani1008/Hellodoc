@@ -2,9 +2,31 @@ using BLL.Interface;
 using BLL.Repositery;
 using DAL.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
+var jwtKey = builder.Configuration.GetSection("Jwt:Key").Get<string>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+ .AddJwtBearer(options =>
+ {
+     options.TokenValidationParameters = new TokenValidationParameters
+     {
+         ValidateIssuer = true,
+         ValidateAudience = true,
+         ValidateLifetime = true,
+         ValidateIssuerSigningKey = true,
+         ValidIssuer = jwtIssuer,
+         ValidAudience = jwtIssuer,
+         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+     };
+ });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -13,6 +35,7 @@ var provider = builder.Services.BuildServiceProvider();
 //builder.Services.AddDbContext<ApplicationDbContext>();
 var config = provider.GetRequiredService<IConfiguration>();
 builder.Services.AddDbContext<HellodocContext>(item => item.UseNpgsql(config.GetConnectionString("dbcs")));
+builder.Services.AddScoped<IJWT, JWT>();
 builder.Services.AddScoped<ILogin, Login>();
 builder.Services.AddScoped<IPatientRequest, PatientRequest>();
 builder.Services.AddScoped<IPatientDashboard, PatientDashboard>();
@@ -37,6 +60,7 @@ app.UseSession();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

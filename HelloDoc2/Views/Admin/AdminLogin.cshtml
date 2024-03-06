@@ -1,0 +1,74 @@
+﻿<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/AdminLogin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+@{
+    Layout = "~/Views/Shared/_LayoutNone.cshtml";
+}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 leftside">
+                <img class="login-img" src="~/SRS Screen Shorts/11116016_415.jpg" alt="login-img">
+            </div>
+
+            <div class="col-md-6 rightside">
+                <div class="darkmode">
+                    <i id="darkmode" class="bi bi-moon"></i>
+                </div>
+
+                <div class="utext">
+                    <div class="hallodocimg">
+                        <img class="hallodocimg" src="~/SRS Screen Shorts/doctorlogo.png" alt="hallodocimg">
+                    </div>
+                    <div>
+                        <p class="logintxt">Login To Your Account</p>
+                    </div>
+
+                    <form>
+
+                        <div class="form-floating mb-3" style="position: relative;">
+                            <i class="bi bi-person-circle" style="position: absolute; right: 1em; top: 1em;"></i>
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Username</label>
+                        </div>
+
+                        <div class="form-floating" style="position: relative;">
+                            <i class="bi bi-eye" style="position: absolute; right: 1em; top: 1em;"></i>
+                            <input type="password" class="form-control" id="floatingInput"
+                                   placeholder="name@example.com">
+                            <label for="floatingInput">Password</label>
+                        </div>
+
+
+                    </form>
+
+                    <div>
+                        <a asp-action="AdminDashboard" asp-controller="Admin">
+                            <button type="button" class="btn btn-primary"
+                                    id="loginbtn">
+                                Login
+                            </button>
+                        </a>
+                    </div>
+
+                    <div>
+                        <a class="forgotpass" href="resetpassword.html">Forgot Password?</a>
+                    </div>
+                    <footer class="d-flex align-bottom justify-content-center foot">
+                        <div class="">
+                            <a href="#" class="terms">Terms and Condition </a>
+                            <span> | </span>
+                            <a href="#" class="privacy">Privacy</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+

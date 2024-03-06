@@ -20,6 +20,11 @@ namespace DAL.Controllers
             _adminDashboard = adminDashboard;
 
         }
+
+        public IActionResult AdminLogin()
+        {
+            return View();
+        }
         public IActionResult AdminDashboard(int Status, string reqtypeid, int RegionId)
         {
 

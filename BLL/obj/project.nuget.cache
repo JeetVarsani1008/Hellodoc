@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "voHm6zjBMsnQ3yrLETz5tekRG80kxEQQ4bSOpKFz+8pIDgurN1686JF4xFrIvc2z128sIhHwXzdMLEl1Ncz1qg==",
+  "dgSpecHash": "IUbEm/y9uyzkt9tWov1VS1IpxBB6dgbV28w22qou7b5gZeqfXudx+f0rB7fejU20yd9fa4gJPBnPGf36zI6iMQ==",
   "success": true,
   "projectFilePath": "D:\\main project\\Hellodoc\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,10 @@
     "C:\\Users\\pci19\\.nuget\\packages\\microsoft.extensions.objectpool\\2.2.0\\microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.4.0\\microsoft.identitymodel.abstractions.7.4.0.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.4.0\\microsoft.identitymodel.jsonwebtokens.7.4.0.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\microsoft.identitymodel.logging\\7.4.0\\microsoft.identitymodel.logging.7.4.0.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.4.0\\microsoft.identitymodel.tokens.7.4.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\mimekit\\4.3.0\\mimekit.4.3.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
@@ -36,6 +40,7 @@
     "C:\\Users\\pci19\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.formats.asn1\\7.0.0\\system.formats.asn1.7.0.0.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.4.0\\system.identitymodel.tokens.jwt.7.4.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.security.cryptography.pkcs\\7.0.3\\system.security.cryptography.pkcs.7.0.3.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512",

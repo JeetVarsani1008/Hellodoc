@@ -48,35 +48,35 @@ namespace DAL.Controllers
             return View();
         }
 
-        public IActionResult PatientDashboard()
-        {
-            int? uid = HttpContext.Session.GetInt32("userId");
-            ViewBag.UserName = HttpContext.Session.GetString("username");
-            ViewBag.ActivePage = "PatientDashboard";
-            _patientDashboard.patientDashboardMain(uid);
-            return View(_patientDashboard.patientDashboardMain(uid));
-        }
-
-
         public IActionResult Patient_Login(LoginVm loginVm)
         {
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 if (_login.ValidateLogin(loginVm))
                 {
                     var user = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
 
 
+                    if(user != null )
+                    {
                     HttpContext.Session.SetInt32("userId", user.UserId);
                     HttpContext.Session.SetString("email", user.Email);
                     //HttpContext.Session.SetString("session1", user.UserName);
                     HttpContext.Session.SetString("username", user.FirstName + " " + user.LastName);
                     TempData["success"] = "Login Success";
                     return RedirectToAction("PatientDashboard");
+
+                    }
+                    else
+                    {
+                        return RedirectToAction("Patient_Login","Home");
+                    }
                 }
-                else {
-                    TempData["error"] = "Login Failed";
-                    return View();
+                else
+                {
+                    return RedirectToAction("Patient_Login","Home");
+
                 }
             }
             else
@@ -86,12 +86,21 @@ namespace DAL.Controllers
         }
 
 
-
         public IActionResult patient_logout()
         {
             HttpContext.SignOutAsync();
             HttpContext.Session.Remove("session1");
+            HttpContext.Session.Clear();
             return View("Patient_Login");
+        }
+
+        public IActionResult PatientDashboard()
+        {
+            int? uid = HttpContext.Session.GetInt32("userId");
+            ViewBag.UserName = HttpContext.Session.GetString("username");
+            ViewBag.ActivePage = "PatientDashboard";
+            _patientDashboard.patientDashboardMain(uid);
+            return View(_patientDashboard.patientDashboardMain(uid));
         }
 
         public IActionResult Submit_Request()
@@ -205,7 +214,6 @@ namespace DAL.Controllers
             ViewBag.ActivePage = "PatientDashboardProfile";
             int? userID = HttpContext.Session.GetInt32("userId");
             _patientDashboard.patientDashboardProfile(userID);
-            TempData["success"] = "Login Successful";
             return View(_patientDashboard.patientDashboardProfile(userID));
         }
 
@@ -213,6 +221,7 @@ namespace DAL.Controllers
         {
             int? userid = HttpContext.Session.GetInt32("userId");
             _patientDashboard.editPatientProfile(model, userid);
+            TempData["success"] = "Profile Edited Successfully";
             return RedirectToAction("PatientDashboardProfile", "Home");
         }
 
