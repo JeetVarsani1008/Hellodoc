@@ -2,10 +2,13 @@
 using BLL.Repositery;
 using DAL.Models;
 using DAL.ViewModel;
+using HelloDoc2.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using System.Collections;
 using System.IO.Compression;
+using System.Net.Mail;
+using System.Net;
 using System.Net.NetworkInformation;
 
 namespace DAL.Controllers
@@ -14,17 +17,54 @@ namespace DAL.Controllers
     {
         private readonly IAdminDashboard _adminDashboard;
         private readonly HellodocContext _context;
+        private readonly ILogin _login;
+        private readonly IJWT _jwt;
 
-        public AdminController(HellodocContext context, IAdminDashboard adminDashboard) {
+        public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt)
+        {
             _context = context;
             _adminDashboard = adminDashboard;
-
+            _login = login;
+            _jwt = jwt;
         }
 
         public IActionResult AdminLogin()
         {
+            Response.Cookies.Delete("Jwt");
             return View();
         }
+
+        [HttpPost]
+        public IActionResult AdminLogin(LoginVm loginVm)
+        {
+            AspNetUser user = _login.adminLogin(loginVm);
+            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
+            if(user != null)
+            {
+                if(aspNetUserRole == null)
+                {
+                    ModelState.AddModelError(String.Empty, "Cant Have access to this site");
+                    return View("Patientlogin");
+                }
+                else
+                {
+                    var jwtToken = _jwt.GenerateJwtToken(aspNetUserRole);
+                    Response.Cookies.Append("Jwt", jwtToken);
+                    User user1 = _context.Users.FirstOrDefault(u => u.Email == user.Email);
+                    HttpContext.Session.SetString("session1", user.UserName);
+                    HttpContext.Session.SetString("email", user.Email);
+
+                    HttpContext.Session.SetInt32("UserId", user1.UserId);
+
+                    TempData["success"] = "Login Successfull";
+                    return RedirectToAction("AdminDashboard","Admin");
+                }
+            }
+            return View();
+        }
+
+
+        [CustomAuthorize("1")]
         public IActionResult AdminDashboard(int Status, string reqtypeid, int RegionId)
         {
 
@@ -164,6 +204,7 @@ namespace DAL.Controllers
             HttpContext.Session.SetInt32("reqIdUpload",requestId);
             ViewBag.RequestIdForDownloadAll = requestId;
             ViewBag.RequestIdForDeleteAll = requestId;
+            ViewBag.RequestIdForSendMail = requestId;
             var returnViewData= _adminDashboard.GetAdminViewUploadData(model, requestId);
             var documents = _adminDashboard.GetFilesByRequestId(requestId);
             ViewBag.document = documents;
@@ -203,23 +244,57 @@ namespace DAL.Controllers
             return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
         }
 
-        public IActionResult ViewUploadDownloadAll(int requestId)
+        //this code is for download all files that are selected 
+        public IActionResult DownloadSelectedFiles(List<int> requestFilesId, int requestId)
         {
-            var filesRow = _adminDashboard.GetAllFilesByRequestId(requestId);
-            MemoryStream ms = new MemoryStream();
-            using (ZipArchive zip = new ZipArchive(ms, ZipArchiveMode.Create, true))
-                filesRow.ForEach(file =>
+            if (requestFilesId == null || requestFilesId.Count == 0)
+            {
+                return BadRequest("No files selected for download.");
+            }
+
+            var filesToDownload = new List<string>();
+            foreach (var requestWiseFileId in requestFilesId)
+            {
+                var filename = _adminDashboard.GetFileById(requestWiseFileId);
+                if (filename != null)
                 {
-                    var path = "D:\\main project\\HelloDoc\\Hellodoc2\\wwwroot\\upload\\" + file.FileName;
-                    ZipArchiveEntry zipEntry = zip.CreateEntry(file.FileName);
-                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-                    using (Stream zipEntryStream = zipEntry.Open())
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
+                    if (System.IO.File.Exists(filePath)) // Validate file existence for security
                     {
-                        fs.CopyTo(zipEntryStream);
+                        filesToDownload.Add(filePath);
                     }
-                });
-            return File(ms.ToArray(), "application/zip", "download.zip");
+                    else
+                    {
+                        // Handle missing file scenario (log, notify user, etc.)
+                        Console.WriteLine($"File not found: {filePath}"); // Example logging
+                    }
+                }
+            }
+
+            if (filesToDownload.Count == 0)
+            {
+                return NotFound("No selected files found or accessible.");
+            }
+
+            // Handle multiple file download scenarios (e.g., ZIP, concatenation)
+            // Assuming individual file download is desired:
+            var mergedContent = new List<byte>(); // For combining individual files (optional)
+            foreach (var filePath in filesToDownload)
+            {
+                var fileBytes = System.IO.File.ReadAllBytes(filePath);
+                mergedContent.AddRange(fileBytes); // Optional for combining files
+
+                // OR (for individual file download):
+                //return File(fileBytes, "application/octet-stream", Path.GetFileName(filePath));
+            }
+
+            // If combining files:
+            return File(mergedContent.ToArray(), "application/octet-stream", "combined_files.zip"); // Example ZIP name
         }
+
+
+
+
 
         public IActionResult ViewUploadDelete(int documentId, int requestId)
         {
@@ -255,6 +330,56 @@ namespace DAL.Controllers
             return RedirectToAction("ViewUploads","Admin", new { requestId });
         }
 
+
+        //delete selected files
+        public IActionResult DeleteSelectedDocuments(List<int> requestFilesId, int requestId)
+        {
+            if (requestFilesId == null || requestFilesId.Count == 0)
+            {
+                return BadRequest("No files selected for deletion.");
+            }
+
+            var deletedFilesCount = 0; // Track successfully deleted files
+
+            foreach (var fileId in requestFilesId)
+            {
+                try
+                {
+                    var requestWiseFile = _context.RequestWiseFiles.FirstOrDefault(x => x.RequestWiseFileId == fileId && x.RequestId == requestId);
+                    if (requestWiseFile == null)
+                    {
+                        continue; // Skip non-existent files
+                    }
+
+                    BitArray bitarray = new BitArray(1);
+                    bitarray.Set(0, true);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", requestWiseFile.FileName);
+                    System.IO.File.Delete(filePath); // Delete physical file
+
+                    requestWiseFile.IsDeleted = bitarray; // Mark file as deleted in database
+                    _context.RequestWiseFiles.Update(requestWiseFile);
+                    deletedFilesCount++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error deleting file {fileId}: {ex.Message}");
+                    // Log the error for further investigation
+                }
+            }
+
+            _context.SaveChanges();
+
+            if (deletedFilesCount > 0)
+            {
+                return Json(new { success = true, message = $"Successfully deleted {deletedFilesCount} file(s)." });
+            }
+            else
+            {
+                return Json(new { success = false, errorMessage = "No files were deleted." });
+            }
+        }
+
+
         public IActionResult ViewUploadDeleteAll(int requestId)
         {
             var filesToDelete = _adminDashboard.GetAllFilesByRequestId(requestId);
@@ -268,13 +393,8 @@ namespace DAL.Controllers
                 try
                 {
                     System.IO.File.Delete(filePath);
+                    
 
-                    //delete all files records that store in database
-                    // inplemetation remaining 
-                    //_adminDashboard.DeleteFile(fileToDelete.RequestWiseFileId);
-
-                    _context.RequestWiseFiles.Remove(fileToDelete);
-                    _context.SaveChanges();
                 }
                 catch(Exception ex)
                 {
@@ -284,6 +404,80 @@ namespace DAL.Controllers
             }
             TempData["success"] = "All Files are deleted Sucessfully.";
             return RedirectToAction("ViewUploads","Admin");
+        }
+
+
+
+        //this is for sending mail 
+        public async Task<IActionResult> SendDocumentsByMail(List<int> requestFilesId, int requestId)
+        {
+            bool isMailSent = false;
+            string? email = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId)?.Email;
+
+            if (email != null)
+            {
+                string senderEmail = "testinghere1008@outlook.com";
+                string senderPassword = "Simple@12345";
+
+                SmtpClient client = new SmtpClient("smtp.office365.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential(senderEmail, senderPassword),
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false
+                };
+
+                string message = $@"<html>
+                                    <body>  
+                                    <h1>All Documents</h1>
+                                    </body>
+                                    </html>";
+
+                MailMessage mailMessage = new MailMessage
+                {
+                    From = new MailAddress(senderEmail),
+                    Subject = "Documents",
+                    Body = message,
+                    IsBodyHtml = true
+                };
+
+                var requestWiseFile = from requestFiles in _context.RequestWiseFiles
+                                      where requestFilesId.Contains(requestFiles.RequestWiseFileId)
+                                      select new RequestWiseFile
+                                      {
+                                          RequestWiseFileId = requestFiles.RequestWiseFileId,
+                                          FileName = requestFiles.FileName,
+                                          RequestId = requestFiles.RequestId,
+                                      };
+
+                foreach (var item in requestWiseFile)
+                {
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload/" + item.FileName);
+                    Attachment attachment = new Attachment(filePath);
+                    mailMessage.Attachments.Add(attachment);
+                }
+
+                mailMessage.To.Add(email);
+                //await client.Send(mailMessage);
+                client.Send(mailMessage);
+
+                foreach (var attachment in mailMessage.Attachments)
+                {
+                    attachment.Dispose();
+                }
+
+                isMailSent = true;
+            }
+
+            if (isMailSent)
+            {
+                return Ok(new { message = "Email sent successfully" });
+            }
+            else
+            {
+                return BadRequest(new { message = "Error sending email" });
+            }
         }
     }
 }

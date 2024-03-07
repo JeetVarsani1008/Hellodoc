@@ -13,7 +13,7 @@ namespace BLL.Interface
     {
 
         //this is login part 
-        bool ValidateLogin(LoginVm loginVm);
+        AspNetUser patientLogin(LoginVm loginVm);
 
         //this is email sender and forgot password and reset password part
         AspNetUser GetUserByEmail(string email);
@@ -34,5 +34,10 @@ namespace BLL.Interface
         RequestClient getRequestClient(LoginVm loginVm);
 
         void addNewUserData(LoginVm loginVm, RequestClient requestClient);
+
+        //admin login
+        AspNetUser adminLogin(LoginVm model);
+
+        AspNetUserRole findAspNetRole(AspNetUser user);
     }
 }

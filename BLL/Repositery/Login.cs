@@ -21,11 +21,27 @@ namespace BLL.Repositery
             _context = context;
         }
 
-        //this is login part
-        public bool ValidateLogin(LoginVm loginVm)
+        //login for patient
+        public AspNetUser patientLogin(LoginVm loginVm)
         {
-            return _context.AspNetUsers.Any(u => u.Email == loginVm.Email && u.PasswordHash == loginVm.PasswordHash);
+            var data = _context.AspNetUsers.FirstOrDefault(u => u.Email == loginVm.Email && u.PasswordHash == loginVm.PasswordHash);
+            return data;
         }
+
+
+        //login for admin
+        public AspNetUser adminLogin(LoginVm model)
+        {
+            var data = _context.AspNetUsers.FirstOrDefault(x => x.Email == model.Email && x.PasswordHash == model.PasswordHash);
+            return data;
+        }
+
+        public AspNetUserRole findAspNetRole(AspNetUser user)
+        {
+            var admindata = _context.AspNetUserRoles.FirstOrDefault(x => x.UserId == user.Id);
+            return admindata;
+        }
+
 
         //this is send mail and reset password and forgot password part
         public AspNetUser GetUserByEmail(string email) {

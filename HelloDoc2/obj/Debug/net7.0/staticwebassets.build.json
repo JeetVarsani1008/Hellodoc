@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rueyn9omEo/5LI2tP0ICKmUXwqd8CJrlzHUX+VgazYw=",
+  "Hash": "lNHx+GtQigiE0Ho5Rn5A8AGOwaZA34CRbsRS4Q6hSZ8=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -4444,25 +4444,6 @@
       "OriginalItemSpec": "wwwroot\\upload\\Create Role-Physician_mobile.png"
     },
     {
-      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard_1.png",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/dashboard_1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\dashboard_1.png"
-    },
-    {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-active.svg",
       "SourceId": "HelloDoc2",
       "SourceType": "Discovered",
@@ -4575,6 +4556,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Fig19.Send Agreement pop-up.png"
+    },
+    {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig2. Forgot Password.jpg",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "upload/Fig2. Forgot Password.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\Fig2. Forgot Password.jpg"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig23.Request Support.png",

@@ -290,15 +290,15 @@ namespace BLL.Repositery
 
         public AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId)
         {
-            var user = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
-            if(user == null)
+            var client = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+            if(client == null)
             {
                 return new AdminViewUploadVm();
             }
             var mymodel = new AdminViewUploadVm
             {
                 RequestId=requestId,
-                Name = user.FirstName + " " + user.LastName,
+                Name = client.FirstName + " " + client.LastName,
             };
             return mymodel;
         }

@@ -937,6 +937,10 @@
       "PackagePath": "staticwebassets\\upload\\Fig19.Send Agreement pop-up.png"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig2. Forgot Password.jpg",
+      "PackagePath": "staticwebassets\\upload\\Fig2. Forgot Password.jpg"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig23.Request Support.png",
       "PackagePath": "staticwebassets\\upload\\Fig23.Request Support.png"
     },
@@ -991,10 +995,6 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-default.svg",
       "PackagePath": "staticwebassets\\upload\\dashboard-default.svg"
-    },
-    {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard_1.png",
-      "PackagePath": "staticwebassets\\upload\\dashboard_1.png"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\downward-arrow.svg",

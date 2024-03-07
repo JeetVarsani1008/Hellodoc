@@ -3,7 +3,7 @@
 
 @{    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";}
 
-<div class="bg-body-tertiary vh-100 d-flex flex-column">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid">                        <div class="row">                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 mb-3">                                <div onclick="fetchRequests(1,0)" class="border rounded p-1 p-sm-3 new" id="new-tab">
+<div class="bg-body-tertiary vh-100 d-flex flex-column">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid">                        @* <div class="row">                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4 mb-3">                                <div onclick="fetchRequests(1,0)" class="border rounded p-1 p-sm-3 new" id="new-tab">
                                     <div class="d-flex align-items-center gap-1 ps-1 ms-3 mt-2">
                                         <i class="bi bi-person-plus d-none d-md-block fs-4"></i>                                        <h6 class="px-1 m-0">New</h6>                                    </div>
                                     <div class="ps-1 mt-3 ms-3 mb-3">
@@ -29,7 +29,73 @@
                                     <div class="d-flex align-items-center gap-1 ps-1 ms-3 mt-2">
                                         <i class="bi bi-currency-dollar me-2 d-none px-1 d-md-block fs-4"></i>                                        <h6 class="px-1 m-0">Unpaid</h6>                                    </div>
                                     <div class="ps-1 mt-3 ms-3 mb-3">
-                                        <h4>@ViewBag.unpaidRequest</h4>                                    </div>                                </div>                            </div>                        </div>                    </div>                        <div id="partial_container">                            <partial name="_RequestsAccToStatus" />                        </div>                    </div>                </div>                <div class="tab-pane fade" id="provider-location-tab-pane" role="tabpanel" aria-labelledby="provider-location-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Provider Location</h3>                    </div>                </div>                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">My Profile</h3>                    </div>                </div>                <div class="tab-pane fade" id="Providers-tab-pane" role="tabpanel" aria-labelledby="Providers-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Providers</h3>                    </div>                </div>                <div class="tab-pane fade" id="Partners-tab-pane" role="tabpanel" aria-labelledby="Partners-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Partners</h3>                    </div>                </div>                <div class="tab-pane fade" id="Access-tab-pane" role="tabpanel" aria-labelledby="Access-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Access</h3>                    </div>                </div>                <div class="tab-pane fade" id="Records-tab-pane" role="tabpanel" aria-labelledby="Records-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Records</h3>                    </div>                </div>            </div>        </div>    </div></div>        <footer class="bg-dark container-fluid fixed-bottom">
+                                        <h4>@ViewBag.unpaidRequest</h4>                                    </div>                                </div>                            </div>                        </div> *@
+
+                        <div class="container111">
+                            <div class="inner">
+                                <button class="box bx1" id="box" onclick="fetchRequests(1,0)">
+
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">NEW</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.newRequest</span>
+                                    </div>
+
+                                </button>
+                                <button class="box bx2" onclick="fetchRequests(2,0)">
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">PENDING</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.pendingRequest</span>
+                                    </div>
+
+                                </button>
+                                <button class="box bx3" onclick="fetchRequests(3,0)">
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">ACTIVE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.activeRequest</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="inner">
+                                <button class="box bx4" onclick="fetchRequests(4,0)">
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">CONCLUDE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.concludeRequest</span>
+                                    </div>
+                                </button>
+                                <button class="box bx5" onclick="fetchRequests(5,0)">
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">TO CLOSE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.toCloseRequest</span>
+                                    </div>
+                                </button>
+                                <button class="box bx6" onclick="fetchRequests(6,0)">
+                                    <div class="up">
+                                        <img class="img1" />
+                                        <span class="stext">UNPAID</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@ViewBag.unpaidRequest</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>                        <div id="partial_container">                            <partial name="_RequestsAccToStatus" />                        </div>                    </div>                </div>                <div class="tab-pane fade" id="provider-location-tab-pane" role="tabpanel" aria-labelledby="provider-location-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Provider Location</h3>                    </div>                </div>                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">My Profile</h3>                    </div>                </div>                <div class="tab-pane fade" id="Providers-tab-pane" role="tabpanel" aria-labelledby="Providers-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Providers</h3>                    </div>                </div>                <div class="tab-pane fade" id="Partners-tab-pane" role="tabpanel" aria-labelledby="Partners-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Partners</h3>                    </div>                </div>                <div class="tab-pane fade" id="Access-tab-pane" role="tabpanel" aria-labelledby="Access-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Access</h3>                    </div>                </div>                <div class="tab-pane fade" id="Records-tab-pane" role="tabpanel" aria-labelledby="Records-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Records</h3>                    </div>                </div>            </div>        </div>    </div></div>        <footer class="bg-dark container-fluid fixed-bottom">
         <div class="footer d-flex justify-content-end">
             <div class="m-2">
                 <a class="text-white">Terms of Conditions</a> <span style="color: gray;">|</span> <a class="text-white">Privacy</a>

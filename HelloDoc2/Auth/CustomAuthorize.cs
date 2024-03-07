@@ -25,9 +25,14 @@ namespace HelloDoc2.Auth
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             var jwtService = context.HttpContext.RequestServices.GetService<IJWT>();
-            if (jwtService == null)
+            if (jwtService == null && _role=="1")
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "Login" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                return;
+            }
+            if(jwtService == null && _role == "2")
+            {
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Patient_Login" }));
                 return;
             }
 
@@ -36,7 +41,7 @@ namespace HelloDoc2.Auth
 
             if (token == null || !jwtService.ValidateToken(token, out JwtSecurityToken jwtToken))
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
                 return;
             }
 
@@ -44,13 +49,18 @@ namespace HelloDoc2.Auth
 
             if (roleClaim == null)
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Index" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
                 return;
             }
 
-            if (string.IsNullOrEmpty(_role) || roleClaim.Value != _role)
+            if (string.IsNullOrEmpty(_role) || roleClaim.Value != _role && _role=="1")
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "LoginPatient" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                return;
+            }
+            if (string.IsNullOrEmpty(_role) || roleClaim.Value != _role && _role == "2")
+            {
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Home", action = "Patient_Login" }));
                 return;
             }
 

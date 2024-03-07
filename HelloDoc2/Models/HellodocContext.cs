@@ -201,7 +201,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("OrderDetails_pkey");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).HasIdentityOptions(null, null, null, 10000L, null, null);
         });
 
         modelBuilder.Entity<Physician>(entity =>

@@ -16,20 +16,24 @@ using DAL.Models;
 using Org.BouncyCastle.Ocsp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
+using HelloDoc2.Auth;
+using Newtonsoft.Json.Linq;
 namespace DAL.Controllers
 {
     public class HomeController : Controller
     {
-        private  IPatientRequest _patientRequest;
+        private IPatientRequest _patientRequest;
         private readonly IPatientDashboard _patientDashboard;
         private readonly HellodocContext _context;
         private readonly ILogin _login;
-        public HomeController(HellodocContext context, ILogin login, IPatientRequest _PatientRequest, IPatientDashboard patientDashboard)
+        private readonly IJWT _jwt;
+        public HomeController(HellodocContext context, ILogin login, IPatientRequest _PatientRequest, IPatientDashboard patientDashboard, IJWT jwt)
         {
             _context = context;
             _login = login;
             this._patientRequest = _PatientRequest;
             _patientDashboard = patientDashboard;
+            _jwt = jwt;
         }
 
         public IActionResult Index()
@@ -48,41 +52,42 @@ namespace DAL.Controllers
             return View();
         }
 
+        public IActionResult Patient_Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Patient_Login(LoginVm loginVm)
         {
-
+            AspNetUser user = _login.patientLogin(loginVm);
+            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
             if (ModelState.IsValid)
             {
-                if (_login.ValidateLogin(loginVm))
+                if (user != null)
                 {
-                    var user = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
+                    //var user1 = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
 
-
-                    if(user != null )
+                    if (aspNetUserRole == null)
                     {
-                    HttpContext.Session.SetInt32("userId", user.UserId);
-                    HttpContext.Session.SetString("email", user.Email);
-                    //HttpContext.Session.SetString("session1", user.UserName);
-                    HttpContext.Session.SetString("username", user.FirstName + " " + user.LastName);
-                    TempData["success"] = "Login Success";
-                    return RedirectToAction("PatientDashboard");
-
+                        ModelState.AddModelError(String.Empty, "Cant Have access to this site");
+                        return View("Patientlogin");
                     }
                     else
                     {
-                        return RedirectToAction("Patient_Login","Home");
+                        var jwtToken = _jwt.GenerateJwtToken(aspNetUserRole);
+                        Response.Cookies.Append("Jwt", jwtToken);
+                        User user1 = _context.Users.FirstOrDefault(u => u.Email == user.Email);
+                        HttpContext.Session.SetInt32("userId", user1.UserId);
+                        HttpContext.Session.SetString("email", user1.Email);
+                        HttpContext.Session.SetString("username", user1.FirstName + " " + user1.LastName);
+                        TempData["success"] = "Login Successfull";
+                        return RedirectToAction("PatientDashboard", "Home");
                     }
-                }
-                else
-                {
-                    return RedirectToAction("Patient_Login","Home");
 
                 }
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
 
@@ -94,6 +99,8 @@ namespace DAL.Controllers
             return View("Patient_Login");
         }
 
+
+        [CustomAuthorize("2")]
         public IActionResult PatientDashboard()
         {
             int? uid = HttpContext.Session.GetInt32("userId");

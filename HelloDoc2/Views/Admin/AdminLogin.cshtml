@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model DAL.ViewModel.LoginVm;
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platform Login</title>
@@ -30,32 +32,32 @@
                         <p class="logintxt">Login To Your Account</p>
                     </div>
 
-                    <form>
+                    <form asp-action="AdminLogin" asp-controller="Admin" method="post">
 
                         <div class="form-floating mb-3" style="position: relative;">
                             <i class="bi bi-person-circle" style="position: absolute; right: 1em; top: 1em;"></i>
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" asp-for="Email">
                             <label for="floatingInput">Username</label>
                         </div>
 
                         <div class="form-floating" style="position: relative;">
                             <i class="bi bi-eye" style="position: absolute; right: 1em; top: 1em;"></i>
                             <input type="password" class="form-control" id="floatingInput"
-                                   placeholder="name@example.com">
+                                   placeholder="Password" asp-for="PasswordHash">
                             <label for="floatingInput">Password</label>
                         </div>
 
 
-                    </form>
 
                     <div>
-                        <a asp-action="AdminDashboard" asp-controller="Admin">
-                            <button type="button" class="btn btn-primary"
+                        <a>
+                            <button type="submit" class="btn btn-primary"
                                     id="loginbtn">
                                 Login
                             </button>
                         </a>
                     </div>
+                    </form>
 
                     <div>
                         <a class="forgotpass" href="resetpassword.html">Forgot Password?</a>

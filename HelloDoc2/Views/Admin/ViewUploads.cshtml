@@ -6,9 +6,8 @@
 <head>
     <style>
         th:nth-child(1), td:nth-child(1) {
-            width: 2em;
+            width: 2rem;
         }
-
         th:nth-child(2), td:nth-child(2) {
             width: 50%;
         }
@@ -43,21 +42,22 @@
         <div class="d-flex justify-content-between ps-3 mb-4">
             <h4>Documents</h4>
             <div class="d-flex justify-content-around ">
-                <a class="btn btn-white border-1 border-info text-info rounded-1 me-2" asp-route-requestId="@ViewBag.RequestIdForDownloadAll" asp-action="ViewUploadDownloadAll" asp-controller="Admin">Download All</a>
-            <a class="btn btn-white border-1 border-info text-info rounded-1 me-2" asp-route-requestId="@ViewBag.RequestIdForDeleteAll" asp-action="ViewUploadDeleteAll" asp-controller="Admin">Delete All</a>
-            <a class="btn btn-white border-1 border-info text-info rounded-1">Send Mail</a>
+                <button class="btn btn-white border-1 border-info text-info rounded-1 me-2" onclick="downloadAll(@ViewBag.RequestIdForDownloadAll)">Download All</button>
+                <button class="btn btn-white border-1 border-info text-info rounded-1 me-2" onclick="deleteAll(@ViewBag.RequestIdForDeleteAll)">Delete All</button>
+                <button class="btn btn-white border-1 border-info text-info rounded-1" onclick="sendMails(@ViewBag.RequestIdForSendMail)">Send Mail</button>
             </div>
         </div>
 
         <table class="table sorttable mb-0 ">
             <thead class="thead" style="background-color:#f1f1f1;">
                 <tr>
+                    <th><input type="checkbox" class="form-control-lg" style="min-height:auto" onclick="selectAll()" id="selectAllRd"></th>
                     <th scope="col">
-                        <div class="checkbox">
-                            <input type="checkbox" class="check" id="checkAll">
+                        <div class="checkbox d-flex">
+@*                             <input type="checkbox" class="check m-2" id="checkAll">
+ *@                            Document
                         </div>
-                    </th>
-                    <th scope="col">Document</th>
+                        </th>
                     <th scope="col">Upload Date <span class="font-weight-bold"><i class="bi bi-arrow-up"></i></span></th>
                     <th scope="col">Action</th>
                 </tr>
@@ -66,15 +66,14 @@
             <tbody>
                 @foreach (var item in (List<RequestWiseFile>) ViewBag.document)
                 {
-                    
+                        
                 <tr>
+                        <td><input type="checkbox" class="form-control-lg rd" style="min-height:auto" onclick="selectBox()" fileId="@item.RequestWiseFileId"></td>
                         <td>
-                            <div class="checkbox d-flex align-items-center ">
-                                <input type="checkbox" class="check">
+                            <div class="checkbox d-flex align-items-center">
+@*                                 <input type="checkbox" class="check m-2">
+ *@                                <span>@item.FileName</span>
                             </div>
-                        </td>
-                        <td>
-                            <p>@item.FileName</p>
 
                         </td>
                         <td>
@@ -82,7 +81,7 @@
                         </td>
 
                         <td class="d-flex justify-content-end">
-                            <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDownload" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-cloud-arrow-down text-info"></i></a>
+                            <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2 delete-link" asp-controller="Admin" asp-action="ViewUploadDownload" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-cloud-arrow-down text-info"></i></a>
                             <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDelete" asp-route-documentId="@item.RequestWiseFileId" asp-route-requestId="@item.RequestId"><i class="bi bi-trash"></i></a>
                         </td>
                 </tr>
@@ -92,28 +91,11 @@
     </div>
 
 </div>
-    
-<script>
-    document.getElementById("checkAll").addEventListener("click", function () {
-        var checkboxes = document.querySelectorAll(".check");
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = document.getElementById("checkAll").checked;
-        });
-    });
 
-    var allCheckboxes = document.querySelectorAll(".check");
-    allCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener("change", function () {
-            if (checkbox.checked == false) {
-                var checkedCheckboxes = document.querySelectorAll(".check:checked");
-                if (checkedCheckboxes.length == 0) {
-                    document.getElementById("checkAll").checked = false;
-                }
-            } else {
-                document.getElementById("checkAll").checked = true;
-            }
-        });
-    });
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
 
     function uploadFile(x) {
         console.log(x)
@@ -141,4 +123,156 @@
 
     }
 
+
+    //this is for check box
+    var selectAllRd = document.getElementById("selectAllRd");
+    var rds = document.getElementsByClassName("rd");
+    function selectAll() {
+        if (selectAllRd.checked) {
+            for (var i = 0; i < rds.length; i++) {
+                rds[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < rds.length; i++) {
+                rds[i].checked = false;
+            }
+        }
+    }
+    function selectBox() {
+
+        var i = 0;
+        for (i = 0; i < rds.length; i++) {
+            if (!rds[i].checked)
+                break;
+        }
+        if (i == rds.length)
+            selectAllRd.checked = true;
+        else if (selectAllRd.checked)
+            selectAllRd.checked = false;
+    }
+
+
+    // var dowLinks = document.getElementsByClassName("download-link");
+
+    // function downloadAll() {
+    //     for (var j = 0; j < rds.length; j++) {
+    //         if (rds[j].checked) {
+    //             dowLinks[j].click();
+    //         }
+    //     }
+    // }
+
+
+    //ajax for download selected files 
+    function downloadAll(requestId) {
+        console.log(requestId)
+        var a = [];
+        for (var j = 0; j < rds.length; j++) {
+            if (rds[j].checked) {
+
+                a.push(rds[j].getAttribute('fileId'));
+
+            }
+        }
+
+        if (a.length === 0) {
+            alert("Please Select Atleast One File to Delete");
+            return;
+        }
+
+        $.ajax({
+            url: "/Admin/DownloadSelectedFiles",
+            type: 'post',
+            data: {
+                requestFilesId: a,
+                requestId
+            },
+            success: function (response) {
+                if (response.success) {
+                    //i'm Handling downloading the Zip file here 
+
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+    }
+
+
+    //ajax for delete selected files
+    function deleteAll(requestId) {
+        console.log(requestId)
+        var a = [];
+        for (var j = 0; j < rds.length; j++) {
+            if (rds[j].checked) {
+
+                a.push(rds[j].getAttribute('fileId'));
+
+            }
+        }
+
+        if (a.length === 0) {
+            alert("Please Select Atleast One File to Delete");
+            return;
+        }
+
+        $.ajax({
+            url: "/Admin/DeleteSelectedDocuments",
+            type: 'post',
+            data: {
+                requestFilesId: a,
+                requestId 
+            },
+            success: function (response) {
+                if (response.success) {
+                    //remove all deleted files 
+                    for (var i = 0; i < a.length; i++) {
+                        var fileRow = document.querySelector(`tr[data-file-id="${a[i]}"]`); 
+                        fileRow.remove();
+                        console.log(fileRow)
+                    }   
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+        // location.reload();
+
+    }
+
+
+    //this ajax is for send mail to user for only selected files
+    function sendMails(requestId) {
+        console.log(requestId)
+        var fileList = [];
+        for (var j = 0; j < rds.length; j++) {
+            if (rds[j].checked) {
+                fileList.push(rds[j].getAttribute('fileId'));
+            }
+        }
+
+        if (a.length === 0) {
+            alert("Please Select Atleast One File to Send Mail.");
+            return;
+        }
+
+        console.log(fileList);
+        $.ajax({
+            url: "/Admin/SendDocumentsByMail",
+            type: 'post',
+            data: {
+                requestFilesId: fileList,
+                requestId
+            },
+            success: function (response) {
+
+            },
+            error: function () {
+                alert("error");
+            }
+        })
+        location.reload();
+    }
 </script>
