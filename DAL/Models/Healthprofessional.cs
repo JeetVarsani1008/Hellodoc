@@ -34,9 +34,11 @@ public partial class HealthProfessional
 
     public int? RegionId { get; set; }
 
-    public DateOnly CreatedDate { get; set; }
+    [Column(TypeName = "timestamp without time zone")]
+    public DateTime CreatedDate { get; set; }
 
-    public DateOnly? ModifiedDate { get; set; }
+    [Column(TypeName = "timestamp without time zone")]
+    public DateTime? ModifiedDate { get; set; }
 
     [StringLength(100)]
     public string? PhoneNumber { get; set; }

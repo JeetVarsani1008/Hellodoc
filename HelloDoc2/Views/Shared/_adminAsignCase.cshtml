@@ -1,6 +1,6 @@
 ﻿@model DAL.ViewModel.AdminAsignVm;
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 
 <div class="modal fade" id="myModalAssign" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,28 +58,8 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
 
  <script>
-
-        // function getPhysiciansByRegionId() {
-        //     var regionId = $("#regionSelect").val();
-        //     $("#physicianSelect").empty();
-        //     $.get("/Admin/GetPhysiciansByRegionId", { regionId: regionId }, function (data) {
-        //     console.log(data.adminAsignVm.physicians.length);
-        //         console.log(data.lenght);
-        //         console.log(data.physicians);
-        //     $("#physicianSelect").append('<option selected>Select Physician</option>');
-            
-        //         for (var i = 0; i < data.adminAsignVm.physicians.lenght; i++) {
-        //             console.log("hellos");
-        //             console.log(data.adminAsignVm.physicians[i]);
-        //         $("#physicianSelect").append('<option value="' + data.adminAsignVm.physicians[i].physicianId + '">' + data.adminAsignVm.physicians[i].firstName + '</option>');
-        //         }
-               
-        //     });
-        // }
 
     $("#regionSelect").on("change", function () {
 

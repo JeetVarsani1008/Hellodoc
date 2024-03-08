@@ -10,7 +10,9 @@ using System.IO.Compression;
 using System.Net.Mail;
 using System.Net;
 using System.Net.NetworkInformation;
-
+using System.Drawing;
+using HellodocContext = DAL.Models.HellodocContext;
+using AspNetUser = DAL.Models.AspNetUser;
 namespace DAL.Controllers
 {
     public class AdminController : Controller
@@ -30,7 +32,7 @@ namespace DAL.Controllers
 
         public IActionResult AdminLogin()
         {
-            Response.Cookies.Delete("Jwt");
+            Response.Cookies.Delete("jwt");
             return View();
         }
 
@@ -112,24 +114,21 @@ namespace DAL.Controllers
         public IActionResult CloseCase() {
             return View();
         }
-        public IActionResult Orders()
-        {
-            return View();
-        }
-        public IActionResult Transfer()
-        {
-            return View();
-        }
+
+
         public IActionResult ViewCase(int requestId)
         {
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel();
             adminDashboardViewModel.requestListAdminDash = _adminDashboard.ViewCase(requestId);
             return View(adminDashboardViewModel);
         }
+
+
+        //view notes start : 2 methods
         public IActionResult ViewNotes(int requestId)
         {
-            var akshay = _adminDashboard.ViewNotes(requestId);
-            return View(akshay);
+            var data = _adminDashboard.ViewNotes(requestId);
+            return View(data);
         }
 
 
@@ -139,9 +138,10 @@ namespace DAL.Controllers
             model = _adminDashboard.ViewNotes(requestId);
             return View(model) ;
         }
+        //view notes completed
 
 
-
+        //cancel case start : 2 methods
         public IActionResult CancelCase(int req)
         {
             HttpContext.Session.SetInt32("reqId", req);
@@ -157,23 +157,10 @@ namespace DAL.Controllers
             _adminDashboard.cancelCase(model, req??0);
             return RedirectToAction("AdminDashboard","Admin");
         }
+        //cancel case completed
 
 
-        public IActionResult AsignCase(int req)
-        {
-            HttpContext.Session.SetInt32("asignReq", req);
-            AdminAsignVm adminAsignVm = new AdminAsignVm();
-            adminAsignVm.regions = _adminDashboard.asignCase();
-            return PartialView("_adminAsignCase",adminAsignVm);
-        }
-
-        public IActionResult GetPhysiciansByRegionId(int regionId)
-        {
-            AdminAsignVm adminAsignVm=new AdminAsignVm();
-            adminAsignVm.physicianList =  _adminDashboard.asignPhysician(regionId);
-            return Json(new { adminAsignVm });
-        }
-
+        //block case start : 2 methods
         public IActionResult BlockCase(int req)
         {
             HttpContext.Session.SetInt32("requestid", req);
@@ -189,6 +176,24 @@ namespace DAL.Controllers
             _adminDashboard.blockCase(model, req ?? 0);
             return RedirectToAction("AdminDashboard", "Admin");
         }
+        //block case completed
+        
+
+        //this three methods are for asign case
+        public IActionResult AsignCase(int req)
+        {
+            HttpContext.Session.SetInt32("asignReq", req);
+            AdminAsignVm adminAsignVm = new AdminAsignVm();
+            adminAsignVm.regions = _adminDashboard.asignCase();
+            return PartialView("_adminAsignCase", adminAsignVm);
+        }
+
+        public IActionResult GetPhysiciansByRegionId(int regionId)
+        {
+            AdminAsignVm adminAsignVm = new AdminAsignVm();
+            adminAsignVm.physicianList = _adminDashboard.asignPhysician(regionId);
+            return Json(new { adminAsignVm });
+        }
 
         [HttpPost]
         public IActionResult AsignCasePost(AdminAsignVm model)
@@ -197,6 +202,7 @@ namespace DAL.Controllers
             _adminDashboard.asignCasePost(model, req ?? 0,2);
             return RedirectToAction("AdminDashboard", "Admin");
         }
+        //asign case completed
 
         public IActionResult ViewUploads(AdminViewUploadVm model,int requestId)
         {
@@ -244,58 +250,8 @@ namespace DAL.Controllers
             return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
         }
 
-        //this code is for download all files that are selected 
-        public IActionResult DownloadSelectedFiles(List<int> requestFilesId, int requestId)
-        {
-            if (requestFilesId == null || requestFilesId.Count == 0)
-            {
-                return BadRequest("No files selected for download.");
-            }
 
-            var filesToDownload = new List<string>();
-            foreach (var requestWiseFileId in requestFilesId)
-            {
-                var filename = _adminDashboard.GetFileById(requestWiseFileId);
-                if (filename != null)
-                {
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
-                    if (System.IO.File.Exists(filePath)) // Validate file existence for security
-                    {
-                        filesToDownload.Add(filePath);
-                    }
-                    else
-                    {
-                        // Handle missing file scenario (log, notify user, etc.)
-                        Console.WriteLine($"File not found: {filePath}"); // Example logging
-                    }
-                }
-            }
-
-            if (filesToDownload.Count == 0)
-            {
-                return NotFound("No selected files found or accessible.");
-            }
-
-            // Handle multiple file download scenarios (e.g., ZIP, concatenation)
-            // Assuming individual file download is desired:
-            var mergedContent = new List<byte>(); // For combining individual files (optional)
-            foreach (var filePath in filesToDownload)
-            {
-                var fileBytes = System.IO.File.ReadAllBytes(filePath);
-                mergedContent.AddRange(fileBytes); // Optional for combining files
-
-                // OR (for individual file download):
-                //return File(fileBytes, "application/octet-stream", Path.GetFileName(filePath));
-            }
-
-            // If combining files:
-            return File(mergedContent.ToArray(), "application/octet-stream", "combined_files.zip"); // Example ZIP name
-        }
-
-
-
-
-
+        //this part is for delete single file
         public IActionResult ViewUploadDelete(int documentId, int requestId)
         {
             var fileToDelete = _adminDashboard.GetFileById(documentId);
@@ -329,7 +285,7 @@ namespace DAL.Controllers
             TempData["success"] = "File deleted successfully.";
             return RedirectToAction("ViewUploads","Admin", new { requestId });
         }
-
+        //delete single file completed
 
         //delete selected files
         public IActionResult DeleteSelectedDocuments(List<int> requestFilesId, int requestId)
@@ -378,33 +334,33 @@ namespace DAL.Controllers
                 return Json(new { success = false, errorMessage = "No files were deleted." });
             }
         }
+        //delete selected document completed
 
 
-        public IActionResult ViewUploadDeleteAll(int requestId)
-        {
-            var filesToDelete = _adminDashboard.GetAllFilesByRequestId(requestId);
-            if(!filesToDelete.Any())
-            {
-                return NotFound();
-            }
-            foreach (var fileToDelete in filesToDelete)
-            {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/upload", fileToDelete.FileName);
-                try
-                {
-                    System.IO.File.Delete(filePath);
+        //public IActionResult ViewUploadDeleteAll(int requestId)
+        //{
+        //    var filesToDelete = _adminDashboard.GetAllFilesByRequestId(requestId);
+        //    if(!filesToDelete.Any())
+        //    {
+        //        return NotFound();
+        //    }
+        //    foreach (var fileToDelete in filesToDelete)
+        //    {
+        //        var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/upload", fileToDelete.FileName);
+        //        try
+        //        {
+        //            System.IO.File.Delete(filePath);
                     
-
-                }
-                catch(Exception ex)
-                {
-                    Console.WriteLine($"Error while deleting File{ex.Message}");
-                    return StatusCode(500);// 500 is for internal server
-                }
-            }
-            TempData["success"] = "All Files are deleted Sucessfully.";
-            return RedirectToAction("ViewUploads","Admin");
-        }
+        //        }
+        //        catch(Exception ex)
+        //        {
+        //            Console.WriteLine($"Error while deleting File{ex.Message}");
+        //            return StatusCode(500);// 500 is for internal server
+        //        }
+        //    }
+        //    TempData["success"] = "All Files are deleted Sucessfully.";
+        //    return RedirectToAction("ViewUploads","Admin");
+        //}
 
 
 
@@ -478,6 +434,51 @@ namespace DAL.Controllers
             {
                 return BadRequest(new { message = "Error sending email" });
             }
+        }
+        //send mail completed
+
+
+        //this part is for order details
+        public IActionResult Orders(int requestID)
+        {
+            AdminOrderVm adminOrderVm = new AdminOrderVm();
+            adminOrderVm.healthProfessionType = _adminDashboard.healthProfessionalTypes();
+            adminOrderVm.RequestId = requestID;
+            return View(adminOrderVm);
+        }
+
+        public IActionResult BusinessSelect(int healthProfessionId)
+        {
+            AdminOrderVm adminOrderVm = new AdminOrderVm();
+            adminOrderVm.healthProfessionals = _adminDashboard.asignBusiness(healthProfessionId);
+            return Json(new { adminOrderVm });
+        }
+
+        public IActionResult GetVendorDetails(int vendorId)
+        {
+            var vendordata = _adminDashboard.getVendorDetails(vendorId);
+            return Json(  vendordata );
+        }
+        [HttpPost]
+        public IActionResult Orders(AdminOrderVm model,int requestID)
+        {
+            _adminDashboard.orderDataStore(model, requestID);
+            return RedirectToAction("AdminDashboard", "Admin");
+        }
+        //order part completed
+
+
+        //this part is for transfer case
+        public IActionResult TransferCase() 
+        {
+            return PartialView("_adminTransferCase"); 
+        }
+
+
+        //clear case
+        public IActionResult ClearCase(int req)
+        {
+            return PartialView("_adminClearCase");
         }
     }
 }

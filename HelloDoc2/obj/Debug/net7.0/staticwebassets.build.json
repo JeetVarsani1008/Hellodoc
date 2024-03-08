@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lNHx+GtQigiE0Ho5Rn5A8AGOwaZA34CRbsRS4Q6hSZ8=",
+  "Hash": "01DdkGoyNz04PrEL1NbcSQ2SvCoyKyzf3lC8KYBTJgg=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -4480,6 +4480,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\dashboard-default.svg"
+    },
+    {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\download_46.zip",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "upload/download_46.zip",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\download_46.zip"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\downward-arrow.svg",

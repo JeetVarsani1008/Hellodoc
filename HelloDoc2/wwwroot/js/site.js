@@ -13,11 +13,3 @@ buttons.forEach(button => {
 
     });
 });
-
-//button.addEventListener('click', (event) => {
-//    if (!event.target.matches('button')) {
-//        buttons.forEach(button => {
-//            button.classList.remove('selected');
-//        });
-//    }
-//});

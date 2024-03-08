@@ -24,13 +24,12 @@ public partial class BlockRequest
     [Column(TypeName = "character varying")]
     public string? Reason { get; set; }
 
-    [Column(TypeName = "character varying")]
-    public string RequestId { get; set; } = null!;
-
     [Column("IP", TypeName = "character varying")]
     public string? Ip { get; set; }
 
     public DateOnly? CreatedDate { get; set; }
 
     public DateOnly? ModifiedDate { get; set; }
+
+    public int RequestId { get; set; }
 }

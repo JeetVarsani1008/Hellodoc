@@ -3,7 +3,7 @@
 
 <head>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 
@@ -47,7 +47,7 @@
     <div class="d-md-flex justify-content-between align-items-center gap-2">
 
         <div class="d-md-flex gap-1">
-            <form role="search" class="mb-2" >
+            <form role="search" class="mb-2">
                 <!-- <i class="bi bi-search"></i> -->
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="my-search-input">
             </form>
@@ -86,92 +86,92 @@
         </div>
 
     </div>
-@if (Model.requestListAdminDash.Count > 0)
-{
-    <div class="table-responsive d-none d-md-block">
+    @if (Model.requestListAdminDash.Count > 0)
+    {
+        <div class="table-responsive d-none d-md-block">
             <table class="table" id="New">
-            <thead>
+                <thead>
                     <tr>
-                    <th scope="col">Name</th>
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5))
-                    {
-                    <th scope="col">Date Of Birth</th>   
-                    }
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3))
-                    {
-                    <th scope="col">Requestor</th>   
-                    }
-                    @if(Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
-                    {
-                    <th scope="col">Physician Name</th>
-                    }
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
-                    {
-                    <th scope="col">Date Of Service</th>
-                    }               
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 1))
-                    {
-                    <th scope="col">Requested date</th>
-                    }
-
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
-                    {
-                        <th scope="col">Phone</th>
-                    }
-                    <th scope="col">Address</th>
-                    @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
-                    {
-                    <th scope="col">Notes</th>
-                    }
-                    <th scope="col">Chat With</th>
-                    <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-  
-            @foreach (var obj in Model.requestListAdminDash)
-            {
-                
-                        <tr class="align-middle color_@obj.RequestTypeId" id="SearchData">
-                            <td><div>@obj.Name</div></td>
+                        <th scope="col">Name</th>
                         @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5))
                         {
-                            <td>@obj.date,@obj.month.ToString(),@obj.year</td>
+                            <th scope="col">Date Of Birth</th>
                         }
                         @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3))
                         {
-                            <td>@obj.Requestor</td>
+                            <th scope="col">Requestor</th>
                         }
                         @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
                         {
-                            <td>@obj.Physician</td>
+                            <th scope="col">Physician Name</th>
                         }
                         @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
                         {
-                            <td>@obj.DateOfService</td>
+                            <th scope="col">Date Of Service</th>
                         }
                         @if (Model.requestListAdminDash.Any(x => x.Status == 1))
                         {
-                            <td>@obj.RequestDate</td>   
-                        }
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
-                        {
-                            <td>@obj.Phone</td>
-                        }
-                        <td>@obj.Address</td>
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
-                        {
-                        <td>@obj.Notes</td>  
+                            <th scope="col">Requested date</th>
                         }
 
-                        <td class="d-flex dropdown">
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
+                        {
+                            <th scope="col">Phone</th>
+                        }
+                        <th scope="col">Address</th>
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
+                        {
+                            <th scope="col">Notes</th>
+                        }
+                        <th scope="col">Chat With</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var obj in Model.requestListAdminDash)
+                    {
+
+                        <tr class="align-middle color_@obj.RequestTypeId" id="SearchData">
+                            <td><div>@obj.Name</div></td>
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5))
+                            {
+                                <td>@obj.date,@obj.month.ToString(),@obj.year</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3))
+                            {
+                                <td>@obj.Requestor</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                            {
+                                <td>@obj.Physician</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                            {
+                                <td>@obj.DateOfService</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1))
+                            {
+                                <td>@obj.RequestDate</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
+                            {
+                                <td>@obj.Phone</td>
+                            }
+                            <td>@obj.Address</td>
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
+                            {
+                                <td>@obj.Notes</td>
+                            }
+
+                            <td class="d-flex dropdown">
                                 @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
                                 {
                                     <button class="btn btn-outline-primary me-2 text-white border-white">Patient</button>
                                 }
                                 <button class="btn btn-outline-primary ms-2 text-white border-white d-none d-md-block">Provider</button>
 
-                        </td>
+                            </td>
                             <td class="dropdown">
                                 <button class="btn btn-outline-primary text-white border-white d-none d-md-block" data-bs-toggle="dropdown">Actions</button>
                                 <ul class="dropdown-menu">
@@ -186,30 +186,30 @@
 
                                     <li><button class="dropdown-item" onclick="location.href='@Url.Action("ViewCase","Admin", new {requestId = @obj.RequestId})'">View Case</button></li>
 
-                                    @if(Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status ==6))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
                                     {
                                         <li><button class="dropdown-item" onclick="location.href='@Url.Action("ViewUploads","Admin", new {requestId = @obj.RequestId})'">View Uploads</button></li>
                                     }
                                     <li><a class="dropdown-item" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a></li>
-                                    @if(Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 ))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
                                     {
-                                        <li><a class="dropdown-item" asp-action="Orders" asp-controller="Admin">Orders</a></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("Orders","Admin", new {requestId = @obj.RequestId})'">Orders</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
                                     {
                                         <li><a class="dropdown-item" href="#">Doctors Notes</a></li>
                                     }
-                                    @if(Model.requestListAdminDash.Any(x => x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 5))
                                     {
                                         <li><button class="dropdown-item">Close Case</button></li>
                                     }
-                                    @if(Model.requestListAdminDash.Any(x => x.Status == 2))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
-                                        <li><a class="dropdown-item" asp-action="Transfer" asp-controller="Admin">Transfer</a></li>
+                                        <li><a class="dropdown-item" onclick="transfercase(@obj.RequestId)">Transfer</a></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 5))
                                     {
-                                        <li><a class="dropdown-item" href="#">Clear Case</a></li>
+                                        <li><a class="dropdown-item" onclick="clearcase(@obj.RequestId)">Clear Case</a></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
@@ -221,39 +221,40 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
                                     {
-                                    <li><a class="dropdown-item" href="#">Encounter</a></li>
+                                        <li><a class="dropdown-item" href="#">Encounter</a></li>
                                     }
                                 </ul>
                             </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    </div>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
-}
-
-
-@foreach(var item in Model.requestListAdminDash) {
+    }
 
 
-<div class="accordion d-block d-md-none" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@item.RequestId" aria-expanded="true" aria-controls="collapseOne_@item.RequestId">
-        Accordion Item 
-      </button>
-    </h2>
-    <div id="collapseOne_@item.RequestId" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-    </div>
-  </div>
-</div>
-}
-            
-        
+    @foreach (var item in Model.requestListAdminDash)
+    {
+
+
+        <div class="accordion d-block d-md-none" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@item.RequestId" aria-expanded="true" aria-controls="collapseOne_@item.RequestId">
+                        Accordion Item
+                    </button>
+                </h2>
+                <div id="collapseOne_@item.RequestId" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
 </div>
 
 
@@ -274,7 +275,7 @@
 </script> *@
 
 @* --------------------------------this code is for pagination, add this if needed and also for search-------------------------------- *@
- @*    <script>
+@*    <script>
         $(document).ready(function () {
             $('#New').DataTable({
                 "initComplete": function (settings, json) {
@@ -316,15 +317,21 @@
 </div>
 
 
+@* for transfer case *@
+<div id="contentTransferNote">
+</div>
+
+
 @* for block case *@
 <div id="contentBlockNote">
 </div>
 
 
 @* for admin view upload *@
-<div id="adminViewUpload"></div>
+@* <div id="adminViewUpload"></div> *@
 
-
+@* for clear case  *@
+<div id="contentClear"></div>
 
 <script>
     // function cancelcase(RequestId, Name) {
@@ -342,11 +349,8 @@
     function cancelcase(reqid) {
 
         console.log("CLicked")
-
-        let action = "/Admin" + "/" + "CancelCase"
-        event.preventDefault();
         $.ajax({
-            url: action,
+            url: '@Url.Action("CancelCase", "Admin")',
             type: 'GET',
             data: { req: reqid },
             success: function (result) {
@@ -366,16 +370,40 @@
 
         console.log("CLicked")
 
-        let action = "/Admin" + "/" + "AsignCase"
-        event.preventDefault();
         $.ajax({
-            url: action,
+            url: '/Admin/AsignCase',
             type: 'POST',
             data: { req: reqid },
             success: function (result) {
                 console.log(result)
                 $('#contentAsignNote').html(result);
                 $('#myModalAssign').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
+
+
+
+
+
+    //ajax for transfer case model
+    function transfercase(reqid) {
+
+        console.log("CLicked")
+
+        let action = "/Admin" + "/" + "TransferCase"
+        $.ajax({
+            url: action,
+            type: 'POST',
+            data: { req: reqid },
+            success: function (result) {
+                console.log(result)
+                $('#contentTransferNote').html(result);
+                $('#myModalTransfer').modal('show');
 
             },
             error: function () {
@@ -389,7 +417,6 @@
     function blockcase(reqid) {
         console.log("CLicked block case")
         let action = "/Admin" + "/" + "BlockCase"
-        event.preventDefault();
         $.ajax({
             url: action,
             type: 'GET',
@@ -397,7 +424,7 @@
             success: function (result) {
                 console.log(result);
                 $('#contentBlockNote').html(result);
-                $('#JeetbhaiModel').modal('show');
+                $('#myModelBlock').modal('show');
 
             },
             error: function () {
@@ -406,6 +433,26 @@
         });
     }
 
+
+    //ajax for clear case model
+    function clearcase(reqid) {
+        console.log("CLicked block case")
+        let action = "/Admin" + "/" + "ClearCase"
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { req: reqid },
+            success: function (result) {
+                console.log(result);
+                $('#contentClear').html(result);
+                $('#myModelClear').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
 
     //ajax for view uploads page
     // $(document).ready(function () {

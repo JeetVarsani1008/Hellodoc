@@ -235,7 +235,7 @@ namespace BLL.Repositery
             foreach (var obj in request2)
             {
                 obj.Status = 11;
-                blockreq.RequestId = obj.RequestId.ToString();
+                blockreq.RequestId = obj.RequestId;
                 blockreq.PhoneNumber = phoneNumber;
                 blockreq.Email = email;
                 blockreq.Reason = model.Reason;
@@ -323,5 +323,53 @@ namespace BLL.Repositery
         //{
 
         //}
+
+
+        //from here 4 methods are for order details
+        public List<HealthProfessionalType> healthProfessionalTypes()
+        {
+            var data = _context.HealthProfessionalTypes.ToList();
+            var mappedData = data.Select(item => new HealthProfessionalType
+            {
+                HealthProfessionalId = item.HealthProfessionalId,
+                ProfessionName = item.ProfessionName,
+            }).ToList();
+            return mappedData;
+        }
+
+        public List<HealthProfessional> asignBusiness(int healthProfessionId)
+        {
+            var data = _context.HealthProfessionals.Where(p => p.Profession == healthProfessionId).ToList();
+            return data;
+        }
+
+        public List<HealthProfessional> getVendorDetails(int vendorId)
+        {
+            var data = _context.HealthProfessionals.Where(x => x.VendorId == vendorId).ToList();
+            return data;
+        }
+
+        public void orderDataStore(AdminOrderVm model, int requestId) 
+        {
+
+            OrderDetail orderDetail = new OrderDetail
+            {
+                VendorId = model.VendorId,
+                RequestId = requestId,
+                FaxNumber = model.FaxNumber,
+                Email = model.Email,
+                BusinessContact = model.BusinessContact,
+                Prescription = model.Prescription,
+                NoOfRefill = model.Refill,
+                CreatedDate = DateTime.Now,
+            };
+            _context.OrderDetails.Add(orderDetail);
+            _context.SaveChanges();
+        }
+
+        //order details are completed
+
+        //from here this is for transfer note
+
     }
 }

@@ -29,7 +29,8 @@ public partial class OrderDetail
 
     public int? NoOfRefill { get; set; }
 
-    public DateOnly? CreatedDate { get; set; }
+    [Column(TypeName = "timestamp without time zone")]
+    public DateTime? CreatedDate { get; set; }
 
     [StringLength(100)]
     public string? CreatedBy { get; set; }

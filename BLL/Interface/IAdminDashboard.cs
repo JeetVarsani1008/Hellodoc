@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using DAL.ViewModel;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,5 +44,10 @@ namespace BLL.Interface
 
         //void DeleteFile(int RequestWiseFileId);
 
+        //order case dropdown and all
+        List<HealthProfessionalType> healthProfessionalTypes();
+        List<HealthProfessional> asignBusiness(int healthProfessionId);
+        List<HealthProfessional> getVendorDetails(int vendorId);
+        void orderDataStore(AdminOrderVm model, int requestID);
     }
 }

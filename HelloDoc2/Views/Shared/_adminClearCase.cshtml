@@ -1,0 +1,31 @@
+﻿<!-- Button trigger modal -->
+
+<!-- Modal -->
+@* <div class="modal fade" id="myModelClear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class=""></div>
+            </div>
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+
+        </div>
+    </div>
+</div> *@
+<div class="modal fade" id="myModelClear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+            <div class="modal-body p-5">
+                <i class="fa-solid fa-circle-exclamation fa-4x text-warning border border-1 p-2 border-warning rounded-circle mb-3"></i>
+                <h3>Confirmation for clear case</h3>
+                <p>Are sure you want to clear this request? Once clear this request then you are not able to see this request.</p>
+                <input type="hidden" class="requestId" value="" name="requestId" id="requestId" />
+                <button type="button" class="btn btn-info text-light" id="clearCase">Clear</button>
+                <button type="button" class="btn border border-info text-info" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
