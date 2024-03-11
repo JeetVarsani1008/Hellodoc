@@ -1,15 +1,14 @@
 ﻿@model DAL.ViewModel.AdminAsignVm;
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 
-<div class="modal fade" id="myModalAssign" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModalTransfer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
-            <form method="post" id="assignrequestform" asp-action="AsignCasePost">
+            <form method="post" id="TransferRequestform" asp-action="TransferCasePost">
 
-                @*     <input hidden /> *@
+                <input value="@Model.RequestId" asp-for="RequestId" />
 
                 @*HEADER*@
                 <div class="modal-header bg-info text-white">
@@ -21,17 +20,17 @@
                 <div class="modal-body">
 
                     <p style="font-size:0.8rem;">
-                        To assign this request, search and select another Physician!
+                        To Transfer this request, search and select another Physician!
                     </p>
 
                     <select class="form-select my-3" aria-label="Default select example" id="regionSelect">
                         <option selected>Narrow Search by Region</option>
-@*                         @foreach (var obj in Model.regions)
-                        { *@
-                            <option value="obj.RegionId">
-                                obj.Name
+                        @foreach (var obj in Model.regions)
+                        {
+                            <option value="@obj.RegionId">
+                                @obj.Name
                             </option>
-                        
+                        }
                     </select>
 
                     <select class="form-select my-3" id="physicianSelect" aria-label="Floating label select example" asp-for="@Model.PhysicianId">
@@ -57,6 +56,39 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+
+    $("#regionSelect").on("change", function () {
+
+        getPhysiciansByRegionId($(this).val());
+    })
+    function getPhysiciansByRegionId(regid) {
+        alert("hello");
+
+        let action = "/Admin" + "/" + "GetPhysiciansByRegionIdTransfer"
+        event.preventDefault();
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { regionId: regid },
+            success: function (data) {
+                console.log(data.adminAsignVm.physicianList)
+                $('#physicianSelect').html("<option>" + "Select Physician" + "</option>");
+                for (var i = 0; i < data.adminAsignVm.physicianList.length; i++) {
+                    $("#physicianSelect").append('<option value="' + data.adminAsignVm.physicianList[i].physicianId + '">' + data.adminAsignVm.physicianList[i].firstName + '</option>');
+                };
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
+
+</script>
+
 
 
 

@@ -17,7 +17,7 @@
                 Link
             </span>
         </button>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
+        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="loaction.href='@Url.Action("CreateRequestDorAdmin","Admin")'">
             <i class="bi bi-pencil-square me-md-1"></i>
             <span class="d-md-block d-none px-2 ">
                 Create
@@ -27,12 +27,12 @@
         <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
             <i class="bi bi-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">Export</span>
         </button>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
+        <a type="button" id="export-button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcel">
             <i class="bi bi-box-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">
                 Export
                 All
             </span>
-        </button>
+        </a>
         <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
             <i class="bi bi-person-plus me-md-1"></i><span class="d-md-block d-none px-2 ">
                 Request DTY
@@ -49,7 +49,7 @@
         <div class="d-md-flex gap-1">
             <form role="search" class="mb-2">
                 <!-- <i class="bi bi-search"></i> -->
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="my-search-input">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
             </form>
             <!-- Example split danger button -->
 
@@ -89,7 +89,7 @@
     @if (Model.requestListAdminDash.Count > 0)
     {
         <div class="table-responsive d-none d-md-block">
-            <table class="table" id="New">
+            <table class="table overflow-visible" id="SearchData">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -205,15 +205,15 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
-                                        <li><a class="dropdown-item" onclick="transfercase(@obj.RequestId)">Transfer</a></li>
+                                        <li><button class="dropdown-item" onclick="transfercase(@obj.RequestId)">Transfer</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 5))
                                     {
-                                        <li><a class="dropdown-item" onclick="clearcase(@obj.RequestId)">Clear Case</a></li>
+                                        <li><button class="dropdown-item" onclick="clearcase(@obj.RequestId)">Clear Case</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
-                                        <li><a class="dropdown-item" href="#">Send Agreement</a></li>
+                                        <li><button class="dropdown-item" onclick="sendagreement(@obj.RequestId,@obj.RequestTypeId)">Send Agreement</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 1))
                                     {
@@ -261,7 +261,7 @@
 
 
 
-@* <script>
+<script>
     $(document).ready(function () {
         $("#searchInput").on("input", function () {
             var value = $(this).val().toLowerCase();
@@ -271,8 +271,7 @@
        });
     });
 
-
-</script> *@
+</script>
 
 @* --------------------------------this code is for pagination, add this if needed and also for search-------------------------------- *@
 @*    <script>
@@ -327,11 +326,12 @@
 </div>
 
 
-@* for admin view upload *@
-@* <div id="adminViewUpload"></div> *@
-
 @* for clear case  *@
 <div id="contentClear"></div>
+
+
+@* for Send Agreement  *@
+<div id="contentSendAgreement"></div>
 
 <script>
     // function cancelcase(RequestId, Name) {
@@ -373,7 +373,7 @@
         $.ajax({
             url: '/Admin/AsignCase',
             type: 'POST',
-            data: { req: reqid },
+            data: { req : reqid },
             success: function (result) {
                 console.log(result)
                 $('#contentAsignNote').html(result);
@@ -399,11 +399,10 @@
         $.ajax({
             url: action,
             type: 'POST',
-            data: { req: reqid },
+            data: { reqId : reqid },
             success: function (result) {
                 console.log(result)
-                $('#contentTransferNote').html(result);
-                $('#myModalTransfer').modal('show');
++                $('#myModalTransfer').modal('show');
 
             },
             error: function () {
@@ -454,25 +453,29 @@
         });
     }
 
-    //ajax for view uploads page
-    // $(document).ready(function () {
-    //     $.ajax({
-    //         url: "@Url.Action("ViewUploads", "Admin")",
-    //         type: "GET",
-    //         success: function (result) {
-    //             $("#adminViewUpload").html(result);
-    //         }
-    //     });
-    // });
-    // document.getElementById("viewUploadsBtn").addEventListener("click", function () {
-    //     $.ajax({
-    //         url: "@Url.Action("ViewUploads", "Admin")",
-    //         type: "GET",
-    //         success: function (result) {
-    //             $("#adminViewUpload").html(result);
-    //         }
-    //     });
-    // });
+
+    //ajax for Send agreement model
+    function sendagreement(reqid,reqtypeid) {
+        console.log("CLicked send agreement")
+        console.log(reqtypeid)
+        let action = "/Admin/SendAgreement" 
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { req: reqid, 
+                    reqTypeId : reqtypeid
+            },
+            success: function (result) {
+                console.log(result);
+                $('#contentSendAgreement').html(result);
+                $('#myModelSendAgreement').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
 
 
     function fetchNotes() {
@@ -491,13 +494,21 @@
         })
     }
 
+    //this ajax is used for to download excel file
+    $(document).ready(function () {
+        $('#export-button').click(function () {
+            $.ajax({
+                url: '@Url.Action("ExportToExcel", "Admin")',
+                type: 'GET',
+                success: function (data) {
+                    console.log("this is trial for excel");
+                    var blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                    saveAs(blob, 'Table.xlsx');
+                }
+            });
+        });
+    });
 
 </script>
 
 
-@* assign case pop up *@
-
-@*ASSIGN CASE MODAL - 3*@
-
-
-@* asign case pop up end *@

@@ -2,6 +2,8 @@
 using DAL.Models;
 using DAL.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -370,6 +372,105 @@ namespace BLL.Repositery
         //order details are completed
 
         //from here this is for transfer note
+        public List<Region> transferRegion()
+        {
+            var data = _context.Regions.ToList();
+            return data;
+        }
 
+        public List<Physician> transferPhysician(int regionId)
+        {
+            var data = _context.Physicians.Where(p => p.RegionId == regionId).ToList();
+            return data;
+        }
+        public void transferCasePost(AdminAsignVm model, int newStatus)
+        {
+            var request = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+            request.ModifiedDate = DateTime.Now;
+            _context.SaveChanges();
+
+            var reqstatus = new RequestStatusLog
+            {
+                RequestId = model.RequestId,
+                Status = (short)newStatus,
+                Notes = model.Description,
+                CreatedDate = DateTime.Now,
+                PhysicianId = model.PhysicianId,
+            };
+            if (newStatus == 2)
+            {
+                reqstatus.TransToPhysicianId = model.PhysicianId;
+                request.PhysicianId = model.PhysicianId;
+            }
+            _context.Requests.Update(request);
+            _context.RequestStatusLogs.Add(reqstatus);
+            _context.SaveChanges();
+
+        }
+
+        //export logic
+        public byte[] ExportToExcel(List<RequestListAdminDash> data)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (ExcelPackage package = new ExcelPackage())
+
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Admin Data");
+
+                // Add header row
+                int col = 1;
+                foreach (var prop in typeof(RequestListAdminDash).GetProperties())
+                {
+                    worksheet.Cells[1, col].Value = prop.Name;
+                    col++;
+                }
+
+                // Add data rows
+                int row = 2;
+                foreach (var item in data)
+                {
+                    col = 1;
+                    foreach (var prop in typeof(RequestListAdminDash).GetProperties())
+                    {
+                        worksheet.Cells[row, col].Value = prop.GetValue(item);
+                        col++;
+                    }
+                    row++;
+                }
+
+                // Style the header
+                using (var range = worksheet.Cells[1, 1, 1, col - 1])
+                {
+                    range.Style.Font.Bold = true;
+                    range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Gray);
+                }
+
+                return package.GetAsByteArray();
+            }
+        }
+
+        //Logic for clear case
+        public void clearCasePost(AdminClearVm model)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+            if (data != null)
+            {
+                data.Status = 10;
+                _context.SaveChanges();
+
+                RequestStatusLog requestStatusLog = new RequestStatusLog
+                {
+                    RequestId = model.RequestId,
+                    Status = data.Status,
+                    CreatedDate = DateTime.Now,
+                };
+                _context.RequestStatusLogs.Add(requestStatusLog);
+                _context.SaveChanges();
+
+            }
+        }
+        //clear case completed
     }
 }

@@ -49,5 +49,17 @@ namespace BLL.Interface
         List<HealthProfessional> asignBusiness(int healthProfessionId);
         List<HealthProfessional> getVendorDetails(int vendorId);
         void orderDataStore(AdminOrderVm model, int requestID);
+
+
+        //transfer case all methods
+        List<Region> transferRegion();
+        List<Physician> transferPhysician(int regionId);
+        void transferCasePost(AdminAsignVm model, int newStatus);
+
+        //export data 
+        byte[] ExportToExcel(List<RequestListAdminDash> data);
+
+        //clear case 
+        void clearCasePost(AdminClearVm model);
     }
 }

@@ -13,6 +13,11 @@ using System.Net.NetworkInformation;
 using System.Drawing;
 using HellodocContext = DAL.Models.HellodocContext;
 using AspNetUser = DAL.Models.AspNetUser;
+using System.Data;
+using ClosedXML.Excel;
+using HtmlAgilityPack;
+using MimeKit;
+using Org.BouncyCastle.Ocsp;
 namespace DAL.Controllers
 {
     public class AdminController : Controller
@@ -41,9 +46,9 @@ namespace DAL.Controllers
         {
             AspNetUser user = _login.adminLogin(loginVm);
             AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
-            if(user != null)
+            if (user != null)
             {
-                if(aspNetUserRole == null)
+                if (aspNetUserRole == null)
                 {
                     ModelState.AddModelError(String.Empty, "Cant Have access to this site");
                     return View("Patientlogin");
@@ -59,7 +64,7 @@ namespace DAL.Controllers
                     HttpContext.Session.SetInt32("UserId", user1.UserId);
 
                     TempData["success"] = "Login Successfull";
-                    return RedirectToAction("AdminDashboard","Admin");
+                    return RedirectToAction("AdminDashboard", "Admin");
                 }
             }
             return View();
@@ -74,14 +79,14 @@ namespace DAL.Controllers
 
             var reqCount = request.GroupBy(o => o.Status).Select(h => new { Status = h.Key, Count = h.Count() }).ToList();
 
-            ViewBag.newRequest = reqCount.Find(o => o.Status == 1) ?.Count ?? 0;
-            ViewBag.pendingRequest = reqCount.Find(i => i.Status ==2)?.Count ?? 0; 
+            ViewBag.newRequest = reqCount.Find(o => o.Status == 1)?.Count ?? 0;
+            ViewBag.pendingRequest = reqCount.Find(i => i.Status == 2)?.Count ?? 0;
             ViewBag.activeRequest = reqCount.Find(i => i.Status == 3)?.Count ?? 0;
             ViewBag.concludeRequest = reqCount.Find(i => i.Status == 4)?.Count ?? 0;
             ViewBag.toCloseRequest = reqCount.Find(i => i.Status == 5)?.Count ?? 0;
             ViewBag.unpaidRequest = reqCount.Find(i => i.Status == 6)?.Count ?? 0;
 
-            var requestAdmin=_adminDashboard.requestDataAdmin(1,null, 0);
+            var requestAdmin = _adminDashboard.requestDataAdmin(1, null, 0);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
                 requestListAdminDash = requestAdmin,
@@ -91,24 +96,24 @@ namespace DAL.Controllers
             };
             return View(adminDashboardViewModel);
         }
-        public IActionResult fetchRequests(int Status, string reqtypeid, int RegionId) 
+        public IActionResult fetchRequests(int Status, string reqtypeid, int RegionId)
         {
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(Status,reqtypeid, RegionId);
+            var requestAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid, RegionId);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
                 requestListAdminDash = requestAdmin,
-                StatusForName= Status,
+                StatusForName = Status,
                 Regin_Short = RegionId,
                 reqTypId = reqtypeid,
 
 
             };
-            return PartialView("_RequestsAccToStatus",adminDashboardViewModel);
+            return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
 
-        public IActionResult AdminMyProfile() { 
-            return View(); 
+        public IActionResult AdminMyProfile() {
+            return View();
         }
 
         public IActionResult CloseCase() {
@@ -134,9 +139,9 @@ namespace DAL.Controllers
 
         [HttpPost]
         public IActionResult ViewNotes(ViewNotesVm model, int requestId) {
-             _adminDashboard.editViewNotes(model, requestId);
+            _adminDashboard.editViewNotes(model, requestId);
             model = _adminDashboard.ViewNotes(requestId);
-            return View(model) ;
+            return View(model);
         }
         //view notes completed
 
@@ -145,7 +150,7 @@ namespace DAL.Controllers
         public IActionResult CancelCase(int req)
         {
             HttpContext.Session.SetInt32("reqId", req);
-            AdminDashboardViewModel adminDashboardViewModel=new AdminDashboardViewModel();
+            AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel();
             adminDashboardViewModel.CaseTags = _adminDashboard.cancelCaseMain();
             return PartialView("_adminCancelCase", adminDashboardViewModel);
         }
@@ -154,8 +159,8 @@ namespace DAL.Controllers
         public IActionResult CancelCase(AdminDashboardViewModel model)
         {
             int? req = HttpContext.Session.GetInt32("reqId");
-            _adminDashboard.cancelCase(model, req??0);
-            return RedirectToAction("AdminDashboard","Admin");
+            _adminDashboard.cancelCase(model, req ?? 0);
+            return RedirectToAction("AdminDashboard", "Admin");
         }
         //cancel case completed
 
@@ -177,7 +182,7 @@ namespace DAL.Controllers
             return RedirectToAction("AdminDashboard", "Admin");
         }
         //block case completed
-        
+
 
         //this three methods are for asign case
         public IActionResult AsignCase(int req)
@@ -199,19 +204,19 @@ namespace DAL.Controllers
         public IActionResult AsignCasePost(AdminAsignVm model)
         {
             var req = HttpContext.Session.GetInt32("asignReq");
-            _adminDashboard.asignCasePost(model, req ?? 0,2);
+            _adminDashboard.asignCasePost(model, req ?? 0, 2);
             return RedirectToAction("AdminDashboard", "Admin");
         }
         //asign case completed
 
-        public IActionResult ViewUploads(AdminViewUploadVm model,int requestId)
+        public IActionResult ViewUploads(AdminViewUploadVm model, int requestId)
         {
             model.RequestId = requestId;
-            HttpContext.Session.SetInt32("reqIdUpload",requestId);
+            HttpContext.Session.SetInt32("reqIdUpload", requestId);
             ViewBag.RequestIdForDownloadAll = requestId;
             ViewBag.RequestIdForDeleteAll = requestId;
             ViewBag.RequestIdForSendMail = requestId;
-            var returnViewData= _adminDashboard.GetAdminViewUploadData(model, requestId);
+            var returnViewData = _adminDashboard.GetAdminViewUploadData(model, requestId);
             var documents = _adminDashboard.GetFilesByRequestId(requestId);
             ViewBag.document = documents;
             return View(returnViewData);
@@ -260,7 +265,7 @@ namespace DAL.Controllers
                 return NotFound();
             }
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", fileToDelete.FileName);
-            
+
             try
             {
                 System.IO.File.Delete(filePath);
@@ -275,7 +280,7 @@ namespace DAL.Controllers
             //now delete this file only from upload but isdeleted is change in requestwisefile 
 
             BitArray bitarray = new BitArray(1);
-            bitarray.Set(0,true);
+            bitarray.Set(0, true);
 
             RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == documentId);
             requestWiseFile.IsDeleted = bitarray;
@@ -283,7 +288,7 @@ namespace DAL.Controllers
             _context.SaveChanges();
 
             TempData["success"] = "File deleted successfully.";
-            return RedirectToAction("ViewUploads","Admin", new { requestId });
+            return RedirectToAction("ViewUploads", "Admin", new { requestId });
         }
         //delete single file completed
 
@@ -350,7 +355,7 @@ namespace DAL.Controllers
         //        try
         //        {
         //            System.IO.File.Delete(filePath);
-                    
+
         //        }
         //        catch(Exception ex)
         //        {
@@ -457,10 +462,10 @@ namespace DAL.Controllers
         public IActionResult GetVendorDetails(int vendorId)
         {
             var vendordata = _adminDashboard.getVendorDetails(vendorId);
-            return Json(  vendordata );
+            return Json(vendordata);
         }
         [HttpPost]
-        public IActionResult Orders(AdminOrderVm model,int requestID)
+        public IActionResult Orders(AdminOrderVm model, int requestID)
         {
             _adminDashboard.orderDataStore(model, requestID);
             return RedirectToAction("AdminDashboard", "Admin");
@@ -468,17 +473,111 @@ namespace DAL.Controllers
         //order part completed
 
 
-        //this part is for transfer case
-        public IActionResult TransferCase() 
+        //this part is for transfer case -- transfer and asign similar that's why use same model for that
+        public IActionResult TransferCase(int reqId)
         {
-            return PartialView("_adminTransferCase"); 
+            AdminAsignVm adminAsignVm = new AdminAsignVm();
+            adminAsignVm.regions = _adminDashboard.transferRegion();
+            adminAsignVm.RequestId = reqId;
+            return PartialView("_adminTransferCase", adminAsignVm);
+        }
+        public IActionResult GetPhysiciansByRegionIdTransfer(int regionId)
+        {
+            AdminAsignVm adminAsignVm = new AdminAsignVm();
+            adminAsignVm.physicianList = _adminDashboard.transferPhysician(regionId);
+            return Json(new { adminAsignVm });
         }
 
+        public IActionResult TransferCasePost(AdminAsignVm model)
+        {
+            _adminDashboard.transferCasePost(model, 2);
+            return RedirectToAction("AdminDashboard", "Admin");
+        }
 
-        //clear case
+        //this is for download excel
+
+        public IActionResult DownloadExcel()
+        {
+            var data = _adminDashboard.requestDataAdmin(2, null, 0);
+            var excelData = _adminDashboard.ExportToExcel(data);
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
+
+
+        }
+
+        //clear case : 2 methods
         public IActionResult ClearCase(int req)
         {
-            return PartialView("_adminClearCase");
+            AdminClearVm adminClearVm = new AdminClearVm();
+            adminClearVm.RequestId = req;
+            return PartialView("_adminClearCase", adminClearVm);
         }
+
+        [HttpPost]
+        public IActionResult ClearCase(AdminClearVm model)
+        {
+            _adminDashboard.clearCasePost(model);
+            return RedirectToAction("AdminDashboard");
+        }
+        //clear case completed
+
+        //create request for admin part
+        public IActionResult CreateRequestForAdmin()
+        {
+            return View();
+        }
+
+        //send agreement-used adminclear case model for send agreement
+        public IActionResult SendAgreement(int req, int reqTypeId)
+        {
+            var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == req);
+            AdminClearVm adminClearVm = new AdminClearVm();
+            adminClearVm.RequestTypeId = reqTypeId;
+            adminClearVm.RequestId = req;
+            adminClearVm.Number = data.PhoneNumber;
+            adminClearVm.Email = data.Email;
+            return PartialView("_adminSendAgreement", adminClearVm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendAgreement(AdminClearVm model)
+        {
+
+            var subject = "Review Agreement Request";
+            var agreementLink = "<a href=" + Url.Action("ReviewAgreement", "Admin", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Confirm Agreement</a>";
+
+            var body = "<b>Please find the Password Reset Link.</b><br/>" + agreementLink;
+
+            await SendEmailAsync(model.Email, subject, body);
+            return RedirectToAction("AdminDashboard");
+        }
+
+        public async Task SendEmailAsync(string toEmail, string subject, string body)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("HelloDoc2", "testinghere1008@outlook.com"));
+            message.To.Add(new MailboxAddress("HelloDoc2 Member", toEmail));
+            message.Subject = subject;
+
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = body;
+
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            {
+                await client.ConnectAsync("smtp.office365.com", 587, false);
+                await client.AuthenticateAsync("testinghere1008@outlook.com", "Simple@12345");
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+        }
+
+         public IActionResult ReviewAgreement(string email, int requestId)
+         {
+            
+            return View();
+         }
     }
 }

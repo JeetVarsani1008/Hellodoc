@@ -34,8 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2xvc2VDYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CreateRequestForAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlUmVxdWVzdEZvckFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ReviewAgreement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3QWdyZWVtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/ViewCase.cshtml]
@@ -144,6 +152,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminClearCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkNsZWFyQ2FzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminSendAgreement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pblNlbmRBZ3JlZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminTransferCase.cshtml]

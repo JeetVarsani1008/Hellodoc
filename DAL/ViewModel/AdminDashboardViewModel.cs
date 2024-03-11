@@ -31,7 +31,7 @@ namespace DAL.ViewModel
         public string Notes {  get; set; }
         public string CaseTagss { get; set; }
     }
-
+    
     public class RequestListAdminDash
     {
         public int RequestId { get; set; }
