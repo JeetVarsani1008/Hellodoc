@@ -72,46 +72,74 @@ namespace DAL.Controllers
 
 
         [CustomAuthorize("1")]
-        public IActionResult AdminDashboard(int Status, string reqtypeid, int RegionId)
+        public IActionResult AdminDashboard(int[] Status, string reqtypeid)
         {
-
+            int[] arr = { 1 };
             var request = _context.Requests;
 
             var reqCount = request.GroupBy(o => o.Status).Select(h => new { Status = h.Key, Count = h.Count() }).ToList();
 
             ViewBag.newRequest = reqCount.Find(o => o.Status == 1)?.Count ?? 0;
             ViewBag.pendingRequest = reqCount.Find(i => i.Status == 2)?.Count ?? 0;
-            ViewBag.activeRequest = reqCount.Find(i => i.Status == 3)?.Count ?? 0;
-            ViewBag.concludeRequest = reqCount.Find(i => i.Status == 4)?.Count ?? 0;
-            ViewBag.toCloseRequest = reqCount.Find(i => i.Status == 5)?.Count ?? 0;
-            ViewBag.unpaidRequest = reqCount.Find(i => i.Status == 6)?.Count ?? 0;
+            ViewBag.activeRequest1 = reqCount.Find(i => i.Status == 4)?.Count ?? 0;
+            ViewBag.activeRequest2 = reqCount.Find(i => i.Status == 5)?.Count ?? 0;
+            ViewBag.activeRequest = ViewBag.activeRequest1 + ViewBag.activeRequest2;
+            ViewBag.concludeRequest = reqCount.Find(i => i.Status == 6)?.Count ?? 0;
+            ViewBag.toCloseRequest1 = reqCount.Find(i => i.Status == 3)?.Count ?? 0;
+            ViewBag.toCloseRequest2 = reqCount.Find(i => i.Status == 7)?.Count ?? 0;
+            ViewBag.toCloseRequest3 = reqCount.Find(i => i.Status == 8)?.Count ?? 0;
+            ViewBag.toCloseRequest = ViewBag.toCloseRequest1 + ViewBag.toCloseRequest2 + ViewBag.toCloseRequest3;
+            ViewBag.unpaidRequest = reqCount.Find(i => i.Status == 9)?.Count ?? 0;
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(1, null, 0);
+            var requestAdmin = _adminDashboard.requestDataAdmin(arr, null);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
                 requestListAdminDash = requestAdmin,
-                StatusForName = Status,
+                StatusForName = 1,
                 reqTypId = reqtypeid,
-                Regin_Short = RegionId
             };
             return View(adminDashboardViewModel);
         }
-        public IActionResult fetchRequests(int Status, string reqtypeid, int RegionId)
+        public IActionResult fetchRequests(string status, string reqtypeid)
         {
+      
+            int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid, RegionId);
-            AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
+            var requestAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid);
+            AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
             {
                 requestListAdminDash = requestAdmin,
-                StatusForName = Status,
-                Regin_Short = RegionId,
+                StatusForName = Status[0],
                 reqTypId = reqtypeid,
-
-
+                statusArray = status,
             };
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
 
+        public IActionResult filterRequests(string status, string reqtypeid)
+        {
+            int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
+
+            var requestListAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid);
+            AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
+            {
+                requestListAdminDash = requestListAdmin,
+                StatusForName = status[0],
+            };
+
+            return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
+        }
+
+
+        // this is for accordian to fetch names
+        public string GetNameByRequestTypeId(int requestTypeId)
+        {
+            Dictionary<int, string> reqTypesName = new Dictionary<int, string>()
+            {
+                {1, "Patient" },
+            };
+            return requestTypeId.ToString() != null ? reqTypesName.GetValueOrDefault(requestTypeId, "Unknown Request Type"): "Unknown Request Type";
+        }
         public IActionResult AdminMyProfile() {
             return View();
         }
@@ -495,12 +523,13 @@ namespace DAL.Controllers
         }
 
         //this is for download excel
-
+        //this is pending for now : date :- 12/03/2024
         public IActionResult DownloadExcel()
         {
-            var data = _adminDashboard.requestDataAdmin(2, null, 0);
-            var excelData = _adminDashboard.ExportToExcel(data);
-            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
+            //int[] arr = { 1 };
+            //var data = _adminDashboard.requestDataAdmin(1, null, 0);
+            //var excelData = _adminDashboard.ExportToExcel(data);
+            return File( "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
 
 
         }
@@ -551,7 +580,7 @@ namespace DAL.Controllers
             await SendEmailAsync(model.Email, subject, body);
             return RedirectToAction("AdminDashboard");
         }
-
+        //this sendemail function is work for all send mail that are present in admin page
         public async Task SendEmailAsync(string toEmail, string subject, string body)
         {
             var message = new MimeMessage();
@@ -576,8 +605,57 @@ namespace DAL.Controllers
 
          public IActionResult ReviewAgreement(string email, int requestId)
          {
-            
-            return View();
+            ReviewAgreementVm reviewAgreementVm = new ReviewAgreementVm();
+            reviewAgreementVm.RequestId = requestId;
+            return View(reviewAgreementVm);
          }
+
+
+        public IActionResult ReviewAgreementSubmit(ReviewAgreementVm model)
+        {
+            if (_adminDashboard.checkStatus(model))
+            {
+                _adminDashboard.reviewAgreeementSubmit(model);
+                TempData["success"] = "Status Changed Successfully";
+            }
+            else
+            {
+                TempData["error"] = "Status Already Changed";
+            }
+            return RedirectToAction("AdminDashboard");
+        }
+
+        public IActionResult ReviewAgreementCancel(ReviewAgreementVm model)
+        {
+            if (_adminDashboard.checkStatus(model))
+            {
+                _adminDashboard.reviewAgreementCancel(model);
+                TempData["success"] = "Agreement Cancelled Successfully";
+            }
+            else
+            {
+                TempData["error"] = "Your Agreement Already Cancelled.";
+            }
+            return RedirectToAction("AdminDashboard");
+        }
+
+
+        //send mail-used adminclear case model for send mail to patient 
+        public IActionResult SendMail()
+        {
+            return PartialView("_adminSendMail");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendMail(AdminClearVm model)
+        {
+            var subject = "Review Agreement Request";
+            var agreementLink = "<a href=" + Url.Action("Submit_Request", "Home", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Confirm Agreement</a>";
+
+            var body = "<b>Please find the Password Reset Link.</b><br/>" + agreementLink;
+
+            await SendEmailAsync(model.Email, subject, body);
+            return RedirectToAction("AdminDashboard");
+        }
     }
 }

@@ -22,6 +22,8 @@ namespace DAL.ViewModel
 
         public int StatusForName { get; set; }
 
+        public string statusArray { get; set; }
+
         public int Regin_Short {get; set;}
 
         public string reqTypId { get; set; }

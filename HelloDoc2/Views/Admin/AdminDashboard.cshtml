@@ -8,7 +8,7 @@
 
                         <div class="container111">
                             <div class="inner">
-                                <button class="box bx1" id="box" onclick="fetchRequests(1,0)">
+                                <button class="box bx1" id="box" onclick="fetchRequests([1],[])">
 
                                     <div class="up">
                                         <img class="img1" />
@@ -19,7 +19,7 @@
                                     </div>
 
                                 </button>
-                                <button class="box bx2" onclick="fetchRequests(2,0)">
+                                <button class="box bx2" onclick="fetchRequests([2],[])">
                                     <div class="up">
                                         <img class="img1" />
                                         <span class="stext">PENDING</span>
@@ -29,7 +29,7 @@
                                     </div>
 
                                 </button>
-                                <button class="box bx3" onclick="fetchRequests(3,0)">
+                                <button class="box bx3" onclick="fetchRequests([4,5],[])">
                                     <div class="up">
                                         <img class="img1" />
                                         <span class="stext">ACTIVE</span>
@@ -40,7 +40,7 @@
                                 </button>
                             </div>
                             <div class="inner">
-                                <button class="box bx4" onclick="fetchRequests(4,0)">
+                                <button class="box bx4" onclick="fetchRequests([6],[])">
                                     <div class="up">
                                         <img class="img1" />
                                         <span class="stext">CONCLUDE</span>
@@ -49,7 +49,7 @@
                                         <span class="btext">@ViewBag.concludeRequest</span>
                                     </div>
                                 </button>
-                                <button class="box bx5" onclick="fetchRequests(5,0)">
+                                <button class="box bx5" onclick="fetchRequests([3,7,8],[])">
                                     <div class="up">
                                         <img class="img1" />
                                         <span class="stext">TO CLOSE</span>
@@ -58,7 +58,7 @@
                                         <span class="btext">@ViewBag.toCloseRequest</span>
                                     </div>
                                 </button>
-                                <button class="box bx6" onclick="fetchRequests(6,0)">
+                                <button class="box bx6" onclick="fetchRequests([9],[])">
                                     <div class="up">
                                         <img class="img1" />
                                         <span class="stext">UNPAID</span>
@@ -76,9 +76,32 @@
                 <a class="text-white">Terms of Conditions</a> <span style="color: gray;">|</span> <a class="text-white">Privacy</a>
             </div>
         </div>
-    </footer><script>    function fetchRequests(status, reqtypeid,regionid) {        console.log("inside fetchreq");
-        var reqtypeidString = reqtypeid.length > 0 ? reqtypeid.join(',') : null;
-        var status = status;
-        var reqtypeid = reqtypeid;        var regionid = regionid;        $.ajax({            method: "GET",            url: "/Admin/fetchRequests",            data: { status: status,
-                reqtypeid: reqtypeidString,
-                regionid : regionid               },            success: function (response) {                console.log("Function Success")                $('#partial_container').html(response)            },            error: function () {                console.log("Function Fail")            }        })    }</script>@* <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script> *@
+    </footer><script>    function fetchRequests(status, reqtypeid) {        console.log(status)        console.log(reqtypeid)        console.log("inside fetchreq");
+        // var status = status;
+        var statusString = status.join(',');
+        var reqtypeidstring = reqtypeid.join(',');                    $.ajax({            method: "GET",            url: "/Admin/fetchRequests",
+            data: {
+                status: statusString,
+                reqtypeid: reqtypeidstring,
+               },            success: function (response) {                console.log("Function Success")                $('#partial_container').html(response)            },            error: function () {                console.log("Function Fail")            }        })    }
+
+
+    function filterRequests(status, reqtypeid) {
+        console.log("inside filterreq");
+        console.log(status)
+        console.log(reqtypeid)
+        
+        $.ajax({
+            method: "GET",
+            url: "/Admin/filterRequests",
+            data: { status: status, reqtypeid: reqtypeid },
+            success: function (response) {
+                console.log("Function Success")
+                $('#partial_container').html(response)
+            },
+            error: function () {
+                console.log("Function Fail")
+            }
+        })
+    };
+</script>

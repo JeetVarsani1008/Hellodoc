@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//use this model for 3 pop up clear and send agreement and send mail
 namespace DAL.ViewModel
 {
     public class AdminClearVm
@@ -15,5 +16,11 @@ namespace DAL.ViewModel
         public string Email { get; set; }
 
         public int RequestTypeId { get; set; }
+
+        //send mail field
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+
     }
 }

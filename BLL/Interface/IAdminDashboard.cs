@@ -11,7 +11,7 @@ namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
-        List<RequestListAdminDash> requestDataAdmin(int Status, string reqTypeId, int RegionId );
+        List<RequestListAdminDash> requestDataAdmin(int[] Status, string reqTypeId);
 
         List<RequestListAdminDash> ViewCase(int requestId);
 
@@ -61,5 +61,10 @@ namespace BLL.Interface
 
         //clear case 
         void clearCasePost(AdminClearVm model);
+
+        //review agreement and send agreement
+        bool checkStatus(ReviewAgreementVm model);
+        void reviewAgreeementSubmit(ReviewAgreementVm model);
+        void reviewAgreementCancel(ReviewAgreementVm model);
     }
 }

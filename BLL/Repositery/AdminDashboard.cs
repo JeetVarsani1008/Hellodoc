@@ -24,22 +24,24 @@ namespace BLL.Repositery
             _context = context;
 
         }
-        public List<RequestListAdminDash> requestDataAdmin(int Status, string reqTypeId, int RegionId)
+        public List<RequestListAdminDash> requestDataAdmin(int[] Status, string reqTypeId)
         {
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
-            var requestList = _context.Requests.Where(o => o.Status == Status);
+            var requestList = _context.Requests.Where(o => Status.Contains(o.Status));
             List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
 
             if (reqTypeId != null)
             {
-                requestList = requestList.Where(o => o.Status == Status && o.RequestTypeId.ToString() == reqTypeId);
+                requestList = requestList.Where(o => o.RequestTypeId.ToString() == reqTypeId);
             }
-            if(RegionId != 0)
-            {
-            var requestdata = _context.RequestClients.Where(i => i.RegionId == RegionId);
-            requestList = requestList.Where(i => i.RequestId == requestdata.Select(u => u.RequestId).First());
+            //if(RegionId != 0)
+            //{
+            //    //var requestdata = _context.RequestClients.Where(i => i.RegionId == RegionId);
+            //    //requestList = requestList.Where(i => i.RequestId == requestdata.Select(u => u.RequestId).First());
 
-            }
+            //    requestList = requestList.Where(i => i.RequestClients.Select(r => r.RegionId.ToString()).Contains(RegionId.ToString()));
+
+            //}
             var GetRequestData = requestList.Select(r => new RequestListAdminDash() {
 
                 FirstName = r.RequestClients.Select(x => x.FirstName).First(),
@@ -472,5 +474,60 @@ namespace BLL.Repositery
             }
         }
         //clear case completed
+
+
+        //review agreement and send agreement
+        public bool checkStatus(ReviewAgreementVm model)
+        {
+            var data = _context.Requests.Any(x => x.RequestId == model.RequestId);
+            if(data)
+            {
+                return true;
+            }
+            else 
+            { 
+                return false; 
+            }
+        }
+
+        public void reviewAgreeementSubmit(ReviewAgreementVm model)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId && x.Status == 2);
+            if (data != null)
+            {
+                data.Status = 4;
+                data.ModifiedDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+
+            RequestStatusLog requestStatusLog = new RequestStatusLog();
+            requestStatusLog.RequestId = model.RequestId;
+            requestStatusLog.Status = 4;
+            requestStatusLog.CreatedDate = DateTime.Now;
+            requestStatusLog.Notes = "Review Agreement";
+
+            _context.RequestStatusLogs.Add(requestStatusLog);
+            _context.SaveChanges(); 
+        }
+
+        public void reviewAgreementCancel(ReviewAgreementVm model)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+            if(data != null)
+            {
+                data.Status = 7;
+                data.ModifiedDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+            
+            RequestStatusLog requestStatusLog = new RequestStatusLog();
+            requestStatusLog.RequestId = model.RequestId;
+            requestStatusLog.Status = 7;
+            requestStatusLog.CreatedDate = DateTime.Now;
+            requestStatusLog.Notes = model.Notes;
+
+            _context.RequestStatusLogs.Add(requestStatusLog);
+            _context.SaveChanges();
+        }
     }
 }

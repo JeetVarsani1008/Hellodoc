@@ -11,7 +11,7 @@
 <div class="d-flex justify-content-between align-items-center">
     <h5 class="ms-3">Patients (New)</h5>
     <div class="d-flex me-3">
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light">
+        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
             <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
                 Send
                 Link
@@ -49,7 +49,7 @@
         <div class="d-md-flex gap-1">
             <form role="search" class="mb-2">
                 <!-- <i class="bi bi-search"></i> -->
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="my-search-input">
             </form>
             <!-- Example split danger button -->
 
@@ -62,24 +62,24 @@
         </div>
 
         <div class="d-flex gap-2 align-items-center mb-2">
-            <button class="btn btn-outline-secondary d-none d-md-block" onclick="fetchRequests(@Model.StatusForName,@Model.Regin_Short)">All</button>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[1],@Model.Regin_Short)">
+            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequests(@Model.statusArray,'')">All</button>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'1')">
                 <i class="bi bi-circle-fill color_p"></i>
                 <div class="common-txt">Patient</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[2], @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'2')">
                 <i class="bi bi-circle-fill  color_f"></i>
                 <div class="common-txt">Family/Friends</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName,[3] ,@Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'3')">
                 <i class="bi bi-circle-fill color_b"></i>
                 <div class="common-txt">Business</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, [4], @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'4')">
                 <i class="bi bi-circle-fill color_c"></i>
                 <div class="common-txt">Concierge</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="fetchRequests(@Model.StatusForName, [5], @Model.Regin_Short)">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'5')">
                 <i class="bi bi-circle-fill color_v"></i>
                 <div class="common-txt">Vip</div>
             </div>
@@ -89,7 +89,7 @@
     @if (Model.requestListAdminDash.Count > 0)
     {
         <div class="table-responsive d-none d-md-block">
-            <table class="table overflow-visible" id="SearchData">
+            <table class="table overflow-visible" id="New">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -234,76 +234,191 @@
     }
 
 
-    @foreach (var item in Model.requestListAdminDash)
-    {
+    @*accordian start*@
+
+    <div class="mx-2 border rounded shadow">
+        <div class="accordion container-fluid d-block d-lg-none p-0" id="accordionPanelsStayOpenExample">
+            <table class="New w-100">
+                <thead>
+                    <tr>
+                        <th class="d-none"></th>
+                        <th class="d-none"></th>
+                    </tr>
+                </thead>
+
+                @{
+                    var counter = 1;
+                }
+
+                <tbody>
+
+                    @foreach (var obj in Model.requestListAdminDash)
+                    {
+                        @*
+                    <div class="accordion accordion-flush" id="accordionFlushExample@(counter)">
+                    <div class="accordion-item">
+                    *@
+                        <tr class="d-flex flex-column">
+                            <td>
+                                <h2 class="accordion-header" id="flush-heading@(counter)"></h2>
+                                <div class="accordion-button collapsed d-flex flex-column" data-bs-toggle="collapse"
+                                     data-bs-target="#flush-collapse@(counter)" aria-expanded="true"
+                                     aria-controls="flush-collapse@(counter)">
+
+                                    <div class="w-100 d-flex justify-content-between m-1">
+                                        <div class="">
+                                            <b>@obj.Name</b>
+                                        </div>
+                                        <div class="d-flex">
+                                            <small class="d-flex">@if(obj.RequestTypeId == 1) 
+                                                {
+                                                    <p>Patient</p>
+                                                }
+                                                else if(obj.RequestTypeId == 2)
+                                                {
+                                                    <p>Family/Friends</p>
+                                                }
+                                                else if(obj.RequestTypeId == 3)
+                                                {
+                                                    <p>Business</p>
+                                                }
+                                                else if (obj.RequestTypeId == 4)
+                                                {
+                                                    <p>Concierge</p>
+                                                }                                
+                                                else if (obj.RequestTypeId == 5)
+                                                {
+                                                    <p>VIP</p>
+                                                }
+                                                <i class="bi bi-circle-fill colorfor_@obj.RequestTypeId ms-2"></i></small>
+                                        </div>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-between m-1 align-items-center">
+                                        <div class="text-wrap col-6">
+                                            @obj.Address
+                                        </div>
+                                        <div class="col-6 d-flex justify-content-end">
+                                            <a class="btn rounded-pill btn-outline-info" type="button" href="https://www.google.com/maps/search/?api=1&query=@Uri.EscapeDataString(obj.Address)" target="_blank" title="Click to view map location" style="height: 10%">
+                                                <small class="">Map Location</small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-between m-1">
+                                        <div class="">
+                                            <b>
+                                                <i class="bi bi-clock text-info pe-1"></i>
+                                                Wait Time: @obj.RequestDate
+                                            </b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="m-0 p-0 text-muted" />
+                            </td>
+
+                            <td id="SearchData">
+                                <div id="flush-collapse@(counter)" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-heading@(counter)" data-bs-parent="#accordionFlushExample@(counter)">
+                                    <div class="d-flex justify-content-end" style="margin-top: -20px;">
+                                        <button class="btn rounded-pill border-primary text-primary z-3 mx-3" style="background-color:rgba(255, 255, 255, 0.719);" type="button">View Case</button>
+                                    </div>
+                                    <div class="accordion-body main-flex">
+                                        <div class="inner-flex">
+                                            <span class="accordion-heading-inner text-black">
+                                                <i class="bi bi-calendar-date text-info"></i>
+                                                Date of Birth:
+                                                <span class="accordion-value-inner">
+                                                    @obj.date,@obj.month.ToString(),@obj.year
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="inner-flex">
+                                            <i class="bi bi-envelope text-info"></i>
+                                            <span class="accordion-heading-inner text-dark">
+                                                Email:
+                                                <span class="accordion-value-inner">
+                                                    @obj.Email
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="inner-flex">
+                                            <i class="bi bi-telephone text-info"></i>
+                                            <span class="accordion-heading-inner text-dark">
+                                                Patient:
+                                                <span class="accordion-value-inner">
+                                                    @obj.Name
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="inner-flex">
+                                            <i class="bi bi-person-circle text-info"></i>
+                                            <span class="accordion-heading-inner text-dark">
+                                                Requestor:
+                                                <span class="accordion-value-inner">
+                                                    @obj.Requestor
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="row gap-3 mt-4 d-flex flex-wrap justify-content-around">
+                                            @if (@Model.StatusForName == 1)
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-info" data-bs-toggle="modal" data-bs-target="#myModal1" type="button">Assign Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2" type="button">Cancel Case</button>
+                                            }
+
+                                            <button class="col-5 p-2 btn rounded-pill btn-success">Email</button>
+
+                                            @if (@Model.StatusForName == 1)
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">View Notes</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" data-bs-toggle="modal" data-bs-target="#myModal3" type="button"> Block Patient</button>
+                                            }
+                                            else
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">View Uploads</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" onclick="fetchNotes(@obj.RequestId)" type="button">View Notes</button>
+                                            }
+
+                                            @if (@Model.StatusForName == 2)
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-info" type="button">Transfer</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Clear Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Send Agreement</button>
+                                            }
+
+                                            @if (@Model.StatusForName == 3 || @Model.StatusForName == 4 || @Model.StatusForName == 5)
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Orderes</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-secondary" type="button">Doctors Note</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">Encounter</button>
+                                            }
+
+                                            @if (@Model.StatusForName == 5)
+                                            {
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Clear Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" type="button">Close case</button>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
 
 
-        <div class="accordion d-block d-md-none" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne_@item.RequestId" aria-expanded="true" aria-controls="collapseOne_@item.RequestId">
-                        Accordion Item
-                    </button>
-                </h2>
-                <div id="collapseOne_@item.RequestId" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        @*
                     </div>
-                </div>
-            </div>
+                    </div>
+                    *@
+                        counter++;
+                    }
+                </tbody>
+            </table>
         </div>
-    }
+    </div>
+
+    @*Accordian End*@
 
 
 </div>
-
-
-
-
-
-<script>
-    $(document).ready(function () {
-        $("#searchInput").on("input", function () {
-            var value = $(this).val().toLowerCase();
-            $("#SearchData tr").filter(function () {
-               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-           });
-       });
-    });
-
-</script>
-
-@* --------------------------------this code is for pagination, add this if needed and also for search-------------------------------- *@
-@*    <script>
-        $(document).ready(function () {
-            $('#New').DataTable({
-                "initComplete": function (settings, json) {
-
-                    $('#my-search-input').val(settings.oPreviousSearch.sSearch);
-
-                    $('#my-search-input').on('keyup', function () {
-                        var searchValue = $(this).val();
-                        settings.oPreviousSearch.sSearch = searchValue;
-                        settings.oApi._fnReDraw(settings);
-                    });
-                },
-                "lengthMenu": [[5, 10, -1], [5, 10, "All"]],
-                "pageLength": 5,
-                language: {
-                    oPaginate: {
-                        sNext: '<i class="bi bi-caret-right-fill text-info"></i>',
-                        sPrevious: '<i class="bi bi-caret-left-fill text-info"></i>'
-
-                    }
-                }
-            });
-            // $('.dataTables_length').hide();
-            $('.dataTables_filter').hide();
-        });
-
-    </script> *@
-@* -------------------------pagination end------------------ *@
-
 
 
 @* for cancel case  *@
@@ -329,9 +444,59 @@
 @* for clear case  *@
 <div id="contentClear"></div>
 
+@* for clear case  *@
+<div id="contentSendMail"></div>
+
+
 
 @* for Send Agreement  *@
 <div id="contentSendAgreement"></div>
+
+
+@* this is for only for search *@
+@* <script>
+    $(document).ready(function () {
+        $("#searchInput").on("input", function () {
+            var value = $(this).val().toLowerCase();
+            $("#SearchData tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+</script> *@
+
+@* --------------------------------this code is for pagination, add this if needed and also for search-------------------------------- *@
+<script>
+    $(document).ready(function () {
+        $('#New').DataTable({
+            "initComplete": function (settings, json) {
+
+                $('#my-search-input').val(settings.oPreviousSearch.sSearch);
+
+                $('#my-search-input').on('keyup', function () {
+                    var searchValue = $(this).val();
+                    settings.oPreviousSearch.sSearch = searchValue;
+                    settings.oApi._fnReDraw(settings);
+                });
+            },
+            "lengthMenu": [[5, 10, -1], [5, 10, "All"]],
+            "pageLength": 5,
+            language: {
+                oPaginate: {
+                    sNext: '<i class="bi bi-caret-right-fill text-info"></i>',
+                    sPrevious: '<i class="bi bi-caret-left-fill text-info"></i>'
+
+                }
+            }
+        });
+        // $('.dataTables_length').hide();
+        $('.dataTables_filter').hide();
+    });
+
+</script>
+@* -------------------------pagination end------------------ *@
+
 
 <script>
     // function cancelcase(RequestId, Name) {
@@ -395,13 +560,14 @@
 
         console.log("CLicked")
 
-        let action = "/Admin" + "/" + "TransferCase"
+        let action = "/Admin/TransferCase"
         $.ajax({
             url: action,
-            type: 'POST',
+            type: 'GET',
             data: { reqId : reqid },
             success: function (result) {
                 console.log(result)
+                 $('#contentTransferNote').html(result);
 +                $('#myModalTransfer').modal('show');
 
             },
@@ -509,6 +675,26 @@
         });
     });
 
+
+    //ajax for send mail model
+    function sendmail() {
+
+        console.log("CLicked")
+        $.ajax({
+            url: '@Url.Action("SendMail", "Admin")',
+            type: 'GET',
+            success: function (result) {
+                console.log(result)
+                $('#contentSendMail').html(result);
+                $('#SendMailModal').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    }
+    
 </script>
 
 
