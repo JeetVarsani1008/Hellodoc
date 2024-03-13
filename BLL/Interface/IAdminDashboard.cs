@@ -11,7 +11,11 @@ namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
-        List<RequestListAdminDash> requestDataAdmin(int[] Status, string reqTypeId);
+        List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId);
+
+        //
+        List<RequestListAdminDash> requestDataDownloadExcelAll();
+
 
         List<RequestListAdminDash> ViewCase(int requestId);
 
@@ -66,5 +70,7 @@ namespace BLL.Interface
         bool checkStatus(ReviewAgreementVm model);
         void reviewAgreeementSubmit(ReviewAgreementVm model);
         void reviewAgreementCancel(ReviewAgreementVm model);
+
+
     }
 }

@@ -24,10 +24,10 @@ namespace BLL.Repositery
             _context = context;
 
         }
-        public List<RequestListAdminDash> requestDataAdmin(int[] Status, string reqTypeId)
+        public List<RequestListAdminDash> requestDataAdmin(string statusarray,int[] Status, string reqTypeId)
         {
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
-            var requestList = _context.Requests.Where(o => Status.Contains(o.Status));
+            var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
             List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
 
             if (reqTypeId != null)
@@ -66,7 +66,39 @@ namespace BLL.Repositery
 
             }).ToList();  
             return GetRequestData;
-        }   
+        }
+
+        //this method is for download excel foe all request id
+        public List<RequestListAdminDash> requestDataDownloadExcelAll()
+        {
+            var requestList = _context.Requests;
+
+            var GetRequestData = requestList.Select(r => new RequestListAdminDash()
+            {
+
+                FirstName = r.RequestClients.Select(x => x.FirstName).First(),
+                LastName = r.RequestClients.Select(x => x.LastName).First(),
+                RequestId = r.RequestId,
+                Name = r.RequestClients.Select(x => x.FirstName).First() + " " + r.RequestClients.Select(x => x.LastName).First(),
+                Requestor = r.FirstName + " " + r.LastName,
+                RequestDate = r.CreatedDate,
+                Address = r.RequestClients.Select(x => x.Street).First() + "," + r.RequestClients.Select(x => x.City).First() + "," + r.RequestClients.Select(x => x.State).First(),
+                Notes = r.RequestClients.Select(x => x.Notes).First(),
+                ChatWith = r.PhysicianId.ToString(),
+                Physician = r.Physician.FirstName,
+                Status = r.Status,
+                year = (int)_context.RequestClients.Select(x => x.IntYear).First(),
+                date = (int)_context.RequestClients.Select(x => x.IntDate).First(),
+                month = _context.RequestClients.Select(x => x.StrMonth).First(),
+                //DateOfBirth = new DateTime(year, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, date),
+
+                rPhonenumber = r.PhoneNumber,
+                RequestTypeId = r.RequestTypeId,
+
+
+            }).ToList();
+            return GetRequestData;
+        }
 
         public List<RequestListAdminDash> ViewCase(int requestId)
         {

@@ -72,8 +72,9 @@ namespace DAL.Controllers
 
 
         [CustomAuthorize("1")]
-        public IActionResult AdminDashboard(int[] Status, string reqtypeid)
+        public IActionResult AdminDashboard(string reqtypeid)
         {
+            string str = "1";
             int[] arr = { 1 };
             var request = _context.Requests;
 
@@ -91,40 +92,42 @@ namespace DAL.Controllers
             ViewBag.toCloseRequest = ViewBag.toCloseRequest1 + ViewBag.toCloseRequest2 + ViewBag.toCloseRequest3;
             ViewBag.unpaidRequest = reqCount.Find(i => i.Status == 9)?.Count ?? 0;
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(arr, null);
+            var requestAdmin = _adminDashboard.requestDataAdmin(str,arr, null);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
                 requestListAdminDash = requestAdmin,
+                statusArray = str,
                 StatusForName = 1,
                 reqTypId = reqtypeid,
             };
             return View(adminDashboardViewModel);
         }
-        public IActionResult fetchRequests(string status, string reqtypeid)
+        public IActionResult FetchRequests(string statusarray,string status, string reqtypeid)
         {
-      
+
             int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid);
+            var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
             {
                 requestListAdminDash = requestAdmin,
                 StatusForName = Status[0],
+                statusArray = statusarray,
                 reqTypId = reqtypeid,
-                statusArray = status,
             };
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
 
-        public IActionResult filterRequests(string status, string reqtypeid)
+        public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid)
         {
-            int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
+            //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
 
-            var requestListAdmin = _adminDashboard.requestDataAdmin(Status, reqtypeid);
+            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
             {
                 requestListAdminDash = requestListAdmin,
                 StatusForName = status[0],
+                statusArray = statusarray,
             };
 
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
@@ -143,11 +146,6 @@ namespace DAL.Controllers
         public IActionResult AdminMyProfile() {
             return View();
         }
-
-        public IActionResult CloseCase() {
-            return View();
-        }
-
 
         public IActionResult ViewCase(int requestId)
         {
@@ -523,15 +521,21 @@ namespace DAL.Controllers
         }
 
         //this is for download excel
-        //this is pending for now : date :- 12/03/2024
-        public IActionResult DownloadExcel()
+        //this is download excel file for indevidual status (new,pending, active,conclude, toclose and unpaid)
+        public IActionResult DownloadExcel(string statusarray)
         {
-            //int[] arr = { 1 };
-            //var data = _adminDashboard.requestDataAdmin(1, null, 0);
-            //var excelData = _adminDashboard.ExportToExcel(data);
-            return File( "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
+            string str = statusarray;
+            var data = _adminDashboard.requestDataAdmin(str,null, null);
+            var excelData = _adminDashboard.ExportToExcel(data);
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
+        }
 
-
+        //this method id used for download excel file for all request
+        public IActionResult DownloadExcelAll()
+        {
+            var data = _adminDashboard.requestDataDownloadExcelAll();
+            var excelData = _adminDashboard.ExportToExcel(data);
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
         }
 
         //clear case : 2 methods
@@ -571,10 +575,11 @@ namespace DAL.Controllers
         [HttpPost]
         public async Task<IActionResult> SendAgreement(AdminClearVm model)
         {
-
+            
             var subject = "Review Agreement Request";
             var agreementLink = "<a href=" + Url.Action("ReviewAgreement", "Admin", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Confirm Agreement</a>";
 
+            
             var body = "<b>Please find the Password Reset Link.</b><br/>" + agreementLink;
 
             await SendEmailAsync(model.Email, subject, body);
@@ -641,21 +646,38 @@ namespace DAL.Controllers
 
 
         //send mail-used adminclear case model for send mail to patient 
+        //this are one of the five buttons
         public IActionResult SendMail()
         {
             return PartialView("_adminSendMail");
+        }
+        public IActionResult AdminCreateRequest()
+        {
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> SendMail(AdminClearVm model)
         {
-            var subject = "Review Agreement Request";
-            var agreementLink = "<a href=" + Url.Action("Submit_Request", "Home", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Confirm Agreement</a>";
+            var subject = "Submit Request";
+            var submitLink = "<a href=" + Url.Action("Submit_Request", "Home", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Submit Your Request</a>";
 
-            var body = "<b>Please find the Password Reset Link.</b><br/>" + agreementLink;
+            var body = "<b>Please find the Password Reset Link.</b><br/>" + submitLink;
 
             await SendEmailAsync(model.Email, subject, body);
             return RedirectToAction("AdminDashboard");
+        }
+
+        //this part is for close case
+        public IActionResult CloseCase()
+        {
+            return View();
+        }
+        
+        //this part is for encounter form 
+        public IActionResult EncounterForm()
+        {
+            return View();
         }
     }
 }

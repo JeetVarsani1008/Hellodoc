@@ -9,7 +9,31 @@
 
 
 <div class="d-flex justify-content-between align-items-center">
-    <h5 class="ms-3">Patients (New)</h5>
+    <h5 class="ms-3 d-flex">Patients (
+        @if(Model.StatusForName == 1)
+        {
+            <p>New</p>
+        }
+        else if(Model.StatusForName == 2)
+        {
+            <p>Pending</p>
+        }
+        else if(Model.StatusForName == 4 || Model.StatusForName == 5)
+        {
+            <p>Active</p>
+        }
+        else if(Model.StatusForName == 6)
+        {
+            <p>Conclude</p>
+        }
+        else if(Model.StatusForName == 3 || Model.StatusForName == 7 || Model.StatusForName == 8)
+        {
+            <p>To Close</p>
+        }
+        else if(Model.StatusForName == 9)
+        {
+            <p>Unpaid</p>
+        })</h5>
     <div class="d-flex me-3">
         <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
             <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
@@ -17,17 +41,17 @@
                 Link
             </span>
         </button>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="loaction.href='@Url.Action("CreateRequestDorAdmin","Admin")'">
+        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="location.href='@Url.Action("AdminCreateRequest","Admin")'">
             <i class="bi bi-pencil-square me-md-1"></i>
             <span class="d-md-block d-none px-2 ">
                 Create
                 Request
             </span>
         </button>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
+        <a type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcel" asp-route-statusarray="@Model.statusArray">
             <i class="bi bi-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">Export</span>
-        </button>
-        <a type="button" id="export-button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcel">
+        </a>
+        <a type="button" id="export-button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcelAll">
             <i class="bi bi-box-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">
                 Export
                 All
@@ -62,24 +86,24 @@
         </div>
 
         <div class="d-flex gap-2 align-items-center mb-2">
-            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequests(@Model.statusArray,'')">All</button>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'1')">
+            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,null)">All</button>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,@Model.StatusForName,'1')">
                 <i class="bi bi-circle-fill color_p"></i>
                 <div class="common-txt">Patient</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'2')">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'2')">
                 <i class="bi bi-circle-fill  color_f"></i>
                 <div class="common-txt">Family/Friends</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'3')">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'3')">
                 <i class="bi bi-circle-fill color_b"></i>
                 <div class="common-txt">Business</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'4')">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'4')">
                 <i class="bi bi-circle-fill color_c"></i>
                 <div class="common-txt">Concierge</div>
             </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,'5')">
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.statusArray,'5')">
                 <i class="bi bi-circle-fill color_v"></i>
                 <div class="common-txt">Vip</div>
             </div>
@@ -201,7 +225,7 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 5))
                                     {
-                                        <li><button class="dropdown-item">Close Case</button></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("CloseCase","Admin", new {requestId = @obj.RequestId})'">>Close Case</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
@@ -221,7 +245,7 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
                                     {
-                                        <li><a class="dropdown-item" href="#">Encounter</a></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("EncounterForm","Admin", new {requestId = @obj.RequestId})'">Encounter</button></li>
                                     }
                                 </ul>
                             </td>
@@ -661,19 +685,20 @@
     }
 
     //this ajax is used for to download excel file
-    $(document).ready(function () {
-        $('#export-button').click(function () {
-            $.ajax({
-                url: '@Url.Action("ExportToExcel", "Admin")',
-                type: 'GET',
-                success: function (data) {
-                    console.log("this is trial for excel");
-                    var blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-                    saveAs(blob, 'Table.xlsx');
-                }
-            });
-        });
-    });
+    // $(document).ready(function () {
+    //     $('#export-button').click(function () {
+    //         console.log("triggered")
+    //         $.ajax({
+    //             url: '@Url.Action("ExportToExcel", "Admin")',
+    //             type: 'GET',
+    //             success: function (data) {
+    //                 console.log("this is trial for excel");
+    //                 var blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    //                 saveAs(blob, 'Table.xlsx');
+    //             }
+    //         });
+    //     });
+    // });
 
 
     //ajax for send mail model
