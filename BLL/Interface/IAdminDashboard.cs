@@ -13,7 +13,7 @@ namespace BLL.Interface
     {
         List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId);
 
-        //
+        //this is for download excel for all request
         List<RequestListAdminDash> requestDataDownloadExcelAll();
 
 
@@ -71,6 +71,18 @@ namespace BLL.Interface
         void reviewAgreeementSubmit(ReviewAgreementVm model);
         void reviewAgreementCancel(ReviewAgreementVm model);
 
+        //close case
+        CloseCaseVm closeCaseGet(int requestId);
+        void closeCaseEdit(int command, CloseCaseVm model, int requestId);
+
+        // this part is for adminprofile
+        AdminProfileVm getAdminDetails(int aspId);
+
+        void adminResetPassword(AdminProfileVm model);
+
+        void adminEditDetails1(AdminProfileVm model);
+
+        void adminEditDetails2(AdminProfileVm model);
 
     }
 }

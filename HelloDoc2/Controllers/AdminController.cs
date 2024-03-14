@@ -18,6 +18,7 @@ using ClosedXML.Excel;
 using HtmlAgilityPack;
 using MimeKit;
 using Org.BouncyCastle.Ocsp;
+using DocumentFormat.OpenXml.Office2010.Excel;
 namespace DAL.Controllers
 {
     public class AdminController : Controller
@@ -44,6 +45,8 @@ namespace DAL.Controllers
         [HttpPost]
         public IActionResult AdminLogin(LoginVm loginVm)
         {
+            var Id = _context.AspNetUsers.FirstOrDefault(x => x.Email == loginVm.Email).Id;
+            HttpContext.Session.SetInt32("AspId",Id);
             AspNetUser user = _login.adminLogin(loginVm);
             AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
             if (user != null)
@@ -142,9 +145,6 @@ namespace DAL.Controllers
                 {1, "Patient" },
             };
             return requestTypeId.ToString() != null ? reqTypesName.GetValueOrDefault(requestTypeId, "Unknown Request Type"): "Unknown Request Type";
-        }
-        public IActionResult AdminMyProfile() {
-            return View();
         }
 
         public IActionResult ViewCase(int requestId)
@@ -668,16 +668,55 @@ namespace DAL.Controllers
             return RedirectToAction("AdminDashboard");
         }
 
+
         //this part is for close case
-        public IActionResult CloseCase()
+        public IActionResult CloseCase(int requestId)
         {
-            return View();
+            var data = _adminDashboard.closeCaseGet(requestId);
+            return View(data);
         }
-        
+
+        public IActionResult CloseCaseEdit(int command, CloseCaseVm model, int requestId)
+        {
+            _adminDashboard.closeCaseEdit(command, model, requestId);
+            var data = _adminDashboard.closeCaseGet(requestId);
+            return View("CloseCase", data);
+        }
+
         //this part is for encounter form 
         public IActionResult EncounterForm()
         {
             return View();
+        }
+
+        //this is for admin profile 
+        public IActionResult AdminMyProfile()
+        {
+            int? id = HttpContext.Session.GetInt32("AspId");
+            var data = _adminDashboard.getAdminDetails(id??0);
+            return View(data);
+        }
+
+        public IActionResult AdminResetPassword(AdminProfileVm model)
+        {
+            _adminDashboard.adminResetPassword(model);
+            return View("AdminMyProfile");
+        }
+        
+        public IActionResult AdminEditDetails1(AdminProfileVm model)
+        {
+            _adminDashboard.adminEditDetails1(model);
+            int? id = HttpContext.Session.GetInt32("AspId");
+            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            return View("AdminMyProfile",data);
+        }
+
+        public IActionResult AdminEditDetails2(AdminProfileVm model)
+        {
+            _adminDashboard.adminEditDetails2(model);
+            int? id = HttpContext.Session.GetInt32("AspId");
+            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            return View("AdminMyProfile",data);
         }
     }
 }

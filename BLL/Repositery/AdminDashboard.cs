@@ -107,9 +107,9 @@ namespace BLL.Repositery
             var requestList = _context.Requests.Where(o => o.RequestId == requestId);
             var user = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
 
-            int intYear = (int)user.IntYear;
-            int intDate = (int)user.IntDate;
-            string month = (string)user.StrMonth;
+            int intYear = user?.IntYear ?? 1;
+            int intDate = user?.IntDate ?? 1;
+            string month = (string)user?.StrMonth?? "Jan";
             DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
             var GetRequestData = requestList.Select(r => new RequestListAdminDash()
             {
@@ -127,7 +127,7 @@ namespace BLL.Repositery
                 ChatWith = r.PhysicianId.ToString(),
                 Physician = r.Physician.FirstName,
                 Status = r.Status,
-               
+                //DateOfBirth = birthdate,
                 rPhonenumber = r.PhoneNumber,
                 RequestTypeId = r.RequestTypeId,
 
@@ -559,6 +559,115 @@ namespace BLL.Repositery
             requestStatusLog.Notes = model.Notes;
 
             _context.RequestStatusLogs.Add(requestStatusLog);
+            _context.SaveChanges();
+        }
+
+        //close case 
+        public CloseCaseVm closeCaseGet(int requestId)
+        {
+            var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+            if (data != null)
+            {
+                int intYear = (int)data.IntYear;
+                int intDate = (int)data.IntDate;
+                string month = (string)data.StrMonth;
+                DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
+                CloseCaseVm closeCaseVm = new CloseCaseVm
+                {
+                RequestId = requestId,
+                FirstName = data?.FirstName ?? "Unknown",
+                LastName = data?.LastName ?? "Unknow",
+                PhoneNumber = data.PhoneNumber,
+                DateOfBirth = birthdate,
+                Email = data.Email,
+                };
+
+                return closeCaseVm;
+            }
+            return null;
+        }
+
+        public void closeCaseEdit(int command, CloseCaseVm model, int requestId)
+        {
+            if(command == 1)
+            {
+                var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+                data.PhoneNumber = model.PhoneNumber;
+                data.Email = model.Email;
+                _context.SaveChanges();
+
+                var request = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+                request.PhoneNumber = model.PhoneNumber;
+                request.Email = model.Email;
+                request.ModifiedDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+            else
+            {
+                var req = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+                req.Status = 10;
+                req.ModifiedDate = DateTime.Now;
+                _context.SaveChanges();
+
+
+                RequestStatusLog requestStatusLog = new RequestStatusLog
+                {
+                    RequestId = requestId,
+                    Status = 10,
+                    CreatedDate = DateTime.Now,
+                };
+                _context.RequestStatusLogs.Add(requestStatusLog);
+                _context.SaveChanges();
+            }
+
+        }
+
+        //this part is for get admin profile details
+        public AdminProfileVm getAdminDetails(int aspId)
+        {
+            var data = _context.Admins.FirstOrDefault(x => x.AspNetUserId == aspId);
+            AdminProfileVm adminProfileVm = new AdminProfileVm
+            {
+                AspNetUserId = aspId,
+                UserName = data.FirstName + " " + data.LastName,
+                FirstName = data.FirstName,
+                LastName = data.LastName,
+                Email = data.Email,
+                Mobile = data.Mobile,
+                Address1 = data.Address1,
+                Address2 = data.Address2,
+                City = data.City,
+                Zip = data.Zip,
+                State = data.RegionId.ToString(),
+            };
+            return adminProfileVm;
+        }
+
+        public void adminResetPassword(AdminProfileVm model)
+        {
+            var data = _context.AspNetUsers.FirstOrDefault(x => x.Id == model.AspNetUserId);
+            data.PasswordHash = model.Password;
+            _context.SaveChanges();
+        }
+
+        public void adminEditDetails1(AdminProfileVm model)
+        {
+            var data = _context.Admins.FirstOrDefault(x => x.AspNetUserId == model.AspNetUserId);
+            data.FirstName = model.FirstName;
+            data.LastName = model.LastName;
+            data.Email = model.Email;
+            data.Mobile = model.Mobile;
+            _context.SaveChanges();
+        }
+
+        public void adminEditDetails2(AdminProfileVm model)
+        {
+            var data = _context.Admins.FirstOrDefault(x => x.AspNetUserId == model.AspNetUserId);
+            data.Address1 = model.Address1;
+            data.Address2 = model.Address2;
+            data.City = model.City;
+            data.Zip = model.Zip;
+            data.AltPhone = model.AlternateMobile;
             _context.SaveChanges();
         }
     }

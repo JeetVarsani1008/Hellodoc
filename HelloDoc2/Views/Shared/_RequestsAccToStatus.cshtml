@@ -117,19 +117,23 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                         {
                             <th scope="col">Date Of Birth</th>
                         }
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3))
+                        @if(Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
+                        {
+                            <th scope="col">Region</th>
+                        }
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5))
                         {
                             <th scope="col">Requestor</th>
                         }
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                         {
                             <th scope="col">Physician Name</th>
                         }
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                         {
                             <th scope="col">Date Of Service</th>
                         }
@@ -138,12 +142,12 @@
                             <th scope="col">Requested date</th>
                         }
 
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 9))
                         {
                             <th scope="col">Phone</th>
                         }
                         <th scope="col">Address</th>
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 7 || x.Status == 8 ))
                         {
                             <th scope="col">Notes</th>
                         }
@@ -158,19 +162,23 @@
 
                         <tr class="align-middle color_@obj.RequestTypeId" id="SearchData">
                             <td><div>@obj.Name</div></td>
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                             {
                                 <td>@obj.date,@obj.month.ToString(),@obj.year</td>
                             }
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
+                            {
+                                <td>Region</td>
+                            }
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5))
                             {
                                 <td>@obj.Requestor</td>
                             }
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                             {
                                 <td>@obj.Physician</td>
                             }
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                             {
                                 <td>@obj.DateOfService</td>
                             }
@@ -178,18 +186,18 @@
                             {
                                 <td>@obj.RequestDate</td>
                             }
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 6))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 9))
                             {
                                 <td>@obj.Phone</td>
                             }
                             <td>@obj.Address</td>
-                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 5))
+                            @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 7 || x.Status == 8))
                             {
                                 <td>@obj.Notes</td>
                             }
 
                             <td class="d-flex dropdown">
-                                @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                                @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                                 {
                                     <button class="btn btn-outline-primary me-2 text-white border-white">Patient</button>
                                 }
@@ -210,28 +218,28 @@
 
                                     <li><button class="dropdown-item" onclick="location.href='@Url.Action("ViewCase","Admin", new {requestId = @obj.RequestId})'">View Case</button></li>
 
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                                     {
                                         <li><button class="dropdown-item" onclick="location.href='@Url.Action("ViewUploads","Admin", new {requestId = @obj.RequestId})'">View Uploads</button></li>
                                     }
                                     <li><a class="dropdown-item" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a></li>
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li><button class="dropdown-item" onclick="location.href='@Url.Action("Orders","Admin", new {requestId = @obj.RequestId})'">Orders</button></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li><a class="dropdown-item" href="#">Doctors Notes</a></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
                                     {
-                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("CloseCase","Admin", new {requestId = @obj.RequestId})'">>Close Case</button></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("CloseCase","Admin", new {requestId = @obj.RequestId})'">Close Case</button></li>
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2))
                                     {
                                         <li><button class="dropdown-item" onclick="transfercase(@obj.RequestId)">Transfer</button></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li><button class="dropdown-item" onclick="clearcase(@obj.RequestId)">Clear Case</button></li>
                                     }
@@ -243,7 +251,7 @@
                                     {
                                         <li><button class="dropdown-item" onclick="blockcase(@obj.RequestId)">Block Patient</button></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5))
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li><button class="dropdown-item" onclick="location.href='@Url.Action("EncounterForm","Admin", new {requestId = @obj.RequestId})'">Encounter</button></li>
                                     }
@@ -506,6 +514,7 @@
             },
             "lengthMenu": [[5, 10, -1], [5, 10, "All"]],
             "pageLength": 5,
+            "order": [],
             language: {
                 oPaginate: {
                     sNext: '<i class="bi bi-caret-right-fill text-info"></i>',

@@ -38,7 +38,7 @@ namespace BLL.Repositery
 
         public AspNetUserRole findAspNetRole(AspNetUser user)
         {
-            var admindata = _context.AspNetUserRoles.FirstOrDefault(x => x.UserId == user.Id);
+             var admindata = _context.AspNetUserRoles.FirstOrDefault(x => x.UserId == user.Id);
             return admindata;
         }
 

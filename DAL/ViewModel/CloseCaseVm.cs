@@ -19,5 +19,7 @@ namespace DAL.ViewModel
         public string PhoneNumber { get; set; }
 
         public DateTime DateOfBirth { get; set; }
+
+
     }
 }
