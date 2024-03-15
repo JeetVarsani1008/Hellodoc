@@ -38,7 +38,11 @@ namespace DAL.Controllers
 
         public IActionResult AdminLogin()
         {
-            Response.Cookies.Delete("jwt");
+            HttpContext.Session.Clear();
+            Response.Cookies.Delete("Jwt");
+            Response.Cookies.Delete(".AspNetCore.Session");
+            Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
+
             return View();
         }
 
@@ -77,6 +81,7 @@ namespace DAL.Controllers
         [CustomAuthorize("1")]
         public IActionResult AdminDashboard(string reqtypeid)
         {
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             string str = "1";
             int[] arr = { 1 };
             var request = _context.Requests;
@@ -683,15 +688,10 @@ namespace DAL.Controllers
             return View("CloseCase", data);
         }
 
-        //this part is for encounter form 
-        public IActionResult EncounterForm()
-        {
-            return View();
-        }
-
         //this is for admin profile 
         public IActionResult AdminMyProfile()
         {
+            ViewBag.ActiveDashboardNav = "AdminMyProfile";
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id??0);
             return View(data);
@@ -700,7 +700,9 @@ namespace DAL.Controllers
         public IActionResult AdminResetPassword(AdminProfileVm model)
         {
             _adminDashboard.adminResetPassword(model);
-            return View("AdminMyProfile");
+            int? id = HttpContext.Session.GetInt32("AspId");
+            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            return View("AdminMyProfile",data);
         }
         
         public IActionResult AdminEditDetails1(AdminProfileVm model)
@@ -717,6 +719,19 @@ namespace DAL.Controllers
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id ?? 0);
             return View("AdminMyProfile",data);
+        }
+
+        //this part is for encounter form 
+        public IActionResult EncounterForm(int reqId)
+        {
+            var data = _adminDashboard.encounterFormGetData(reqId);
+            return View(data);
+        }
+
+        public IActionResult PostEncounterData(EncounterVm model)
+        {
+            _adminDashboard.postEncounterData(model);
+            return View("EncounterForm");
         }
     }
 }

@@ -35,26 +35,27 @@
                     <label for="floatingInput" style="margin-left: 1em">Password</label>
                 </div>
 
-                @*Status*@
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <select class="form-select" aria-label="Default select example" disabled> 
-                        <option selected>Active</option>
-                        <option value="1">Leave</option>
-                        <option value="2">Retired</option>
-                    </select>
-                    <label>Status</label>
-                </div>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <select asp-for="Status" class="form-select" aria-label="Default select example" style=" width: 100%; height:57px;" disabled>
+                            <option selected>Active</option>
+                            <option value="1">Leave</option>
+                            <option value="2">Retired</option>
+                        </select>
+                        <label for="select">Status</label>
+                    </div>
 
-                @*Role*@
+                    @*Role*@
 
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex" >
-                    <select class="form-select" aria-label="Default select example" disabled>
-                        <option selected readonly>Master Admin</option>
-                        <option value="1">Admin</option>
-                    </select>
-                    <label>Role</label>
-                </div>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <select asp-for="Role" class="form-select" aria-label="Default select example" style=" width: 100%;" disabled>
+                            <option selected>Master Admin</option>
+                            <option value="1">Admin</option>
+                        </select>
+                        <label>Role</label>
+                    </div>
 
+
+            </div>
                 @*Reset Password*@
                 <div class="col-12 d-flex justify-content-end">
                     <button type="button" class="btn btn-outline-primary colorlessbtn" id="resetpasswordbtn">Reset Password</button>
@@ -64,8 +65,6 @@
 
                     <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="adminprofilecancelbtn" style="display: none;">Cancel</a>
                 </div>
-
-            </div>
             </form>
 
 
@@ -199,6 +198,7 @@
 </div>
 
 <script>
+
     //this is for reset password and save and cancel
     const editbtn = document.getElementById('resetpasswordbtn')
     const submitcancel = document.getElementById('adminprofilesavebtn')
@@ -223,7 +223,7 @@
         for (let index = 0; index < enabled.length; index++) 
         {
             //if i want to use read only instend of disabled i can use by this way
-            //enabled1[index].readOnly = false;
+            //enabled1[index].readOnly = true;
             enabled[index].disabled = true;
         }
         submitcancel.style.display = "none";
@@ -256,7 +256,7 @@
         for (var index = 0; index < enabled1.length; index++) 
         {
             //if i want to use read only instend of disabled i can use by this way
-            //enabled1[index].readOnly = false;
+            //enabled1[index].readOnly = true;
             enabled1[index].disabled = true;
         }
         submitcancel1.style.display = "none";
@@ -290,7 +290,7 @@
         for (var index = 0; index < enabled2.length; index++) 
         {
             //if i want to use read only instend of disabled i can use by this way
-            //enabled1[index].readOnly = false;
+            //enabled1[index].readOnly = true;
             enabled2[index].disabled = true;
         }
         submitcancel2.style.display = "none";
@@ -298,3 +298,7 @@
         this.style.display = "none"
     })
 </script>
+
+
+
+    

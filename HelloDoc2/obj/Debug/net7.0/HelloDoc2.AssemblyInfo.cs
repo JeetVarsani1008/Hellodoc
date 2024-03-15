@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HelloDoc2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50a859f253b3d4d4fd9b8093ee2687e418066cfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fba821a213eb001074d013c33ec45fc077c857f")]
 [assembly: System.Reflection.AssemblyProductAttribute("HelloDoc2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HelloDoc2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

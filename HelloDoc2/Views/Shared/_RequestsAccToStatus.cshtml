@@ -253,7 +253,7 @@
                                     }
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
-                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("EncounterForm","Admin", new {requestId = @obj.RequestId})'">Encounter</button></li>
+                                        <li><button class="dropdown-item" onclick="location.href='@Url.Action("EncounterForm","Admin", new {reqId = @obj.RequestId})'">Encounter</button></li>
                                     }
                                 </ul>
                             </td>
@@ -268,9 +268,9 @@
 
     @*accordian start*@
 
-    <div class="mx-2 border rounded shadow">
+    <div class="mx-2 border rounded shadow" data-bs-theme="dark">
         <div class="accordion container-fluid d-block d-lg-none p-0" id="accordionPanelsStayOpenExample">
-            <table class="New w-100">
+            <table class="w-100" id="New1">
                 <thead>
                     <tr>
                         <th class="d-none"></th>
@@ -351,7 +351,7 @@
                                 <div id="flush-collapse@(counter)" class="accordion-collapse collapse"
                                      aria-labelledby="flush-heading@(counter)" data-bs-parent="#accordionFlushExample@(counter)">
                                     <div class="d-flex justify-content-end" style="margin-top: -20px;">
-                                        <button class="btn rounded-pill border-primary text-primary z-3 mx-3" style="background-color:rgba(255, 255, 255, 0.719);" type="button">View Case</button>
+                                        <button class="btn rounded-pill border-primary text-primary z-3 mx-3" style="background-color:rgba(255, 255, 255, 0.719);" type="button" onclick="location.href='@Url.Action("ViewCase","Admin", new {requestId = @obj.RequestId})'">View Case</button>
                                     </div>
                                     <div class="accordion-body main-flex">
                                         <div class="inner-flex">
@@ -393,41 +393,41 @@
                                         <div class="row gap-3 mt-4 d-flex flex-wrap justify-content-around">
                                             @if (@Model.StatusForName == 1)
                                             {
-                                                <button class="col-5 p-2 btn rounded-pill btn-info" data-bs-toggle="modal" data-bs-target="#myModal1" type="button">Assign Case</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-danger" data-bs-toggle="modal" data-bs-target="#myModal2" type="button">Cancel Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-info" type="button" onclick="asigncase(@obj.RequestId)">Assign Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" type="button" onclick="cancelcase(@obj.RequestId)">Cancel Case</button>
                                             }
 
                                             <button class="col-5 p-2 btn rounded-pill btn-success">Email</button>
 
                                             @if (@Model.StatusForName == 1)
                                             {
-                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">View Notes</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-danger" data-bs-toggle="modal" data-bs-target="#myModal3" type="button"> Block Patient</button>
+                                                <a class="col-5 p-2 btn rounded-pill btn-success" type="button" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" type="button" onclick="blockcase(@obj.RequestId)"> Block Patient</button>
                                             }
                                             else
                                             {
-                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">View Uploads</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-success" onclick="fetchNotes(@obj.RequestId)" type="button">View Notes</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button" onclick="location.href='@Url.Action("ViewUploads","Admin", new {requestId = @obj.RequestId})'">View Uploads</button>
+                                                <a class="col-5 p-2 btn rounded-pill btn-success" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a>
                                             }
 
                                             @if (@Model.StatusForName == 2)
                                             {
                                                 <button class="col-5 p-2 btn rounded-pill btn-info" type="button">Transfer</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Clear Case</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Send Agreement</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button" onclick="clearcase(@obj.RequestId)">Clear Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button" onclick="sendagreement(@obj.RequestId,@obj.RequestTypeId)">Send Agreement</button>
                                             }
 
                                             @if (@Model.StatusForName == 3 || @Model.StatusForName == 4 || @Model.StatusForName == 5)
                                             {
-                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Orderes</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button" onclick="location.href='@Url.Action("Orders","Admin", new {requestId = @obj.RequestId})'">Orderes</button>
                                                 <button class="col-5 p-2 btn rounded-pill btn-secondary" type="button">Doctors Note</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button">Encounter</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-success" type="button" onclick="location.href='@Url.Action("EncounterForm","Admin", new {reqId = @obj.RequestId})'">Encounter</button>
                                             }
 
                                             @if (@Model.StatusForName == 5)
                                             {
-                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button">Clear Case</button>
-                                                <button class="col-5 p-2 btn rounded-pill btn-danger" type="button">Close case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-warning" type="button" onclick="clearcase(@obj.RequestId)">Clear Case</button>
+                                                <button class="col-5 p-2 btn rounded-pill btn-danger" type="button" onclick="location.href='@Url.Action("CloseCase","Admin", new {requestId = @obj.RequestId})'">Close case</button>
                                             }
                                         </div>
                                     </div>
@@ -500,8 +500,41 @@
 
 @* --------------------------------this code is for pagination, add this if needed and also for search-------------------------------- *@
 <script>
+
+    //this pagination is for table
     $(document).ready(function () {
         $('#New').DataTable({
+            "initComplete": function (settings, json) {
+
+                $('#my-search-input').val(settings.oPreviousSearch.sSearch);
+
+                $('#my-search-input').on('keyup', function () {
+                    var searchValue = $(this).val();
+                    settings.oPreviousSearch.sSearch = searchValue;
+                    settings.oApi._fnReDraw(settings);
+                });
+            },
+            "lengthMenu": [[5, 10, -1], [5, 10, "All"]],
+            "pageLength": 5,
+            "order": [],
+            language: {
+                oPaginate: {
+                    sNext: '<i class="bi bi-caret-right-fill text-info"></i>',
+                    sPrevious: '<i class="bi bi-caret-left-fill text-info"></i>'
+
+                }
+            }
+        });
+        // $('.dataTables_length').hide();
+        $('.dataTables_filter').hide();
+
+
+    });
+
+
+    //this pagination is for accordian
+    $(document).ready(function () {
+        $('#New1').DataTable({
             "initComplete": function (settings, json) {
 
                 $('#my-search-input').val(settings.oPreviousSearch.sSearch);

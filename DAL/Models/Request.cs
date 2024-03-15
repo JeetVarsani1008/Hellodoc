@@ -48,6 +48,7 @@ public partial class Request
     [Column(TypeName = "bit(1)")]
     public BitArray? IsUrgentEmailSent { get; set; }
 
+    [Column(TypeName = "timestamp without time zone")]
     public DateTime? LastWellnessDate { get; set; }
 
     [Column(TypeName = "bit(1)")]
@@ -87,6 +88,9 @@ public partial class Request
 
     [Column(TypeName = "timestamp without time zone")]
     public DateTime? CreatedDate { get; set; }
+
+    [InverseProperty("Request")]
+    public virtual ICollection<Encounter> Encounters { get; set; } = new List<Encounter>();
 
     [ForeignKey("PhysicianId")]
     [InverseProperty("Requests")]

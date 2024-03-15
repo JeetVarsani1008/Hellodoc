@@ -4,14 +4,14 @@
 @{    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";}
 @* <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
  *@
-<div class="bg-body-tertiary vh-100 d-flex flex-column">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid g-0">
+<div class="bg-body-tertiary vh-100 d-flex flex-column" data-bs-theme="dark">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid g-0">
 
                         <div class="container111">
                             <div class="inner">
-                                <button class="box bx1" id="box" onclick="fetchRequests('1','1',null)">
+                                <button class="box bx1 selected" id="box" onclick="fetchRequests('1','1',null)">
 
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person-plus me-2 d-none d-md-block fs-4"></i>
                                         <span class="stext">NEW</span>
                                     </div>
                                     <div class="down">
@@ -20,8 +20,8 @@
 
                                 </button>
                                 <button class="box bx2" onclick="fetchRequests('2','2',null)">
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person me-2 d-none px-1 d-md-block fs-4"></i>
                                         <span class="stext">PENDING</span>
                                     </div>
                                     <div class="down">
@@ -30,8 +30,8 @@
 
                                 </button>
                                 <button class="box bx3" onclick="fetchRequests('45','4,5',null)">
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-check2-circle me-2 d-none px-1 d-md-block fs-4"></i>
                                         <span class="stext">ACTIVE</span>
                                     </div>
                                     <div class="down">
@@ -41,8 +41,8 @@
                             </div>
                             <div class="inner">
                                 <button class="box bx4" onclick="fetchRequests('6','6',null)">
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-clock-history me-2 d-none px-1 d-md-block fs-4"></i>
                                         <span class="stext">CONCLUDE</span>
                                     </div>
                                     <div class="down">
@@ -50,8 +50,8 @@
                                     </div>
                                 </button>
                                 <button class="box bx5" onclick="fetchRequests('378','3,7,8',null)">
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person-x me-2 d-none px-1 d-md-block fs-4"></i>
                                         <span class="stext">TO CLOSE</span>
                                     </div>
                                     <div class="down">
@@ -59,8 +59,8 @@
                                     </div>
                                 </button>
                                 <button class="box bx6" onclick="fetchRequests('9','9',null)">
-                                    <div class="up">
-                                        <img class="img1" />
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-currency-dollar me-2 d-none px-1 d-md-block fs-4"></i>
                                         <span class="stext">UNPAID</span>
                                     </div>
                                     <div class="down">

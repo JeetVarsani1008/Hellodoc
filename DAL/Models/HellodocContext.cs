@@ -35,6 +35,8 @@ public partial class HellodocContext : DbContext
 
     public virtual DbSet<EmailLog> EmailLogs { get; set; }
 
+    public virtual DbSet<Encounter> Encounters { get; set; }
+
     public virtual DbSet<HealthProfessional> HealthProfessionals { get; set; }
 
     public virtual DbSet<HealthProfessionalType> HealthProfessionalTypes { get; set; }
@@ -172,6 +174,15 @@ public partial class HellodocContext : DbContext
         modelBuilder.Entity<EmailLog>(entity =>
         {
             entity.HasKey(e => e.EmailLogId).HasName("EmailLog_pkey");
+        });
+
+        modelBuilder.Entity<Encounter>(entity =>
+        {
+            entity.HasKey(e => e.EncounterId).HasName("Encounter_pkey");
+
+            entity.HasOne(d => d.Request).WithMany(p => p.Encounters)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("Encounter_RequestId_fkey");
         });
 
         modelBuilder.Entity<HealthProfessional>(entity =>

@@ -84,5 +84,9 @@ namespace BLL.Interface
 
         void adminEditDetails2(AdminProfileVm model);
 
+
+        //this part is for encounter form
+        EncounterVm encounterFormGetData(int reqId);
+        void postEncounterData(EncounterVm model);
     }
 }

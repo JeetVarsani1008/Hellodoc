@@ -4,9 +4,11 @@ using DAL.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -668,6 +670,107 @@ namespace BLL.Repositery
             data.City = model.City;
             data.Zip = model.Zip;
             data.AltPhone = model.AlternateMobile;
+            _context.SaveChanges();
+        }
+
+        //this part is for encounter form 
+        public EncounterVm encounterFormGetData(int reqId)
+        {
+            var enc = _context.Encounters.FirstOrDefault(x => x.RequestId == reqId);
+            var reqClient = _context.RequestClients.FirstOrDefault(x => x.RequestId == reqId);
+            int intYear = (int)reqClient.IntYear;
+            int intDate = (int)reqClient.IntDate;
+            string month = (string)reqClient.StrMonth;
+            DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
+
+            if (enc != null)
+            {
+
+                EncounterVm encounterVm = new EncounterVm
+                {
+                    RequestId = reqId,
+                    FirstName = reqClient.FirstName,
+                    LastName = reqClient.LastName,
+                    Address = reqClient.Address,
+                    DateOfBirth = birthdate,
+                    PhoneNumber = reqClient.PhoneNumber,
+                    Email = reqClient.Email,
+                    MedicalHistory = enc.MedicalHistory,
+                    Medications = enc.Medications,
+                    Allergies = enc.Allergies,
+                    Temp = enc.Temp,
+                    Hr = enc.Hr,
+                    Rr = enc.Rr,
+                    BloodPressureS = enc.BloodPressureS,
+                    BloodPressureD = enc.BloodPressureD,
+                    O2 = enc.O2,
+                    Pain = enc.Pain,
+                    Heent = enc.Heent,
+                    Cv = enc.Cv,
+                    Chest = enc.Chest,
+                    Abd = enc.Abd,
+                    Extr = enc.Extr,
+                    Skin = enc.Skin,
+                    Neuro = enc.Neuro,
+                    Other = enc.Other,
+                    Diagnosis = enc.Diagnosis,
+                    TreatmentPlan = enc.TreatmentPlan,
+                    MedicationsDispensed = enc.MedicationsDispensed,
+                    Procedures = enc.Procedures,
+                    FollowUp = enc.Followup
+                };
+                return encounterVm;
+            }
+            else
+            {
+                _context.Encounters.Add(new Encounter()
+                {
+                    RequestId = reqId,
+                });
+                _context.SaveChanges();
+
+                EncounterVm encounterVm = new EncounterVm
+                {
+                    FirstName = reqClient.FirstName,
+                    LastName = reqClient.LastName,
+                    Address = reqClient.Address,
+                    DateOfBirth = birthdate,
+                    PhoneNumber = reqClient.PhoneNumber,
+                    Email = reqClient.Email,
+                };
+                return encounterVm;
+            }
+        }
+
+        public void postEncounterData(EncounterVm model) 
+        {
+            var data = _context.Encounters.FirstOrDefault(x => x.RequestId == model.RequestId);
+            if (data != null)
+            {
+                data.MedicalHistory = model.MedicalHistory;
+                data.Medications = model.Medications;
+                data.Allergies = model.Allergies;
+                data.Temp = model.Temp;
+                data.Hr = model.Hr;
+                data.Rr = model.Rr;
+                data.BloodPressureS = model.BloodPressureS;
+                data.BloodPressureD = model.BloodPressureD;
+                data.O2 = model.O2;
+                data.Pain = model.Pain;
+                data.Heent = model.Heent;
+                data.Cv = model.Cv;
+                data.Chest = model.Chest;
+                data.Abd = model.Abd;
+                data.Extr = model.Extr;
+                data.Skin = model.Skin;
+                data.Neuro = model.Neuro;
+                data.Other = model.Other;
+                data.Diagnosis = model.Diagnosis;
+                data.TreatmentPlan = model.TreatmentPlan;
+                data.MedicationsDispensed = model.MedicationsDispensed;
+                data.Procedures = model.Procedures;
+                data.Followup = model.FollowUp;
+            }
             _context.SaveChanges();
         }
     }
