@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Provider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvdmlkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/ReviewAgreement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3QWdyZWVtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

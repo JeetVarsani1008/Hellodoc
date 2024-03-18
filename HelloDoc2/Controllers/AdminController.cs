@@ -77,6 +77,15 @@ namespace DAL.Controllers
             return View();
         }
 
+        public IActionResult AdminLogout()
+        {
+            HttpContext.Session.Clear();
+            Response.Cookies.Delete("Jwt");
+            Response.Cookies.Delete(".AspNetCore.Session");
+            Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
+            return RedirectToAction("AdminLogin", "Admin");
+        }
+
 
         [CustomAuthorize("1")]
         public IActionResult AdminDashboard(string reqtypeid)
@@ -88,25 +97,32 @@ namespace DAL.Controllers
 
             var reqCount = request.GroupBy(o => o.Status).Select(h => new { Status = h.Key, Count = h.Count() }).ToList();
 
-            ViewBag.newRequest = reqCount.Find(o => o.Status == 1)?.Count ?? 0;
-            ViewBag.pendingRequest = reqCount.Find(i => i.Status == 2)?.Count ?? 0;
-            ViewBag.activeRequest1 = reqCount.Find(i => i.Status == 4)?.Count ?? 0;
-            ViewBag.activeRequest2 = reqCount.Find(i => i.Status == 5)?.Count ?? 0;
-            ViewBag.activeRequest = ViewBag.activeRequest1 + ViewBag.activeRequest2;
-            ViewBag.concludeRequest = reqCount.Find(i => i.Status == 6)?.Count ?? 0;
-            ViewBag.toCloseRequest1 = reqCount.Find(i => i.Status == 3)?.Count ?? 0;
-            ViewBag.toCloseRequest2 = reqCount.Find(i => i.Status == 7)?.Count ?? 0;
-            ViewBag.toCloseRequest3 = reqCount.Find(i => i.Status == 8)?.Count ?? 0;
-            ViewBag.toCloseRequest = ViewBag.toCloseRequest1 + ViewBag.toCloseRequest2 + ViewBag.toCloseRequest3;
-            ViewBag.unpaidRequest = reqCount.Find(i => i.Status == 9)?.Count ?? 0;
-
+            var newCount = reqCount.Find(o => o.Status == 1)?.Count ?? 0;
+            var pendingCount = reqCount.Find(i => i.Status == 2)?.Count ?? 0;
+            var active1 = reqCount.Find(i => i.Status == 4)?.Count ?? 0;
+            var active2 = reqCount.Find(i => i.Status == 5)?.Count ?? 0;
+            var activeCount = active1 + active2;
+            var concludeCount = reqCount.Find(i => i.Status == 6)?.Count ?? 0;
+            var toclose1 = reqCount.Find(i => i.Status == 3)?.Count ?? 0;
+            var toclose2 = reqCount.Find(i => i.Status == 7)?.Count ?? 0;
+            var toclose3 = reqCount.Find(i => i.Status == 8)?.Count ?? 0;
+            var toCloseCount = toclose1 + toclose2 + toclose3;
+            var unpaidCount = reqCount.Find(i => i.Status == 9)?.Count ?? 0;
+            var getRegion = _adminDashboard.getRegions();
             var requestAdmin = _adminDashboard.requestDataAdmin(str,arr, null);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
+                NewCount = newCount,
+                PendingCount = pendingCount,
+                ActiveCount = activeCount,
+                ConcludeCount = concludeCount,
+                ToCloseCount = toCloseCount,
+                UnpaidCount = unpaidCount,
                 requestListAdminDash = requestAdmin,
                 statusArray = str,
                 StatusForName = 1,
                 reqTypId = reqtypeid,
+                regions = getRegion,
             };
             return View(adminDashboardViewModel);
         }
@@ -114,6 +130,7 @@ namespace DAL.Controllers
         {
 
             int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
+            var getRegion = _adminDashboard.getRegions();
 
             var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
@@ -122,6 +139,7 @@ namespace DAL.Controllers
                 StatusForName = Status[0],
                 statusArray = statusarray,
                 reqTypId = reqtypeid,
+                regions = getRegion,
             };
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
@@ -129,6 +147,7 @@ namespace DAL.Controllers
         public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid)
         {
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
+            var getRegion = _adminDashboard.getRegions();
 
             var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
@@ -136,6 +155,7 @@ namespace DAL.Controllers
                 requestListAdminDash = requestListAdmin,
                 StatusForName = status[0],
                 statusArray = statusarray,
+                regions = getRegion,
             };
 
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
@@ -158,7 +178,6 @@ namespace DAL.Controllers
             adminDashboardViewModel.requestListAdminDash = _adminDashboard.ViewCase(requestId);
             return View(adminDashboardViewModel);
         }
-
 
         //view notes start : 2 methods
         public IActionResult ViewNotes(int requestId)
@@ -240,6 +259,8 @@ namespace DAL.Controllers
         }
         //asign case completed
 
+
+        //this part is for viewupload : total 6 methods for all view upload
         public IActionResult ViewUploads(AdminViewUploadVm model, int requestId)
         {
             model.RequestId = requestId;
@@ -253,7 +274,7 @@ namespace DAL.Controllers
             return View(returnViewData);
         }
 
-
+        //upload file in view uploads
         [HttpPost]
         public IActionResult Upload([FromForm] IFormFile Filepath)
         {
@@ -274,7 +295,10 @@ namespace DAL.Controllers
             TempData["Uploadscs"] = "File Uploaded Successfully.Please Refresh Page";
             return View();
         }
+        //upload file in view upload completed
 
+
+        //this part is for download single file for view upload
         public IActionResult ViewUploadDownload(int documentId)
         {
             var filename = _adminDashboard.GetFileById(documentId);
@@ -285,6 +309,7 @@ namespace DAL.Controllers
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
             return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
         }
+        //single file download complete
 
 
         //this part is for delete single file
@@ -322,6 +347,7 @@ namespace DAL.Controllers
             return RedirectToAction("ViewUploads", "Admin", new { requestId });
         }
         //delete single file completed
+
 
         //delete selected files
         public IActionResult DeleteSelectedDocuments(List<int> requestFilesId, int requestId)
@@ -373,34 +399,7 @@ namespace DAL.Controllers
         //delete selected document completed
 
 
-        //public IActionResult ViewUploadDeleteAll(int requestId)
-        //{
-        //    var filesToDelete = _adminDashboard.GetAllFilesByRequestId(requestId);
-        //    if(!filesToDelete.Any())
-        //    {
-        //        return NotFound();
-        //    }
-        //    foreach (var fileToDelete in filesToDelete)
-        //    {
-        //        var filePath = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/upload", fileToDelete.FileName);
-        //        try
-        //        {
-        //            System.IO.File.Delete(filePath);
-
-        //        }
-        //        catch(Exception ex)
-        //        {
-        //            Console.WriteLine($"Error while deleting File{ex.Message}");
-        //            return StatusCode(500);// 500 is for internal server
-        //        }
-        //    }
-        //    TempData["success"] = "All Files are deleted Sucessfully.";
-        //    return RedirectToAction("ViewUploads","Admin");
-        //}
-
-
-
-        //this is for sending mail 
+        //this is for sending mail for selected files
         public async Task<IActionResult> SendDocumentsByMail(List<int> requestFilesId, int requestId)
         {
             bool isMailSent = false;
@@ -472,9 +471,10 @@ namespace DAL.Controllers
             }
         }
         //send mail completed
+        //view upload completed
 
 
-        //this part is for order details
+        //this part is for order details : 4 methods
         public IActionResult Orders(int requestID)
         {
             AdminOrderVm adminOrderVm = new AdminOrderVm();
@@ -524,6 +524,7 @@ namespace DAL.Controllers
             _adminDashboard.transferCasePost(model, 2);
             return RedirectToAction("AdminDashboard", "Admin");
         }
+        //transfer case completed
 
         //this is for download excel
         //this is download excel file for indevidual status (new,pending, active,conclude, toclose and unpaid)
@@ -687,6 +688,8 @@ namespace DAL.Controllers
             var data = _adminDashboard.closeCaseGet(requestId);
             return View("CloseCase", data);
         }
+        //close case completed
+
 
         //this is for admin profile 
         public IActionResult AdminMyProfile()
@@ -721,6 +724,8 @@ namespace DAL.Controllers
             return View("AdminMyProfile",data);
         }
 
+        //admin profile part is completed
+
         //this part is for encounter form 
         public IActionResult EncounterForm(int reqId)
         {
@@ -733,5 +738,27 @@ namespace DAL.Controllers
             _adminDashboard.postEncounterData(model);
             return View("EncounterForm");
         }
+
+        //provider part 
+        public IActionResult Provider()
+        {
+            ViewBag.ActiveDashboardNav = "Provider";
+
+            ProviderVm providerVm = new ProviderVm();
+            providerVm.regions = _adminDashboard.getRegions();
+            providerVm.physicians = _adminDashboard.getPhysicianDetails();
+            return View(providerVm);
+        }
+
+        //in provider find role
+        public IActionResult GetRoleName(int roleid)
+        {
+            // Retrieve the role name for the specified role ID from the database or any other data source
+            string roleName = _context.Roles.FirstOrDefault(r => r.RoleId == roleid)?.Name;
+
+            // Return the role name as JSON
+            return Json(new { roleName });
+        }
+
     }
 }

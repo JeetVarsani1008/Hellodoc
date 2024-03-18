@@ -42,7 +42,7 @@
         <div class="d-flex justify-content-between ps-3 mb-4">
             <h4>Documents</h4>
             <div class="d-flex justify-content-around ">
-                <button class="btn btn-white border-1 border-info text-info rounded-1 me-2" onclick="downloadAll(@ViewBag.RequestIdForDownloadAll)">Download All</button>
+                <button class="btn btn-white border-1 border-info text-info rounded-1 me-2" onclick="downloadAll()">Download All</button>
                 <button class="btn btn-white border-1 border-info text-info rounded-1 me-2" onclick="deleteAll(@ViewBag.RequestIdForDeleteAll)">Delete All</button>
                 <button class="btn btn-white border-1 border-info text-info rounded-1" onclick="sendMails(@ViewBag.RequestIdForSendMail)">Send Mail</button>
             </div>
@@ -54,8 +54,7 @@
                     <th><input type="checkbox" class="form-control-lg" style="min-height:auto" onclick="selectAll()" id="selectAllRd"></th>
                     <th scope="col">
                         <div class="checkbox d-flex">
-@*                             <input type="checkbox" class="check m-2" id="checkAll">
- *@                            Document
+                            Document
                         </div>
                         </th>
                     <th scope="col">Upload Date <span class="font-weight-bold"><i class="bi bi-arrow-up"></i></span></th>
@@ -81,7 +80,7 @@
                         </td>
 
                         <td class="d-flex justify-content-end">
-                            <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2 delete-link" asp-controller="Admin" asp-action="ViewUploadDownload" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-cloud-arrow-down text-info"></i></a>
+                            <a download class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2 download-link" asp-controller="Admin" asp-action="ViewUploadDownload" asp-route-documentId="@item.RequestWiseFileId"><i class="bi bi-cloud-arrow-down text-info"></i></a>
                             <a class="btn btn-outline-primary text-info border-1 border-info rounded-3 me-2" asp-controller="Admin" asp-action="ViewUploadDelete" asp-route-documentId="@item.RequestWiseFileId" asp-route-requestId="@item.RequestId"><i class="bi bi-trash"></i></a>
                         </td>
                 </tr>
@@ -112,7 +111,8 @@
             contentType: false,
             success: function (data) {
                 console.log("success");
-                window.location.href = "/Admin/ViewUploads/" + x;
+                // window.location.href = "/Admin/ViewUploads/" + x;
+                window.location.reload();
             },
             error: function (xhr, status, error) {
                 console.log("eroor123")
@@ -151,53 +151,18 @@
             selectAllRd.checked = false;
     }
 
+    //this is for download selected files 
+    var dowLinks = document.getElementsByClassName("download-link");
+        console.log(dowlink);
 
-    // var dowLinks = document.getElementsByClassName("download-link");
-
-    // function downloadAll() {
-    //     for (var j = 0; j < rds.length; j++) {
-    //         if (rds[j].checked) {
-    //             dowLinks[j].click();
-    //         }
-    //     }
-    // }
-
-
-    //ajax for download selected files 
-    function downloadAll(requestId) {
-        console.log(requestId)
-        var a = [];
+    function downloadAll() {
         for (var j = 0; j < rds.length; j++) {
             if (rds[j].checked) {
-
-                a.push(rds[j].getAttribute('fileId'));
-
+                dowLinks[j].click();
             }
         }
-
-        if (a.length === 0) {
-            alert("Please Select Atleast One File to Delete");
-            return;
-        }
-
-        $.ajax({
-            url: "/Admin/DownloadSelectedFiles",
-            type: 'post',
-            data: {
-                requestFilesId: a,
-                requestId
-            },
-            success: function (response) {
-                if (response.success) {
-                    //i'm Handling downloading the Zip file here 
-
-                }
-            },
-            error: function () {
-                alert("error");
-            }
-        })
     }
+
 
 
     //ajax for delete selected files

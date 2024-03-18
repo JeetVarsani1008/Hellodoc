@@ -15,6 +15,7 @@ namespace DAL.ViewModel
             CaseTags = new List<CaseTag>();
         }
         public List<RequestListAdminDash> requestListAdminDash { get; set; }
+        public List<Region> regions { get; set; }
 
         public RequestListAdminDash? adminDash { get; set; }
 
@@ -32,6 +33,16 @@ namespace DAL.ViewModel
 
         public string Notes {  get; set; }
         public string CaseTagss { get; set; }
+
+        //for count
+        public int NewCount { get; set; }
+        public int PendingCount { get; set; }
+        public int ActiveCount { get; set; }
+        public int ConcludeCount { get; set; }
+        public int ToCloseCount { get; set; }
+        public int UnpaidCount { get; set; }
+
+
     }
     
     public class RequestListAdminDash

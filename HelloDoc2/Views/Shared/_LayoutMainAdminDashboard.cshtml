@@ -24,7 +24,7 @@
     <!-- Option 1: Include in HTML -->
 </head>
 
-<body data-bs-theme="dark">
+<body>
 
     
     <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
@@ -40,27 +40,27 @@
             <div>
                 <ul class="navbar-nav ms-auto d-flex flex-nowrap">
                     <div class="d-none d-sm-flex ">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Welcome</a>
+                        </li>
+                        <li class="nav-item p-2 fw-bolder">
+                                Admin admin2
+                        </li>
+                    </div>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Welcome</a>
+                        <a asp-action="AdminLogout" asp-controller="Admin">
+                            <button type="button" class="btn logout-btn ">
+                                <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
+                            </button>
+                        </a>
                     </li>
-                    <li class="nav-item p-2 fw-bolder">
-                            Admin admin2
+                    <li class="nav-item">
+                        <button type="button" class="btn moonicon" onclick="changeTheme()">
+                           <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
+                        </button>
                     </li>
+                </ul>
             </div>
-            <li class="nav-item">
-                <a>
-                    <button type="button" class="btn logout-btn ">
-                        <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
-                    </button>
-                </a>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn moonicon" onclick="changeTheme()">
-                    <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
-                </button>
-            </li>
-            </ul>
-        </div>
         </div>
     </nav>
     <hr class="m-0 hr_line">
@@ -79,13 +79,13 @@
                         <a class="nav-link links @(ViewBag.ActiveDashboardNav == "AdminMyProfile" ? "active" : "")" asp-action="AdminMyProfile" asp-controller="Admin">My Profile</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link w-100 p-auto links"  role="button" data-bs-toggle="dropdown">Providers</a>
+                        <a class="nav-link w-100 p-auto links @(ViewBag.ActiveDashboardNav == "Provider" ? "active" : "")" role="button" data-bs-toggle="dropdown">Providers</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" >Provider</a></li>
-                            <li><a class="dropdown-item" >Scheduling</a></li>
+                            <li><a class="dropdown-item @(ViewBag.ActiveDashboardNav == "Provider" ? "active" : "")" asp-action="Provider" asp-controller="Admin">Provider</a></li>
+                            <li><a class="dropdown-item" asp-action="Scheduling" asp-controller="Admin">Scheduling</a></li>
                             <li><a class="dropdown-item" >Invoicing</a></li>
                         </ul>
-                    </li>
+                    </li>   
                     <li class="nav-item">
                         <a class="nav-link links">Partners</a>
                     </li>

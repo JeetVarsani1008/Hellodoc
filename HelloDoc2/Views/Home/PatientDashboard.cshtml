@@ -93,77 +93,7 @@
                 </div>
             }
 
-           @*  <div class="container-fluid shadow d-block d-md-none">
-                <div class="mx-2 border rounded shadow">
-                    <div class="accordion container-fluid d-block d-sm-none " id="accordionPanelsStayOpenExample">
-                        <div class="text-end py-3">
-                            <a href="" class="border border-info px-2 py-1 rounded-2 text-info" data-bs-toggle="modal" data-bs-target="#myModal1">
-                                <span><i class="bi bi-plus text-info"></i></span>
-                            </a>
-                        </div>
-                        <hr class="m-0">
-
-                        @{
-                            var counter = 1;
-                        }
-
-                        @foreach (var obj in Model)
-                        {
-                            <div class="accordion accordion-flush" id="accordionFlushExample@(counter)">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading@(counter)">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapse@(counter)" aria-expanded="false"
-                                                aria-controls="flush-collapse@(counter)">
-                                            <i class="bi bi-clock text-info me-2"></i> <span class="accordion-heading fw-bolder">
-                                                Created Date:
-                                                <span class="accordion-value fw-normal">
-                                                    @Html.DisplayFor(modelItem => obj.CreatedDate)
-                                                    
-                                                </span>
-                                            </span>
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse@(counter)" class="accordion-collapse collapse"
-                                         aria-labelledby="flush-heading@(counter)" data-bs-parent="#accordionFlushExample@(counter)">
-                                        <div class="accordion-body main-flex">
-                                            <div class="inner-flex">
-                                                <i class="bi bi-person-circle text-info"></i>
-                                                <span class="accordion-heading-inner fw-bolder">
-                                                    Provider:
-                                                    <span class="accordion-value-inner">
-
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="inner-flex">
-                                                <i class="bi bi-check-circle text-info"></i> <span class="accordion-heading-inner fw-bolder">
-                                                    Current Status:
-                                                    <span class="accordion-value-inner">
-                                                        @Html.DisplayFor(modelItem => obj.Status)
-                                                    </span>
-                                                </span>
-                                            </div>
-                                            <div class="inner-flex d-flex justify-content-center">
-                                                @if (obj.Count > 0)
-                                                {
-                                                    <a type="button" id="temp" value="Document" class="btn btn-outline-info" asp-route-reqId="@obj.Id" asp-action="ViewDocument" asp-controller="Home">(@obj.Count) Document</a>
-                                                }
-                                                else
-                                                {
-                                                    <a type="button" id="temp" value="Document" class="btn btn-outline-info" asp-route-reqId="@obj.Id" asp-action="ViewDocument" asp-controller="Home">(@obj.Count) Document</a>
-                                                }
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            counter++;
-                        }
-                    </div>
-                </div>
-            </div>
- *@
+          
 
     </main>
     </div>

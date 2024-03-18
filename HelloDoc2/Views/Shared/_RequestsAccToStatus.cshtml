@@ -79,9 +79,13 @@
 
             <select class="form-select mb-2" aria-label="Default select example">
                 <option value="0" selected>All Region</option>
-                <option value="1">Singapore</option>
-                <option value="2">csx xd</option>
-                <option value="3">Three</option>
+                @if(Model.regions != null)
+                {
+                    @foreach(var obj in Model.regions)
+                    {
+                        <option value="@obj.RegionId">@obj.Name</option>   
+                    }
+                }
             </select>
         </div>
 

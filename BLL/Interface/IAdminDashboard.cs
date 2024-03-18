@@ -88,5 +88,11 @@ namespace BLL.Interface
         //this part is for encounter form
         EncounterVm encounterFormGetData(int reqId);
         void postEncounterData(EncounterVm model);
+
+        List<Region> getRegions();
+
+
+        //this part is for provider that accessible by admin and it is in nav bar 
+        List<Physician> getPhysicianDetails();
     }
 }

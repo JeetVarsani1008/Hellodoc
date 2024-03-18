@@ -102,6 +102,12 @@ namespace BLL.Repositery
             return GetRequestData;
         }
 
+        public List<Region> getRegions()
+        {
+            var data = _context.Regions.ToList();
+            return data;
+        }
+
         public List<RequestListAdminDash> ViewCase(int requestId)
         {
 
@@ -773,5 +779,12 @@ namespace BLL.Repositery
             }
             _context.SaveChanges();
         }
+
+        public List<Physician> getPhysicianDetails()
+        {
+            var data = _context.Physicians.ToList();
+            return data;
+        }
+
     }
-}
+}   
