@@ -19,16 +19,15 @@
         }
     </style>
 </head>
-<main class="bg-light container">
+<main class="bg-light container" >
     <h4>Provider Information</h4>
     <div class="d-flex flex-column">
         <div class="d-flex align-items-center mt-3 mb-3 me-2">
-            <select class="form-select " aria-label="Default select example">
-                <option value="0" selected class="fs-4">All Region</option>
+            <select class="form-select " onchange="fetchRegion(this.value)" id="selectedRegion">
+                <option value="" class="fs-4">All Region</option>
                 @foreach (var obj in Model.regions)
                 {
-                    <option value="@obj.RegionId" class="fs-4">@obj.Name</option>
-                    
+                    <option value="@obj.RegionId" class="fs-4">@obj.Name</option>  
                 }
             </select>                
             <button type="button" class="btn bg-info ms-auto">
@@ -54,15 +53,15 @@
                 </thead>
 
                 <tbody>
-                    @foreach(var obj in Model.physicians)
+                    @foreach(var obj in Model.providers)
                     {
                         <tr>
                             <td> <input type="checkbox"/></td>
-                            <td>@obj.FirstName @obj.LastName</td>
-                            <td class="roleChange">
-                                Loading...
+                            <td>@obj.Name</td>
+                            <td>
+                                @obj.Role
                             </td>
-                            <td>Available</td>
+                            <td>@obj.OnCallStatus</td>
                             <td>
                                 @if(obj.Status == 1)
                                 {
@@ -90,60 +89,23 @@
 
 </main>
 
-
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const roleIds = [1,2,3];
-        roleIds.forEach(roleId => {
-            getRoleNameForPhysicianId(roleId);
-        })
-    });
 
+    function fetchRegion(regionId) {
 
-    // function getRoleNameForPhysicianId(roleId) {
-    //     const url = `/Admin/GetRoleName?id=${roleId}`;
-    //     console.log(roleId);
-    //     fetch(url)
-    //         .then(response => {
-    //             console.log(response)
-    //             if (!response.ok) {
-    //                 throw new Error('Network response was not ok');
-    //             }
-    //             return response.json();
-    //         })
-    //         .then(data => {
-    //             const roleName = data.roleName;
-
-    //             // Update UI with role name
-    //             const roleElement = document.getElementById(`role-name-${roleId}`);
-    //             if (roleElement) {
-    //                 roleElement.innerText = roleName;
-    //             } else {
-    //                 console.error('Role element not found for ID:', roleId);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching role name:', error);
-    //         });
-    // }
-
-
-    function getRoleNameForPhysicianId(roleId) {
-
-        console.log(roleId)
+            console.log(regionId)
         $.ajax({
-            url: '@Url.Action("GetRoleName", "Admin")',
-            type: 'GET',
-            data: { roleid : roleId },
+            url: '@Url.Action("Provider", "Admin")',
+            type: 'POST',
+            data: { regionId: regionId },
             success: function (result) {
                 console.log(result)
-                console.log(result.roleName)
-                $('.roleChange').text(result.roleName);
+                $('#partial-change').html(result);
+                $("#selectedRegion").prop('selected', false).find('option:first').prop('selected', true);
             },
             error: function () {
-                alert('Error loading data');
+                alert('Error loading partial view');
             }
         });
     }
-
 </script>

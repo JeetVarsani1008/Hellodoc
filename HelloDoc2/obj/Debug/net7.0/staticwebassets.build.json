@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "01DdkGoyNz04PrEL1NbcSQ2SvCoyKyzf3lC8KYBTJgg=",
+  "Hash": "+umygB7/pc1dd+UdX1N/7zrq36novoRDQ5PWVoPjXco=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -4442,25 +4442,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Create Role-Physician_mobile.png"
-    },
-    {
-      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-active.svg",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/dashboard-active.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\dashboard-active.svg"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-default.svg",

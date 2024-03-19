@@ -52,13 +52,13 @@ namespace DAL.Controllers
             var Id = _context.AspNetUsers.FirstOrDefault(x => x.Email == loginVm.Email).Id;
             HttpContext.Session.SetInt32("AspId",Id);
             AspNetUser user = _login.adminLogin(loginVm);
-            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
             if (user != null)
             {
+            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
                 if (aspNetUserRole == null)
                 {
                     ModelState.AddModelError(String.Empty, "Cant Have access to this site");
-                    return View("Patientlogin");
+                    return View("Patient_Login");
                 }
                 else
                 {
@@ -126,6 +126,7 @@ namespace DAL.Controllers
             };
             return View(adminDashboardViewModel);
         }
+
         public IActionResult FetchRequests(string statusarray,string status, string reqtypeid)
         {
 
@@ -162,6 +163,7 @@ namespace DAL.Controllers
         }
 
 
+
         // this is for accordian to fetch names
         public string GetNameByRequestTypeId(int requestTypeId)
         {
@@ -174,9 +176,8 @@ namespace DAL.Controllers
 
         public IActionResult ViewCase(int requestId)
         {
-            AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel();
-            adminDashboardViewModel.requestListAdminDash = _adminDashboard.ViewCase(requestId);
-            return View(adminDashboardViewModel);
+            var data = _adminDashboard.ViewCase(requestId);
+            return View(data);
         }
 
         //view notes start : 2 methods
@@ -229,6 +230,7 @@ namespace DAL.Controllers
         {
             var req = HttpContext.Session.GetInt32("requestid");
             _adminDashboard.blockCase(model, req ?? 0);
+            TempData["success"] = "User Blocked Successfully";
             return RedirectToAction("AdminDashboard", "Admin");
         }
         //block case completed
@@ -740,24 +742,14 @@ namespace DAL.Controllers
         }
 
         //provider part 
-        public IActionResult Provider()
+        public IActionResult Provider(string regionId)
         {
             ViewBag.ActiveDashboardNav = "Provider";
 
             ProviderVm providerVm = new ProviderVm();
             providerVm.regions = _adminDashboard.getRegions();
-            providerVm.physicians = _adminDashboard.getPhysicianDetails();
+            providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
             return View(providerVm);
-        }
-
-        //in provider find role
-        public IActionResult GetRoleName(int roleid)
-        {
-            // Retrieve the role name for the specified role ID from the database or any other data source
-            string roleName = _context.Roles.FirstOrDefault(r => r.RoleId == roleid)?.Name;
-
-            // Return the role name as JSON
-            return Json(new { roleName });
         }
 
     }

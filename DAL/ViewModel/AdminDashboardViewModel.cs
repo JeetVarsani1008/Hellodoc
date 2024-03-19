@@ -10,6 +10,8 @@ namespace DAL.ViewModel
     public class AdminDashboardViewModel
     {
 
+
+
         public AdminDashboardViewModel()
         {
             CaseTags = new List<CaseTag>();
@@ -56,7 +58,7 @@ namespace DAL.ViewModel
 
         public string Email { get; set; }
 
-        public DateTime? DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
 
         public string Requestor { get; set; }

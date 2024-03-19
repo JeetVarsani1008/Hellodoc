@@ -61,11 +61,11 @@ namespace DAL.Controllers
         public IActionResult Patient_Login(LoginVm loginVm)
         {
             AspNetUser user = _login.patientLogin(loginVm);
-            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
             if (ModelState.IsValid)
             {
                 if (user != null)
                 {
+                    AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
                     //var user1 = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
 
                     if (aspNetUserRole == null)

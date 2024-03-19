@@ -3,9 +3,11 @@ using DAL.ViewModel;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Region = DAL.Models.Region;
 
 namespace BLL.Interface
 {
@@ -17,7 +19,7 @@ namespace BLL.Interface
         List<RequestListAdminDash> requestDataDownloadExcelAll();
 
 
-        List<RequestListAdminDash> ViewCase(int requestId);
+        ViewCaseVm ViewCase(int requestId);
 
         ViewNotesVm ViewNotes(int requestId);
 
@@ -93,6 +95,6 @@ namespace BLL.Interface
 
 
         //this part is for provider that accessible by admin and it is in nav bar 
-        List<Physician> getPhysicianDetails();
+        List<Provider> getPhysicianDetails(string regionId);
     }
 }

@@ -228,6 +228,8 @@ public partial class HellodocContext : DbContext
                 .HasConstraintName("Physician_CreatedBy_fkey");
 
             entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.PhysicianModifiedByNavigations).HasConstraintName("Physician_ModifiedBy_fkey");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Physicians).HasConstraintName("Physician_RoleId_fkey");
         });
 
         modelBuilder.Entity<PhysicianLocation>(entity =>

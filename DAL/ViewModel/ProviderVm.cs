@@ -11,9 +11,21 @@ namespace DAL.ViewModel
     {
         public List<Region> regions {  get; set; }
 
-        public List<Physician> physicians { get; set; }
+        //public List<Physician> physicians { get; set; }
 
-        public string Roles { get; set; }
+        public List<Provider> providers { get; set; }
+
+        //public string Roles { get; set; }
+
+    }
+    public class Provider
+    {
+        public string Name { get; set; }
+
+        public string Role { get; set; }
+
+        public int Status {  get; set; }
+        public string OnCallStatus { get; set; }
 
     }
 }

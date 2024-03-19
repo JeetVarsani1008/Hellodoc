@@ -8,35 +8,38 @@ namespace DAL.ViewModel
         public List<Request> Requests { get; set; }
         public string? Symptoms { get; set; }
 
+        [Required(ErrorMessage = "Please enter First Name")]
         public string? FirstName { get; set; }
 
         public int? Id { get; set; }
 
-
+        [Required(ErrorMessage = "Please enter Last Name")]
         public string? LastName { get; set; }
 
         [Required(ErrorMessage = "Please Enter the Phone")]
         [StringLength(12, MinimumLength = 8, ErrorMessage = "Phone Number should be between 8 and 12 characters")]
         public string? Phone { get; set; }
 
+        [Required(ErrorMessage = "Enter your Birthdate")]
         public DateTime? BirthDate { get; set; }
 
-
+        [Required(ErrorMessage ="Password filed is Required")]
         public string? PasswordHash { get; set; }
 
-
+        [Required(ErrorMessage ="Please enter your email")]
         public string? Email { get; set; }
 
-
+        [Required(ErrorMessage ="street is required")]
         public string? Street { get; set; }
 
-
+        [Required(ErrorMessage = "City is required")]
         public string? City { get; set; }
 
-
+        [Required(ErrorMessage = "State is required")]
         public string? State { get; set; }
 
-
+        [Required(ErrorMessage = "ZipCode is required")]
+        [RegularExpression(@"^\d{6}(?:[-\s]\d{4})?$", ErrorMessage = "invalid zipcode")]
         public string? ZipCode { get; set; }
 
         public string? Room { get; set; }

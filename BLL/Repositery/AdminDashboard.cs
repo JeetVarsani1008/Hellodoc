@@ -9,10 +9,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Region = DAL.Models.Region;
 
 namespace BLL.Repositery
 {
@@ -21,12 +24,12 @@ namespace BLL.Repositery
         private BitArray _isDeleted = new BitArray(1);
 
         private readonly HellodocContext _context;
-        public AdminDashboard(HellodocContext context) 
+        public AdminDashboard(HellodocContext context)
         {
             _context = context;
 
         }
-        public List<RequestListAdminDash> requestDataAdmin(string statusarray,int[] Status, string reqTypeId)
+        public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId)
         {
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
             var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
@@ -44,7 +47,8 @@ namespace BLL.Repositery
             //    requestList = requestList.Where(i => i.RequestClients.Select(r => r.RegionId.ToString()).Contains(RegionId.ToString()));
 
             //}
-            var GetRequestData = requestList.Select(r => new RequestListAdminDash() {
+            var GetRequestData = requestList.Select(r => new RequestListAdminDash()
+            {
 
                 FirstName = r.RequestClients.Select(x => x.FirstName).First(),
                 LastName = r.RequestClients.Select(x => x.LastName).First(),
@@ -66,7 +70,7 @@ namespace BLL.Repositery
                 RequestTypeId = r.RequestTypeId,
 
 
-            }).ToList();  
+            }).ToList();
             return GetRequestData;
         }
 
@@ -108,45 +112,37 @@ namespace BLL.Repositery
             return data;
         }
 
-        public List<RequestListAdminDash> ViewCase(int requestId)
+        public ViewCaseVm ViewCase(int requestId)
         {
-
-            //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
-            var requestList = _context.Requests.Where(o => o.RequestId == requestId);
+            var request = _context.Requests.Where(o => o.RequestId == requestId);
             var user = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+            var reqtype = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).RequestTypeId;
 
-            int intYear = user?.IntYear ?? 1;
-            int intDate = user?.IntDate ?? 1;
-            string month = (string)user?.StrMonth?? "Jan";
+            var region = _context.Regions.FirstOrDefault(x => x.RegionId == user.RegionId)?.Name ?? "Unknown";
+            int intYear = user?.IntYear?? 1;
+            int intDate = user?.IntDate?? 1;
+            string month = user.StrMonth;
             DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
-            var GetRequestData = requestList.Select(r => new RequestListAdminDash()
+            ViewCaseVm viewCaseVm = new ViewCaseVm()
             {
-                
-                RequestId = r.RequestId,
-                FirstName = r.RequestClients.Select(x => x.FirstName).First(),
-                LastName = r.RequestClients.Select(x => x.LastName).First(),
-                Email = r.Email,
-                Name = r.RequestClients.Select(x => x.FirstName).First() + " " + r.RequestClients.Select(x => x.LastName).First(),
-                Requestor = r.FirstName + " " + r.LastName,
-                RequestDate = r.CreatedDate,
-                Phone = r.PhoneNumber,
-                Address = r.RequestClients.Select(x => x.Street).First() + "," + r.RequestClients.Select(x => x.City).First() + "," + r.RequestClients.Select(x => x.State).First(),
-                Notes = r.RequestClients.Select(x => x.Notes).First(),
-                ChatWith = r.PhysicianId.ToString(),
-                Physician = r.Physician.FirstName,
-                Status = r.Status,
-                //DateOfBirth = birthdate,
-                rPhonenumber = r.PhoneNumber,
-                RequestTypeId = r.RequestTypeId,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Notes = user.Notes,
+                PhoneNumber = user.PhoneNumber,
+                Email = user.Email,
+                DateOfBirth = birthdate,
+                RequestTypeId = reqtype,
+                Region = region,
+                RequestId = requestId,
 
-            }).ToList();
-            return GetRequestData;
+            };
+            return viewCaseVm;
         }
 
 
         public ViewNotesVm ViewNotes(int requestId)
         {
-            
+
             var user = _context.RequestNotes.FirstOrDefault(u => u.RequestId == requestId);
             var usertwo = _context.RequestStatusLogs.FirstOrDefault(x => x.RequestId == requestId);
 
@@ -199,17 +195,17 @@ namespace BLL.Repositery
         {
             var reqnotes = _context.RequestNotes.FirstOrDefault(x => x.RequestId == requestId);
             var req = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
-            if(reqnotes != null)
+            if (reqnotes != null)
             {
                 reqnotes.AdminNotes = model.AdminNotes;
                 reqnotes.PhysicianNotes = model.PhysicianNotes;
                 reqnotes.ModifiedBy = (int)_context.Users.FirstOrDefault(x => x.UserId == req.UserId).AspNetUserId;
                 reqnotes.ModifiedDate = DateTime.Now;
                 _context.SaveChanges();
-            }  
+            }
 
         }
-         
+
 
         public List<DAL.ViewModel.CaseTag> cancelCaseMain()
         {
@@ -222,7 +218,7 @@ namespace BLL.Repositery
             return mappedData;
         }
 
-        public void cancelCase(AdminDashboardViewModel model,int requestId)
+        public void cancelCase(AdminDashboardViewModel model, int requestId)
         {
             RequestStatusLog requestStatuslog = new RequestStatusLog();
             requestStatuslog.RequestId = requestId;
@@ -306,7 +302,7 @@ namespace BLL.Repositery
                 CreatedDate = DateTime.Now,
                 PhysicianId = model.PhysicianId,
             };
-            if(newStatus == 2)
+            if (newStatus == 2)
             {
                 reqstatus.TransToPhysicianId = model.PhysicianId;
                 request.PhysicianId = model.PhysicianId;
@@ -315,7 +311,6 @@ namespace BLL.Repositery
             _context.RequestStatusLogs.Add(reqstatus);
             _context.SaveChanges();
         }
-
 
 
         public void UploadFile(int requestId, string fileName)
@@ -332,16 +327,16 @@ namespace BLL.Repositery
         }
 
 
-        public AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model,int requestId)
+        public AdminViewUploadVm GetAdminViewUploadData(AdminViewUploadVm model, int requestId)
         {
             var client = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
-            if(client == null)
+            if (client == null)
             {
                 return new AdminViewUploadVm();
             }
             var mymodel = new AdminViewUploadVm
             {
-                RequestId=requestId,
+                RequestId = requestId,
                 Name = client.FirstName + " " + client.LastName,
             };
             return mymodel;
@@ -393,7 +388,7 @@ namespace BLL.Repositery
             return data;
         }
 
-        public void orderDataStore(AdminOrderVm model, int requestId) 
+        public void orderDataStore(AdminOrderVm model, int requestId)
         {
 
             OrderDetail orderDetail = new OrderDetail
@@ -520,13 +515,13 @@ namespace BLL.Repositery
         public bool checkStatus(ReviewAgreementVm model)
         {
             var data = _context.Requests.Any(x => x.RequestId == model.RequestId);
-            if(data)
+            if (data)
             {
                 return true;
             }
-            else 
-            { 
-                return false; 
+            else
+            {
+                return false;
             }
         }
 
@@ -547,19 +542,19 @@ namespace BLL.Repositery
             requestStatusLog.Notes = "Review Agreement";
 
             _context.RequestStatusLogs.Add(requestStatusLog);
-            _context.SaveChanges(); 
+            _context.SaveChanges();
         }
 
         public void reviewAgreementCancel(ReviewAgreementVm model)
         {
             var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
-            if(data != null)
+            if (data != null)
             {
                 data.Status = 7;
                 data.ModifiedDate = DateTime.Now;
                 _context.SaveChanges();
             }
-            
+
             RequestStatusLog requestStatusLog = new RequestStatusLog();
             requestStatusLog.RequestId = model.RequestId;
             requestStatusLog.Status = 7;
@@ -573,6 +568,7 @@ namespace BLL.Repositery
         //close case 
         public CloseCaseVm closeCaseGet(int requestId)
         {
+            var reqFiles = _context.RequestWiseFiles.Where(x => x.RequestId == requestId).ToList();
             var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
             if (data != null)
             {
@@ -582,12 +578,13 @@ namespace BLL.Repositery
                 DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
                 CloseCaseVm closeCaseVm = new CloseCaseVm
                 {
-                RequestId = requestId,
-                FirstName = data?.FirstName ?? "Unknown",
-                LastName = data?.LastName ?? "Unknow",
-                PhoneNumber = data.PhoneNumber,
-                DateOfBirth = birthdate,
-                Email = data.Email,
+                    getFilesForCloseCase = reqFiles,
+                    RequestId = requestId,
+                    FirstName = data?.FirstName ?? "Unknown",
+                    LastName = data?.LastName ?? "Unknow",
+                    PhoneNumber = data.PhoneNumber,
+                    DateOfBirth = birthdate,
+                    Email = data.Email,
                 };
 
                 return closeCaseVm;
@@ -597,7 +594,7 @@ namespace BLL.Repositery
 
         public void closeCaseEdit(int command, CloseCaseVm model, int requestId)
         {
-            if(command == 1)
+            if (command == 1)
             {
                 var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
                 data.PhoneNumber = model.PhoneNumber;
@@ -748,7 +745,7 @@ namespace BLL.Repositery
             }
         }
 
-        public void postEncounterData(EncounterVm model) 
+        public void postEncounterData(EncounterVm model)
         {
             var data = _context.Encounters.FirstOrDefault(x => x.RequestId == model.RequestId);
             if (data != null)
@@ -780,11 +777,23 @@ namespace BLL.Repositery
             _context.SaveChanges();
         }
 
-        public List<Physician> getPhysicianDetails()
+        public List<Provider> getPhysicianDetails(string regionId)
         {
-            var data = _context.Physicians.ToList();
+            var list = _context.Physicians.ToList();
+
+            if (regionId != null)
+            {
+                list = list.Where(x => x.RegionId.ToString() == regionId).ToList();
+            }
+            var data = list.Select(x => new Provider()
+            {
+                Name = x.FirstName,
+                Role = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
+                Status = (int)x.Status,
+                OnCallStatus = "Available",
+            }).ToList();
             return data;
         }
 
     }
-}   
+}

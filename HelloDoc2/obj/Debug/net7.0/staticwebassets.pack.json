@@ -989,10 +989,6 @@
       "PackagePath": "staticwebassets\\upload\\check-icon.svg"
     },
     {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-active.svg",
-      "PackagePath": "staticwebassets\\upload\\dashboard-active.svg"
-    },
-    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-default.svg",
       "PackagePath": "staticwebassets\\upload\\dashboard-default.svg"
     },

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,6 @@ namespace DAL.ViewModel
 
         public DateTime DateOfBirth { get; set; }
 
-
+        public List<RequestWiseFile> getFilesForCloseCase { get; set; }
     }
 }
