@@ -10,6 +10,7 @@ namespace BLL.Interface
 {
     public interface IPatientDashboard
     {
+
         List<PatientData> patientDashboardMain(int? uid);
 
         PatientProfile patientDashboardProfile(int? userID);

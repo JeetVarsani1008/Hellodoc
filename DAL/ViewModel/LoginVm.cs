@@ -9,12 +9,13 @@ namespace DAL.ViewModel
 {
     public class LoginVm
     {
-        [Required(ErrorMessage = "Please Enter Phone")]
-        public string PasswordHash { get; set; }
-        //public string PasswordConfirm {  get; set; }
-
-
         [Required(ErrorMessage = "Please Enter Email")]
         public string Email { get; set; }
+
+
+        [Required(ErrorMessage = "Please Enter Password")]
+        public string PasswordHash { get; set; }
+
+
     }
 }

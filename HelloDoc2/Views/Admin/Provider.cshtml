@@ -23,8 +23,8 @@
     <h4>Provider Information</h4>
     <div class="d-flex flex-column">
         <div class="d-flex align-items-center mt-3 mb-3 me-2">
-            <select class="form-select " onchange="fetchRegion(this.value)" id="selectedRegion">
-                <option value="" class="fs-4">All Region</option>
+            <select class="form-select providerRegion" onchange="fetchRegion(null)" id="selectedRegion">
+                <option selected class="fs-4">All Region</option>
                 @foreach (var obj in Model.regions)
                 {
                     <option value="@obj.RegionId" class="fs-4">@obj.Name</option>  
@@ -36,72 +36,32 @@
                     </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
             </button>
         </div>
-        <div>
-            <table class="table d-block">
 
-                <thead class="table-active">
-                    <tr>
-                        <th scope="col" width="10%">Stop Notification</th>
-                        <th scope="col">
-                            Provider Name<i class="bi bi-arrow-up ms-2"></i>
-                        </th>
-                        <th scope="col">Role</th>
-                        <th scope="col">On Call Status</th>
-                        <th scope="col" width="20%">Status</th>
-                        <th scope="col" width="15%" class="">Action</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    @foreach(var obj in Model.providers)
-                    {
-                        <tr>
-                            <td> <input type="checkbox"/></td>
-                            <td>@obj.Name</td>
-                            <td>
-                                @obj.Role
-                            </td>
-                            <td>@obj.OnCallStatus</td>
-                            <td>
-                                @if(obj.Status == 1)
-                                {
-                                    <p>New</p>
-                                }
-                                else if(obj.Status == 2)
-                                {
-                                    <p>Active</p>
-                                }
-                                else if (obj.Status == 4)
-                                {
-                                    <p>Other</p>
-                                }
-                            </td>
-                            <td class="d-flex">
-                                <button class="btn btn-outline-info me-2">Contact</button>
-                                <button class="btn btn-outline-info ms-2 d-none d-md-block">Edit</button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <div id="partial-change">
+            <partial name="_adminProviderTable" />
         </div>
-    </div>
+
+
+     </div>
 
 </main>
+
 
 <script>
 
     function fetchRegion(regionId) {
-
-            console.log(regionId)
+        var regionvalue = $('.providerRegion').val()
+        console.log("fdsg")
+        console.log(regionvalue)
         $.ajax({
-            url: '@Url.Action("Provider", "Admin")',
-            type: 'POST',
-            data: { regionId: regionId },
+            type:'POST',
+            url: '@Url.Action("ProviderTable", "Admin")',
+            data: { regionId: regionvalue },
             success: function (result) {
-                console.log(result)
+                console.log(result);
                 $('#partial-change').html(result);
-                $("#selectedRegion").prop('selected', false).find('option:first').prop('selected', true);
+                // $("#selectedRegion").prop('selected', false).find('option:first').prop('selected', true);
             },
             error: function () {
                 alert('Error loading partial view');

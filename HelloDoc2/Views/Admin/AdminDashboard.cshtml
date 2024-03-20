@@ -90,19 +90,21 @@
                },            success: function (response) {                console.log("Function Success")                $('#partial_container').html(response)            },            error: function () {                console.log("Function Fail")            }        })    }
 
 
-    function filterRequests(statusarray,status, reqtypeid) {
+    function filterRequests(statusarray,status, reqtypeid, regionId) {
         console.log("inside filterreq");
         console.log(status)
         console.log(reqtypeid)
         var statusarray = statusarray;
         var status = status;
+        var regionId = regionId;
         // var reqtypeid = reqtypeid;
         $.ajax({
             method: "GET",
             url: "/Admin/FilterRequests",
             data: { statusarray: statusarray, 
                 status: status, 
-                reqtypeid: reqtypeid 
+                reqtypeid: reqtypeid,
+                regionId : regionId
             },
             success: function (response) {
                 console.log("Function Success")
@@ -113,4 +115,6 @@
             }
         })
     };
+
+
 </script>

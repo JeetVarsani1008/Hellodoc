@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace DAL.ViewModel
 {
     public class AdminProfileVm
     {
+        public int AdminId { get; set; }
         public int AspNetUserId { get; set; }
         public string UserName { get; set; }
 
@@ -23,6 +25,7 @@ namespace DAL.ViewModel
 
         public string Email { get; set; }
 
+        //[Compare("Email")]
         public string ConfirmEmail { get; set; }
 
         public string Address1 { get; set; }
@@ -38,5 +41,8 @@ namespace DAL.ViewModel
 
         public string AlternateMobile { get; set; }
 
+        public List<Region> regions { get; set; }
+
+        public List<AdminRegion> AdminRegions { get; set; }
     }
 }

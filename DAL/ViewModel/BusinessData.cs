@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DAL.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DAL.ViewModel
 {
@@ -54,5 +55,8 @@ namespace DAL.ViewModel
         public string ZipCode { get; set; }
 
         public string Room { get; set; }
+
+        public List<Region> regions { get; set; }
+
     }
 }

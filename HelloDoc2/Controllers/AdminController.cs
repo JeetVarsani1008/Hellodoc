@@ -51,6 +51,10 @@ namespace DAL.Controllers
         {
             var Id = _context.AspNetUsers.FirstOrDefault(x => x.Email == loginVm.Email).Id;
             HttpContext.Session.SetInt32("AspId",Id);
+
+            var adminId = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).AdminId;
+            HttpContext.Session.SetInt32("AdminId", adminId);
+
             AspNetUser user = _login.adminLogin(loginVm);
             if (user != null)
             {
@@ -109,7 +113,7 @@ namespace DAL.Controllers
             var toCloseCount = toclose1 + toclose2 + toclose3;
             var unpaidCount = reqCount.Find(i => i.Status == 9)?.Count ?? 0;
             var getRegion = _adminDashboard.getRegions();
-            var requestAdmin = _adminDashboard.requestDataAdmin(str,arr, null);
+            var requestAdmin = _adminDashboard.requestDataAdmin(str,arr, null,0);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
                 NewCount = newCount,
@@ -127,13 +131,13 @@ namespace DAL.Controllers
             return View(adminDashboardViewModel);
         }
 
-        public IActionResult FetchRequests(string statusarray,string status, string reqtypeid)
+        public IActionResult FetchRequests(string statusarray,string status, string reqtypeid, int regionId)
         {
 
             int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid);
+            var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid, regionId);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
             {
                 requestListAdminDash = requestAdmin,
@@ -145,18 +149,19 @@ namespace DAL.Controllers
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
 
-        public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid)
+        public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid,int regionId)
         {
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
 
-            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid);
+            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid, regionId);
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
             {
                 requestListAdminDash = requestListAdmin,
                 StatusForName = status[0],
                 statusArray = statusarray,
                 regions = getRegion,
+                reqTypId = reqtypeid,
             };
 
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
@@ -174,12 +179,14 @@ namespace DAL.Controllers
             return requestTypeId.ToString() != null ? reqTypesName.GetValueOrDefault(requestTypeId, "Unknown Request Type"): "Unknown Request Type";
         }
 
+        [CustomAuthorize("1")]
         public IActionResult ViewCase(int requestId)
         {
             var data = _adminDashboard.ViewCase(requestId);
             return View(data);
         }
 
+        [CustomAuthorize("1")]
         //view notes start : 2 methods
         public IActionResult ViewNotes(int requestId)
         {
@@ -196,7 +203,7 @@ namespace DAL.Controllers
         }
         //view notes completed
 
-
+        [CustomAuthorize("1")]
         //cancel case start : 2 methods
         public IActionResult CancelCase(int req)
         {
@@ -216,6 +223,7 @@ namespace DAL.Controllers
         //cancel case completed
 
 
+        [CustomAuthorize("1")]
         //block case start : 2 methods
         public IActionResult BlockCase(int req)
         {
@@ -235,7 +243,7 @@ namespace DAL.Controllers
         }
         //block case completed
 
-
+        [CustomAuthorize("1")]
         //this three methods are for asign case
         public IActionResult AsignCase(int req)
         {
@@ -261,7 +269,7 @@ namespace DAL.Controllers
         }
         //asign case completed
 
-
+        [CustomAuthorize("1")]
         //this part is for viewupload : total 6 methods for all view upload
         public IActionResult ViewUploads(AdminViewUploadVm model, int requestId)
         {
@@ -476,6 +484,7 @@ namespace DAL.Controllers
         //view upload completed
 
 
+        [CustomAuthorize("1")]
         //this part is for order details : 4 methods
         public IActionResult Orders(int requestID)
         {
@@ -506,6 +515,7 @@ namespace DAL.Controllers
         //order part completed
 
 
+        [CustomAuthorize("1")]
         //this part is for transfer case -- transfer and asign similar that's why use same model for that
         public IActionResult TransferCase(int reqId)
         {
@@ -530,10 +540,10 @@ namespace DAL.Controllers
 
         //this is for download excel
         //this is download excel file for indevidual status (new,pending, active,conclude, toclose and unpaid)
-        public IActionResult DownloadExcel(string statusarray)
+        public IActionResult DownloadExcel(string statusarray, int[] status, int regionId)
         {
             string str = statusarray;
-            var data = _adminDashboard.requestDataAdmin(str,null, null);
+            var data = _adminDashboard.requestDataAdmin(str, status, null, regionId);
             var excelData = _adminDashboard.ExportToExcel(data);
             return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
         }
@@ -546,6 +556,8 @@ namespace DAL.Controllers
             return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
         }
 
+
+        [CustomAuthorize("1")]
         //clear case : 2 methods
         public IActionResult ClearCase(int req)
         {
@@ -568,6 +580,7 @@ namespace DAL.Controllers
             return View();
         }
 
+        [CustomAuthorize("1")]
         //send agreement-used adminclear case model for send agreement
         public IActionResult SendAgreement(int req, int reqTypeId)
         {
@@ -616,7 +629,10 @@ namespace DAL.Controllers
             }
         }
 
-         public IActionResult ReviewAgreement(string email, int requestId)
+
+        [CustomAuthorize("1")]
+        //this part is for review agreement
+        public IActionResult ReviewAgreement(string email, int requestId)
          {
             ReviewAgreementVm reviewAgreementVm = new ReviewAgreementVm();
             reviewAgreementVm.RequestId = requestId;
@@ -651,6 +667,7 @@ namespace DAL.Controllers
             }
             return RedirectToAction("AdminDashboard");
         }
+        //review agreement complete
 
 
         //send mail-used adminclear case model for send mail to patient 
@@ -692,42 +709,52 @@ namespace DAL.Controllers
         }
         //close case completed
 
-
+        [CustomAuthorize("1")]
         //this is for admin profile 
         public IActionResult AdminMyProfile()
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
             ViewBag.ActiveDashboardNav = "AdminMyProfile";
             int? id = HttpContext.Session.GetInt32("AspId");
-            var data = _adminDashboard.getAdminDetails(id??0);
+            var data = _adminDashboard.getAdminDetails(id??0, adminId?? 0);
             return View(data);
         }
 
         public IActionResult AdminResetPassword(AdminProfileVm model)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
             _adminDashboard.adminResetPassword(model);
             int? id = HttpContext.Session.GetInt32("AspId");
-            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
             return View("AdminMyProfile",data);
         }
         
-        public IActionResult AdminEditDetails1(AdminProfileVm model)
+        public IActionResult AdminEditDetails1(AdminProfileVm model, List<int>? checkboxForAll)
         {
-            _adminDashboard.adminEditDetails1(model);
+
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            _adminDashboard.adminEditDetails1(model, checkboxForAll, adminId ?? 0);
             int? id = HttpContext.Session.GetInt32("AspId");
-            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
             return View("AdminMyProfile",data);
         }
 
         public IActionResult AdminEditDetails2(AdminProfileVm model)
         {
+            int? adminId = HttpContext.Session.GetInt32("AdminId");
             _adminDashboard.adminEditDetails2(model);
             int? id = HttpContext.Session.GetInt32("AspId");
-            var data = _adminDashboard.getAdminDetails(id ?? 0);
+            var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
             return View("AdminMyProfile",data);
         }
 
         //admin profile part is completed
 
+        public IActionResult EditPhysicianAccount()
+        {
+            return View();
+        }
+        [CustomAuthorize("1")]
         //this part is for encounter form 
         public IActionResult EncounterForm(int reqId)
         {
@@ -741,6 +768,7 @@ namespace DAL.Controllers
             return View("EncounterForm");
         }
 
+        [CustomAuthorize("1")]
         //provider part 
         public IActionResult Provider(string regionId)
         {
@@ -752,5 +780,12 @@ namespace DAL.Controllers
             return View(providerVm);
         }
 
+        public IActionResult ProviderTable(string regionId)
+        {
+            ProviderVm providerVm = new ProviderVm();
+            providerVm.regions = _adminDashboard.getRegions();
+            providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
+            return PartialView("_adminProviderTable", providerVm);
+        }
     }
 }

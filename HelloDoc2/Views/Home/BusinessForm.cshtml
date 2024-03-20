@@ -108,13 +108,24 @@
                     <span asp-validation-for="City" class="text-danger"></span>
 
             </div>
-            <div class="form-floating mb-3 col-md-6 col-sm-12">
+           @*  <div class="form-floating mb-3 col-md-6 col-sm-12">
                 <input type="text" class="form-control" id="floatingPassword" placeholder="State" asp-for="State">
                 <label for="floatingInput" style="margin-left: 1em">State</label>
                     <span asp-validation-for="State" class="text-danger"></span>
 
-            </div>
-            <div class="form-floating mb-3 col-md-6 col-sm-12">
+            </div> *@
+                <div class="form-floating mb-3 col-md-6 col-sm-12">
+                    <select class="form-select w-100" id="healthprofessionSelect" aria-label="Floating label select example" asp-for="State">
+                        @foreach (var obj in Model.regions)
+                        {
+                            <option value="@obj.Name">
+                                @obj.Name
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 col-md-6 col-sm-12">
                 <input type="text" class="form-control" id="floatingInput" placeholder="ZipCode" asp-for="ZipCode">
                 <label for="floatingInput" style="margin-left: 1em">Zip Code</label>
                     <span asp-validation-for="ZipCode" class="text-danger"></span>

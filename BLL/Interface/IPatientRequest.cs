@@ -1,4 +1,5 @@
 ﻿using BLL.Repositery;
+using DAL.Models;
 using DAL.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,9 @@ using System.Threading.Tasks;
 namespace BLL.Interface
 {
     public interface IPatientRequest
-    {   
+    {
+
+        List<Region> getRegion();
         void patientRequestForm(PatientData model);
 
         void familyRequestForm(FamilyData model);

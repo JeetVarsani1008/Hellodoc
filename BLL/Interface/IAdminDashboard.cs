@@ -13,7 +13,7 @@ namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
-        List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId);
+        List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId);
 
         //this is for download excel for all request
         List<RequestListAdminDash> requestDataDownloadExcelAll();
@@ -78,11 +78,11 @@ namespace BLL.Interface
         void closeCaseEdit(int command, CloseCaseVm model, int requestId);
 
         // this part is for adminprofile
-        AdminProfileVm getAdminDetails(int aspId);
+        AdminProfileVm getAdminDetails(int aspId, int adminId);
 
         void adminResetPassword(AdminProfileVm model);
 
-        void adminEditDetails1(AdminProfileVm model);
+        void adminEditDetails1(AdminProfileVm model, List<int>? checkboxForAll, int adminId);
 
         void adminEditDetails2(AdminProfileVm model);
 

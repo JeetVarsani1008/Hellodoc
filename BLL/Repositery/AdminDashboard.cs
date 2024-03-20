@@ -2,9 +2,11 @@
 using DAL.Models;
 using DAL.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualBasic;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Org.BouncyCastle.Asn1.Ocsp;
+using Org.BouncyCastle.Ocsp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +31,7 @@ namespace BLL.Repositery
             _context = context;
 
         }
-        public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId)
+        public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId)
         {
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
             var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
@@ -39,14 +41,15 @@ namespace BLL.Repositery
             {
                 requestList = requestList.Where(o => o.RequestTypeId.ToString() == reqTypeId);
             }
-            //if(RegionId != 0)
-            //{
-            //    //var requestdata = _context.RequestClients.Where(i => i.RegionId == RegionId);
-            //    //requestList = requestList.Where(i => i.RequestId == requestdata.Select(u => u.RequestId).First());
+            if (regionId != 0)
+            {
+                //var requestdata = _context.RequestClients.Where(i => i.RegionId == RegionId);
+                //requestList = requestList.Where(i => i.RequestId == requestdata.Select(u => u.RequestId).First());
 
-            //    requestList = requestList.Where(i => i.RequestClients.Select(r => r.RegionId.ToString()).Contains(RegionId.ToString()));
+                requestList = requestList.Where(i => i.RequestClients.Select(r => r.RegionId.ToString()).Contains(regionId.ToString()));
 
-            //}
+            }
+
             var GetRequestData = requestList.Select(r => new RequestListAdminDash()
             {
 
@@ -61,11 +64,13 @@ namespace BLL.Repositery
                 ChatWith = r.PhysicianId.ToString(),
                 Physician = r.Physician.FirstName,
                 Status = r.Status,
-                year = (int)_context.RequestClients.Select(x => x.IntYear).First(),
-                date = (int)_context.RequestClients.Select(x => x.IntDate).First(),
-                month = _context.RequestClients.Select(x => x.StrMonth).First(),
-                //DateOfBirth = new DateTime(year, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, date),
+                Phone = r.PhoneNumber,
+                //year = (int)_context.RequestClients.Select(x => x.IntYear).First(),
+                //date = (int)_context.RequestClients.Select(x => x.IntDate).First(),
+                //month = _context.RequestClients.Select(x => x.StrMonth).First(),
 
+                //DateOfService = r.CreatedDate,
+                DateOfBirth = r.RequestClients.Select(x => x.IntDate).First() == null ? null : r.RequestClients.Select(x => x.IntDate).First() + "/" + r.RequestClients.Select(x => x.StrMonth).First()+ "/" + r.RequestClients.Select(x => x.IntYear).First(),
                 rPhonenumber = r.PhoneNumber,
                 RequestTypeId = r.RequestTypeId,
 
@@ -610,7 +615,7 @@ namespace BLL.Repositery
             else
             {
                 var req = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
-                req.Status = 10;
+                req.Status = 9;
                 req.ModifiedDate = DateTime.Now;
                 _context.SaveChanges();
 
@@ -628,8 +633,10 @@ namespace BLL.Repositery
         }
 
         //this part is for get admin profile details
-        public AdminProfileVm getAdminDetails(int aspId)
+        public AdminProfileVm getAdminDetails(int aspId, int adminId)
         {
+            var region = _context.Regions.ToList();
+            List<AdminRegion> adminRegion = _context.AdminRegions.Where(x => x.AdminId == adminId).ToList();
             var data = _context.Admins.FirstOrDefault(x => x.AspNetUserId == aspId);
             AdminProfileVm adminProfileVm = new AdminProfileVm
             {
@@ -644,6 +651,8 @@ namespace BLL.Repositery
                 City = data.City,
                 Zip = data.Zip,
                 State = data.RegionId.ToString(),
+                regions = region,
+                AdminRegions = adminRegion,
             };
             return adminProfileVm;
         }
@@ -655,14 +664,42 @@ namespace BLL.Repositery
             _context.SaveChanges();
         }
 
-        public void adminEditDetails1(AdminProfileVm model)
+        public void adminEditDetails1(AdminProfileVm model, List<int>? checkboxForAll, int adminId)
         {
+            Admin admin = _context.Admins.FirstOrDefault(u => u.AdminId == adminId);
+            List<AdminRegion> adminRegion = _context.AdminRegions.Where(x => x.AdminId == adminId).ToList();
             var data = _context.Admins.FirstOrDefault(x => x.AspNetUserId == model.AspNetUserId);
             data.FirstName = model.FirstName;
             data.LastName = model.LastName;
             data.Email = model.Email;
             data.Mobile = model.Mobile;
             _context.SaveChanges();
+
+            if (checkboxForAll != null)
+            {
+                foreach (var item in adminRegion)
+                {
+                    _context.AdminRegions.Remove(item);
+                    _context.SaveChanges();
+                }
+                foreach (var regionId in checkboxForAll)
+                {
+                    AdminRegion region = new AdminRegion();
+                    region.AdminId = admin.AdminId;
+                    region.RegionId = regionId;
+                    _context.AdminRegions.Add(region);
+                    _context.SaveChanges();
+                }
+            }
+            else
+            {
+                foreach (var item in adminRegion)
+                {
+                    _context.AdminRegions.Remove(item);
+                    _context.SaveChanges();
+                }
+            }
+
         }
 
         public void adminEditDetails2(AdminProfileVm model)

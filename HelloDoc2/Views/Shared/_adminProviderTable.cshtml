@@ -1,0 +1,47 @@
+﻿<table class="table d-block">
+
+    <thead class="table-active">
+        <tr>
+            <th scope="col" width="10%">Stop Notification</th>
+            <th scope="col">
+                Provider Name<i class="bi bi-arrow-up ms-2"></i>
+            </th>
+            <th scope="col">Role</th>
+            <th scope="col">On Call Status</th>
+            <th scope="col" width="20%">Status</th>
+            <th scope="col" width="15%" class="">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var obj in Model.providers)
+        {
+            <tr>
+                <td> <input type="checkbox" /></td>
+                <td>@obj.Name</td>
+                <td>
+                    @obj.Role
+                </td>
+                <td>@obj.OnCallStatus</td>
+                <td>
+                    @if (obj.Status == 1)
+                    {
+                        <p>New</p>
+                    }
+                    else if (obj.Status == 2)
+                    {
+                        <p>Active</p>
+                    }
+                    else if (obj.Status == 4)
+                    {
+                        <p>Other</p>
+                    }
+                </td>
+                <td class="d-flex">
+                    <button class="btn btn-outline-info me-2">Contact</button>
+                    <button class="btn btn-outline-info ms-2 d-none d-md-block">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

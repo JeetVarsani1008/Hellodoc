@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+﻿using DAL.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.ComponentModel.DataAnnotations;
 
 namespace DAL.ViewModel
@@ -15,13 +16,13 @@ namespace DAL.ViewModel
 
         public string F_Phone { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Email")]
+        [Required(ErrorMessage = "Please Enter Your Email")]
         public string F_Email { get; set; }
 
         [Required(ErrorMessage = "Please Enter Your Relation with patient")]
 
-        public string Relation { get; set; }
-        public string Symptoms { get; set; }
+        public string? Relation { get; set; } = null;
+        public string Symptoms { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please Enter First Name")]
         public string FirstName { get; set; }
@@ -32,7 +33,7 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter Birth Date")]
         public DateTime Birthdate { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Email")]
+        [Required(ErrorMessage = "Please Enter Patient's Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Please Enter Phone")]
@@ -58,6 +59,7 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter Phone Number")]
         public string PhoneNumber { get; set; }
         public string File { get; set; }
+        public List<Region> regions { get; set; }
 
     }
 }

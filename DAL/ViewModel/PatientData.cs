@@ -51,5 +51,7 @@ namespace DAL.ViewModel
         public IFormFile? Filepath { get; set; } = null;
 
         public int? Count { get; set; }
+
+        public List<Region> regions { get; set; }
     }
 }

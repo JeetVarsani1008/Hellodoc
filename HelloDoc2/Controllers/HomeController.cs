@@ -117,7 +117,9 @@ namespace DAL.Controllers
 
         public IActionResult PatientRequestForm()
         {
-            return View();
+            PatientData patientData = new PatientData();
+            patientData.regions = _patientRequest.getRegion();
+            return View(patientData);
         }
 
         [HttpPost]
@@ -130,7 +132,9 @@ namespace DAL.Controllers
 
         public IActionResult FamilyFriendsForm()
         {
-            return View();
+            FamilyData familyData = new FamilyData();
+            familyData.regions = _patientRequest.getRegion();
+            return View(familyData);
         }
 
         [HttpPost]
@@ -190,7 +194,9 @@ namespace DAL.Controllers
 
         public IActionResult ConciergeForm()
         {
-            return View();
+            ConciergeData conciergeData = new ConciergeData();
+            conciergeData.regions = _patientRequest.getRegion();
+            return View(conciergeData);
         }
 
         [HttpPost]
@@ -204,7 +210,9 @@ namespace DAL.Controllers
 
         public IActionResult BusinessForm()
         {
-            return View();
+            BusinessData businessData = new BusinessData();
+            businessData.regions = _patientRequest.getRegion(); 
+            return View(businessData);
         }
 
         [HttpPost]
@@ -215,7 +223,7 @@ namespace DAL.Controllers
         }
 
 
-
+        [CustomAuthorize("2")]
         public IActionResult PatientDashboardProfile()
         {
             ViewBag.ActivePage = "PatientDashboardProfile";
@@ -232,7 +240,7 @@ namespace DAL.Controllers
             return RedirectToAction("PatientDashboardProfile", "Home");
         }
 
-
+        [CustomAuthorize("2")]
         public IActionResult ViewDocument(int reqId)
         {
             ViewBag.userName = HttpContext.Session.GetString("session1");
@@ -300,6 +308,7 @@ namespace DAL.Controllers
             return View();
         }
 
+        [CustomAuthorize("2")]
         public IActionResult PatientRequestForMe()
         {
             int? userID = HttpContext.Session.GetInt32("userId");
@@ -314,6 +323,7 @@ namespace DAL.Controllers
             return RedirectToAction("PatientDashboard", "Home");
         }
 
+        [CustomAuthorize("2")]
         public IActionResult PatientRequestForSomeone()
         {
             return View();

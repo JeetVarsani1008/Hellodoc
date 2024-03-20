@@ -1,0 +1,267 @@
+﻿
+
+
+<div class="bg-body-tertiary ">
+    <div class="container">
+
+        @*Page Header*@
+        <div class="d-flex justify-content-between">
+            <h3 class="mt-4 mb-4"> Edit Physician Account </h3>
+            <a asp-controller="Admin" asp-action="AdminDashboard">
+                <span type="button" class="btn btn-outline-primary border-info text-info mt-3 mb-4 ">&lt; Back</span>
+            </a>
+        </div>
+
+        @*Main Section*@
+        <div class="shadow bg-white rounded-3 p-4">
+
+
+            @*FIRST*@
+            <h4 class="my-3">Account Information</h4>
+
+            <div class="row g-3">
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent" id="pi_name" placeholder="username" disabled>
+                    <label>Username</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent" id="pi_name" placeholder="password" disabled>
+                    <label>Password</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <select class="form-select" aria-label="Default select example" disabled>
+                        <option selected>Active</option>
+                    </select>
+                    <label>Status</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <select class="form-select" aria-label="Default select example" disabled>
+                        <option selected>Physician</option>
+                    </select>
+                    <label>Role</label>
+                </div>
+
+                <div class="d-flex justify-content-end p-2">
+                    <a>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit </span>
+                    </a>
+                    <a>
+                        <span type="button" class="btn btn-outline-primary border-info text-info my-1 mx-1">Reset Password</span>
+                    </a>
+                </div>
+
+            </div>
+
+            @*SECOND*@
+            <h4 class="my-3">Account Information</h4>
+
+            <div class="row g-3">
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="firstname" disabled>
+                    <label>First Name</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="lastname" disabled>
+                    <label>Last Name</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="firstname" disabled>
+                    <label>Email</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="phone" disabled>
+                    <label>Phone</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="medical license" disabled>
+                    <label>Medical License #</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="NPI number" disabled>
+                    <label>NPI Number</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="Synchronization Email Address" disabled>
+                    <label>Synchronization Email Address</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+
+                    <div class="form-check form-check-inline p-3 mx-3">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+                        <label class="form-check-label" for="inlineCheckbox1">1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline p-3 mx-3">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox1">2</label>
+                    </div>
+
+                    <div class="form-check form-check-inline p-3 mx-3">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3" checked>
+                        <label class="form-check-label" for="inlineCheckbox1">3</label>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-end p-2">
+                    <a>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1">Enter Payrate </span>
+                    </a>
+                    <a>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
+                    </a>
+                </div>
+            </div>
+
+
+            @*THIRD*@
+            <h4 class="my-3">Mailing & Billing Information</h4>
+
+            <div class="row g-2">
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 1" disabled>
+                    <label>Address #1</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 2" disabled>
+                    <label>Address #2</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="City" disabled>
+                    <label>City</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable" id="" placeholder="State" disabled>
+                    <label>State</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Zipcode" disabled>
+                    <label>Zip</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable" id="" placeholder="Fax Number" disabled>
+                    <label>Phone</label>
+                </div>
+
+
+                <div class="d-flex justify-content-end p-2">
+                    <a>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
+                    </a>
+                </div>
+            </div>
+
+
+            @*FOURTH*@
+            <h4 class="my-3">Provider Profile </h4>
+
+            <div class="row g-2">
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 1" disabled>
+                    <label>Business Name</label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 2" disabled>
+                    <label>Business Website </label>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                    <div class="input-group">
+                        <input type="file" class="form-control bg-transparent" id="fileUploadInp">
+                        <button type="button" id="upload-btn" class="btn btn-info text-white" disabled>
+                            <i class="bi bi-cloud-arrow-up me-1"></i>
+                            <span class="d-none d-sm-inline-block">Upload</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-10 col-md-5 col-lg-5 col-xl-5 d-flex">
+                    <div class="input-group">
+                        <input type="file" class="form-control bg-transparent" id="fileUploadInp">
+                        <button type="button" id="upload-btn" class="btn btn-info text-white" disabled>
+                            <i class="bi bi-cloud-arrow-up me-1"></i>
+                            <span class="d-none d-sm-inline-block">Upload</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 d-flex">
+                    <button type="button" class="btn btn-info text-white ml-2">
+                        Create
+                    </button>
+                </div>
+
+                <div class="form-floating mb-3 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex">
+                    <textarea class="form-control bg-transparent h-100" id="patientSymptoms"
+                              placeholder="Textarea" rows="5"></textarea>
+                    <label for="patientSymptoms" class="text-wrap ">Admin Notes</label>
+                </div>
+
+                <div class="d-flex justify-content-end p-2">
+                    <a>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <hr />
+
+            @*FIFTH*@
+            <h4 class="my-3">Onboarding </h4>
+
+            <div class="container-fluid">
+
+                @foreach (var i in Enumerable.Range(0, 3))
+                {
+                    <ol class="container px-3">
+                        <td class="px-3 mx-2 border border-dark">
+                            <input type="checkbox" name="Mark" class="checkbox fs-5" checked />
+                        </td>
+                        <td class="px-3 mx-2 ">
+                            Background Check
+                        </td>
+                        <td class="px-3 mx-2">
+                            <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                        </td>
+                        <td class="px-3 mx-2 ">
+                            <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                        </td>
+                    </ol>
+
+                }
+
+                <hr />
+
+                <div class="d-flex justify-content-end p-2">
+                    <button type="button" class="btn btn-info text-white my-1 mx-1">
+                        Save
+                    </button>
+
+                    <button type="button" class="btn btn-danger text-white my-1 mx-1">
+                        Delete Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

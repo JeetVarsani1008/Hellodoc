@@ -39,7 +39,7 @@ namespace HelloDoc2.Auth
             var request = context.HttpContext.Request;
             var token = request.Cookies["jwt"];
 
-            if (token == null || !jwtService.ValidateToken(token, out JwtSecurityToken jwtToken))
+            if (token == null || !jwtService.ValidateToken(token, out JwtSecurityToken jwtToken) && _role == "1")
             {
                 context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
                 return;

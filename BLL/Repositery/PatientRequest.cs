@@ -23,6 +23,12 @@ namespace BLL.Repositery
             _context = context;
         }
 
+
+        public List<Region> getRegion()
+        {
+            var data = _context.Regions.ToList();
+            return data;
+        }
         public void patientRequestForm(PatientData model) {
 
             AspNetUser aspNetUser = new AspNetUser();
