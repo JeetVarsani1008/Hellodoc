@@ -12,6 +12,7 @@ namespace DAL.ViewModel
 {
     public class AdminAsignVm
     {
+        [Required(ErrorMessage="Please enter description")]
         public string Description { get; set; }
 
         public int PhysicianId { get; set; }

@@ -1,6 +1,7 @@
 ﻿using BLL.Interface;
 using DAL.Models;
 using DAL.ViewModel;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
 using OfficeOpenXml;
@@ -813,17 +814,23 @@ namespace BLL.Repositery
             }
             _context.SaveChanges();
         }
+        //encounter part is completed
 
+
+        //this is for get provider/physician main details
         public List<Provider> getPhysicianDetails(string regionId)
         {
-            var list = _context.Physicians.ToList();
+            var list = _context.Physicians.Include(x => x.PhysicianNotifications).ToList();
 
             if (regionId != null)
             {
                 list = list.Where(x => x.RegionId.ToString() == regionId).ToList();
             }
+            
             var data = list.Select(x => new Provider()
             {
+                PhysicianId = x.PhysicianId,
+                StopNotification = x.PhysicianNotifications.Any(pn => pn.IsNotificationStopped),
                 Name = x.FirstName,
                 Role = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
                 Status = (int)x.Status,
@@ -831,6 +838,10 @@ namespace BLL.Repositery
             }).ToList();
             return data;
         }
+        //provider main details completed
+
+
+        //this is for edit provider/physician details
 
     }
 }

@@ -24,7 +24,7 @@
     <div class="d-flex flex-column">
         <div class="d-flex align-items-center mt-3 mb-3 me-2">
             <select class="form-select providerRegion" onchange="fetchRegion(null)" id="selectedRegion">
-                <option selected class="fs-4">All Region</option>
+                <option selected value="" class="fs-4">All Region</option>
                 @foreach (var obj in Model.regions)
                 {
                     <option value="@obj.RegionId" class="fs-4">@obj.Name</option>  
@@ -38,8 +38,7 @@
         </div>
 
 
-        <div id="partial-change">
-            <partial name="_adminProviderTable" />
+        <div id="providerContent">
         </div>
 
 
@@ -47,25 +46,71 @@
 
 </main>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
 
-    function fetchRegion(regionId) {
-        var regionvalue = $('.providerRegion').val()
-        console.log("fdsg")
-        console.log(regionvalue)
+    $(document).ready(function () {
         $.ajax({
-            type:'POST',
-            url: '@Url.Action("ProviderTable", "Admin")',
-            data: { regionId: regionvalue },
-            success: function (result) {
-                console.log(result);
-                $('#partial-change').html(result);
-                // $("#selectedRegion").prop('selected', false).find('option:first').prop('selected', true);
+            url: "/Admin/ProviderTable",
+            type: "POST",
+            dataType: "html",
+            success: function (data) {
+
+                $("#providerContent").html(data);
+                $("input[name='notification']").each(function () {
+                    if ($(this).data("stop-notification")) {
+                        $(this).prop("checked", $(this).data("stop-notification"));
+                    }
+                });
+
             },
             error: function () {
-                alert('Error loading partial view');
+                $("#providerContent").html('An error has occurred');
             }
         });
+
+    });
+
+    $("#selectedRegion").on("input", function () {
+        regionId = $(this).val();
+        AjaxAll();
+    });
+
+    function AjaxAll() {
+        $.ajax({
+            url: "/Admin/ProviderTable",
+            type: "POST",
+            data: { regionId: regionId },
+            dataType: "html",
+            success: function (data) {
+                $("#providerContent").html(data);
+
+            },
+            error: function (error) {
+
+                $("#providerContent").html('An error has occurred');
+            }
+        });
+    }
+
+
+    //for update notification
+    function updateNotificationStopped(checkbox) {
+        var physicianId = checkbox.id;
+        
+            // AJAX call to update the database
+            $.ajax({
+                url: "/Admin/UpdateIsNotificationStopped",
+                type: "POST",
+                data: { physicianId: physicianId },
+                success: function (result) {
+                    // handle success
+                },
+                error: function () {
+                    // handle error
+                }
+            });
+        
     }
 </script>

@@ -17,7 +17,10 @@
         @foreach (var obj in Model.providers)
         {
             <tr>
-                <td> <input type="checkbox" /></td>
+                
+                <td>
+                    <input type="checkbox" name="notification" id="@obj.PhysicianId" class="checkbox-input" @(obj.StopNotification ? "checked" : "") onchange="updateNotificationStopped(this)" />
+                </td>
                 <td>@obj.Name</td>
                 <td>
                     @obj.Role
@@ -39,7 +42,7 @@
                 </td>
                 <td class="d-flex">
                     <button class="btn btn-outline-info me-2">Contact</button>
-                    <button class="btn btn-outline-info ms-2 d-none d-md-block">Edit</button>
+                    <button class="btn btn-outline-info ms-2 d-none d-md-block" onclick="location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = obj.PhysicianId})'">Edit</button>
                 </td>
             </tr>
         }

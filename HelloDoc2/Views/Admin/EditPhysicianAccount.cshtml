@@ -1,5 +1,13 @@
-﻿
+﻿@model DAL.ViewModel.AdminProfileVm;
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+<style>
 
+    input[type="checkbox"] {
+        transform: scale(1.5);
+    }
+</style>
 
 <div class="bg-body-tertiary ">
     <div class="container">
@@ -7,7 +15,7 @@
         @*Page Header*@
         <div class="d-flex justify-content-between">
             <h3 class="mt-4 mb-4"> Edit Physician Account </h3>
-            <a asp-controller="Admin" asp-action="AdminDashboard">
+            <a asp-controller="Admin" asp-action="Provider">
                 <span type="button" class="btn btn-outline-primary border-info text-info mt-3 mb-4 ">&lt; Back</span>
             </a>
         </div>
@@ -16,41 +24,41 @@
         <div class="shadow bg-white rounded-3 p-4">
 
 
-            @*FIRST*@
+            @*first-part*@
             <h4 class="my-3">Account Information</h4>
 
             <div class="row g-3">
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent" id="pi_name" placeholder="username" disabled>
-                    <label>Username</label>
+                    <input type="text" class="form-control" id="pi_name" placeholder="username" disabled>
+                    <label class="ms-2">Username</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent" id="pi_name" placeholder="password" disabled>
-                    <label>Password</label>
+                    <input type="text" class="form-control enabled" id="pi_name" placeholder="password" disabled>
+                    <label class="ms-2">Password</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select class="form-select w-100" aria-label="Default select example" disabled>
                         <option selected>Active</option>
                     </select>
-                    <label>Status</label>
+                    <label class="ms-2">Status</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <select class="form-select" aria-label="Default select example" disabled>
+                    <select class="form-select w-100" aria-label="Default select example" disabled>
                         <option selected>Physician</option>
                     </select>
-                    <label>Role</label>
+                    <label class="ms-2">Role</label>
                 </div>
 
                 <div class="d-flex justify-content-end p-2">
                     <a>
-                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit </span>
+                        <span type="button" class="btn btn-info text-white my-1 mx-1" id="providerprofileeditbtn">Edit </span>
                     </a>
                     <a>
-                        <span type="button" class="btn btn-outline-primary border-info text-info my-1 mx-1">Reset Password</span>
+                        <span type="button" class="btn btn-outline-primary border-info text-info my-1 mx-1" id="resetpasswordbtn" style="display: none">Reset Password</span>
                     </a>
                 </div>
 
@@ -58,73 +66,72 @@
 
             @*SECOND*@
             <h4 class="my-3">Account Information</h4>
+            <form asp-action="AdminEditDetails1" asp-controller="Admin">
+@*                 <input asp-for="PhysicianId" hidden />
+ *@                <div class="row g-3">
 
-            <div class="row g-3">
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="firstname" disabled>
-                    <label>First Name</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="lastname" disabled>
-                    <label>Last Name</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="firstname" disabled>
-                    <label>Email</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="phone" disabled>
-                    <label>Phone</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="medical license" disabled>
-                    <label>Medical License #</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="NPI number" disabled>
-                    <label>NPI Number</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable1" id="" placeholder="Synchronization Email Address" disabled>
-                    <label>Synchronization Email Address</label>
-                </div>
-
-                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-
-                    <div class="form-check form-check-inline p-3 mx-3">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
-                        <label class="form-check-label" for="inlineCheckbox1">1</label>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="firstname" disabled>
+                        <label class="ms-2">First Name</label>
                     </div>
 
-                    <div class="form-check form-check-inline p-3 mx-3">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox1">2</label>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="lastname" disabled>
+                        <label class="ms-2">Last Name</label>
                     </div>
 
-                    <div class="form-check form-check-inline p-3 mx-3">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3" checked>
-                        <label class="form-check-label" for="inlineCheckbox1">3</label>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="firstname" disabled>
+                        <label class="ms-2">Email</label>
                     </div>
 
-                </div>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="phone" disabled>
+                        <label class="ms-2">Phone</label>
+                    </div>
 
-                <div class="d-flex justify-content-end p-2">
-                    <a>
-                        <span type="button" class="btn btn-info text-white my-1 mx-1">Enter Payrate </span>
-                    </a>
-                    <a>
-                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
-                    </a>
-                </div>
-            </div>
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="medical license" disabled>
+                        <label class="ms-2">Medical License #</label>
+                    </div>
 
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="NPI number" disabled>
+                        <label class="ms-2">NPI Number</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
+                        <input type="text" class="form-control enabled1" id="" placeholder="Synchronization Email Address" disabled>
+                        <label class="ms-2">Synchronization Email Address</label>
+                    </div>
+
+                    <div class="col-sm-6 form-floating mb-3 d-flex flex-wrap">
+                        @foreach (var item in Model.regions)
+                        {
+                            <div class="form-check me-3">
+                                @if (Model.AdminRegions.Count(x => x.RegionId == item.RegionId) > 0)
+                                {
+                                    <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" checked disabled value="@item.RegionId" id="checkbox-@item.RegionId" />
+                                }
+                                else
+                                {
+                                    <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" disabled value="@item.RegionId" />
+                                }
+                                <label class="form-check-label" for="checkbox-@item.RegionId" style="font-size: 15px; margin:0px;">@item.Name</label>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-primary colorbtn" id="providerprofileeditbtn1">Edit</button>
+
+
+                        <button type="submit" name="command" value="2" class="btn btn-primary me-2 colorbtn" id="providerprofilesavebtn1" style="display: none;">Save</button>
+
+                        <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="providerprofilecancelbtn1" style="display: none;">Cancel</a>
+                    </div>
+                </div>
+            </form>
 
             @*THIRD*@
             <h4 class="my-3">Mailing & Billing Information</h4>
@@ -132,40 +139,44 @@
             <div class="row g-2">
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 1" disabled>
-                    <label>Address #1</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="Address 1" disabled>
+                    <label class="ms-2">Address #1</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 2" disabled>
-                    <label>Address #2</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="Address 2" disabled>
+                    <label class="ms-2">Address #2</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="City" disabled>
-                    <label>City</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="City" disabled>
+                    <label class="ms-2">City</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable" id="" placeholder="State" disabled>
-                    <label>State</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="State" disabled>
+                    <label class="ms-2">State</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Zipcode" disabled>
-                    <label>Zip</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="Zipcode" disabled>
+                    <label class="ms-2">Zip</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable" id="" placeholder="Fax Number" disabled>
-                    <label>Phone</label>
+                    <input type="text" class="form-control enabled2" id="" placeholder="Fax Number" disabled>
+                    <label class="ms-2">Phone</label>
                 </div>
 
 
                 <div class="d-flex justify-content-end p-2">
-                    <a>
-                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
-                    </a>
+
+                    <button type="button" class="btn  btn-info text-white my-1 mx-1" id="providerprofileeditbtn2">Edit</button>
+
+
+                    <button type="submit" name="command" value="2" class="btn btn-info text-white my-1 mx-1" id="providerprofilesavebtn2" style="display: none;">Save</button>
+
+                    <button type="button" class="btn btn-info text-white my-1 mx-1" id="providerprofilecancelbtn2" style="display: none;">Cancel</button>
                 </div>
             </div>
 
@@ -176,13 +187,13 @@
             <div class="row g-2">
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 1" disabled>
-                    <label>Business Name</label>
+                    <input type="text" class="form-control enabled3" id="" placeholder="Address 1" disabled>
+                    <label class="ms-2">Business Name</label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
-                    <input type="text" class="form-control bg-transparent inpDisable2" id="" placeholder="Address 2" disabled>
-                    <label>Business Website </label>
+                    <input type="text" class="form-control enabled3" id="" placeholder="Address 2" disabled>
+                    <label class="ms-2">Business Website </label>
                 </div>
 
                 <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex">
@@ -218,9 +229,13 @@
                 </div>
 
                 <div class="d-flex justify-content-end p-2">
-                    <a>
-                        <span type="button" class="btn btn-info text-white my-1 mx-1">Edit</span>
-                    </a>
+
+                    <button type="button" class="btn  btn-info text-white my-1 mx-1" id="providerprofileeditbtn3">Edit</button>
+
+
+                    <button type="submit" name="command" value="2" class="btn btn-info text-white my-1 mx-1" id="providerprofilesavebtn3" style="display: none;">Save</button>
+
+                    <button type="button" class="btn btn-info text-white my-1 mx-1" id="providerprofilecancelbtn3" style="display: none;">Cancel</button>
                 </div>
 
             </div>
@@ -231,25 +246,86 @@
             <h4 class="my-3">Onboarding </h4>
 
             <div class="container-fluid">
+                @* onboardibg-one *@
+                <ol class="container px-3">
+                   <td class="px-3 mx-2 border border-dark">
+                        <input type="checkbox" name="Mark" class="checkbox me-2" />
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        Independent Contractor Agreement
+                    </td>
+                    <td class="px-3 mx-2">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                   </td>
+                    <td class="px-3 mx-2 ">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                    </td>
+                </ol>
+                @* onboardibg-two *@
 
-                @foreach (var i in Enumerable.Range(0, 3))
-                {
-                    <ol class="container px-3">
-                        <td class="px-3 mx-2 border border-dark">
-                            <input type="checkbox" name="Mark" class="checkbox fs-5" checked />
-                        </td>
-                        <td class="px-3 mx-2 ">
-                            Background Check
-                        </td>
-                        <td class="px-3 mx-2">
-                            <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
-                        </td>
-                        <td class="px-3 mx-2 ">
-                            <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
-                        </td>
-                    </ol>
+                <ol class="container px-3">
+                    <td class="px-3 mx-2 border border-dark">
+                        <input type="checkbox" name="Mark" class="checkbox me-2" />
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        Background Check
+                    </td>
+                    <td class="px-3 mx-2">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                    </td>
+                </ol> 
+                
+                @* onboardibg-three *@
+                <ol class="container px-3">
+                   <td class="px-3 mx-2 border border-dark">
+                        <input type="checkbox" name="Mark" class="checkbox me-2" />
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        HIPAA Compliance
+                    </td>
+                    <td class="px-3 mx-2">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                   </td>
+                    <td class="px-3 mx-2 ">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                    </td>
+                </ol>
 
-                }
+                @* onboardibg-four *@
+                <ol class="container px-3">
+                    <td class="px-3 mx-2 border border-dark">
+                        <input type="checkbox" name="Mark" class="checkbox me-2" />
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        Non-disclosure Agreeement
+                    </td>
+                    <td class="px-3 mx-2">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                    </td>
+                </ol>
+
+
+                @* onboardibg-five *@
+                <ol class="container px-3">
+                    <td class="px-3 border border-dark">
+                        <input type="checkbox" name="Mark" class="checkbox me-2" />
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        Licence Document
+                    </td>
+                    <td class="px-3 mx-2">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Upload</button>
+                    </td>
+                    <td class="px-3 mx-2 ">
+                        <button type="button" class="btn btn-info text-white my-1 mx-1">Edit</button>
+                    </td>
+                </ol>
 
                 <hr />
 
@@ -265,3 +341,141 @@
             </div>
         </div>
     </div>
+
+
+<script>
+
+    //this is for edit password
+    const editbtn = document.getElementById('providerprofileeditbtn')
+    const savebtn = document.getElementById('resetpasswordbtn')
+    const enabled = document.getElementsByClassName('enabled')
+
+    editbtn.addEventListener('click', function (e) {
+        for (let i = 0; i < enabled.length; i++) {
+            enabled[i].disabled = false;
+        }
+
+        editbtn.style.display = 'none';
+        savebtn.style.display = 'block';
+    });
+
+    savebtn.addEventListener('click', function (e) {
+        for (let i = 0; i < enabled.length; i++) {
+            enabled[i].disabled = true;
+        }
+
+        savebtn.style.display = 'none';
+        editbtn.style.display = 'block';
+    });
+
+
+
+
+    //this is for second div for cancel and save and edit button
+        const editbtn1 = document.getElementById('providerprofileeditbtn1');
+        const savebtn1 = document.getElementById('providerprofilesavebtn1');
+        const cancel1 = document.getElementById('providerprofilecancelbtn1');
+        const enabled1 = document.getElementsByClassName('enabled1');
+
+    editbtn1.addEventListener('click', function (e) {
+        for (let i = 0; i < enabled1.length; i++) {
+            enabled1[i].disabled = false;
+        }
+        savebtn1.style.display = 'block';
+        cancel1.style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    cancel1.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled1.length; j++) {
+            enabled1[j].disabled = true;
+        }
+        this.style.display = 'none';
+        savebtn1.style.display = 'none';
+        editbtn1.style.display = 'block';
+    });
+
+    savebtn1.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled1.length; j++) {
+            enabled1[j].disabled = true;
+        }
+        this.style.display = 'none';
+        cancel1.style.display = 'none';
+        editbtn1.style.display = 'block';
+    });
+    
+    
+    
+    //this is for third div for cancel and save and edit button
+    const editbtn2 = document.getElementById('providerprofileeditbtn2');
+    const savebtn2 = document.getElementById('providerprofilesavebtn2');
+    const cancel2 = document.getElementById('providerprofilecancelbtn2');
+    const enabled2 = document.getElementsByClassName('enabled2');
+
+    editbtn2.addEventListener('click', function (e) {
+        for (let i = 0; i < enabled2.length; i++) {
+            enabled2[i].disabled = false;
+        }
+        savebtn2.style.display = 'block';
+        cancel2.style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    cancel2.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled2.length; j++) {
+            enabled2[j].disabled = true;
+        }
+        this.style.display = 'none';
+        savebtn2.style.display = 'none';
+        editbtn2.style.display = 'block';
+    });
+
+    savebtn2.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled2.length; j++) {
+            enabled2[j].disabled = true;
+        }
+        this.style.display = 'none';
+        cancel2.style.display = 'none';
+        editbtn2.style.display = 'block';
+    });
+    
+    
+    
+    
+    //this is for fourth div for cancel and save and edit button
+    const editbtn3 = document.getElementById('providerprofileeditbtn3');
+    const savebtn3 = document.getElementById('providerprofilesavebtn3');
+    const cancelbtn3 = document.getElementById('providerprofilecancelbtn3');
+    const enabled3 = document.getElementsByClassName('enabled3');
+
+    editbtn3.addEventListener('click', function (e) {
+        for (let i = 0; i < enabled3.length; i++) {
+            enabled3[i].disabled = false;
+        }
+        savebtn3.style.display = 'block';
+        cancel3.style.display = 'block';
+        this.style.display = 'none';
+    });
+
+    cancelbtn3.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled3.length; j++) {
+            enabled3[j].disabled = true;
+        }
+        this.style.display = 'none';
+        savebtn3.style.display = 'none';
+        editbtn3.style.display = 'block';
+    });
+
+
+    savebtn3.addEventListener('click', function (e) {
+        for (let j = 0; j < enabled3.length; j++) {
+            enabled3[j].disabled = true;
+        }
+        this.style.display = 'none';
+        cancel3.style.display = 'none';
+        editbtn3.style.display = 'block';
+    });
+
+
+
+</script>

@@ -17,11 +17,11 @@
                     </div>
                     <div class="row mt-4">
                         <div class="form-floating mb-3 col-12">
-                            <input type="text" class="form-control" id="floatingPassword" placeholder="First Name" asp-for="FirstName">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="First Name" asp-for="FirstName" required>
                             <label for="floatingInput" style="margin-left: 1em" class="text-secondary">First Name</label>
                         </div>
                         <div class="form-floating mb-3 col-12">
-                            <input type="text" class="form-control" id="floatingPassword" placeholder="Last Name" asp-for="LastName">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Last Name" asp-for="LastName" required>
                             <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Last Name</label>
                         </div>
 @*                         <div class="form-floating mb-3 col-12">
@@ -29,10 +29,10 @@
                             <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Phone Number</label>
                         </div> *@
                         <div class="form-floating mb-3 col-12">
-                            <input id="phone" type="tel" class="form-control" style="height: 60px;" asp-for="Number">
+                            <input id="phone" type="tel" class="form-control" style="height: 60px;" asp-for="Number" required>
                         </div>
                         <div class="form-floating mb-3 col-12">
-                            <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email">
+                            <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email" required>
                             <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Email</label>
                         </div>
                     </div>
@@ -54,3 +54,10 @@
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
 </script>
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

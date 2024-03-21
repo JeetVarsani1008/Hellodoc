@@ -220,7 +220,7 @@
                                         <li class="d-flex align-items-center ps-1"><i class="bi bi-x-circle me-1"></i><button class="dropdown-item p-1" onclick="cancelcase(@obj.RequestId)"><span>Cancel Case</span></button></li>
                                     }
 
-                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-search me-1"></i><button class="dropdown-item p-1 @(ViewBag.ActiveDashboardNav == "AdminDashboard" ? "active" : "")" onclick="location.href='@Url.Action("ViewCase","Admin", new {requestId = @obj.RequestId})'">View Case</button></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-search me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("ViewCase","Admin", new {requestId = @obj.RequestId})'">View Case</button></li>
 
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                                     {
@@ -769,3 +769,10 @@
 </script>
 
 
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

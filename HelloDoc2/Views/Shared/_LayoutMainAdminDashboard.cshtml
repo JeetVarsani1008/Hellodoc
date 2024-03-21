@@ -50,12 +50,12 @@
                             <a class="nav-link" aria-current="page" href="#">Welcome</a>
                         </li>
                         <li class="nav-item p-2 fw-bolder">
-                                Admin admin2
+                            @ViewBag.AdminName
                         </li>
                     </div>
                     <li class="nav-item">
                         <a asp-action="AdminLogout" asp-controller="Admin">
-                            <button type="button" class="btn logout-btn ">
+                            <button type="button" class="btn btn-outline-info logout-btn ">
                                 <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
                             </button>
                         </a>

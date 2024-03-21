@@ -53,10 +53,12 @@ namespace DAL.Controllers
             HttpContext.Session.SetInt32("AspId",Id);
 
             var adminId = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).AdminId;
-            HttpContext.Session.SetInt32("AdminId", adminId);
 
+            HttpContext.Session.SetInt32("AdminId", adminId);
+            var name = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).FirstName;
+            HttpContext.Session.SetString("adminName", name);
             AspNetUser user = _login.adminLogin(loginVm);
-            if (user != null)
+            if (user != null)   
             {
             AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
                 if (aspNetUserRole == null)
@@ -95,9 +97,11 @@ namespace DAL.Controllers
         public IActionResult AdminDashboard(string reqtypeid)
         {
             ViewBag.ActiveDashboardNav = "AdminDashboard";
+
             string str = "1";
             int[] arr = { 1 };
             var request = _context.Requests;
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
 
             var reqCount = request.GroupBy(o => o.Status).Select(h => new { Status = h.Key, Count = h.Count() }).ToList();
 
@@ -713,6 +717,7 @@ namespace DAL.Controllers
         //this is for admin profile 
         public IActionResult AdminMyProfile()
         {
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             int? adminId = HttpContext.Session.GetInt32("AdminId");
             ViewBag.ActiveDashboardNav = "AdminMyProfile";
             int? id = HttpContext.Session.GetInt32("AspId");
@@ -750,10 +755,6 @@ namespace DAL.Controllers
 
         //admin profile part is completed
 
-        public IActionResult EditPhysicianAccount()
-        {
-            return View();
-        }
         [CustomAuthorize("1")]
         //this part is for encounter form 
         public IActionResult EncounterForm(int reqId)
@@ -773,10 +774,10 @@ namespace DAL.Controllers
         public IActionResult Provider(string regionId)
         {
             ViewBag.ActiveDashboardNav = "Provider";
-
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             ProviderVm providerVm = new ProviderVm();
             providerVm.regions = _adminDashboard.getRegions();
-            providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
+            //providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
             return View(providerVm);
         }
 
@@ -787,5 +788,27 @@ namespace DAL.Controllers
             providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
             return PartialView("_adminProviderTable", providerVm);
         }
+
+        [HttpPost]
+        public IActionResult UpdateIsNotificationStopped(int physicianId)
+        {
+            var notification = _context.PhysicianNotifications.FirstOrDefault(x => x.PhysicianId == physicianId);
+            if (notification != null)
+            {
+                if(notification.IsNotificationStopped == false)
+                {
+                    notification.IsNotificationStopped = true;
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    notification.IsNotificationStopped = false;
+                    _context.SaveChanges();
+                }
+            }
+            return Ok();
+        }
+
+
     }
 }

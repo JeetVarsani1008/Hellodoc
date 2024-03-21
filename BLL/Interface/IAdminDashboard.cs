@@ -96,5 +96,8 @@ namespace BLL.Interface
 
         //this part is for provider that accessible by admin and it is in nav bar 
         List<Provider> getPhysicianDetails(string regionId);
+
+        //this part is for edit provider details
+
     }
 }
