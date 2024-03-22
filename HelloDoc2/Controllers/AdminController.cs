@@ -731,6 +731,7 @@ namespace DAL.Controllers
             _adminDashboard.adminResetPassword(model);
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
+            TempData["success"] = "Password Changed Successfully";
             return View("AdminMyProfile",data);
         }
         
@@ -741,6 +742,7 @@ namespace DAL.Controllers
             _adminDashboard.adminEditDetails1(model, checkboxForAll, adminId ?? 0);
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
+            TempData["success"] = "Details Changed successfully";
             return View("AdminMyProfile",data);
         }
 
@@ -750,6 +752,7 @@ namespace DAL.Controllers
             _adminDashboard.adminEditDetails2(model);
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
+            TempData["success"] = "Details Changed successfully";
             return View("AdminMyProfile",data);
         }
 
@@ -810,5 +813,60 @@ namespace DAL.Controllers
         }
 
 
+
+        //this is edit physician account part
+        public IActionResult EditPhysicianAccount(int physicianId)
+        {
+            ViewBag.ActiveDashboardNav = "Provider";
+            var data = _adminDashboard.getPhysicianDetails(physicianId);
+            return View(data);
+        }
+
+        public IActionResult EditPhysicianPassword(ProviderVm model)
+        {
+            _adminDashboard.editPhysicianPassword(model);
+            var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
+            return View("EditPhysicianAccount", data);
+        }
+        public IActionResult PhysicianEditDetails1(ProviderVm model, List<int>? checkboxForAll)
+        {
+            _adminDashboard.physicianEditDetails1(model, checkboxForAll);
+            var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
+            return View("EditPhysicianAccount", data);
+        }
+
+        public IActionResult PhysicianEditDetails2(ProviderVm model)
+        {
+            _adminDashboard.physicianEditDetails2(model);
+            var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
+            return View("EditPhysicianAccount", data);
+        }
+        public IActionResult PhysicianEditDetails3(ProviderVm model)
+        {
+            _adminDashboard.physicianEditDetails3(model);
+            var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
+            return View("EditPhysicianAccount", data);
+        }
+
+        public IActionResult ContactProvider(int phyId)
+        {
+            var email = _context.Physicians.FirstOrDefault(x => x.PhysicianId == phyId).Email;
+            ProviderVm providerVm = new ProviderVm();
+            providerVm.Email = email;
+            return PartialView("Admin/_providerContactPopup",providerVm);
+        }
+
+        public async Task<IActionResult> AdminSendMailToProvider(ProviderVm model)
+        {
+            var Email = model.Email;
+            var subject = "Provider Contact";
+            var body = "Description:-" + model.Description;
+            if(Email != null)
+            {
+                await SendEmailAsync(Email, subject, body);
+            }
+            TempData["error"] = "Email not Send Successfully";
+            return RedirectToAction("Provider");
+        }
     }
 }

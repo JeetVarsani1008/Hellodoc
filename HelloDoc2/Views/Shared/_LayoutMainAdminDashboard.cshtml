@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HelloDoc2.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/AllModel.css" />
 
 
 
@@ -20,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <link rel="stylesheet" href="~/css/AllModel.css" />
     <link rel="stylesheet" href="~/css/AdminDashboard.css"/>
 
     <meta charset="UTF-8">
@@ -32,7 +32,8 @@
 
 <body id="partial-change">
 
-    
+    <partial name="_ToastNotification" />
+
     <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
         <div class="container-fluid">
             <div class="d-flex align-items-center">
@@ -76,13 +77,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link links @(ViewBag.ActiveDashboardNav == "AdminDashboard" ? "active" : "")" asp-action="AdminDashboard" asp-controller="Admin">Dashboard</a>
+                        <a class="nav-link @(ViewBag.ActiveDashboardNav == "AdminDashboard" ? "active" : "")" asp-action="AdminDashboard" asp-controller="Admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link links">Provider Location</a>
+                        <a class="nav-link ">Provider Location</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link links @(ViewBag.ActiveDashboardNav == "AdminMyProfile" ? "active" : "")" asp-action="AdminMyProfile" asp-controller="Admin">My Profile</a>
+                        <a class="nav-link @(ViewBag.ActiveDashboardNav == "AdminMyProfile" ? "active" : "")" asp-action="AdminMyProfile" asp-controller="Admin">My Profile</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link w-100 p-auto links @(ViewBag.ActiveDashboardNav == "Provider" ? "active" : "")" role="button" data-bs-toggle="dropdown">Providers</a>
@@ -93,13 +94,13 @@
                         </ul>
                     </li>   
                     <li class="nav-item">
-                        <a class="nav-link links">Partners</a>
+                        <a class="nav-link ">Partners</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link w-100 p-auto links" href="#" role="button" data-bs-toggle="dropdown">Access</a>
+                        <a class="nav-link w-100 p-auto " href="#" role="button" data-bs-toggle="dropdown">Access</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link links">Records</a>
+                        <a class="nav-link ">Records</a>
                     </li>
                 </ul>
             </div>
@@ -108,7 +109,6 @@
 
     <div class="container-fluid p-0 mt-3">
         <main role="main" class="">
-            <partial name="_ToastNotification" />
             @RenderBody()
         </main>
     </div>

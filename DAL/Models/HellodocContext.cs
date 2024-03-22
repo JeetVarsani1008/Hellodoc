@@ -254,7 +254,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.PhysicianRegionId).HasName("PhysicianRegion_pkey");
 
-            entity.Property(e => e.PhysicianRegionId).ValueGeneratedNever();
+            entity.Property(e => e.PhysicianRegionId).HasIdentityOptions(null, null, null, 11111111L, null, null);
 
             entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianRegions)
                 .OnDelete(DeleteBehavior.ClientSetNull)

@@ -98,6 +98,11 @@ namespace BLL.Interface
         List<Provider> getPhysicianDetails(string regionId);
 
         //this part is for edit provider details
+        ProviderVm getPhysicianDetails(int physicianId);
 
+        void editPhysicianPassword(ProviderVm model);
+        void physicianEditDetails1(ProviderVm model, List<int>? checkboxForAll);
+        void physicianEditDetails2(ProviderVm model);
+        void physicianEditDetails3(ProviderVm model);
     }
 }

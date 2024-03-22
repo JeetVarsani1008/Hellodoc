@@ -41,10 +41,13 @@
                     }
                 </td>
                 <td class="d-flex">
-                    <button class="btn btn-outline-info me-2">Contact</button>
+                    <button class="btn btn-outline-info me-2" onclick="contact(@obj.PhysicianId)">Contact</button>
                     <button class="btn btn-outline-info ms-2 d-none d-md-block" onclick="location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = obj.PhysicianId})'">Edit</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+
+                    

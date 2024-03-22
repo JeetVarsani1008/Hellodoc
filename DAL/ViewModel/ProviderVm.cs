@@ -17,7 +17,29 @@ namespace DAL.ViewModel
 
         public List<Provider> providers { get; set; }
 
-        //public string Roles { get; set; }
+        // this part is for edit provider account
+
+        public int RegionId {  get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Password { get; set; }
+        public string Email {  get; set; }
+
+        public string Phone { get; set; }
+        public string MedicalLicence { get; set; }
+        public string AltPhone { get; set; }
+        public string NPINumber { get; set;}
+        public string SynchronizationEmail { get; set;}
+
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+
+        public string City { get; set; }
+        public string State { get; set; } 
+        public string Zip { get; set; }
+
+        public string Description { get; set; }
+        public string communication { get; set; }
 
     }
     public class Provider

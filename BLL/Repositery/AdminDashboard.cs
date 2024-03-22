@@ -842,6 +842,87 @@ namespace BLL.Repositery
 
 
         //this is for edit provider/physician details
+        public ProviderVm getPhysicianDetails(int physicianId)
+        {
+            var phy = _context.Physicians.FirstOrDefault(x => x.PhysicianId == physicianId);
+            var region = _context.Regions.ToList();
+            var physicianRegion = _context.PhysicianRegions.Where(x => x.PhysicianId == physicianId).ToList();
+            ProviderVm providerVm = new ProviderVm
+            {
+                regions = region,
+                physicianRegions = physicianRegion,
+                FirstName = phy.FirstName,
+                LastName = phy.LastName,
+            };
+            return providerVm;
+        }
 
+        public void editPhysicianPassword(ProviderVm model)
+        {
+            var aspId = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId).AspNetUserId;
+            var passdata = _context.AspNetUsers.FirstOrDefault(x => x.Id == aspId);
+
+            passdata.PasswordHash = model.Password;
+            _context.SaveChanges();
+        }
+
+
+        public void physicianEditDetails1(ProviderVm model, List<int>? checkboxForAll)
+        {
+            Physician physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
+            var physicianRegion = _context.PhysicianRegions.Where(x => x.PhysicianId == model.PhysicianId).ToList();
+
+            physician.FirstName = model.FirstName;
+            physician.LastName = model.LastName;
+            physician.Email = model.Email;
+            physician.MedicalLicense = model.MedicalLicence;
+            physician.Npinumber = model.NPINumber;
+            physician.SyncEmailAddress = model.SynchronizationEmail;
+            _context.SaveChanges();
+
+
+            if (checkboxForAll != null)
+            {
+                foreach (var item in physicianRegion)
+                {
+                    _context.PhysicianRegions.Remove(item);
+                    _context.SaveChanges();
+                }
+                foreach (var regionId in checkboxForAll)
+                {
+                    PhysicianRegion region = new PhysicianRegion();
+                    region.PhysicianId = physician.PhysicianId;
+                    region.RegionId = regionId;
+                    _context.PhysicianRegions.Add(region);
+                    _context.SaveChanges();
+                }
+            }
+            else
+            {
+                foreach (var item in physicianRegion)
+                {
+                    _context.PhysicianRegions.Remove(item);
+                    _context.SaveChanges();
+                }
+            }
+        }
+
+        public void physicianEditDetails2(ProviderVm model)
+        {
+            var physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
+            physician.Address1 = model.Address1;
+            physician.Address2 = model.Address2;
+            physician.City = model.City;
+            //physician.RegionId = model.RegionId;
+            physician.Zip = model.Zip;
+            physician.AltPhone = model.AltPhone;
+            _context.SaveChanges();
+        }
+
+
+        public void physicianEditDetails3(ProviderVm model)
+        {
+
+        }
     }
 }

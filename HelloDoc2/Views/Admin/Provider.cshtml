@@ -46,6 +46,8 @@
 
 </main>
 
+<div id="contactprovider"></div>
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
@@ -112,5 +114,26 @@
                 }
             });
         
+    }
+
+
+    //ajax for contact model
+    function contact(phyId) {
+        console.log("CLicked contact provider")
+        let action = "/Admin" + "/" + "ContactProvider"
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { phyId: phyId },
+            success: function (result) {
+                console.log(result);
+                $('#contactprovider').html(result);
+                $('#myModelContactProvider').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
     }
 </script>
