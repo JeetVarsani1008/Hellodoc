@@ -893,6 +893,14 @@
       "PackagePath": "staticwebassets\\upload\\.net-Whole-Plane-2024.pdf"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_AgreementDoc.pdf",
+      "PackagePath": "staticwebassets\\upload\\1_AgreementDoc.pdf"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_NonDisclosureDoc.jpg",
+      "PackagePath": "staticwebassets\\upload\\2_NonDisclosureDoc.jpg"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7768657_3763028.jpg",
       "PackagePath": "staticwebassets\\upload\\7768657_3763028.jpg"
     },
@@ -927,10 +935,6 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig1. Platform login page.jpg"
-    },
-    {
-      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig18.Clear Case.png",
-      "PackagePath": "staticwebassets\\upload\\Fig18.Clear Case.png"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig19.Send Agreement pop-up.png",

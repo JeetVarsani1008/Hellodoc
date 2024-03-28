@@ -34,18 +34,6 @@ public partial class Physician
     [StringLength(500)]
     public string? AdminNotes { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsAgreementDoc { get; set; }
-
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsBackgroundDoc { get; set; }
-
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsTrainingDoc { get; set; }
-
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsNonDisclosureDoc { get; set; }
-
     [StringLength(500)]
     public string? Address1 { get; set; }
 
@@ -75,17 +63,11 @@ public partial class Physician
     [StringLength(200)]
     public string BusinessWebsite { get; set; } = null!;
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
-
     public int? RoleId { get; set; }
 
     [Column("NPINumber")]
     [StringLength(500)]
     public string? Npinumber { get; set; }
-
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsLicenseDoc { get; set; }
 
     [StringLength(100)]
     public string? Signature { get; set; }
@@ -104,6 +86,18 @@ public partial class Physician
     public int CreatedBy { get; set; }
 
     public int? ModifiedBy { get; set; }
+
+    public bool? IsAgreementDoc { get; set; }
+
+    public bool? IsBackgroundDoc { get; set; }
+
+    public bool? IsTrainingDoc { get; set; }
+
+    public bool? IsNonDisclosureDoc { get; set; }
+
+    public bool? IsDeleted { get; set; }
+
+    public bool? IsLicenseDoc { get; set; }
 
     [ForeignKey("AspNetUserId")]
     [InverseProperty("PhysicianAspNetUsers")]

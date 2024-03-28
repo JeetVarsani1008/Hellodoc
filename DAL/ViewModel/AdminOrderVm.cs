@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,15 +18,19 @@ namespace DAL.ViewModel
         public List<HealthProfessional> healthProfessionals { get; set; }
 
         public string Profession {  get; set; }
-        
+
+        [Required(ErrorMessage ="Please Enter Business Name")]
         public string Business {  get; set; }
 
+        [Required(ErrorMessage ="Please Enter Business Contact")]
         public string BusinessContact { get; set; }
 
+        [Required(ErrorMessage ="Please Enter Email Address")]
         public string Email { get; set; }
 
         public string FaxNumber { get; set; }
 
+        [Required]
         public string Prescription { get; set; }
 
         public int Refill { get; set; }

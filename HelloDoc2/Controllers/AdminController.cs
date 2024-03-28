@@ -19,6 +19,7 @@ using HtmlAgilityPack;
 using MimeKit;
 using Org.BouncyCastle.Ocsp;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Drawing.Spreadsheet;
 namespace DAL.Controllers
 {
     public class AdminController : Controller
@@ -52,7 +53,7 @@ namespace DAL.Controllers
             var Id = _context.AspNetUsers.FirstOrDefault(x => x.Email == loginVm.Email).Id;
             HttpContext.Session.SetInt32("AspId",Id);
 
-            var adminId = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).AdminId;
+            var adminId = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email)!.AdminId;
 
             HttpContext.Session.SetInt32("AdminId", adminId);
             var name = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).FirstName;
@@ -80,6 +81,7 @@ namespace DAL.Controllers
                     return RedirectToAction("AdminDashboard", "Admin");
                 }
             }
+            
             return View();
         }
 
@@ -170,7 +172,6 @@ namespace DAL.Controllers
 
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
-
 
 
         // this is for accordian to fetch names
@@ -732,6 +733,7 @@ namespace DAL.Controllers
             int? id = HttpContext.Session.GetInt32("AspId");
             var data = _adminDashboard.getAdminDetails(id ?? 0, adminId??0);
             TempData["success"] = "Password Changed Successfully";
+            ViewBag.ActiveDashboardNav = "AdminMyProfile";
             return View("AdminMyProfile",data);
         }
         
@@ -815,6 +817,7 @@ namespace DAL.Controllers
 
 
         //this is edit physician account part
+        [HttpGet]
         public IActionResult EditPhysicianAccount(int physicianId)
         {
             ViewBag.ActiveDashboardNav = "Provider";
@@ -867,6 +870,130 @@ namespace DAL.Controllers
             }
             TempData["error"] = "Email not Send Successfully";
             return RedirectToAction("Provider");
+        }
+
+        //this is for create provider account by admin
+        [HttpGet]
+        public IActionResult CreateProviderAccountByAdmin()
+        {
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            ProviderVm providerVm = new ProviderVm();
+            providerVm.regions = _adminDashboard.getRegions();
+            providerVm.roles = _adminDashboard.getRoles();
+            ViewBag.ActiveDashboardNav = "Provider";
+            return View(providerVm);
+        }
+
+        [HttpPost]
+        public IActionResult CreateProviderAccount(ProviderVm model, List<int>? checkboxForAll)
+        {
+            _adminDashboard.createProviderAccount(model, checkboxForAll);
+            return RedirectToAction("Provider", "Admin");
+        }
+
+        [HttpPost]
+        public IActionResult UploadSign([FromForm] IFormFile Filepath)
+        {
+            string fileName = Path.GetFileName(Filepath.FileName);
+            var filePath = Path.Combine("wwwroot", "upload", fileName);
+            using (FileStream stream = System.IO.File.Create(filePath))
+            {
+                // The file is saved in a buffer before being processed
+                Filepath.CopyTo(stream);
+            }
+            TempData["Uploadscs"] = "File Uploaded Succssfully.Please Refresh Page";
+            return Json(new { file1 = filePath });
+        }
+
+        public IActionResult UploadFileForPhysician(ProviderVm model)
+        {
+            _adminDashboard.updateProviderDoc(model);
+            return RedirectToAction("EditPhysicianAccount",new {physicianId = model.PhysicianId});
+        }
+
+
+        // this part is for access role
+        public IActionResult Access()
+        {
+            AccessVm accssVm = new AccessVm();
+            accssVm.access =  _adminDashboard.getAccessRoles();
+            ViewBag.ActiveDashboardNav = "Access";
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            return View(accssVm);
+        }
+
+        [HttpGet]
+        public IActionResult CreateAccess()
+        {
+            AccessVm accessVm = new AccessVm();
+            accessVm.menu = _adminDashboard.getMenu();
+            accessVm.aspNetRole = _adminDashboard.getAspNetRoles();
+            return View(accessVm);
+        }
+
+        public IActionResult fetchrole(int Id)
+        {
+            AccessVm accessVm = new AccessVm();
+            accessVm.menu = _adminDashboard.getAccess(Id);
+            return PartialView("Admin/_CreateAccessTable", accessVm);
+        }
+
+        public IActionResult CreateRole(AccessVm model,List<int>? checkboxForAllRole)
+        {
+
+            _adminDashboard.createRole(model,checkboxForAllRole);
+            AccessVm accssVm = new AccessVm();
+            accssVm.access = _adminDashboard.getAccessRoles();
+            ViewBag.ActiveDashboardNav = "Access";
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            return View("Access", accssVm);
+        }
+
+        [HttpGet]
+        public IActionResult EditAccessRole(int RoleId, int AccountType)
+        {
+            AccessVm data = _adminDashboard.editAccessRole(RoleId, AccountType);
+            data.aspNetRole = _adminDashboard.getAspNetRoles();
+            ViewBag.ActiveDashboardNav = "Access";
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            return View(data);
+        }
+
+        public IActionResult EditAccessRolePost(AccessVm model, List<int>? checkboxForAllRole)
+        {
+            ViewBag.ActiveDashboardNav = "Access";
+            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            _adminDashboard.editAccessRolePost(model,checkboxForAllRole);
+            AccessVm accssVm = new AccessVm();
+            accssVm.access = _adminDashboard.getAccessRoles();
+            return View("Access",accssVm);
+        }
+
+        public IActionResult DeleteAccessRole(int RoleId)
+        {
+            _adminDashboard.deleteAccessRole(RoleId);
+            return RedirectToAction("Access");
+        }
+
+        public IActionResult UserAccess(int RoleId)
+        {
+            ViewBag.ActiveDashboardNav = "UserAccess";
+            //AccessVm accessVm = new AccessVm();
+            //accessVm.userAccess = _adminDashboard.getUserAccessData(RoleId);
+            return View();
+        }
+
+        public IActionResult UserAccessTable(int roleId)
+        {
+            AccessVm accessVm = new AccessVm();
+            accessVm.userAccess = _adminDashboard.getUserAccessData(roleId);
+            return PartialView("Admin/_UserAccessTable",accessVm);
+        }
+
+        //this is for admin create account
+        public IActionResult AdminCreateAccount()
+        {
+            return View();
         }
     }
 }

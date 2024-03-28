@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\main project\Hellodoc\HelloDoc2
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Access.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DcmVhdGVBY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DcmVhdGVSZXF1ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +46,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2xvc2VDYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CreateAccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CreateProviderAccountByAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlUHJvdmlkZXJBY2NvdW50QnlBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/EditAccessRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEFjY2Vzc1JvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/EditPhysicianAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFBoeXNpY2lhbkFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/ReviewAgreement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3QWdyZWVtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/UserAccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlckFjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Admin/ViewCase.cshtml]
@@ -142,8 +166,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxTdWJtaXRfUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_CreateAccessTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9DcmVhdGVBY2Nlc3NUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_providerContactPopup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9wcm92aWRlckNvbnRhY3RQb3B1cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_UserAccessTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9Vc2VyQWNjZXNzVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Error.cshtml]

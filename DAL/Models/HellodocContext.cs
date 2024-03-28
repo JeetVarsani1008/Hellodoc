@@ -205,7 +205,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.MenuId).HasName("Menu_pkey");
 
-            entity.Property(e => e.MenuId).ValueGeneratedNever();
+            entity.Property(e => e.MenuId).HasIdentityOptions(null, null, null, 100000L, null, null);
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -385,14 +385,14 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.RoleId).HasName("Role_pkey");
 
-            entity.Property(e => e.RoleId).ValueGeneratedNever();
+            entity.Property(e => e.RoleId).HasIdentityOptions(null, null, null, 100000L, null, null);
         });
 
         modelBuilder.Entity<RoleMenu>(entity =>
         {
             entity.HasKey(e => e.RoleMenuId).HasName("RoleMenu_pkey");
 
-            entity.Property(e => e.RoleMenuId).ValueGeneratedNever();
+            entity.Property(e => e.RoleMenuId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Menu).WithMany(p => p.RoleMenus)
                 .OnDelete(DeleteBehavior.ClientSetNull)

@@ -36,7 +36,7 @@ namespace BLL.Repositery
         {
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
             var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
-            List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
+            //List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
 
             if (reqTypeId != null)
             {
@@ -298,8 +298,8 @@ namespace BLL.Repositery
         {
             var request = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
             request.Status = (short)newStatus;
-            request.ModifiedDate = DateTime.UtcNow;
-            //_context.SaveChanges();
+            request.ModifiedDate = DateTime.Now;
+            _context.SaveChanges();
             var reqstatus = new RequestStatusLog
             {
                 RequestId = requestId,
@@ -832,7 +832,7 @@ namespace BLL.Repositery
                 PhysicianId = x.PhysicianId,
                 StopNotification = x.PhysicianNotifications.Any(pn => pn.IsNotificationStopped),
                 Name = x.FirstName,
-                Role = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
+                Role = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId)?.Name,
                 Status = (int)x.Status,
                 OnCallStatus = "Available",
             }).ToList();
@@ -841,18 +841,41 @@ namespace BLL.Repositery
         //provider main details completed
 
 
-        //this is for edit provider/physician details
+        //this is for edit provider/physician details : 6 methods
         public ProviderVm getPhysicianDetails(int physicianId)
         {
             var phy = _context.Physicians.FirstOrDefault(x => x.PhysicianId == physicianId);
+            var aspid = _context.Physicians.FirstOrDefault(x => x.PhysicianId == physicianId).AspNetUserId;
+            var aspuser = _context.AspNetUsers.FirstOrDefault(x => x.Id == aspid);
             var region = _context.Regions.ToList();
             var physicianRegion = _context.PhysicianRegions.Where(x => x.PhysicianId == physicianId).ToList();
             ProviderVm providerVm = new ProviderVm
             {
+                PhysicianId = phy.PhysicianId,
+                UserName = aspuser.UserName,
                 regions = region,
                 physicianRegions = physicianRegion,
                 FirstName = phy.FirstName,
                 LastName = phy.LastName,
+                Address1 = phy.Address1,
+                Address2 = phy.Address2,
+                City = phy.City,
+                RegionId = phy.RegionId ?? 1,
+                Zip = phy.Zip,
+                Email = aspuser.Email,
+                Phone = phy.Mobile,
+                MedicalLicence = phy.MedicalLicense,
+                NPINumber = phy.Npinumber,
+                BusinessName = phy.BusinessName,
+                BusinessWebsite = phy.BusinessWebsite,
+                SynchronizationEmail = phy.SyncEmailAddress,
+                Photo = phy.Photo,
+                Signature = phy.Signature,
+                AdminNotes = phy.AdminNotes,
+                IsAgreementDoc = phy.IsAgreementDoc ?? false,
+                IsBackgroundDoc = phy.IsBackgroundDoc ?? false,
+                IsNonDisclosureDoc = phy.IsNonDisclosureDoc ?? false,
+                IsLicenseDoc = phy.IsLicenseDoc ?? false,
             };
             return providerVm;
         }
@@ -865,7 +888,6 @@ namespace BLL.Repositery
             passdata.PasswordHash = model.Password;
             _context.SaveChanges();
         }
-
 
         public void physicianEditDetails1(ProviderVm model, List<int>? checkboxForAll)
         {
@@ -919,10 +941,320 @@ namespace BLL.Repositery
             _context.SaveChanges();
         }
 
-
         public void physicianEditDetails3(ProviderVm model)
         {
+            var physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
+            physician.BusinessName = model.BusinessName;
+            physician.BusinessWebsite = model.BusinessWebsite;
+            physician.Signature = model.Signature;
+            physician.Photo = model.Photo;
+            _context.SaveChanges();
 
+        }
+
+        // this is for upload document when admin edit provider account
+        public void updateProviderDoc(ProviderVm model)
+        {
+            var phy = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
+            string uniquefilename1 = null;
+            if (model.AgreementDoc != null && model.AgreementDoc.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot", "upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_AgreementDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.AgreementDoc.CopyTo(stream);
+                }
+                phy!.IsAgreementDoc = true;
+            }
+
+            if(model.BackgroundDoc != null && model.BackgroundDoc.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot","upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_BackgroundDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.BackgroundDoc.CopyTo(stream);
+                }
+                phy!.IsBackgroundDoc = true;    
+            }
+            
+            if(model.NonDisclosureDoc != null && model.NonDisclosureDoc.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot","upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_NonDisclosureDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.NonDisclosureDoc.CopyTo(stream);
+                }
+                phy!.IsNonDisclosureDoc = true;    
+            }
+            
+            if(model.LicenseDoc != null && model.LicenseDoc.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot","upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_LicenseDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.LicenseDoc.CopyTo(stream);
+                }
+                phy!.IsLicenseDoc = true;    
+            }
+
+            _context.SaveChanges();
+        }
+        //edit provider details completed
+
+        public List<Role> getRoles()
+        {
+            var data = _context.Roles.ToList();
+            return data;
+        }
+
+        public void createProviderAccount(ProviderVm model, List<int>? checkboxForAll)
+        {
+
+            AspNetUser aspNetUser = new AspNetUser
+            {
+                UserName = model.UserName,
+                PasswordHash = model.Password,
+                Email = model.Email,
+                Phonenumber = model.Phone,
+                CreatedDate = DateTime.Now,
+            };
+            _context.AspNetUsers.Add(aspNetUser);
+            _context.SaveChanges();
+
+
+            AspNetUserRole aspNetUserRole = new AspNetUserRole
+            {
+                UserId = aspNetUser.Id,
+                RoleId = 3,
+            };
+            _context.AspNetUserRoles.Add(aspNetUserRole);
+            _context.SaveChanges();
+
+            Physician physician = new Physician
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                Mobile = model.Phone,
+                MedicalLicense = model.MedicalLicence,
+                AdminNotes = model.AdminNotes,
+                Address1 = model.Address1,
+                Address2 = model.Address2,
+                City = model.City,
+                Zip = model.Zip,
+                AltPhone = model.AltPhone,
+                BusinessName = model.BusinessName,
+                BusinessWebsite = model.BusinessWebsite,
+                CreatedDate = DateTime.Now,
+                CreatedBy = 1,
+                Status = 1,
+                RegionId = model.RegionId,
+                RoleId = model.RoleId,
+                Photo = model.Photo,
+            };
+            _context.Physicians.Add(physician);
+            _context.SaveChanges();
+
+
+            if (checkboxForAll != null)
+            {
+                foreach (var item in checkboxForAll)
+                {
+                    PhysicianRegion region = new PhysicianRegion();
+                    region.RegionId = model.RegionId;
+                    region.PhysicianId = physician.PhysicianId;
+                    _context.PhysicianRegions.Add(region);
+                    _context.SaveChanges();
+                }
+
+            }
+
+            PhysicianNotification physicianNotification = new PhysicianNotification
+            {
+                PhysicianId = physician.PhysicianId,
+                IsNotificationStopped = false,
+            };
+            _context.PhysicianNotifications.Add(physicianNotification);
+            _context.SaveChanges();
+        }
+
+        //this part is for access role
+        public List<Menu> getMenu()
+        {
+            var data = _context.Menus.ToList();
+            return data;
+        }
+        public List<AspNetRole> getAspNetRoles()
+        {
+            var data = _context.AspNetRoles.ToList();
+            return data;
+        }
+        public List<Access> getAccessRoles()
+        {
+            var list = _context.Roles.Where(x => x.IsDeleted == false).ToList();
+            var data = list.Select(x => new Access()
+            {
+                Name = x.Name,
+                AccountType = _context.AspNetRoles.FirstOrDefault(i => i.Id == x.AccountType).Name,
+                RoleId = x.RoleId,
+                AccountTypeId = x.AccountType,
+            }).ToList();
+            return data;
+        }
+
+        public List<Menu> getAccess(int id)
+        {
+            if (id == 0)
+            {
+
+                List<Menu> role = _context.Menus.ToList();
+                return role;
+            }
+            else
+            {
+                List<Menu> roles = _context.Menus.Where(x => x.AccountType == id).ToList();
+                return roles;
+            }
+        }
+
+        public void createRole(AccessVm model, List<int> checkboxForAllRole)
+        {
+            Role role = new Role
+            {
+                Name = model.RoleName,
+                AccountType = (short)model.AccountType,
+                CreatedBy = "Admin",
+                CreatedDate = DateTime.Now,
+                IsDeleted = false,
+            };
+            _context.Roles.Add(role);
+            _context.SaveChanges();
+
+            if(checkboxForAllRole != null)
+            {
+               foreach(var item in checkboxForAllRole)
+                {
+                    RoleMenu roleMenu = new RoleMenu
+                    {
+                        RoleId = role.RoleId,
+                        MenuId = item,
+                    };
+                    _context.RoleMenus.Add(roleMenu);
+                    _context.SaveChanges();
+                }
+            }
+        }
+
+        //this is for edit access role
+        public AccessVm editAccessRole(int RoleId, int AccountType)
+        {
+            List<RoleMenu> roleMenu = _context.RoleMenus.Where(x => x.RoleId == RoleId).ToList();
+            var menus = _context.Menus.Where(x => x.AccountType == AccountType).ToList();
+            
+            var role = _context.Roles.FirstOrDefault(x => x.RoleId == RoleId);
+            AccessVm accessVm = new AccessVm
+            {
+                RoleName = role.Name,
+                AccountType = role.AccountType,
+                menu = menus,
+                roleMenu = roleMenu,
+                RoleId = RoleId,
+            };
+            return accessVm;
+        }
+
+        public void editAccessRolePost(AccessVm model, List<int>? checkboxForAllRole) 
+        {
+            var role = _context.Roles.FirstOrDefault(x => x.RoleId == model.RoleId);
+
+            var rolemenu = _context.RoleMenus.Where(x => x.RoleId == model.RoleId).ToList();
+
+            role.Name = model.RoleName;
+            role.ModifiedBy = "Admin";
+            role.ModifiedDate = DateTime.Now;
+            _context.SaveChanges();
+
+            if(checkboxForAllRole != null)
+            {
+                foreach(var item in rolemenu)
+                {
+                    _context.RoleMenus.Remove(item);
+                    _context.SaveChanges();
+                }
+                foreach(var item in checkboxForAllRole)
+                {
+                    RoleMenu roleMenu = new RoleMenu
+                    {
+                        RoleId = role.RoleId,
+                        MenuId = item,
+                    };
+                    _context.RoleMenus.Add(roleMenu);
+                    _context.SaveChanges();
+                }
+            }
+            else
+            {
+                foreach(var item in rolemenu)
+                {
+                    _context.RoleMenus.Remove(item);
+                    _context.SaveChanges(); 
+                }
+            }
+        }
+
+        public void deleteAccessRole(int RoleId)
+        {
+            var role = _context.Roles.FirstOrDefault(x => x.RoleId == RoleId);
+            role.IsDeleted = true;
+            _context.SaveChanges();
+        }
+
+        public List<UserAccess> getUserAccessData(int RoleId)
+        {
+            var list1 = _context.Admins.ToList();
+            var list2 = _context.Physicians.ToList();
+
+            var data1 = list1.Select(x => new UserAccess()
+            {
+                RoleId = RoleId,
+                AccountType = "Admin",
+                AccountPOC = x.FirstName + " " + x.LastName,
+                Phone = x.Mobile,
+                Status = (int)x?.Status,
+                OpenRequest = "Yes"
+            }).ToList();
+
+            var data2 = list2.Select(x => new UserAccess()
+            {
+                AccountType = "Physician",
+                AccountPOC = x.FirstName + " " + x.LastName,
+                Phone = x.Mobile,
+                Status = (int)x?.Status,
+                OpenRequest = "Yes"
+            }).ToList();
+
+            var data = data1.Concat(data2).ToList();
+
+            if(RoleId == 1)
+            {
+                return data1;
+            }
+            else if(RoleId == 2)
+            {
+                return data2;
+            }
+            else
+            {
+                return data;
+            }
         }
     }
 }

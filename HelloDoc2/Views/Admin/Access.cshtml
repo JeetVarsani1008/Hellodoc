@@ -1,0 +1,38 @@
+﻿@model DAL.ViewModel.AccessVm;
+
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<div class="bg-body-tertiary">
+    <div class="container">
+        <h4>Access</h4>
+        <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn btn-outline-info" onclick="window.location.href='@Url.Action("CreateAccess","Admin")'">Create Access</button>
+        </div>
+        <main>
+            <table class="table">
+                <thead>
+                    <tr class="table-active">
+                        <th width="40%">Name</th>
+                        <th width="40%">Account Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var obj in Model.access)
+                    {
+                        <tr>
+                            <td>@obj.Name</td>
+                            <td>@obj.AccountType</td>
+                            <td class="d-flex">
+                                <button class="btn btn-outline-info me-2" onclick="window.location.href='@Url.Action("EditAccessRole","Admin", new{RoleId = obj.RoleId, accountType = obj.AccountTypeId})'">Edit</button>
+                                <button class="btn btn-outline-info ms-2 d-none d-md-block" onclick="window.location.href='@Url.Action("DeleteAccessRole","Admin",new{RoleId = obj.RoleId})'">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </main>
+    </div>
+</div>

@@ -104,5 +104,27 @@ namespace BLL.Interface
         void physicianEditDetails1(ProviderVm model, List<int>? checkboxForAll);
         void physicianEditDetails2(ProviderVm model);
         void physicianEditDetails3(ProviderVm model);
+        //void changeCheckBox(int physicianId, int checkbox);
+        void updateProviderDoc(ProviderVm model);
+
+        //create account for physician by admin
+        List<Role> getRoles();
+        void createProviderAccount(ProviderVm model, List<int>? checkboxForAll);
+
+        //this part is for access role
+        List<Menu> getMenu();
+        List<AspNetRole> getAspNetRoles();
+        List<Access> getAccessRoles();
+
+        List<Menu> getAccess(int id);
+
+        void createRole(AccessVm model, List<int> checkboxForAllRole);
+
+        AccessVm editAccessRole(int RoleId, int AccountType);
+
+        void editAccessRolePost(AccessVm model, List<int>? checkboxForAllRole);
+        void deleteAccessRole(int RoleId);
+
+        List<UserAccess> getUserAccessData(int RoleId);
     }
 }

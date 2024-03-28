@@ -97,7 +97,11 @@
                         <a class="nav-link ">Partners</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link w-100 p-auto " href="#" role="button" data-bs-toggle="dropdown">Access</a>
+                        <a class="nav-link w-100 bs-tooltip-auto links @(ViewBag.ActiveDashboardNav == "Access" ? "active" : "")" role="button" data-bs-toggle="dropdown">Access</a>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item w-100 p-auto @(ViewBag.ActiveDashboardNav == "Access" ? "active" : "")" onclick="window.location.href='@Url.Action("Access","Admin")'" role="button" data-bs-toggle="dropdown">Access</button></li>
+                            <li><button class="dropdown-item w-100 p-auto @(ViewBag.ActiveDashboardNav == "UserAccess" ? "active" : "")" onclick="window.location.href='@Url.Action("UserAccess","Admin")'">User Access</button></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link ">Records</a>
@@ -125,6 +129,7 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
         <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 
 </body>
 </html>

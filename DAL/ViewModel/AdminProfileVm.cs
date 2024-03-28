@@ -12,6 +12,8 @@ namespace DAL.ViewModel
     {
         public int AdminId { get; set; }
         public int AspNetUserId { get; set; }
+
+        [Required(ErrorMessage ="Please Enter User Name")]
         public string UserName { get; set; }
 
         public string FirstName { get; set; }
@@ -23,9 +25,12 @@ namespace DAL.ViewModel
 
         public string Role { get; set; }
 
+        [Required(ErrorMessage ="Please Enter Email")]
         public string Email { get; set; }
 
-        //[Compare("Email")]
+        public string Phone { get; set; }
+
+        [Compare("Email")]
         public string ConfirmEmail { get; set; }
 
         public string Address1 { get; set; }

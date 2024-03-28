@@ -24,14 +24,14 @@
     <div class="d-flex flex-column">
         <div class="d-flex align-items-center mt-3 mb-3 me-2">
             <select class="form-select providerRegion" onchange="fetchRegion(null)" id="selectedRegion">
-                <option selected value="" class="fs-4">All Region</option>
+                <option selected value="">All Region</option>
                 @foreach (var obj in Model.regions)
                 {
-                    <option value="@obj.RegionId" class="fs-4">@obj.Name</option>  
+                    <option value="@obj.RegionId">@obj.Name</option>  
                 }
             </select>                
             <button type="button" class="btn bg-info ms-auto">
-                    <Span class=" d-none d-md-block">
+                <Span class=" d-none d-md-block text-white" onclick="location.href='@Url.Action("CreateProviderAccountByAdmin", "Admin")'">
                         Create Provider Account
                     </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
             </button>
@@ -51,7 +51,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-
+    //this ajax is call when this page is load
     $(document).ready(function () {
         $.ajax({
             url: "/Admin/ProviderTable",
