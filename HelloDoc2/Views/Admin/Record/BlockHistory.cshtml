@@ -1,0 +1,176 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+	var unblockMessage = TempData["unblockrequest"] as string;
+}
+<head>
+	<link rel="stylesheet" href="~/css/record.css" />
+	<style>
+		input[type = "checkbox"]{
+			transform : scale(1.5);
+		}
+	</style>
+</head>
+
+<div class="mt-5 container px-4">
+	<h3 class="d-flex justify-content-start">Block History</h3>
+	<div class="container-fluid p-3 p-0 shadow">
+		<div class="searchbar">
+			<div class="row">
+				@* name *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="patientname" placeholder="Name">
+					<label class="ms-2">Name</label>
+				</div>
+
+				@* date  *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="date" class="form-control " id="date" placeholder="Date">
+					<label class="ms-2">Date</label>
+				</div>
+
+				@* Email *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="email" placeholder="Email">
+					<label class="ms-2">Email</label>
+				</div>
+
+				@* Confirm Email *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="phoneNumber" placeholder="PhoneNumber">
+					<label class="ms-2">Phone Number</label>
+					<div class="invalid-feedback ">
+						Please enter only numbers.
+					</div>
+				</div>
+			</div>
+			<div class="d-flex justify-content-end mt-3 mb-3">
+				<button class="btn btn-outline-info me-2" onclick="clearfxn(0)">Clear</button>
+				<button class="btn btn-info text-white" onclick="searchblockpatient(0)">Search</button>
+			</div>
+		</div>
+
+
+		<div id="blockhistory">
+			
+
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+	//this ajax is call when this page is load
+	$(document).ready(function () {
+		$.ajax({
+			url: "/Admin/BlockHistoryTable",
+			type: "POST",
+			dataType: "html",
+			success: function (data) {
+
+				$("#blockhistory").html(data);
+
+			},
+			error: function () {
+				$("#blockhistory").html('Something Went Wrong');
+			}
+		});
+
+	});
+
+	//for chcking user enter only number
+	$(document).ready(function () {
+		$("#phoneNumber").on("input", function () {
+			if (!$(this).val().match(/^[0-9]*$/)) {
+				$(this).addClass("is-invalid");
+				$(this).next().show();
+			} else {
+				$(this).removeClass("is-invalid");
+			}
+		});
+	});
+
+	function searchblockpatient(pageNumber) {
+		var patientname = $('#patientname').val().trim();
+		var date = $('#date').val();
+		var email = $('#email').val().trim();
+		var phonenumber = $('#phoneNumber').val().trim();
+		var pageNumber = pageNumber;
+		console.log(pageNumber);
+		console.log(patientname);
+		$.ajax({
+			url: "/Admin/BlockHistoryTable",
+			type: "POST",
+			data: {
+				patientname: patientname,
+				date: date,
+				email: email,
+				phonenumber: phonenumber,
+				PageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#blockhistory").html(data);
+
+			},
+			error: function (error) {
+
+				$("#blockhistory").html('Something Went Wrong');
+			}
+		});
+	};
+
+
+	//for clear 
+	function clearfxn(pageNumber) {
+		var patientname;
+		var date;
+		var email;
+		var phonenumber;
+		var pageNumber = pageNumber;
+		$.ajax({
+			url: "/Admin/BlockHistoryTable",
+			type: "POST",
+			data: {
+				patientname: patientname,
+				date: date,
+				email: email,
+				phonenumber: phonenumber,
+				pageNumber : pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#blockhistory").html(data);
+
+				$("#patientname").val("");
+				$("#date").val("");
+				$("#email").val("");
+				$("#phoneNumber").val("");
+			},
+			error: function (error) {
+
+				$("#blockhistory").html('Something Went Wrong');
+			}
+		});
+	};
+
+	function checkAndPaginate(pageNumber) {
+		if (pageNumber > 0) {
+			searchblockpatient(pageNumber);
+		}
+	};
+
+	//this is for display success sweet msg
+	if ('@unblockMessage') {
+		Swal.fire({
+			icon: 'success',
+			text: '@unblockMessage',
+			timer: 2000, // Auto close the alert after 3 seconds
+			timerProgressBar: true,
+			showConfirmButton: true
+		});
+	};
+
+</script>

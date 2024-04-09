@@ -1,0 +1,430 @@
+﻿@model DAL.ViewModel.ProviderVm;
+
+@{
+	Layout = "~/Views/Shared/_LayoutMainAdmindashboard.cshtml";
+	
+
+}
+
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+	<style>
+		input[type="checkbox"] {
+			transform: scale(1.2);
+		}
+	</style>
+</head>
+
+<div class="bg-body-tertiary">
+	<div class="container">
+		@* header *@
+		<div class="d-flex justify-content-between">
+			<h3>Create Provider Account</h3>
+			<a asp-action="Provider" asp-controller="Admin">
+				<span type="button" class="btn btn-outline-info">&lt; Back</span>
+			</a>
+		</div>
+
+		@* main part *@
+		<div class="shadow bg-white-rounded-3 p-3">
+		<form asp-action="CreateProviderAccount" asp-controller="Admin" enctype="multipart/form-data">
+
+			@* first div *@
+			<div class="row mb-5">
+				<h4 class="d-flex justify-content-start">Account Information</h4>
+				@* username *@
+				<div class="col-lg-4 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="" placeholder="UserName" asp-for="UserName">
+					<label class="ms-2">Username(MD.Lastname.F)</label>
+					<span asp-validation-for="UserName" class="text-danger"></span>
+				</div>
+
+				@* password *@
+				<div class="col-lg-4 col-sm-12 form-floating">
+					<input type="password" class="form-control " id="" placeholder="Password" asp-for="Password">
+					<label class="ms-2">Password</label>
+					<span asp-validation-for="Password" class="text-danger"></span>
+				</div>
+
+				@* role *@
+				<div class="form-floating mb-3 col-sm-12 col-lg-4">
+					<select class="form-select" aria-label="Default select example" style=" width: 100%; height:57px;" asp-for="RoleId">
+								@foreach(var obj in Model.roles)
+								{
+									<option value="@obj.RoleId">@obj.Name</option>
+								}
+					</select>
+					<label for="select" class="ms-2">Role</label>
+				</div>
+			</div>
+
+			@* second div *@
+			<div class="row mb-5">
+				<h4 class="d-flex justify-content-start">Abminstrator Information</h4>
+
+				@* First name *@
+				<div class="col-lg-6 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="" placeholder="FirstName" asp-for="FirstName">
+					<label class="ms-2">First Name</label>
+					<span asp-validation-for="FirstName" class="text-danger"></span>
+				</div>
+
+				@* Last name *@
+				<div class="col-lg-6 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="" placeholder="LastName" asp-for="LastName">
+					<label class="ms-2">Last Name</label>
+					<span asp-validation-for="LastName" class="text-danger"></span>
+				</div>
+				
+				@* Email *@
+				<div class="col-lg-6 col-sm-12 form-floating">
+					<input type="email" class="form-control " id="" placeholder="Email" asp-for="Email">
+					<label class="ms-2">Email</label>
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				
+				@* Phone Number *@
+				<div class="form-floating col-lg-6 col-sm-12 ">
+					<input id="phone" type="tel" class="form-control" style="height: 60px;" asp-for="Phone">
+					<span asp-validation-for="Phone" class="text-danger"></span>
+				</div>
+
+				@* Meidcal licence *@
+				<div class="col-lg-6 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="" placeholder="Medical Licence" asp-for="MedicalLicence">
+					<label class="ms-2">Medical Licence #</label>
+				</div>
+				
+				@* NPI number *@
+				<div class="col-lg-6 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="" placeholder="NPI Number" asp-for="NPINumber">
+					<label class="ms-2">NPI Number</label>
+				</div>
+
+				@* Region check box *@
+				<div class="col-lg-6 col-sm-12 form-floating d-flex flex-wrap">
+						@foreach(var obj in Model.regions)
+						{
+							<div class="form-check me-3">
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox" value="@obj.RegionId" id="checkbox-@obj.RegionId" />
+							<label class="form-check-label" for="checkbox-item.RegionId" style="font-size: 15px; margin:0px;">@obj.Name</label>
+						</div>
+						}
+									
+				</div>
+
+			</div>
+
+			@* third div *@
+			<div class="row mb-5">
+				<h4 class="d-flex justify-content-start">Mailing & Billing Information</h4>
+
+				@*Address 1*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+						<input type="text" class="form-control enabled2" id="Address1" placeholder="Address1" asp-for="Address1">
+					<label class="ms-2">Address #1</label>
+					<span asp-validation-for="Address1" class="text-danger"></span>
+				</div>
+
+				@*Address 2*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+						<input type="text" class="form-control enabled2" id="Address2" placeholder="Address2" asp-for="Address2">
+					<label class="ms-2">Address #2</label>
+				</div>
+
+				@*City*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+					<input type="text" class="form-control enabled2" id="City" placeholder="City" asp-for="City">
+					<label class="ms-2">City</label>
+				</div>
+
+				@* State *@
+				<div class="form-floating mb-3 col-sm-12 col-lg-6">
+					<select class="form-select w-100" aria-label="Default select example" asp-for="RegionId">
+							@foreach(var item in Model.regions)
+							{
+							<option value="@item.RegionId">@item.Name</option>	
+							}
+					</select>
+					<label for="select" class="ms-2">State</label>
+				</div>
+
+				@*Zip*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+					<input type="text" class="form-control enabled2" id="pi_name" placeholder="Zip" asp-for="Zip">
+					<label class="ms-2">Zip</label>
+						<span asp-validation-for="Zip" class="text-danger"></span>
+				</div>
+
+				@* Phone Number *@
+				<div class="form-floating col-lg-6 col-sm-12 ">
+					<input id="phone1" type="tel" class="form-control" style="height: 60px;">
+				</div>
+			</div>
+
+			@* fourth div *@
+			<div class="row mb-3">
+				<h4 class="d-flex justify-content-start">Provider Profile</h4>
+
+				@*Business Name*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+					<input type="text" class="form-control enabled2" id="" placeholder="Business Name" asp-for="BusinessName">
+					<label class="ms-2">Business Name</label>
+				</div>
+
+				@*Business Website*@
+				<div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+					<input type="email" class="form-control enabled2" id="" placeholder="Business Website" asp-for="BusinessWebsite">
+					<label class="ms-2">Business Website</label>
+				</div>
+
+				@* upload photo *@
+ 				<div class="form-floating col-sm-12 col-md-6 col-lg-6" style="height: 57px">
+					<div class="input-group">
+							<input type="file" class="form-control bg-transparent mb-0" id="uploadphoto" asp-for="Photo">
+							<button type="button" id="upload-btn" class="btn btn-info text-white" onclick="uploadPhoto()">
+							<i class="bi bi-cloud-arrow-up me-1"></i>
+							<span class="d-none d-sm-inline-block">Photo</span>
+						</button>
+					</div>
+				</div>
+
+
+
+				@* admin notes *@
+				<div class="form-floating mb-3 col-sm-12 col-md-12 col-lg-12">
+					<textarea class="form-control enabled3 h-100" id="patientSymptoms"
+							  placeholder="Textarea" rows="5" asp-for="AdminNotes"></textarea>
+					<label for="patientSymptoms" class="text-wrap ms-2">Admin Notes</label>
+				</div>
+
+			</div>
+
+			<hr />
+
+			@* onboarding div *@
+			<div class="mt-3">
+				@* onboarding-one *@
+				<h4 class="mb-3">Onboarding</h4>
+				<div class="row mt-3 d-flex align-items-center">
+					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
+						<div class="form-check me-3">
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_0" />
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<h5>Independent Contractor Agreement</h5>
+					</div>
+					<div class="col-lg-2">
+							<input type="file" id="agreementDoc" class="d-none" asp-for="AgreementDoc" />
+							<label for="agreementDoc" class="btn btn-info text-white my-1 mx-1">
+								<i class="bi bi-cloud-upload"></i>
+							Upload
+						</label>
+					</div>
+				</div>
+			
+				@* onboarding-two *@
+				<div class="row mt-3 d-flex align-items-center">
+					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_1" />
+					</div>
+					<div class="col-lg-8">
+						<h5>Background Check</h5>
+					</div>
+					<div class="col-lg-2">
+							<input type="file" id="backgroundDoc" class="d-none" asp-for="BackgroundDoc" />
+							<label for="backgroundDoc" class="btn btn-info text-white my-1 mx-1">
+							<i class="bi bi-cloud-upload"></i>
+							Upload
+						</label>
+					</div>
+				</div>
+			
+				@* onboarding-three *@
+				<div class="row mt-3 mb-3 d-flex align-items-center">
+					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
+						<div class="form-check me-3">
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_2" />
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<h5>HIPAA Compliance</h5>
+					</div>
+					<div class="col-lg-2">
+						<input type="file" id="hippaCompliance" hidden asp-for="HIPAACompliance"/>
+						<label for="hippaCompliance" class="btn btn-info text-white my-1 mx-1">
+							<i class="bi bi-cloud-upload"></i>
+							Upload
+						</label>
+					</div>
+				</div>
+			
+				@* onboarding-four *@
+				<div class="row mt-3 d-flex align-items-center">
+					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
+						<div class="form-check me-3">
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_3" />
+						</div>
+					</div>
+					<div class="col-lg-8">
+						<h5>Non Disclosure Agreement</h5>
+					</div>
+					<div class="col-lg-2">
+							<input type="file" class="d-none" id="nonDisclosureDoc" asp-for="NonDisclosureDoc" />
+							<label for="nonDisclosureDoc" type="button" class="btn btn-info text-white my-1 mx-1">
+								<i class="bi bi-cloud-upload"></i>
+								Upload
+							</label>
+					</div>
+				</div>
+			</div>
+
+			<hr class="mt-3">
+
+			<div class="d-flex justify-content-end me-3 mt-3">
+				<button class="btn btn-success" type="submit">Create Account</button>
+			</div>
+
+				<input type="hidden" value="" id="lat"  asp-for="Latitude" />
+				<input type="hidden" value="" id="long" asp-for="Longitude"/>
+
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+	const phoneInputField = document.querySelector("#phone");
+	const phoneInput = window.intlTelInput(phoneInputField, {
+		utilsScript:
+			"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+	});
+	
+	const phoneInputField1 = document.querySelector("#phone1");
+	const phoneInput1 = window.intlTelInput(phoneInputField1, {
+		utilsScript:
+			"https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+	});
+
+
+
+	function uploadPhoto() {
+		console.log()
+		const url = document.getElementById('uploadphoto');
+		const file = url.files[0];
+
+		// Check if a file is selected
+		if (!file) {
+			return; // No file selected, do nothing
+		}
+
+		// Check file type
+		if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
+			// Show SweetAlert if file type is not allowed
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Only JPG and PNG files are allowed!',
+			});
+			return; // Abort the upload process
+		}
+
+		const formData = new FormData();
+		formData.append('Filepath', file);
+
+		$.ajax({
+			method: "POST",
+			url: "/Admin/UploadPhoto",
+			data: formData,
+			processData: false,
+			contentType: false,
+			success: function (data) {
+
+
+				console.log(data.filePath);
+
+			},
+			error: function (xhr, status, error) {
+				console.log("eroor123")
+				console.error(xhr.responseText);
+
+			},
+		});
+
+	};
+
+
+
+
+
+	//this is for store latitude and longitude
+	document.getElementById('City').addEventListener('focusout', getCoordinates);
+	document.getElementById('Address1').addEventListener('focusout', getCoordinates);
+	function getCoordinates() {
+		var address = document.getElementById('Address1').value + " " + document.getElementById('City').value;
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({ address: address }, function (results, status) {
+			if (status == "OK") {
+				var latitude = results[0].geometry.location.lat();
+				var longitude = results[0].geometry.location.lng();
+				document.getElementById('lat').value = latitude;
+				document.getElementById('long').value = longitude;
+				console.log(document.getElementById('lat').value);
+				console.log(document.getElementById('long').value);
+				//return true;
+			} else {
+				console.log("Geocoding failed: " + status);
+				//return false;
+			}
+		});
+		//return true;
+	};
+
+	['hippaCompliance', 'nonDisclosureDoc', 'agreementDoc', 'backgroundDoc'].forEach(function (id) {
+		var fileInput = document.getElementById(id);
+		if (fileInput) {
+			fileInput.addEventListener('change', function () {
+				var filePath = this.value;
+				var allowedExtensions = /(\.pdf)$/i;
+
+				if (allowedExtensions.exec(filePath)) {
+					// var checkbox = document.getElementById('checkbox_');
+					// if(checkbox){
+					// 	checkbox.checked = true;
+					// }
+					
+				}
+				else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'You can only upload PDF files!',
+					});
+				}
+				// Clear the file input
+				this.value = '';
+				return false;
+			});
+		}
+	});
+
+
+
+	
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v6.6/mapsJavaScriptAPI.js" async defer></script>
+
+@section Scripts {
+	@{
+				<partial name="_ValidationScriptsPartial" />
+	}
+}
+

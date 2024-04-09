@@ -1,0 +1,76 @@
+﻿.moonicon {
+    margin-left: 1em;
+    /* background-color: black;  */
+    border: 2px solid skyblue;
+}
+
+.doctor-img {
+    width: 6em;
+    height: 3em;
+}
+
+.active {
+    border-bottom: 3px solid skyblue !important;
+    color: skyblue !important;
+}
+
+.switch1 {
+    color: skyblue;
+}
+
+.switch2 {
+    color: white;
+}
+
+
+.logout-btn {
+    color: skyblue;
+    border: 2px solid skyblue !important;
+}
+
+.createnewreq {
+    float: right;
+    color: skyblue;
+    border: 2px solid skyblue !important;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 20em;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 45em;
+}
+
+.createreq {
+    padding: 1em;
+    width: 100%;
+}
+
+.documents {
+    float: right;
+    color: skyblue;
+    border: 2px solid skyblue !important;
+}
+
+.data_table {
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+}
+
+.form-profile {
+    background-color: white !important;
+}
+
+.iti__flag-container {
+    z-index: 5;
+}
+
+.iti {
+    width: 100%;
+}
+
+.map {
+    float: left;
+    color: skyblue;
+    border: 2px solid skyblue !important;
+}

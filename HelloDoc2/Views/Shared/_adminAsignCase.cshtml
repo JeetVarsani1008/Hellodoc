@@ -1,0 +1,94 @@
+﻿@model DAL.ViewModel.AdminAsignVm;
+
+@* <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ *@
+
+<div class="modal fade" id="myModalAssign" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <form method="post" id="assignrequestform" asp-action="AsignCasePost">
+
+            @*     <input hidden /> *@
+
+                @*HEADER*@
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Assign Request </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                @*BODY*@
+                <div class="modal-body">
+
+                    <p style="font-size:0.8rem;">
+                        To assign this request, search and select another Physician!
+                    </p>
+
+                    <select class="form-select my-3 ps-1 pt-1 w-100" aria-label="Default select example" id="regionSelect">
+                        <option hidden >Narrow Search by Region</option>
+                        @foreach(var obj in Model.regions)
+                        {
+                            <option value="@obj.RegionId">
+                                @obj.Name
+                            </option>
+                        }                        
+                    </select>
+
+
+                    <select class="form-select my-3 ps-1 pt-1 w-100" id="physicianSelect" aria-label="Floating label select example" asp-for="@Model.PhysicianId">
+                        <option selected disabled>Select Physician</option>
+                    </select>
+                    <span asp-validation-for="PhysicianId" class="text-danger"></span>
+
+                    <div class="form-floating mb-3 h-100" style="width: 100%;">
+                        <textarea class="form-control bg-transparent h-100" id="floatingInput"
+                                  placeholder="Textarea" rows="3" asp-for="Description"></textarea>
+                        <label for="floatingInput" class="text-wrap">Description</label>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                @*FOOTER*@
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info text-white border rounded-2">Submit</button>
+                    <button type="button" class="btn btn-outline-info rounded-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+ <script>
+
+    $("#regionSelect").on("change", function () {
+
+        getPhysiciansByRegionId($(this).val());
+    })
+     function getPhysiciansByRegionId(regid) {
+
+         let action = "/Admin" + "/" + "GetPhysiciansByRegionId"
+         event.preventDefault();
+         $.ajax({
+             url: action,
+             type: 'GET',
+             data: { regionId: regid },
+             success: function (data) {
+                 console.log(data.adminAsignVm.physicianList)
+                 $('#physicianSelect').html("<option>" + "Select Physician" + "</option>");
+                 for (var i = 0; i < data.adminAsignVm.physicianList.length; i++){
+                    $("#physicianSelect").append('<option value="' + data.adminAsignVm.physicianList[i].physicianId + '">' + data.adminAsignVm.physicianList[i].firstName + '</option>');
+                };
+             },
+             error: function () {
+                 alert('Error loading partial view');
+             },
+         });
+     }
+
+</script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

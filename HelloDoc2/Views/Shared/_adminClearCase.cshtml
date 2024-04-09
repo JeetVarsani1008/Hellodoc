@@ -1,0 +1,26 @@
+﻿@model DAL.ViewModel.AdminClearVm;
+
+@*CLEAR CASE MODAL*@
+<div class="modal fade" id="myModelClear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+        <form method="POST" asp-action="ClearCase" id="clearCaseForm">
+            <div class="modal-content">
+                <div class="modal-body p-5">
+                    <div class="text-center">
+                        <div class="d-flex justify-content-center ">
+                            <i class="bi bi-exclamation-circle-fill text-warning d-flex justify-content-center fs-1 mb-3 border border-2 border-warning rounded-circle  p-2"></i>
+                        </div>
+                        <h4 class="mb-3">Confirmation for clear case</h4>
+                        <p class="text-secondary fw-lighter my-3">
+                            Are you sure you want to clear this request? Once clear this request then you are not able to see this request
+                        </p>
+                        <input asp-for="RequestId" hidden />
+                        <button type="submit" class="btn btn-info text-white border rounded-2">Clear</button>
+                        <button type="reset" class="btn btn-outline-info rounded-2" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

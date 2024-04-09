@@ -1,0 +1,40 @@
+﻿<table class="table ">    <thead class="table-active">        <tr>            <th scope="col" width="10%">                <input type="checkbox" name="notification" id="selectAllCheckbox" onclick="selectAll()" />            </th>            <th scope="col">                Staff<i class="bi bi-arrow-up ms-2"></i>            </th>            <th scope="col">Day</th>            <th scope="col">Time</th>            <th scope="col" width="20%">Region</th>        </tr>    </thead>    <tbody>        @foreach(var obj in Model.requestedShift)
+        {            <tr>                <td>                    <input type="checkbox" name="notification" class="checkOnebox" onclick="selectBox()" shiftdetailId ="@obj.ShiftDetailId"/>                </td>                <td class="text-dark">@obj.Staff</td>                <td class="text-dark">                    @obj.Day                </td>                <td>                    @obj.Time                </td>                <td class="text-dark">@obj.Region</td>            </tr>        }            </tbody></table><script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><script>    var selectAllCheckbox = document.getElementById('selectAllCheckbox');
+    var checkOnebox = document.getElementsByClassName('checkOnebox');
+    function selectAll() {
+        if (selectAllCheckbox.checked) {
+            for (var i = 0; i < checkOnebox.length; i++) {
+                checkOnebox[i].checked = true;
+            }
+        }
+        else {            for (var i = 0; i < checkOnebox.length; i++) {                checkOnebox[i].checked = false;            }        }
+    };    function selectBox() {        var i = 0;
+        for (i = 0; i < checkOnebox.length; i++) {
+            if(!checkOnebox[i].checked){
+                break;
+            }
+        }
+        if (i == checkOnebox.length) {
+            selectAllCheckbox.checked = true;
+        }
+        else selectAllCheckbox.checked = false;
+    };    function deleteSelectedShift() {        var a = [];
+        for (var i = 0; i < checkOnebox.length; i++) {
+            if(checkOnebox[i].checked){                a.push(checkOnebox[i].getAttribute('shiftdetailId'));            }
+        }
+        console.log(a.length);
+        // if(a.length === 0){
+        //     alert('Please select Atleast One Shift To Delete');
+        //     return;
+        // }
+        $.ajax({            url: "/Admin/DeleteSelectedShift",            type: "POST",
+            data: { shiftDetailId: a },
+            success: function (data) {
+                if (data.success) {                    setTimeout(function () {                        location.reload();
+                    }, 2000);                    Swal.fire({                        title: 'Success!',                        text: `${a.length} Shift deleted successfully!`,                        icon: 'success',                        confirmButtonText: 'OK'                    });                }
+                else {                    Swal.fire({                        title: 'Error!',                        text: 'Select Atleast One Shift To Delete',                        icon: 'error',                        confirmButtonText: 'OK'                    });                }
+            },
+            error: function (data) {                                alert('error');
+            }
+        });
+    };    function approveSelectedShift() {        var a = [];        for (var i = 0; i < checkOnebox.length; i++) {            if (checkOnebox[i].checked) {                a.push(checkOnebox[i].getAttribute('shiftdetailId'));            }        }        console.log(a.length);        // if(a.length === 0){        //     alert('Please select Atleast One Shift To Delete');        //     return;        // }        $.ajax({            url: "/Admin/ApproveSelectedShift",            type: "POST",            data: { shiftDetailId: a },            success: function (data) {                if (data.success) {                    setTimeout(function () {                        location.reload();                    }, 2000);                    Swal.fire({                        title: 'Success!',                        text: `${a.length} Shift Approved successfully!`,                        icon: 'success',                        confirmButtonText: 'OK'                    });                }                else {                    Swal.fire({                        title: 'Error!',                        text: 'Select Atleast One Shift To Approve',                        icon: 'error',                        confirmButtonText: 'OK'                    });                }            },            error: function (data) {                alert('error');            }        });    }    </script>

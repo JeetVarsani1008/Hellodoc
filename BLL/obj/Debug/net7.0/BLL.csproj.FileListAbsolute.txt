@@ -1,0 +1,72 @@
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\BLL.deps.json
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\BLL.runtimeconfig.json
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\BLL.dll
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\BLL.pdb
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\BLL\bin\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.sourcelink.json
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.dll
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\refint\BLL.dll
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.pdb
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\BLL.genruntimeconfig.cache
+D:\my copy\HelloDoc2\BLL\obj\Debug\net7.0\ref\BLL.dll
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\BLL.deps.json
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\BLL.runtimeconfig.json
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\BLL.dll
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\BLL.pdb
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\DAL.dll
+D:\main project\Hellodoc\BLL\bin\Debug\net7.0\DAL.pdb
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.sourcelink.json
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.dll
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\refint\BLL.dll
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.pdb
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\BLL.genruntimeconfig.cache
+D:\main project\Hellodoc\BLL\obj\Debug\net7.0\ref\BLL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\BLL.deps.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\BLL.runtimeconfig.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\BLL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\BLL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\bin\Debug\net7.0\DAL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.sourcelink.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\refint\BLL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\BLL.genruntimeconfig.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\BLL\obj\Debug\net7.0\ref\BLL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\BLL.deps.json
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\BLL.runtimeconfig.json
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\BLL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\BLL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\bin\Debug\net7.0\DAL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.AssemblyInfo.cs
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.sourcelink.json
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\refint\BLL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\BLL.genruntimeconfig.cache
+C:\Users\DELL\Desktop\project\Hellodoc\BLL\obj\Debug\net7.0\ref\BLL.dll

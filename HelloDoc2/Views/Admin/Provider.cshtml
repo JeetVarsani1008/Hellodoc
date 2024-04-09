@@ -1,0 +1,143 @@
+﻿@model DAL.ViewModel.ProviderVm;
+
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<head>
+    <style>
+        .form-select {
+            height: 3em !important;
+            width: 20em;
+            color: gray !important;
+            font-size: 10px;
+            box-shadow: none !important;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<main class="bg-light container" >
+    <h4>Provider Information</h4>
+    <div class="d-flex flex-column">
+        <div class="d-flex align-items-center justify-content-between mt-3 mb-3 ">
+            <select class="form-select providerRegion" id="selectedRegion">
+                <option selected value="">All Region</option>
+                @foreach (var obj in Model.regions)
+                {
+                    <option value="@obj.RegionId">@obj.Name</option>  
+                }
+            </select>                
+            <button type="button" class="btn bg-info d-flex justify-content-end me-5">
+                <Span class=" d-none d-md-block text-white" onclick="location.href='@Url.Action("CreateProviderAccountByAdmin", "Admin")'">
+                        Create Provider Account
+                    </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
+            </button>
+        </div>
+
+
+        <div id="providerContent">
+        </div>
+
+
+     </div>
+
+</main>
+
+<div id="contactprovider"></div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+    //this ajax is call when this page is load
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Admin/ProviderTable",
+            type: "POST",
+            dataType: "html",
+            success: function (data) {
+
+                $("#providerContent").html(data);
+                $("input[name='notification']").each(function () {
+                    if ($(this).data("stop-notification")) {
+                        $(this).prop("checked", $(this).data("stop-notification"));
+                    }
+                });
+
+            },
+            error: function () {
+                $("#providerContent").html('An error has occurred');
+            }
+        });
+
+    });
+
+    $("#selectedRegion").on("input", function () {
+        regionId = $(this).val();
+        AjaxAll();
+    });
+
+    function AjaxAll() {
+        $.ajax({
+            url: "/Admin/ProviderTable",
+            type: "POST",
+            data: { regionId: regionId },
+            dataType: "html",
+            success: function (data) {
+                $("#providerContent").html(data);
+
+            },
+            error: function (error) {
+
+                $("#providerContent").html('An error has occurred');
+            }
+        });
+    }
+
+
+    //for update notification
+    function updateNotificationStopped(checkbox) {
+        var physicianId = checkbox.id;
+        
+            // AJAX call to update the database
+            $.ajax({
+                url: "/Admin/UpdateIsNotificationStopped",
+                type: "POST",
+                data: { physicianId: physicianId },
+                success: function (result) {
+                    // handle success
+                },
+                error: function () {
+                    // handle error
+                }
+            });
+        
+    }
+
+
+    //ajax for contact model
+    function contact(phyId) {
+        console.log("CLicked contact provider")
+        let action = "/Admin" + "/" + "ContactProvider"
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { phyId: phyId },
+            success: function (result) {
+                console.log(result);
+                $('#contactprovider').html(result);
+                $('#myModelContactProvider').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
+</script>

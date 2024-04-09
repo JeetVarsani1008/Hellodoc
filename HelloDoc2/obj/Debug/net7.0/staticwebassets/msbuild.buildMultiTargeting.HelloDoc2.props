@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HelloDoc2.props" />
+</Project>

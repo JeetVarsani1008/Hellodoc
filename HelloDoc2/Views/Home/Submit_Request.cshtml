@@ -1,0 +1,28 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/submitrequest.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<div class="container-fluid h-100">
+        
+        <a asp-action="Index" asp-controller="Home" class="backbtn">&lt; Back</a>
+        <main class="container-fluid h-100">
+            <div class=" d-flex flex-column justify-content-center align-items-center">
+                <h2 class="iam">I am a...</h2>
+                <button onclick="@("window.location.href='" + @Url.Action("PatientRequestForm", "Home") + "'");" class="box d-flex justify-content-left align-items-center box-patient">PATIENT</button>
+                <button onclick="@("window.location.href='" + @Url.Action("FamilyFriendsForm", "Home") + "'");" class="box d-flex justify-content-left align-items-center box-family">FAMILY/FRIEND</button>
+                <button onclick="@("window.location.href='" + @Url.Action("ConciergeForm", "Home") + "'");" class="box d-flex justify-content-left align-items-center box-concierge">CONCIERGE</button>
+                <button onclick ="@("window.location.href='" + @Url.Action("BusinessForm", "Home") + "'");" class="box d-flex justify-content-left align-items-center box-partner">BUSINESS PARTNERS</button>
+            </div>
+        </main>
+</div>
+
+<script>
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+</script>
+
+

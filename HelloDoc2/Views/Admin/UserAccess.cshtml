@@ -1,0 +1,89 @@
+﻿@model DAL.ViewModel.AccessVm;
+
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<div class="bg-body-tertiary d-flex flex-column">
+
+    <div class="container">
+
+        <h2>User Access</h2>
+
+        <div class="d-flex justify-content-between my-2">
+            <select class="form-select  mb-2 providerRegion w-25" aria-label="Default select example" id="selectedRole">
+                <option selected value="0">All Region</option>
+                <option value="1">Admin</option>
+                <option value="2">Physician</option>
+            </select>
+
+
+            <button class="btn btn-outline-info" style="display:none" id="createbtn" onclick="window.location.href='@Url.Action("AdminCreateAccount","Admin")'">Create Admin Account</button>
+
+        </div>
+
+        <div id="userAccessTable">
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Admin/UserAccessTable",
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+
+                $("#userAccessTable").html(data);
+
+            },
+            error: function () {
+                $("#userAccessTable").html('An error has occurred');
+            }
+        });
+
+    });
+
+    $("#selectedRole").on("input", function () {
+        roleId = $(this).val();
+        AjaxAll();
+    });
+
+    function AjaxAll() {
+        $.ajax({
+            url: "/Admin/UserAccessTable",
+            type: "POST",
+            data: { roleId: roleId },
+            dataType: "html",
+            success: function (data) {
+                $("#userAccessTable").html(data);
+
+            },
+            error: function (error) {
+
+                $("#userAccessTable").html('An error has occurred');
+            }
+        });
+    }
+
+
+    const select = document.getElementById('selectedRole');
+    const button = document.getElementById('createbtn');
+
+    select.addEventListener('change', function () {
+        if (select.value == 1) {
+            button.style.display = 'block';
+        }
+        else {
+            button.style.display = 'none';
+        }
+    })
+
+</script>

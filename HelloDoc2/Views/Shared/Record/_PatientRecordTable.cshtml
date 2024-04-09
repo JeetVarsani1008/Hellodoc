@@ -1,0 +1,129 @@
+﻿<div class="d-none d-md-block table-responsive">
+	@if(Model.patientHistory.Count > 0)
+	{
+	<table class="table">
+		<thead class="table-active">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th width="20%">Email</th>
+				<th width="15%">Phone</th>
+				<th width="30%">Address</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+				@foreach(var obj in Model.patientHistory)
+				{
+				<tr>
+					<td>@obj.FirstName</td>
+					<td>@obj.LastName</td>
+					<td>@obj.Email</td>
+					<td>@obj.Phone</td>
+					<td>@obj.Address</td>
+					<td>
+						<button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("PatientRecordExplore","Admin",new {patientId = obj.PatientId})'">Explore</button>
+					</td>
+				</tr>
+				}
+		</tbody>
+		</table>
+
+	}
+	else
+	{
+		<p> No data Found</p>
+	}
+
+</div>
+<div class="d-block d-md-none">
+	@foreach (var item in Model.patientHistory)
+	{
+		<button class="table-btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#content-@item.PatientId"
+				aria-expanded="false" aria-controls="content">
+			<hr class="m-0 mb-1" />
+			<div class="d-flex justify-content-start p-2" style="height: 60px; padding-left: 20px;">
+				<span>@item.FirstName</span>
+			</div>
+			<div class="d-flex justify-content-start p-2" style="height: 60px; padding-left: 20px;">
+				<span>@item.Phone</span>
+			</div>
+		</button>
+		<div id="content-@item.PatientId" class="collapse collapse1">
+
+
+			<div class="info1 d-flex gap-2 pad">
+				<div class="icons">
+					<i class="fa-regular fa-envelope" style="color: #01bce9;"></i>
+				</div>
+				<span>Email : </span>
+				@if (item.Email.Length > 30)
+				{
+					<span>@item.Email.Substring(0, 30)...</span>
+				}
+				@if (item.Email.Length <= 30)
+				{
+					<span>@item.Email</span>
+				}
+			</div>
+			<div class="info1 d-flex gap-2 pad">
+				<div class="icons">
+					<i class="fa-solid fa-phone" style="color: #01bce9;"></i>
+				</div>
+				<span>Phone : </span>
+				<span>@item.Phone</span>
+
+			</div>
+
+
+
+
+			<div class="d-flex justify-content-end mt-2">
+
+				<button class="btn btn-outline-primary providersmallbtns me-1" type="button">Explore</button>
+			</div>
+
+		</div>
+	}
+</div>
+
+<nav aria-label="Page navigation example " class="pb-1">
+	<div class="justify-content-between d-flex">
+		@if ((Model.skipCount + Model.Page.itemperpage) >= Model.Page.totalitem)
+		{
+			<p style="margin:0px; color:gray;">@(Model.skipCount + 1) to @Model.Page.totalitem records out of @Model.Page.totalitem</p>
+		}
+		else
+		{
+			<p style="margin:0px; color:gray;">@(Model.skipCount + 1) to @(Model.skipCount + Model.Page.itemperpage) records out of @Model.Page.totalitem</p>
+		}
+		<ul class="pagination">
+			<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")" onclick="checkAndPaginate(@(Model.CurrentPage - 1),0)">
+				<button class="page-link" id="prevPageLink">Previous</button>
+			</li>
+
+			@for (int i = 1; i <= Model.TotalPages; i++)
+			{
+				<li class="page-item @(Model.CurrentPage == i ? "active" : "")" onclick="searchpatient(@i,@Model.Page.itemperpage)">
+					<button class="page-link" id="pageLink">@i</button>
+				</li>
+			}
+			<li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")" onclick="checkMaxPage(@Model.CurrentPage + 1)">
+				<button class="page-link" id="nextPageLink">Next</button>
+			</li>
+		</ul>
+			<input type ="text" hidden value="@Model.TotalPages" id="maxpages"/>
+	</div>
+</nav>
+
+
+<script>
+	function checkMaxPage(pageNumber) {
+		var maxpage = document.getElementById("maxpages");
+		console.log(maxpage);
+		if (pageNumber < maxpage) {
+			searchpatient(pageNumber);
+		}
+	}
+</script>

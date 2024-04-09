@@ -1,0 +1,33 @@
+﻿.back {
+    text-decoration: none;
+}
+
+.back-btn {
+    position: absolute;
+    top: 4.5em;
+    right: 6em;
+    margin-right: 4em;
+    background-color: white;
+    border: 1px solid #01bce9;
+    border-radius: 5px;
+    background: transparent;
+}
+
+
+.btn-color-for-upload {
+    color: white;
+    background-color: #01bce9;
+    border: 1px solid #01bce9;
+    width: 100px;
+    height: 40px;
+}
+
+.submit {
+    background-color: #01bce9;
+    color: black;
+}
+
+.cancel {
+    border: 1px solid black;
+    margin-left: 1em;
+}

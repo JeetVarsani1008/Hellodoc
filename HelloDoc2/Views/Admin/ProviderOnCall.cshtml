@@ -1,0 +1,58 @@
+﻿@model DAL.ViewModel.ProviderVm;
+
+@{
+	Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<main class="bg-light container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="d-flex justify-content-start">MDs On Call</h3>
+        <button class="btn btn-outline-info">&lt; Back</button>
+    </div>
+    <div class="d-flex flex-column">
+        <div class="d-flex align-items-center justify-content-between mt-3 mb-3 ">
+            <select class="form-select providerRegion w-25" id="selectedRegion">
+                <option selected value="">All Region</option>
+                @foreach (var obj in Model.regions)
+                {
+                    <option value="@obj.RegionId">@obj.Name</option>
+                }
+            </select>
+            <div class="d-flex">
+                <button type="button" class="btn bg-info d-flex justify-content-end me-2">
+                    <Span class=" d-none d-md-block text-white" onclick="window.location.href='@Url.Action("Scheduling","Admin")'">
+                        Calender View
+                    </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
+                </button>
+                <button type="button" class="btn bg-info">
+                    <span class="d-none d-md-block text-white">Shift For Review</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="provideroncall">
+        </div>
+
+
+    </div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Admin/ProviderOnCallContent",
+            type : 'POST',
+            dataType : "html",
+            success: function (data) {
+                $('#provideroncall').html(data);
+            },
+            error: function (data) {
+                $('#provideroncall').html("Something Went Wrong");
+            },
+        });
+    })
+</script>

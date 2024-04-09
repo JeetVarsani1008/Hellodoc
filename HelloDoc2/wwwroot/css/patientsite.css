@@ -1,0 +1,68 @@
+.forback {
+    background-image: url('images/11116016_415.jpg');
+    
+}
+.registrationbtn {
+    width: 35%;
+    height : 50%;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    background-color: #3215ef;  
+    margin-top: 1em;
+    color: white;
+    text-decoration: none;  
+    font-weight: 600;
+}
+.submitbtn {
+    width: 35%;
+    height : 50%;
+    border-radius: 0.3em;
+    padding: 0.5em;
+    background-color: #36d0ff;
+    margin: 1em 0 1em 0;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+.doctorimg {
+    margin-bottom: 5em;
+    margin-right:5em ;
+    width: 5vw;
+    height: 5vh ;
+}
+.imglogo {
+    margin-bottom : 5em;   
+}
+
+.moonclass {
+    position: fixed;
+    right:25%;
+    top: 0%;
+    padding: 0 0.5em 0.5em 0.5em;
+    background-color: white;
+    border: 2px solid #2979FF ;
+    border-radius: 5px;
+    color: #2979FF;
+}
+.downtext {
+    margin-top: 25em;
+}
+
+.form-control:focus {
+    border-color: #0DCAF0;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+.bgimg {
+    background-image: url(../images/11116016_415.jpg);
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    align-items: center;
+    background-position:center;
+    background-size: cover;
+    filter: blur(4px);
+    opacity: 0.2;
+}

@@ -1,0 +1,29 @@
+﻿<div >
+	<div class="row bg-light">
+		<div>MDs On Call</div>
+		@foreach(var item in Model.providers)
+		{
+			if (item.ShiftDate == item.CurrentDate && item.StartTime <= item.CurrentTime && item.EndTime >= item.CurrentTime)
+			{
+					<div class="col-md-4 d-flex justify-content-start my-3">
+						<img src="~/SRS Screen Shorts/Fig Contact your Provider.jpg" class="me-2" width="50px" height="50px" />
+						<span> Dr @item.Name</span>
+					</div>
+			}
+		}
+	</div>
+	
+	<div class="row bg-light">
+		<div>Physician Off Duty</div>
+		@foreach(var item in Model.providers)
+		{
+			if (item.ShiftDate != item.CurrentDate || (item.ShiftDate == item.CurrentDate && item.EndTime < item.CurrentTime))
+			{
+					<div class="col-md-4 d-flex justify-content-start my-3">
+						<img src="~/SRS Screen Shorts/11116016_415.jpg" class="me-2" width="50px" height="50px" />
+						<span> Dr @item.Name</span>
+					</div>
+			}
+		}
+	</div>
+</div>

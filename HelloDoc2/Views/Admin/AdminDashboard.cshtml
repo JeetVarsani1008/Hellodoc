@@ -1,0 +1,211 @@
+﻿@model DAL.ViewModel.AdminDashboardViewModel
+
+
+@{    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+    var successMessage = TempData["loginsuccess"] as string;
+}
+
+
+<div class="bg-body-tertiary vh-100 d-flex flex-column">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid g-0">
+
+                        <div class="container111">
+                            <div class="inner">
+
+                                <button class="box bx1 selected" id="box" onclick="fetchRequests('1','1',null,0,1)">
+
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person-plus me-2 d-none d-md-block fs-4"></i>
+                                        <span class="stext">NEW</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.NewCount</span>
+                                    </div>
+
+                                </button>
+
+                                <button class="box bx2" onclick="fetchRequests('2','2',null,0,1)">
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person me-2 d-none px-1 d-md-block fs-4"></i>
+                                        <span class="stext">PENDING</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.PendingCount</span>
+                                    </div>
+
+                                </button>
+
+                                <button class="box bx3" onclick="fetchRequests('45','4,5',null,0,1)">
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-check2-circle me-2 d-none px-1 d-md-block fs-4"></i>
+                                        <span class="stext">ACTIVE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.ActiveCount</span>
+                                    </div>
+                                </button>
+
+                                <button class="box bx4" onclick="fetchRequests('6','6',null,0,1)">
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-clock-history me-2 d-none px-1 d-md-block fs-4"></i>
+                                        <span class="stext">CONCLUDE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.ConcludeCount</span>
+                                    </div>
+                                </button>
+                                <button class="box bx5" onclick="fetchRequests('378','3,7,8',null,0,1)">
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-person-x me-2 d-none px-1 d-md-block fs-4"></i>
+                                        <span class="stext">TO CLOSE</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.ToCloseCount</span>
+                                    </div>
+                                </button>
+                                <button class="box bx6" onclick="fetchRequests('9','9',null,0,1)">
+                                    <div class="up d-flex align-items-center">
+                                        <i class="bi bi-currency-dollar me-2 d-none px-1 d-md-block fs-4"></i>
+                                        <span class="stext">UNPAID</span>
+                                    </div>
+                                    <div class="down">
+                                        <span class="btext">@Model.UnpaidCount</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                     </div>                        <div id="partial_container">                            @* <partial name="_RequestsAccToStatus" /> *@                        </div>                    </div> 
+
+
+                    </div>                <div class="tab-pane fade" id="provider-location-tab-pane" role="tabpanel" aria-labelledby="provider-location-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Provider Location</h3>                    </div>                </div>                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">My Profile</h3>                    </div>                </div>                <div class="tab-pane fade" id="Providers-tab-pane" role="tabpanel" aria-labelledby="Providers-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Providers</h3>                    </div>                </div>                <div class="tab-pane fade" id="Partners-tab-pane" role="tabpanel" aria-labelledby="Partners-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Partners</h3>                    </div>                </div>                <div class="tab-pane fade" id="Access-tab-pane" role="tabpanel" aria-labelledby="Access-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Access</h3>                    </div>                </div>                <div class="tab-pane fade" id="Records-tab-pane" role="tabpanel" aria-labelledby="Records-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Records</h3>                    </div>                </div>            </div>        </div>    </div>        <footer class="bg-dark container-fluid fixed-bottom">
+        <div class="footer d-flex justify-content-end">
+            <div class="m-2">
+                <a class="text-white">Terms of Conditions</a> <span style="color: gray;">|</span> <a class="text-white">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    //this ajax is call when this page is load
+    $(document).ready(function () {
+
+        $.ajax({
+            url: "/Admin/AdminDashboardTable",
+            type: "POST",
+            dataType: "html",
+            success: function (data) {
+
+                $("#partial_container").html(data);
+
+            },
+            error: function () {
+                $("#partial_container").html('An error has occurred');
+            }
+        });
+
+    });
+
+
+    function fetchRequests( statusarray, status, reqtypeid,regionid, pagenumber) {        console.log(status)        console.log(reqtypeid)        console.log("inside fetchreq");
+        // var status = status;
+        var statusarray = statusarray;
+        var reqtypeid = reqtypeid;
+        
+
+;        $.ajax({            method: "GET",
+            url: "/Admin/FetchRequests",
+            data: {
+                status: status,
+                statusarray: statusarray,
+                reqtypeid: reqtypeid,
+                regionId : regionid,
+                pagenumber : pagenumber,
+               },            success: function (response) {                console.log("Function Success")                $('#partial_container').html(response)            },            error: function () {                console.log("Function Fail")            }        })    }
+
+
+    function filterRequests(statusarray,status, reqtypeid, regionId,pagenumber) {
+        console.log("inside filterreq");
+        console.log(status)
+        console.log(reqtypeid)
+        var statusarray = statusarray;
+        var status = status;
+        var regionId = regionId;
+        var reqtypeid = reqtypeid;
+        $.ajax({
+            method: "GET",
+            url: "/Admin/FilterRequests",   
+            data: { statusarray: statusarray, 
+                status: status, 
+                reqtypeid: reqtypeid,
+                regionId : regionId, 
+                PageNumber : pagenumber,
+            },
+            success: function (response) {
+                console.log("Function Success")
+                $('#partial_container').html(response)
+            },
+            error: function () {
+                console.log("Function Fail")
+            }
+        })
+    };
+
+
+    //this ajax is for filter page
+    function filterPagination(statusarray, status, reqtypeid, regionId, pagenumber, requestTypeId) {
+        
+        console.log("inside filterpagination");
+        console.log(status)
+        console.log(reqtypeid)
+        var statusarray = statusarray;
+        var status = status;
+        var regionId = regionId;
+        var reqtypeid = reqtypeid;
+        $.ajax({
+            method: "GET",
+            url: "/Admin/FilterPagination",
+            data: {
+                statusarray: statusarray,
+                status: status,
+                reqtypeid: reqtypeid,
+                regionId: regionId,
+                PageNumber: pagenumber,
+                RequestTypeId : requestTypeId,
+            },
+            success: function (response) {
+                console.log("Function Success")
+                $('#partial_container').html(response)
+            },
+            error: function () {
+                console.log("Function Fail")
+            }
+        })
+    };
+
+    //this is for display success sweet msg 
+    if ('@successMessage') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Successfull!',
+            // text: '@successMessage',
+            timer: 3000, // Auto close the alert after 3 seconds
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
+    };
+
+
+</script>
+
+
+
+
+
+<!-- Your AdminDashboard HTML content here -->

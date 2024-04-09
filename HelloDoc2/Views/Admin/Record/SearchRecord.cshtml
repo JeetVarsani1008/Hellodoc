@@ -1,0 +1,242 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+
+<div class="mt-5 container px-4">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+	<h3 class="d-flex justify-content-start">Search Records</h3>
+		<button class="btn btn-info text-white" id="exportprecords"><i class="bi bi-box-arrow-in-down-right me-2"></i>Export Data To Excel</button>
+	</div>
+	<div class="container-fluid p-3 p-0 shadow">
+		<div class="searchbar">
+			<div class="row">
+				@* select requst status *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating mb-3">	
+					<select class="form-select w-100" id="stauts">
+						<option selected value="0">All</option>
+						<option value="1">Unassigned</option>
+						<option value="2">Accepted</option>
+						<option value="3">Cancelled</option>
+						<option value="4">MDEnRoute</option>
+						<option value="5">MDONSite</option>
+						<option value="6">Conclude</option>
+						<option value="7">CancelledByPatient</option>
+						<option value="8">Closed</option>
+						<option value="9">Unpaid</option>
+						<option value="10">Clear</option>
+					</select>
+					<label class="ms-2">Select Request Status</label>
+				</div>
+
+
+				@* patient name *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="patientname" placeholder="PatientName">
+					<label class="ms-2">Patient Name</label>
+				</div>
+
+				@* select request type *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating mb-3" id="">
+					<select class="form-select w-100" id="requesttype">
+						<option value="0">All</option>
+						<option value="1">Patient</option>
+						<option value="2">Family/Friend</option>
+						<option value="3">Concierge</option>
+						<option value="4">Business</option>
+					</select>
+					<label class="ms-2">Select Request Type</label>
+				</div>
+
+				@* From date  *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="date" class="form-control " id="fromdate" placeholder="DateOfService">
+					<label class="ms-2">From Date Of Service</label>
+				</div>
+
+				@* To date *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="date" class="form-control " id="todate" placeholder="ToDateOfService">
+					<label class="ms-2">To Date Of Service</label>
+				</div>
+
+				@* Provider Name *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="providername" placeholder="ProviderName">
+					<label class="ms-2">Provider Name</label>
+				</div>	
+				
+				
+				@* Email *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="email" class="form-control " id="email" placeholder="Email">
+					<label class="ms-2">Email</label>
+				</div>		
+				
+				
+				@* Provider Name *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="phoneNumber" placeholder="Phone">
+					<label class="ms-2">Phone</label>
+					<div class="invalid-feedback">
+						Please enter only numbers.
+					</div>
+				</div>
+			</div>
+			<div class="d-flex justify-content-end mt-3 mb-3">
+				<button class="btn btn-outline-info me-2" onclick="clearfxn(0)">Clear</button>
+				<button class="btn btn-info text-white" onclick="searchrecord(0)">Search</button>
+			</div>
+		</div>
+
+		<div id="searchrecord"></div>
+	</div>
+</div>	
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
+
+
+<script>
+	//this ajax is call when this page is load
+	$(document).ready(function () {
+		$.ajax({
+			url: "/Admin/SearchRecordTable",
+			type: "POST",
+			dataType: "html",
+			success: function (data) {
+
+				$("#searchrecord").html(data);
+
+			},
+			error: function () {
+				$("#searchrecord").html('No Data Found Related Your Search');
+			}
+		});
+
+	});
+
+	//for chcking user enter only number
+	$(document).ready(function () {
+		$("#phoneNumber").on("input", function () {
+			if (!$(this).val().match(/^[0-9]*$/)) {
+				$(this).addClass("is-invalid");
+				$(this).next().show();
+			} else {
+				$(this).removeClass("is-invalid");
+			}
+		});
+	});
+
+	function searchrecord(pageNumber) {
+		var patientname = $('#patientname').val().trim();
+		var providername = $('#providername').val().trim();
+		var requesttype = $('#requesttype').val();
+		var stauts = $('#stauts').val();
+		var fromdate = $('#fromdate').val();
+		var todate = $('#todate').val();
+		var email = $('#email').val().trim();
+		var phonenumber = $('#phoneNumber').val().trim();
+		var pageNumber = pageNumber;
+		console.log(pageNumber);
+		$.ajax({
+			url: "/Admin/SearchRecordTable",
+			type: "POST",
+			data: {
+				patientname: patientname,
+				providername: providername,
+				requesttype: requesttype,
+				stauts: stauts,
+				email: email,
+				fromdate: fromdate,
+				todate: todate,
+				phoneNumber: phonenumber,
+				PageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#searchrecord").html(data);
+
+			},
+			error: function (error) {
+
+				$("#searchrecord").html('No Data Found Related Your Search');
+			}
+		});
+	};
+
+
+
+
+	function checkAndPaginate(pageNumber) {
+		if (pageNumber > 0) {
+			searchrecord(pageNumber);
+		}
+	}
+
+
+	//for clear
+	function clearfxn(pageNumber) {
+		var patientname;
+		var providername;
+		var requesttype;
+		var stauts;
+		var email;
+		var fromdate;
+		var todate;
+		var phoneNumber;
+		var pageNumber = pageNumber;
+		$.ajax({
+			url: "/Admin/SearchRecordTable",
+			type: "POST",
+			data: {
+				patientname: patientname,
+				providername: providername,
+				requesttype: requesttype,
+				stauts: stauts,
+				email: email,
+				fromdate: fromdate,
+				todate: todate,
+				phoneNumber: phoneNumber,
+				pageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#searchrecord").html(data);
+
+				$("#patientname").val("");
+				$("#requesttype").val("0");
+				$("#stauts").val("0");
+				$("#email").val("");
+				$("#fromdate").val("");
+				$("#todate").val("");
+				$("#providername").val("");
+				$("#phoneNumber").val("");
+				$("#phoneNumber").removeClass("is-invalid");
+
+
+			},
+			error: function (error) {
+
+				$("#searchrecord").html('No Data Found Related Your Search');
+			}
+		});
+	};
+
+
+	//export data into excel
+	$(document).ready(function () {
+		$("#exportprecords").click(function () {
+			let table = document.getElementsByTagName("table");
+			console.log(table);
+			debugger;
+			TableToExcel.convert(table[0], {
+				name: `PatientRecords.xlsx`,
+				sheet: {
+					name: 'PatientRecords'
+				}
+			});
+		});
+	});
+</script>

@@ -1,0 +1,60 @@
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\DAL\bin\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+D:\my copy\HelloDoc2\DAL\obj\Debug\net7.0\ref\DAL.dll
+D:\main project\Hellodoc\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\main project\Hellodoc\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\main project\Hellodoc\DAL\bin\Debug\net7.0\DAL.dll
+D:\main project\Hellodoc\DAL\bin\Debug\net7.0\DAL.pdb
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.dll
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.pdb
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+D:\main project\Hellodoc\DAL\obj\Debug\net7.0\ref\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\bin\Debug\net7.0\DAL.deps.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\bin\Debug\net7.0\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\bin\Debug\net7.0\DAL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\refint\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\DAL\obj\Debug\net7.0\ref\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\bin\Debug\net7.0\DAL.deps.json
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\bin\Debug\net7.0\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\bin\Debug\net7.0\DAL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\refint\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+C:\Users\DELL\Desktop\project\Hellodoc\DAL\obj\Debug\net7.0\ref\DAL.dll

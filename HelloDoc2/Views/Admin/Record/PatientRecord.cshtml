@@ -1,0 +1,171 @@
+﻿@model DAL.ViewModel.RecordVm;
+@{
+	Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+<head>
+	<link rel="stylesheet" href="~/css/record.css"/>
+</head>
+
+<div class="mt-5 container px-4">
+	<h3 class="d-flex justify-content-start">Patient History</h3>
+	<div class="container-fluid p-3 p-0 shadow">
+		<div class="searchbar">
+			<div class="row">
+				@* First name *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="firstname" placeholder="FirstName">
+					<label class="ms-2">First Name</label>
+				</div>
+
+				@* Last name  *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="lastname" placeholder="LastName">
+					<label class="ms-2">Last Name</label>
+				</div>
+
+				@* Email *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="email" placeholder="Email">
+					<label class="ms-2">Email</label>
+				</div>
+
+				@* Phone number *@
+				<div class="col-lg-3 col-md-3 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="phoneNumber" placeholder="PhoneNumber">
+					<label class="ms-2">Phone Number</label>
+					<div class="invalid-feedback">
+						Please enter only numbers.
+					</div>
+				</div>
+			</div>
+			<div >
+				<select onchange="searchpatient(0,this.value)">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+				</select>
+			</div>
+			<div class="d-flex justify-content-end mt-3 mb-3">
+				<button class="btn btn-outline-info me-2" onclick="clearfxn(0)">Clear</button>
+				<button class="btn btn-info text-white" onclick="searchpatient(0,@Model.pageSize)">Search</button>
+			</div>
+		</div>
+
+		<div id="patienthistory"></div>
+	
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+<script>
+	//this ajax is call when this page is load
+	$(document).ready(function () {
+		$.ajax({
+			url: "/Admin/PatientRecordTable",
+			type: "POST",
+			dataType: "html",
+			success: function (data) {
+
+				$("#patienthistory").html(data);
+
+			},
+			error: function () {
+				$("#patienthistory").html('An error has occurred');
+			}
+		});
+
+	});
+
+	//for chcking user enter only number
+	$(document).ready(function () {
+		$("#phoneNumber").on("input", function () {
+			if (!$(this).val().match(/^[0-9]*$/)) {
+				$(this).addClass("is-invalid");
+				$(this).next().show();
+			} else {
+				$(this).removeClass("is-invalid");
+			}
+		});
+	});
+
+	function searchpatient(pageNumber,pageSize) {
+		var firstname = $('#firstname').val().trim();
+		var lastname = $('#lastname').val().trim();
+		var email = $('#email').val().trim();
+		var phonenumber = $('#phoneNumber').val().trim();
+		var pageNumber = pageNumber;
+		var pageSize;
+		console.log(pageNumber);
+		console.log(firstname);
+		$.ajax({
+			url: "/Admin/PatientRecordTable",
+			type: "POST",
+			data: {
+				firstname: firstname,
+				lastname : lastname,
+				email : email,
+				phonenumber : phonenumber,
+				PageNumber: pageNumber,
+				PageSize : pageSize,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#patienthistory").html(data);
+
+			},
+			error: function (error) {
+
+				$("#patienthistory").html('An error has occurred');
+			}
+		});
+	};
+
+
+
+
+	function checkAndPaginate(pageNumber) {
+		if (pageNumber > 0) {
+			searchpatient(pageNumber);
+		}
+	};
+
+
+
+	//this is for clear record 
+	//for clear
+	function clearfxn(pageNumber) {
+		var firstname;
+		var lastname;
+		var email;
+		var phoneNumber;
+		var pageNumber = pageNumber;
+		$.ajax({
+			url: "/Admin/PatientRecordTable",
+			type: "POST",
+			data: {
+				firstname: firstname,
+				lastname: lastname,
+				email: email,
+				phoneNumber: phoneNumber,
+				pageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#patienthistory").html(data);
+
+				$("#firstname").val("");
+				$("#lastname").val("");
+				$("#email").val("");
+				$("#phoneNumber").val("");
+			},
+			error: function (error) {
+
+				$("#patienthistory").html('No Data Found');
+			}
+		});
+	};
+
+	
+</script>

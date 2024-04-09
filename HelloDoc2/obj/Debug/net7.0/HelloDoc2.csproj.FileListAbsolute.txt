@@ -1,0 +1,1264 @@
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.AssemblyReference.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfoInputs.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfo.cs
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CoreCompileInputs.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cs
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.sourcelink.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\appsettings.Development.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\appsettings.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.staticwebassets.runtime.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.exe
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.deps.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.runtimeconfig.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.pdb
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Humanizer.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.Framework.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Features.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.DiaSymReader.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Npgsql.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Common.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Configuration.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.DependencyResolver.Core.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Frameworks.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.LibraryModel.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Packaging.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.ProjectModel.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Protocol.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Versioning.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.CodeDom.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.AttributedModel.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Convention.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Hosting.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Runtime.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.TypedParts.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\af\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ar\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\az\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\bg\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\bn-BD\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\da\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\el\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fa\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fi-FI\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr-BE\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\he\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hr\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hu\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hy\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\id\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\is\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko-KR\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ku\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\lv\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ms-MY\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\mt\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nb\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nb-NO\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nl\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ro\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sk\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sl\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sr\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sr-Latn\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sv\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\th-TH\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uk\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\vi\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-CN\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Humanizer.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.build.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.development.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.HelloDoc2.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloDoc2.props
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloDoc2.props
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloDoc2.props
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.pack.json
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\bundle\HelloDoc2.styles.css
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\projectbundle\HelloDoc2.bundle.scp.css
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CopyComplete
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
+D:\Project\dotnet\HelloDoc2\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\MailKit.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\MimeKit.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\Project\dotnet\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\appsettings.Development.json
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\appsettings.json
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.staticwebassets.runtime.json
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.exe
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.deps.json
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.runtimeconfig.json
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\HelloDoc2.pdb
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Humanizer.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\MailKit.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.Framework.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Features.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Razor.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.DiaSymReader.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\MimeKit.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Npgsql.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Common.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Configuration.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.DependencyResolver.Core.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Frameworks.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.LibraryModel.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Packaging.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.ProjectModel.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Protocol.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\NuGet.Versioning.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.CodeDom.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.AttributedModel.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Convention.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Hosting.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.Runtime.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Composition.TypedParts.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\af\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ar\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\az\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\bg\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\bn-BD\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\da\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\el\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fa\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fi-FI\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr-BE\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\he\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hr\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hu\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\hy\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\id\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\is\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko-KR\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ku\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\lv\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ms-MY\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\mt\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nb\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nb-NO\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\nl\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ro\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sk\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sl\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sr\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sr-Latn\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\sv\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\th-TH\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uk\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\vi\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-CN\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Humanizer.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\BLL.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\DAL.dll
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\BLL.pdb
+D:\my copy\HelloDoc2\HelloDoc2\bin\Debug\net7.0\DAL.pdb
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.AssemblyReference.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.GeneratedMSBuildEditorConfig.editorconfig
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfoInputs.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfo.cs
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CoreCompileInputs.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cs
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.sourcelink.json
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.build.json
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.development.json
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.HelloDoc2.Microsoft.AspNetCore.StaticWebAssets.props
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloDoc2.props
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloDoc2.props
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloDoc2.props
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\staticwebassets.pack.json
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\bundle\HelloDoc2.styles.css
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\scopedcss\projectbundle\HelloDoc2.bundle.scp.css
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CopyComplete
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.dll
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
+D:\my copy\HelloDoc2\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.Development.json
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.json
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.staticwebassets.runtime.json
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.exe
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.deps.json
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.runtimeconfig.json
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.pdb
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Humanizer.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\MailKit.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.Framework.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Features.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Razor.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DiaSymReader.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\MimeKit.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Common.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Configuration.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.DependencyResolver.Core.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Frameworks.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.LibraryModel.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Packaging.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.ProjectModel.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Protocol.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Versioning.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.CodeDom.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.AttributedModel.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Convention.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Hosting.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Runtime.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.TypedParts.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\af\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ar\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\az\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\bg\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\bn-BD\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\da\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\el\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fa\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fi-FI\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr-BE\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\he\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hr\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hu\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hy\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\id\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\is\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko-KR\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ku\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\lv\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ms-MY\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\mt\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb-NO\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nl\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ro\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sk\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sl\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr-Latn\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sv\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\th-TH\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uk\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\vi\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-CN\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Humanizer.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.pdb
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.pdb
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.AssemblyReference.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.GeneratedMSBuildEditorConfig.editorconfig
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfoInputs.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfo.cs
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CoreCompileInputs.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cs
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.sourcelink.json
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.build.json
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.development.json
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.HelloDoc2.Microsoft.AspNetCore.StaticWebAssets.props
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloDoc2.props
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloDoc2.props
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloDoc2.props
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.pack.json
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\bundle\HelloDoc2.styles.css
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\projectbundle\HelloDoc2.bundle.scp.css
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CopyComplete
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
+D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ClosedXML.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ExcelNumberFormat.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HtmlAgilityPack.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Irony.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\SixLabors.Fonts.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IO.Packaging.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\XLParser.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.Interfaces.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.System.Drawing.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.Development.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.staticwebassets.runtime.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.exe
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.deps.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.runtimeconfig.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ClosedXML.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.Interfaces.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.System.Drawing.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ExcelNumberFormat.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\HtmlAgilityPack.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Humanizer.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Irony.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\MailKit.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.Framework.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Features.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Razor.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DiaSymReader.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\MimeKit.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Common.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Configuration.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.DependencyResolver.Core.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Frameworks.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.LibraryModel.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Packaging.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.ProjectModel.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Protocol.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Versioning.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\SixLabors.Fonts.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.CodeDom.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.AttributedModel.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Convention.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Hosting.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Runtime.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.TypedParts.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IO.Packaging.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\XLParser.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\af\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ar\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\az\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\bg\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\bn-BD\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\da\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\el\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fa\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fi-FI\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr-BE\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\he\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\hr\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\hu\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\hy\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\id\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\is\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko-KR\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ku\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\lv\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ms-MY\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\mt\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb-NO\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\nl\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ro\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\sk\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\sl\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr-Latn\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\sv\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\th-TH\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\uk\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\vi\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-CN\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Humanizer.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.AssemblyReference.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.GeneratedMSBuildEditorConfig.editorconfig
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfoInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfo.cs
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CoreCompileInputs.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cs
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.sourcelink.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.build.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.development.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.HelloDoc2.Microsoft.AspNetCore.StaticWebAssets.props
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloDoc2.props
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloDoc2.props
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloDoc2.props
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.pack.json
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\bundle\HelloDoc2.styles.css
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\projectbundle\HelloDoc2.bundle.scp.css
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CopyComplete
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
+D:\REFERENCE COPY\Hellodoc\Hellodoc\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\appsettings.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.staticwebassets.runtime.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.exe
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.deps.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.runtimeconfig.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HelloDoc2.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ClosedXML.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.Interfaces.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EPPlus.System.Drawing.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ExcelNumberFormat.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\HtmlAgilityPack.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Humanizer.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Irony.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\MailKit.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Build.Framework.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Elfie.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Features.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Razor.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DiaSymReader.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.DotNet.Scaffolding.Shared.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.NET.StringTools.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\MimeKit.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Common.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Configuration.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.DependencyResolver.Core.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Frameworks.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.LibraryModel.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Packaging.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.ProjectModel.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Protocol.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\NuGet.Versioning.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\SixLabors.Fonts.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.AttributedModel.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Convention.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Hosting.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.Runtime.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Composition.TypedParts.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.IO.Packaging.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\XLParser.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\af\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ar\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\az\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\bg\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\bn-BD\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\da\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\el\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fa\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fi-FI\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr-BE\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\he\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hr\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hu\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\hy\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\id\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\is\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko-KR\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ku\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\lv\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ms-MY\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\mt\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nb-NO\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\nl\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ro\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sk\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sl\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sr-Latn\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\sv\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\th-TH\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uk\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Cyrl-UZ\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\uz-Latn-UZ\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\vi\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-CN\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Humanizer.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\BLL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\DAL.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.AssemblyInfo.cs
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.RazorAssemblyInfo.cs
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.sourcelink.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.HelloDoc2.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.build.HelloDoc2.props
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.HelloDoc2.props
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.HelloDoc2.props
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\bundle\HelloDoc2.styles.css
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\scopedcss\projectbundle\HelloDoc2.bundle.scp.css
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.csproj.CopyComplete
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\refint\HelloDoc2.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Twilio.dll

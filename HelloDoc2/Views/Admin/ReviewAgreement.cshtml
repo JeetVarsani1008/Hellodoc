@@ -1,0 +1,43 @@
+﻿@model DAL.ViewModel.ReviewAgreementVm;
+
+@{
+    ViewData["Title"] = "Review Agreement Page";
+    Layout = "~/Views/Shared/_LayoutNone.cshtml";}
+
+<form method="post" asp-action="ReviewAgreementSubmit" asp-controller="Admin">
+<div class="container-fluid">    <div class="container">
+            <input type="text" value="@Model.RequestId" hidden asp-for="RequestId" />        <p class="container mt-5 review">            To provide best medical service, we cannot determine the cost right away. If you agree to our service, so we will provide            care and follow up until all care is completed, So with this points, if you like us to provide care to you,            click "Agree" and we'll start immediately, if you do not agree then simply click "Cancel".        </p>        <div class="d-grid gap-2 d-md-flex justify-content-md-around mt-5 ">
+            <button class="btn btn-success px-4  py-2" type="submit">I Agree</button>
+            <button class="btn btn-danger px-4 py-2" type="button" data-bs-toggle="modal" data-bs-target="#cancelAgreementModal">Cancel</button>        </div>    </div></div>
+</form>
+
+<div class="modal fade" id="cancelAgreementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <div class="modal-title text-light" id="exampleModalLongTitle">Cancel Confirmation</div>
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <form class="p-3" asp-action="ReviewAgreementCancel" asp-controller="Admin" method="post">
+                <input type="text" hidden value="@Model.RequestId" asp-for="RequestId" />
+                <div class="text-secondary">
+                    <span class="text-info fs-5 fw-bold">
+                        Model.Name
+                    </span>
+                </div>
+
+                <div class="mt-4 form-floating text-secondary">
+                    <textarea class="form-control h-100" id="floatingInputBlock" placeholder="" rows="3" asp-for="Notes"></textarea>
+                    <label for="floatingInputBlock" class="text-wrap">Please provide a brief explanation for your cancellation</label>
+@*                     <span class="text-danger" asp-validation-for="AgreementCancelNotes"></span>
+ *@                </div>
+
+                <div class="mt-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-info continue-btn mx-2">Confirm</button>
+                    <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

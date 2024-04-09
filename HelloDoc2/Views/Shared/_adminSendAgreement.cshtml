@@ -1,0 +1,62 @@
+﻿@model DAL.ViewModel.AdminClearVm;
+
+<div class="modal fade" id="myModelSendAgreement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> Send Agreement</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="SendAgreement" asp-controller="Admin" method="post">
+                    <input hidden id="requestid" name="requestid" value="@Model.RequestId" />
+                    <div class="d-flex">
+                        <i class="bi bi-circle-fill colorfor_@Model.RequestTypeId me-2"></i>
+                        @if (Model.RequestTypeId == 1)
+                        {
+                            <p>Patient</p>
+                        }
+                        else if (Model.RequestTypeId == 2)
+                        {
+                            <p>Family/Friend</p>
+                        }
+                        else if (Model.RequestTypeId == 3)
+                        {
+                            <p>Business</p>
+                        }
+                        else if (Model.RequestTypeId == 4)
+                        {
+                            <p>Concierge</p>
+                        }
+                        else if (Model.RequestTypeId == 5)
+                        {
+                            <p>VIP</p>
+                        }
+                    </div>
+                    <div>
+                        <p>To Send Agreement please make sure you are updating the correct contact information below for the responsible party.</p>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="form-floating mb-3 col-12">
+                            <input type="tel" class="form-control" id="floatingInput" placeholder="Phone Number" asp-for="Number">
+                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Phone Number</label>
+                            <span asp-validation-for="Number" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3 col-12">
+                            <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email">
+                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Email</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div id="pop_buttons_container">
+                        <button type="submit" id="pop_submit">Confirm</button>
+                        <button type="button" class="btn btn-outline-info rounded-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

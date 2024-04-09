@@ -1,0 +1,35 @@
+﻿<table class="table">
+    <thead class="table-active">
+        <tr>
+            <th scope="col">Account Type</th>
+            <th scope="col">Account POC</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Status</th>
+            <th scope="col">Open Requests</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.userAccess)
+        {
+            <tr>
+
+                <td>@obj.AccountType</td>
+                <td>@obj.AccountPOC</td>
+                <td>@obj.Phone</td>
+                <td>@obj.Status</td>
+                <td>@obj.OpenRequest</td>
+                <td class="d-flex">
+                    @if(obj.AccountType == "Admin")
+                    {
+                        <button class="btn btn-outline-info ms-2" onclick="window.location.href='@Url.Action("AdminMyProfile","Admin")'">Edit</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-outline-info ms-2" onclick="window.location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = obj.PhysicianId})'">Edit</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

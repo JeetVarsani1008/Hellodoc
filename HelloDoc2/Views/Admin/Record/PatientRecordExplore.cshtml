@@ -1,0 +1,49 @@
+﻿@model DAL.ViewModel.RecordVm;
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<div class="container mt-5">
+	<div class="d-flex justify-content-between">
+		<h3>Patient Record</h3>
+		<button class="btn btn-info" onclick="window.location.href='@Url.Action("PatientRecord","Admin")'">
+			<span class="text-white">&lt; Back</span>
+		</button>
+	</div>
+
+	<div class="table-responsive mt-5">
+		<table class="table">
+			<thead class="table-active">
+				<tr>
+					<td>Client/Member</td>
+					<td>Created Date</td>
+					<td>Confirmation</td>
+					<td>Provider Name</td>
+					<td>Concluded Date</td>
+					<td>Status</td>
+					<td>Final Report</td>
+					<td>Action</td>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(var obj in Model.patientRecordExplores)
+				{
+					<tr>
+						<td>@obj.Client</td>
+						<td>@obj.CreatedDate</td>
+						<td>@obj.Confirmation</td>
+						<td>@obj.ProviderName</td>
+						<td>@obj.ConcludedDate</td>
+						<td>@obj.Status</td>
+						<td>
+							<button class="btn btn-outline-info">View</button>
+						</td>
+						<td>
+							<button class="btn btn-outline-info">Actions</button>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,182 @@
+﻿@model DAL.ViewModel.ConciergeData;
+
+<head>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/conciergeform.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<div class="container patient-main">
+    <div class="container-fluid">
+        <a class="back">
+            <button onclick="@("window.location.href ='" + @Url.Action("Submit_Request","Home") + "'");" class="back-btn mt-5">
+                &lt; Back
+        </button>
+        </a>
+    </div>
+    <form method="post" asp-action="ConciergeForm" asp-controller="Home">
+    <div class="container-fluid formpart">
+        <h2 class="header-text">Concierg Information</h2>
+        <div class="row mt-4">
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingInput" placeholder="C_FirstName" asp-for="C_FirstName">
+                <label for="floatingInput" style="margin-left: 1em">Your First Name</label>
+                    <span asp-validation-for="C_FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="C_LastName"  asp-for=C_LastName>
+                <label for="floatingInput" style="margin-left: 1em">Your Last Name</label>
+                    <span asp-validation-for="C_LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input id="phone" type="tel" class="form-control" style="height: 60px;" asp-for="C_Phone">
+                    <span asp-validation-for="C_Phone" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="Email" class="form-control" id="floatingInput" placeholder="name@example.com" asp-for="C_Email">
+                <label for="floatingInput" style="margin-left: 1em">Your Email</label>
+                    <span asp-validation-for="C_Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="HotelName" asp-for="HotelName">
+                <label for="floatingInput" style="margin-left: 1em">Hotel Property Name</label>
+                    <span asp-validation-for="HotelName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <h2 class="same-text">Concierge Location</h2>
+        <div class="row mt-4">
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Street" asp-for="Street">
+                <label for="floatingInput" style="margin-left: 1em">Street</label>
+                    <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="City" asp-for="City">
+                <label for="floatingInput" style="margin-left: 1em">City</label>
+                    <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+           @*  <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="State" asp-for="State">
+                <label for="floatingInput" style="margin-left: 1em">State</label>
+                    <span asp-validation-for="State" class="text-danger"></span>
+            </div> *@
+                <div class="form-floating mb-3 col-md-6 col-sm-12">
+                    <select class="form-select w-100" id="healthprofessionSelect" aria-label="Floating label select example" asp-for="State">
+                        @foreach (var obj in Model.regions)
+                        {
+                            <option value="@obj.Name">
+                                @obj.Name
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingInput" placeholder="ZipCode" asp-for="ZipCode">
+                <label for="floatingInput" style="margin-left: 1em">Zip Code</label>
+                    <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+        </div>
+
+        <h2 class="same-text">Patient Information</h2>
+        <div class="form-floating input-detail">
+            <input type="text" class="form-control" id="floatingPassword" style="height: 100px"
+                   placeholder="Enter Brief Details About Symptoms(Optional)" asp-for="Symptoms">
+            <label for="floatingInput" style="width: 100%;">Enter Brief Details About Symptoms(Optional)</label>
+                <span asp-validation-for="Symptoms" class="text-danger"></span>
+        </div>
+        <div class="row mt-4">
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingInput" placeholder="FirstName" asp-for="FirstName">
+                <label for="floatingInput" style="margin-left: 1em">First Name</label>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Lastname" asp-for="LastName">
+                <label for="floatingInput" style="margin-left: 1em">Last Name</label>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="date" class="form-control" id="floatingPassword" placeholder="BirthDate" asp-for="Birthdate">
+                <label for="floatingDate" style="margin-left: 1em">Date Of Birth</label>
+                    <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <h2 class="same-text">Patient Contact Information</h2>
+        <div class="row mb-4">
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email">
+                <label class="t1" for="floatingEmail" style="padding-left: 2em;">Email</label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 col-md-6 col-sm-12 ">
+                <input id="phone1" type="tel" class="form-control" style="height: 60px;" asp-for="Phone">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <h2>Patient Location</h2>
+        <div class="row mt-4 mb-2">
+            <div class="form-floating mb-3 col-md-6 col-sm-12">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Room" asp-for="Room">
+                <label for="floatingInput" style="padding-left: 2em;">Room # / Suite (Optional)</label>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mt-4 mb-4">
+            <button class="btn main-btn submit" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" type="submit">Submit</button>
+            <button class="btn main-btn cancel" asp-controller="Home" asp-action="Submit_Request">cancel</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div>
+                <!-- <img src="../images/info-icon.svg" alt="info" style="color: yellow;" class="infoicon"> -->
+                <i class="bi bi-info-circle-fill infoicon"></i>
+
+            </div>
+            <div class="modal-header  d-flex justify-content-center align-items-center">
+                <h5 class="modal-title " id="exampleModalLongTitle">Information</h5>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                hello this is my first paragraph. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Deleniti, a error? Itaque ducimus aliquid placeat
+                voluptate quo labore sed ex repellendus explicabo
+                molestiae id laboriosam incidunt doloribus, fugit iure qui.
+            </div>
+            <div class="modal-footer d-flex justify-content-center align-items-center mt-3 mb-3">
+                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">OK</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    const phoneInputField1 = document.querySelector("#phone1");
+    const phoneInput1 = window.intlTelInput(phoneInputField1, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

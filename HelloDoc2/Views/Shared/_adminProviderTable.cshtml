@@ -1,0 +1,109 @@
+﻿<table class="table d-none d-md-block">
+
+    <thead class="table-active">
+        <tr>
+            <th scope="col" width="10%">Stop Notification</th>
+            <th scope="col">
+                Provider Name<i class="bi bi-arrow-up ms-2"></i>
+            </th>
+            <th scope="col">Role</th>
+            <th scope="col">On Call Status</th>
+            <th scope="col" width="20%">Status</th>
+            <th scope="col" width="15%" class="">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var obj in Model.providers)
+        {
+            <tr>
+                
+                <td>
+                    <input type="checkbox" name="notification" id="@obj.PhysicianId" class="checkbox-input" @(obj.StopNotification ? "checked" : "") onchange="updateNotificationStopped(this)" />
+                </td>
+                <td>@obj.Name</td>
+                <td>
+                    @obj.Role
+                </td>
+                <td>@obj.OnCallStatus</td>
+                <td>
+                    @if (obj.Status == 1)
+                    {
+                        <p>New</p>
+                    }
+                    else if (obj.Status == 2)
+                    {
+                        <p>Active</p>
+                    }
+                    else if (obj.Status == 4)
+                    {
+                        <p>Other</p>
+                    }
+                </td>
+                <td class="d-flex">
+                    <button class="btn btn-outline-info me-2" onclick="contact(@obj.PhysicianId)">Contact</button>
+                    <button class="btn btn-outline-info ms-2 d-none d-md-block" onclick="location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = obj.PhysicianId})'">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<div class="d-block d-md-none">
+    @foreach(var item in Model.providers)
+    {
+        <button class="table2-btn w-100" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.PhysicianId" aria-expanded="false" aria-controls="content" style="height: 100px !important;">
+                <div class="d-flex justify-content-start align-items-center mb-3" style="padding-left: 20px;">
+
+                <input type="checkbox" name="notification" id="@item.PhysicianId" @(item.StopNotification ? "checked" : "") class="checkbox-input" onchange="updateNotificationStopped(this)" />
+                
+                    <p  class="mb-0 ms-3">@item.Name</p>
+                </div>
+                <div class="d-flex justify-content-start" style="padding-left: 20px;">
+                    <p class="mb-0">On Call Status : <span style="font-weight: 600;">@item.OnCallStatus</span></p>
+                </div>
+            </button>
+        <div id="contentaccordian_@item.PhysicianId" class="collapse collapse1">
+        <div class="info1 d-flex gap-2 pad">
+            <div class="icons">
+                <i class="fas fa-user-md" style="color: #01bce9;"></i>
+            </div>
+            <span>Role : </span>
+            <span>@item.Role</span>
+
+        </div>
+        <div class="info1 d-flex gap-2 pad">
+            <div class="icons">
+                <i class="fa-solid fa-check" style="color: #01bce9;"></i>
+            </div>
+            <span>Status : </span>
+            <span>
+                    @if (item.Status == 1)
+                    {
+                        <p>New</p>
+                    }
+                    else if (item.Status == 2)
+                    {
+                        <p>Active</p>
+                    }
+                    else if (item.Status == 4)
+                    {
+                        <p>Other</p>
+                    }
+            </span>
+
+        </div>
+        <div class="d-flex justify-content-end mt-3 me-3">
+                <button class="btn btn-outline-primary providersmallbtns me-1" type="button" onclick="contact(@item.PhysicianId)">Contact</button>
+                <button onclick="location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = item.PhysicianId})'" class="btn btn-outline-primary providersmallbtns me-1">Edit</button>
+
+        </div>
+    </div>
+        
+    }
+
+</div>
+
+

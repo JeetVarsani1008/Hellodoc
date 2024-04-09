@@ -1,0 +1,349 @@
+﻿@model DAL.ViewModel.AdminProfileVm;
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+<div class="bg-body-tertiary ">
+    <div class="container">
+
+        @*Page Header*@
+        <div class="d-flex justify-content-between">
+            <h2 class="mt-3 mb-4"> My Profile </h2>
+            <a asp-controller="Admin" asp-action="AdminDashboard">
+                <span type="button" class="btn btn-outline-primary border-info text-info mt-3 mb-4 ">&lt; Back</span>
+            </a>
+        </div>
+
+        @*Main Section*@
+        <div class="shadow bg-white rounded-3 p-4">
+
+            @*First div*@
+            <h2 class="">Account Information</h2>
+            <form asp-action="AdminResetPassword" asp-controller="Admin">
+                <input asp-for="AspNetUserId" hidden/>
+            <div class="row g-2">
+
+                @*Username*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control " id="pi_name" placeholder="UserName" asp-for="UserName"  disabled>
+                    <label>Username</label>
+                </div>
+
+                @*Password*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="password" class="form-control enabled" id="resetPassword" placeholder="password" asp-for="Password" disabled>
+                    <label for="floatingInput" style="margin-left: 1em">Password</label>
+                </div>
+
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <select asp-for="Status" class="form-select" aria-label="Default select example" style=" width: 100%; height:57px;" disabled>
+                            <option selected>Active</option>
+                            <option value="1">Leave</option>
+                            <option value="2">Retired</option>
+                        </select>
+                        <label for="select">Status</label>
+                    </div>
+
+                    @*Role*@
+
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <select asp-for="Role" class="form-select" aria-label="Default select example" style=" width: 100%;" disabled>
+                            <option selected>Master Admin</option>
+                            <option value="1">Admin</option>
+                        </select>
+                        <label>Role</label>
+                    </div>
+
+
+            </div>
+                @*Reset Password*@
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary colorlessbtn" id="resetpasswordbtn">Reset Password</button>
+
+
+                    <button type="submit" name="command" value="1" class="btn btn-primary me-2 colorbtn" id="adminprofilesavebtn" style="display: none;" disabled>Save</button>
+
+                    <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="adminprofilecancelbtn" style="display: none;">Cancel</a>
+                </div>
+            </form>
+
+
+            @*Second Div*@
+            <h2>Administrator Information</h2>
+            <form asp-action="AdminEditDetails1" asp-controller="Admin" onsubmit="return validateForm()">
+                <input asp-for="AspNetUserId" hidden />
+
+            <div class="row g-2">
+
+                @*Firstnanme*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled1" id="pi_name" placeholder="FirstName" asp-for="FirstName" disabled>
+                    <label class="">First Name</label>
+                </div>
+
+                @*Lastname*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled1" id="pi_name" placeholder="LastName" asp-for="LastName" disabled>
+                    <label>Last Name</label>
+                </div>
+
+                @*Email*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="email" class="form-control enabled1" id="email" placeholder="Email" asp-for="Email" disabled>
+                    <label>Email</label>
+                </div>
+
+                @*Confirm Email*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="email" class="form-control enabled1" id="confirmEmail" placeholder="ConfirmEmail" asp-for="ConfirmEmail" disabled>
+                    <label>Confirm Email</label>
+                    <span id="emailMismatch" class="text-denger" style="display:none">Email and Confirm Email must match</span>
+                </div>
+
+
+                @*Phone*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled1" id="pi_name" placeholder="Mobile" asp-for="Mobile" disabled>
+                    <label>Phone</label>
+                </div>
+
+                    <div class="col-sm-6 form-floating mb-3 d-flex flex-wrap">
+                        @foreach (var item in Model.regions)
+                        {
+                            <div class="form-check me-3">
+                                @if (Model.AdminRegions.Count(x => x.RegionId == item.RegionId) > 0)
+                                {
+                                    <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" checked disabled value="@item.RegionId" id="checkbox-@item.RegionId" />
+                                }
+                                else
+                                {
+                                    <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" disabled value="@item.RegionId" />
+                                }
+                                <label class="form-check-label" for="checkbox-@item.RegionId" style="font-size: 15px; margin:0px;">@item.Name</label>
+                            </div>
+                        }
+                    </div>
+
+
+                @*info change*@
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary colorbtn" id="adminprofileeditbtn1">Edit</button>
+
+
+                        <button type="submit" name="command" value="2" class="btn btn-primary me-2 colorbtn" id="adminprofilesavebtn1" style="display: none;" disabled>Save</button>
+
+                    <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="adminprofilecancelbtn1" style="display: none;">Cancel</a>
+                </div>
+
+            </div>
+            </form>
+
+
+            @*Third Div*@
+                <h4>Mailing & Billing Information</h4>
+            <form asp-action="AdminEditDetails2" asp-controller="Admin">
+                <input asp-for="AspNetUserId" hidden />
+
+            <div class="row g-2">
+
+                @*Address*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="Address1" asp-for="Address1" disabled>
+                    <label>Address #1</label>
+                </div>
+
+                @*Address*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="Address2" asp-for="Address2" disabled>
+                    <label>Address #2</label>
+                </div>
+
+                @*City*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="City" asp-for="City" disabled>
+                    <label>City</label>
+                </div>
+
+                @*State*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="State" asp-for="State" disabled>
+                    <label>State</label>
+                </div>
+
+                @*Zip*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="Zip" asp-for="Zip" disabled>
+                    <label>Zip</label>
+                </div>
+
+                @*Phone*@
+                <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                    <input type="text" class="form-control enabled2" id="pi_name" placeholder="AlternareMobile" asp-for="AlternateMobile" disabled>
+                    <label>Phone</label>
+                </div>
+
+                @*Reset Password*@
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary colorbtn" id="adminprofileeditbtn2">Edit</button>
+
+                    <button type="submit" name="command" value="3" class="btn btn-primary me-2 colorbtn" id="adminprofilesavebtn2" style="display: none;">Save</button>
+
+                    <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="adminprofilecancelbtn2" style="display: none;">Cancel</a>
+                </div>
+
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //this is for reset password that user can not enter null value
+    document.getElementById('resetPassword').addEventListener('input',resetPass);
+    function resetPass() {
+        var pass = document.getElementById('resetPassword').value;
+        var resetSaveButton = document.getElementById('adminprofilesavebtn');
+        if (pass == null || pass === '') {
+            resetSaveButton.disabled = true;
+        }
+        else {
+            resetSaveButton.disabled = false;
+        }
+    }
+
+    //this js is for confirm mail-- if email and confirm mail not same then it will disable save button 
+    document.getElementById('email').addEventListener('input', validateEmail);
+    document.getElementById('confirmEmail').addEventListener('input', validateEmail);
+    
+    function validateEmail() {
+        var email = document.getElementById('email').value;
+        var confirmEmail = document.getElementById('confirmEmail').value;
+        var saveButton = document.getElementById('adminprofilesavebtn1');
+
+        if (email != confirmEmail) {
+            document.getElementById('emailMismatch').style.display = 'block';
+            saveButton.disabled = true;
+        }
+        else {
+            document.getElementById('emailMismatch').style.display = 'none';
+            saveButton.disabled = false;
+        }
+    }
+
+    function validateForm() {
+        var email = document.getElementById('email').value;
+        var confirmEmail = document.getElementById('confirmEmail').value;
+
+        if (email != confirmEmail) {
+            document.getElementById('emailMismatch').style.display = 'block';
+            return false;
+        }
+        return true;
+    }
+    //confirm email is completed
+
+
+    //this is for reset password and save and cancel
+    const editbtn = document.getElementById('resetpasswordbtn')
+    const submitcancel = document.getElementById('adminprofilesavebtn')
+    const cancelbtn = document.getElementById('adminprofilecancelbtn');
+    const enabled = document.getElementsByClassName('enabled')
+    editbtn.addEventListener('click', function (e) {
+
+        for (let index = 0; index < enabled.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = false;
+            enabled[index].disabled = false;
+        }
+        submitcancel.style.display = "block";
+        cancelbtn.style.display = "block";
+        this.style.display = "none"
+    })
+
+    cancelbtn.addEventListener('click', function (e) {
+
+
+        for (let index = 0; index < enabled.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = true;
+            enabled[index].disabled = true;
+        }
+        submitcancel.style.display = "none";
+        editbtn.style.display = "block";
+        this.style.display = "none"
+    })
+
+
+    //this is for first edit save and cancel button
+    var editbtn1 = document.getElementById('adminprofileeditbtn1')
+    var submitcancel1 = document.getElementById('adminprofilesavebtn1')
+    var cancelbtn1 = document.getElementById('adminprofilecancelbtn1');
+    var enabled1 = document.getElementsByClassName('enabled1')
+    editbtn1.addEventListener('click', function (e) {
+
+        for (var index = 0; index < enabled1.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = false;
+            enabled1[index].disabled = false;
+        }
+        submitcancel1.style.display = "block";
+        cancelbtn1.style.display = "block";
+        this.style.display = "none"
+    })
+
+    cancelbtn1.addEventListener('click', function (e) {
+
+
+        for (var index = 0; index < enabled1.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = true;
+            enabled1[index].disabled = true;
+        }
+        submitcancel1.style.display = "none";
+        editbtn1.style.display = "block";
+        this.style.display = "none"
+    })
+
+
+
+    // this is for second edit button
+    var editbtn2 = document.getElementById('adminprofileeditbtn2')
+    var submitcancel2 = document.getElementById('adminprofilesavebtn2')
+    var cancelbtn2 = document.getElementById('adminprofilecancelbtn2');
+    var enabled2 = document.getElementsByClassName('enabled2')
+    editbtn2.addEventListener('click', function (e) {
+
+        for (var index = 0; index < enabled2.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = false;
+            enabled2[index].disabled = false;
+        }
+        submitcancel2.style.display = "block";
+        cancelbtn2.style.display = "block";
+        this.style.display = "none"
+    })
+
+    cancelbtn2.addEventListener('click', function (e) {
+
+
+        for (var index = 0; index < enabled2.length; index++) 
+        {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = true;
+            enabled2[index].disabled = true;
+        }
+        submitcancel2.style.display = "none";
+        editbtn2.style.display = "block";
+        this.style.display = "none"
+    })
+</script>
+
+
+
+    

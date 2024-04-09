@@ -1,0 +1,176 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+
+
+<div class="mt-5 container-fluid px-4">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h3 class="d-flex justify-content-start">SMS Logs (Twilio)</h3>
+		<button class="btn btn-outline-info">&lt; Back</button>
+	</div>
+	<div class="container-fluid p-3 p-0 shadow">
+		<div class="searchbar">
+			<div class="row d-flex align-items-center">
+				@* select requst status *@
+				<div class="col-lg-2 col-md-2 col-sm-12 form-floating mb-3">
+					<select class="form-select w-100">
+						<option selected>All</option>
+						<option>Gujarat</option>
+					</select>
+					<label class="ms-2">Search By Role</label>
+				</div>
+
+
+				@* receiver name *@
+				<div class="col-lg-2 col-md-2 col-sm-12 form-floating">
+					<input type="text" class="form-control " id="receivername" placeholder="ReceiverName">
+					<label class="ms-2">Receiver Name</label>
+				</div>
+
+				@* Email *@
+				<div class="col-lg-2 col-md-2 col-sm-12 form-floating">
+					<input type="text" class="form-control" id="phonenumber" placeholder="MobileNumber">
+					<label class="ms-2">Mobile Number</label>
+					<div class="invalid-feedback">
+						Please enter only numbers.
+					</div>
+				</div>
+
+				@* created date  *@
+				<div class="col-lg-2 col-md-2 col-sm-12 form-floating">
+					<input type="date" class="form-control " id="createddate" placeholder="CreatedDate">
+					<label class="ms-2">Created Date</label>
+				</div>
+
+				@* sent date *@
+				<div class="col-lg-2 col-md-2 col-sm-12 form-floating">
+					<input type="date" class="form-control " id="sentdate" placeholder="SentDate">
+					<label class="ms-2">Sent Date</label>
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-12">
+					<div class="d-flex justify-content-end">
+						<button class="btn btn-info text-white me-2" onclick="searchsmslog(0)">Search</button>
+						<button class="btn btn-outline-info" onclick="clearfxn(0)">Clear</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="smslogtable"></div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+	//this is for pass null date
+	$("#sentdate").change(function () {
+		if ($(this).val() == "") {
+			$(this).val(null);
+		}
+	});
+	//this ajax is call when this page is load
+	$(document).ready(function () {
+		$.ajax({
+			url: "/Admin/SMSLogTable",
+			type: "POST",
+			dataType: "html",
+			success: function (data) {
+
+				$("#smslogtable").html(data);
+
+			},
+			error: function () {
+				$("#smslogtable").html('An error has occurred');
+			}
+		});
+
+	});
+
+	//for chcking user enter only number
+	$(document).ready(function () {
+		$("#phonenumber").on("input", function () {
+			if (!$(this).val().match(/^[0-9]*$/)) {
+				$(this).addClass("is-invalid");
+				$(this).next().show();
+			} else {
+				$(this).removeClass("is-invalid");
+			}
+		});
+	});
+
+
+	function searchsmslog(pageNumber) {
+		var sentdate = $("#sentdate").val();
+		var receivername = $('#receivername').val().trim();
+		var phonenumber = $('#phonenumber').val().trim();
+		var createdate = $('#createdate').val();
+		var roleid = $('#selectrole').val();
+		var pageNumber = pageNumber;
+		console.log(pageNumber);
+		$.ajax({
+			url: "/Admin/SMSLogTable",
+			type: "POST",
+			data: {
+				roleid: roleid,
+				receivername: receivername,
+				phoneNumber: phonenumber,
+				sentdate: sentdate,
+				createdate: createdate,
+				PageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#smslogtable").html(data);
+
+			},
+			error: function (error) {
+
+				$("#smslogtable").html('Opps Something went wrong');
+			}
+		});
+	};
+
+	function checkAndPaginate(pageNumber) {
+		if (pageNumber > 0) {
+			searchemaillog(pageNumber);
+		}
+	};
+
+
+	//for clear
+	function clearfxn(pageNumber) {
+		var receivername;
+		var email;
+		var createdate;
+		var roleid;
+		var pageNumber = pageNumber;
+		$.ajax({
+			url: "/Admin/SMSLogTable",
+			type: "POST",
+			data: {
+				patientname: patientname,
+				date: date,
+				email: email,
+				phonenumber: phonenumber,
+				pageNumber: pageNumber,
+			},
+			dataType: "html",
+			success: function (data) {
+				$("#smslogtable").html(data);
+
+				$("#receivername").val("");
+				$("#createdate").val("");
+				$("#phonenumber").val("");
+				$("#roleid").val("");
+			},
+			error: function (error) {
+
+				$("#smslogtable").html('Something Went Wrong');
+			}
+		});
+	};
+
+</script>

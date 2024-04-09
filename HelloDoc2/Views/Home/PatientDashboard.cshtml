@@ -1,0 +1,156 @@
+﻿@model List<DAL.ViewModel.PatientData>;
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+<body data-bs-theme="light">
+    <div class="container-fluid mx-0 px-0 ">
+    <main class="bg-light main-class">
+        <div class="container-fluid px-5 d-flex flex-column">
+            <h4 class="medical-text mt-5">Medical History</h4>
+            <div class="createreq">
+                    <button type="button" class="btn ms-auto createnewreq" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <Span class=" d-none d-md-block">
+                        Create New
+                        Request
+                    </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
+                </button>
+            </div>
+            <div class="d-none d-md-block">
+                <table class="table data_table ">
+
+                    <thead class="table-active">
+                        <tr>
+                            <th scope="col">Created Date</th>
+                            <th scope="col">Current Status</th>
+                            <th scope="col">Documents</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => Model[i].CreatedDate)</td>
+            <td>@Html.DisplayFor(modelItem => Model[i].Status)</td>
+            <td class="document ">
+                @if (Model[i].Count > 0)
+                {
+                    <a type="button" id="temp" value="Document" class="btn btn-outline-info" asp-route-reqId="@Model[i].Id" asp-action="ViewDocument" asp-controller="Home">(@Model[i].Count) Document</a>
+                }
+                else
+                {
+                    <a type="button" id="temp" value="Document" class="btn btn-outline-info" asp-route-reqId="@Model[i].Id" asp-action="ViewDocument" asp-controller="Home">(@Model[i].Count) Document</a>
+                }
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
+</div>
+
+
+            </div> 
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <div class="accordion accordion-flush d-block d-md-none" id="accordionFlushExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne_@Model[i].Id" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Created Date: @Html.DisplayFor(modelItem => Model[i].CreatedDate)
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne_@Model[i].Id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                             data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>
+                                        Provider : - @ViewBag.Uploader
+                                    </li>
+                                    <li>
+                                        Current Status : <td>@Html.DisplayFor(modelItem => Model[i].Status)</td>
+                                    </li>
+                                </ul>
+                                <div>
+                                    @if (Model[i].Count > 0)
+                                    {
+                                        <a type="button" id="temp" value="Document" class="btn btn-outline-info w-100" asp-route-reqId="@Model[i].Id" asp-action="ViewDocument" asp-controller="Home">(@Model[i].Count) Document</a>
+                                    }
+                                    else
+                                    {
+                                        <a type="button" id="temp" value="Document" class="btn btn-outline-info w-100" asp-route-reqId="@Model[i].Id" asp-action="ViewDocument" asp-controller="Home">(@Model[i].Count) Document</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+          
+
+    </main>
+    </div>
+
+
+<!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header bg-info">
+                 <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Request</h1>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 Here, I want to create new request for...
+
+                 <div class="text-center mt-3">
+                     <button type="button" class="btn btn-outline-info active" id="btn-for-me" value="1">Me</button>
+                     <button type="button" class="btn btn-outline-info" id="btn-for-someone-else" value="2">Some One Else</button>
+                 </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-info" style="color:white" id="continue-btn">Continue</button>
+                 <button type="button" class="btn btn-outline-info btnmodal" data-bs-dismiss="modal">Cancel</button>
+             </div>
+         </div>
+     </div>
+ </div>
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
+ <script>
+     $(document).ready(function () {
+         $("#btn-for-me").click(function () {
+             $("#btn-for-me").addClass("active");
+             $("#btn-for-someone-else").removeClass("active");
+             $("#btn-for-me").css("background-color", "#01bce9");
+             $("#btn-for-someone-else").css("background-color", "#FFF");
+         });
+
+         $("#btn-for-someone-else").click(function () {
+             $("#btn-for-me").removeClass("active");
+             $("#btn-for-someone-else").addClass("active");
+             $("#btn-for-me").css("background-color", "#FFF");
+             $("#btn-for-someone-else").css("background-color", "#01bce9");
+         });
+
+         $("#continue-btn").click(function () {
+             var selectedValue = $(".btn.active").val();
+
+             if (selectedValue == 1) {
+                 window.location.href = "@Url.Action("PatientRequestForMe", "Home")";
+             } else if (selectedValue == 2) {
+                 window.location.href = "@Url.Action("PatientRequestForSomeone", "Home")";
+             }
+         });
+     });
+ </script>
+</body>
