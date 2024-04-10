@@ -51,11 +51,11 @@
 
 
 
-<div class="d-block d-md-none">
+@* <div class="d-block d-md-none">
     @foreach(var item in Model.providers)
     {
-        <button class="table2-btn w-100" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.PhysicianId" aria-expanded="false" aria-controls="content" style="height: 100px !important;">
-                <div class="d-flex justify-content-start align-items-center mb-3" style="padding-left: 20px;">
+        <button class="table2-btn w-100 rounded-1" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.PhysicianId" aria-expanded="false" aria-controls="content" style="height: 100px !important; background: #C3ebf9">
+            <div class="d-flex justify-content-start align-items-center mb-3" style="padding-left: 20px;" >
 
                 <input type="checkbox" name="notification" id="@item.PhysicianId" @(item.StopNotification ? "checked" : "") class="checkbox-input" onchange="updateNotificationStopped(this)" />
                 
@@ -104,6 +104,57 @@
         
     }
 
+</div> *@
+
+
+
+
+<div class="accordion accordion-flush" id="providersAccordion">
+    @foreach (var item in Model.providers)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading_@item.PhysicianId">
+                <button class="accordion-button collapsed rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.PhysicianId" aria-expanded="false" aria-controls="content" style="background-color: #E6faff;">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <input type="checkbox" name="notification" id="@item.PhysicianId" @(item.StopNotification ? "checked" : "") class="checkbox-input me-3" onchange="updateNotificationStopped(this)" />
+                        <div>
+                            <p class="mb-0" style="font-weight: 600;">@item.Name</p>
+                            <p class="mb-0" style="color: gray; font-size: 12px;">On Call Status: <span style="font-weight: 600;">@item.OnCallStatus</span></p>
+                        </div>
+                    </div>
+                </button>
+            </h2>
+            <div id="contentaccordian_@item.PhysicianId" class="accordion-collapse collapse" style="background:#E6faff" aria-labelledby="heading_@item.PhysicianId" data-bs-parent="#providersAccordion">
+                <div class="accordion-body">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <i class="fas fa-user-md text-primary"></i>
+                        <span>Role:</span>
+                        <span>@item.Role</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <i class="fa-solid fa-check text-primary"></i>
+                        <span>Status:</span>
+                        <span>
+                            @if (item.Status == 1)
+                            {
+                                <span class="badge bg-primary">New</span>
+                            }
+                            else if (item.Status == 2)
+                            {
+                                <span class="badge bg-success">Active</span>
+                            }
+                            else if (item.Status == 4)
+                            {
+                                <span class="badge bg-secondary">Other</span>
+                            }
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-outline-info me-2" type="button" onclick="contact(@item.PhysicianId)">Contact</button>
+                        <button onclick="location.href='@Url.Action("EditPhysicianAccount","Admin",new{physicianId = item.PhysicianId})'" class="btn btn-outline-info">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
-
-

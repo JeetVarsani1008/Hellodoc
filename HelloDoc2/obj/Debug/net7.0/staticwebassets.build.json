@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3EQr8w3vKmV2/kPiveMkQPSIuDMutP0i8ddvJXL65B0=",
+  "Hash": "Faa7RkyP5pcgS/tDHKt921osMCDw2v0BVopu6AJ8WFc=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -4955,6 +4955,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Patient site_forget password_mobile.png"
+    },
+    {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "upload/Screenshot (2) (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\Screenshot (2) (1).png"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (7).png",

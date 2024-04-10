@@ -13,7 +13,7 @@ namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
-        List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId);
+        List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId,string searchdata);
 
         //this is for download excel for all request
         List<RequestListAdminDash> requestDataDownloadExcelAll();

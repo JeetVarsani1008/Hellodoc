@@ -4,80 +4,179 @@
 @{    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
     var successMessage = TempData["loginsuccess"] as string;
 }
-
+<head>
+    <link rel="stylesheet" src="~/css/AdminDashboard.css" />
+</head>
 
 <div class="bg-body-tertiary vh-100 d-flex flex-column">    <div class="">        <div class="p-sm-2 p-md-0 mt-4 mt-sm-0">            <div class="tab-content" id="myTabContent">                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">                    <div class="container-fluid g-0">
 
                         <div class="container111">
-                            <div class="inner">
+                            <div class="inner row">
+                                <div class="col-md-2 col-sm-4 col-4">
+                                    <button class="box bx1 selected" id="box" onclick="fetchRequests('1','1',null,0,1,null)">
 
-                                <button class="box bx1 selected" id="box" onclick="fetchRequests('1','1',null,0,1)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-person-plus me-2 d-none d-md-block fs-4"></i>
+                                            <span class="stext">NEW</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.NewCount</span>
+                                        </div>
 
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-person-plus me-2 d-none d-md-block fs-4"></i>
-                                        <span class="stext">NEW</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.NewCount</span>
-                                    </div>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4">
+                                    <button class="box bx2" onclick="fetchRequests('2','2',null,0,1,null)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-person me-2 d-none px-1 d-md-block fs-4"></i>
+                                            <span class="stext">PENDING</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.PendingCount</span>
+                                        </div>
 
-                                </button>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4">
 
-                                <button class="box bx2" onclick="fetchRequests('2','2',null,0,1)">
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-person me-2 d-none px-1 d-md-block fs-4"></i>
-                                        <span class="stext">PENDING</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.PendingCount</span>
-                                    </div>
-
-                                </button>
-
-                                <button class="box bx3" onclick="fetchRequests('45','4,5',null,0,1)">
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-check2-circle me-2 d-none px-1 d-md-block fs-4"></i>
-                                        <span class="stext">ACTIVE</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.ActiveCount</span>
-                                    </div>
-                                </button>
-
-                                <button class="box bx4" onclick="fetchRequests('6','6',null,0,1)">
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-clock-history me-2 d-none px-1 d-md-block fs-4"></i>
-                                        <span class="stext">CONCLUDE</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.ConcludeCount</span>
-                                    </div>
-                                </button>
-                                <button class="box bx5" onclick="fetchRequests('378','3,7,8',null,0,1)">
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-person-x me-2 d-none px-1 d-md-block fs-4"></i>
-                                        <span class="stext">TO CLOSE</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.ToCloseCount</span>
-                                    </div>
-                                </button>
-                                <button class="box bx6" onclick="fetchRequests('9','9',null,0,1)">
-                                    <div class="up d-flex align-items-center">
-                                        <i class="bi bi-currency-dollar me-2 d-none px-1 d-md-block fs-4"></i>
-                                        <span class="stext">UNPAID</span>
-                                    </div>
-                                    <div class="down">
-                                        <span class="btext">@Model.UnpaidCount</span>
-                                    </div>
-                                </button>
+                                    <button class="box bx3" onclick="fetchRequests('45','4,5',null,0,1,null)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-check2-circle me-2 d-none px-1 d-md-block fs-4"></i>
+                                            <span class="stext">ACTIVE</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.ActiveCount</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4">
+                                    <button class="box bx4" onclick="fetchRequests('6','6',null,0,1,null)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-clock-history me-2 d-none px-1 d-md-block fs-4"></i>
+                                            <span class="stext">CONCLUDE</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.ConcludeCount</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4">
+                                    <button class="box bx5" onclick="fetchRequests('378','3,7,8',null,0,1,null)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-person-x me-2 d-none px-1 d-md-block fs-4"></i>
+                                            <span class="stext">TO CLOSE</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.ToCloseCount</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4">
+                                    <button class="box bx6" onclick="fetchRequests('9','9',null,0,1,null)">
+                                        <div class="up d-flex align-items-center">
+                                            <i class="bi bi-currency-dollar me-2 d-none px-1 d-md-block fs-4"></i>
+                                            <span class="stext">UNPAID</span>
+                                        </div>
+                                        <div class="down">
+                                            <span class="btext">@Model.UnpaidCount</span>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
-                     </div>                        <div id="partial_container">                            @* <partial name="_RequestsAccToStatus" /> *@                        </div>                    </div> 
+                     </div>
 
 
-                    </div>                <div class="tab-pane fade" id="provider-location-tab-pane" role="tabpanel" aria-labelledby="provider-location-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Provider Location</h3>                    </div>                </div>                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">My Profile</h3>                    </div>                </div>                <div class="tab-pane fade" id="Providers-tab-pane" role="tabpanel" aria-labelledby="Providers-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Providers</h3>                    </div>                </div>                <div class="tab-pane fade" id="Partners-tab-pane" role="tabpanel" aria-labelledby="Partners-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Partners</h3>                    </div>                </div>                <div class="tab-pane fade" id="Access-tab-pane" role="tabpanel" aria-labelledby="Access-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Access</h3>                    </div>                </div>                <div class="tab-pane fade" id="Records-tab-pane" role="tabpanel" aria-labelledby="Records-tab" tabindex="0">                    <div class="container-fluid">                        <h3 class="mb-3 p-3 p-md-2 ">Records</h3>                    </div>                </div>            </div>        </div>    </div>        <footer class="bg-dark container-fluid fixed-bottom">
+                    <div class="mt-2 mb-2 container-fluid">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="ms-3 d-flex">
+                                Patients (<div id="statechange">New</div>)
+                            </h5>
+                            <div class="d-flex me-3">
+                                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
+                                    <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
+                                        Send
+                                        Link
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="location.href='@Url.Action("AdminCreateRequest","Admin")'">
+                                    <i class="bi bi-pencil-square me-md-1"></i>
+                                    <span class="d-md-block d-none px-2 ">
+                                        Create
+                                        Request
+                                    </span>
+                                </button>
+                                <a type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcel" asp-route-statusarray="@Model.statusArray" asp-route-status="@Model.StatusForName" asp-route-regionId="@Model.regions">
+                                    <i class="bi bi-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">Export</span>
+                                </a>
+                                <a type="button" id="export-button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcelAll">
+                                    <i class="bi bi-box-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">
+                                        Export
+                                        All
+                                    </span>
+                                </a>
+                                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
+                                    <i class="bi bi-person-plus me-md-1"></i><span class="d-md-block d-none px-2 ">
+                                        Request DTY
+                                        Support
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="d-md-flex justify-content-between align-items-center gap-2 mx-4">
+
+                        <div class="d-md-flex gap-1">
+                            <form role="search" class="mb-2">
+                                <!-- <i class="bi bi-search"></i> -->
+                                <input class="form-control py-3 pe-5 w-100" type="search" placeholder="Search" aria-label="Search" id="searchdata" onkeyup="filterRequests(@Model.statusArray,@Model.StatusForName,@Model.reqTypId,@Model.RegionId,1,this.value)">
+                            </form>
+                            <!-- Example split danger button -->
+                            <select class="form-select w-100" aria-label="Default select example" onchange='filterRequests(@Model.statusArray,@Model.StatusForName,@Model.reqTypId,this.value,1,null)'>
+                                <option value="0" selected>All Region</option>
+                                @if (Model.regions != null)
+                                {
+                                    @foreach (var obj in Model.regions)
+                                    {
+                                        <option value="@obj.RegionId">@obj.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="d-flex gap-2 align-items-center mb-2">
+                            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,null,null,1,null)">All</button>
+                            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,@Model.StatusForName,'1',@Model.RegionId,1,null)">
+                                <i class="bi bi-circle-fill color_p"></i>
+                                <div class="common-txt">Patient</div>
+                            </div>
+                            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'2',@Model.RegionId,1,null)">
+                                <i class="bi bi-circle-fill  color_f"></i>
+                                <div class="common-txt">Family/Friends</div>
+                            </div>
+                            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'3',@Model.RegionId,1, null)">
+                                <i class="bi bi-circle-fill color_b"></i>
+                                <div class="common-txt">Business</div>
+                            </div>
+                            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'4',@Model.RegionId,1,null)">
+                                <i class="bi bi-circle-fill color_c"></i>
+                                <div class="common-txt">Concierge</div>
+                            </div>
+                            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.statusArray,'5',@Model.RegionId,1,null)">
+                                <i class="bi bi-circle-fill color_v"></i>
+                                <div class="common-txt">Vip</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="partial_container">                        </div>
+                </div> 
+
+
+            </div>            </div>        </div>    </div>    <footer class="bg-dark container-fluid fixed-bottom">
         <div class="footer d-flex justify-content-end">
             <div class="m-2">
                 <a class="text-white">Terms of Conditions</a> <span style="color: gray;">|</span> <a class="text-white">Privacy</a>
@@ -113,8 +212,10 @@
     });
 
 
-    function fetchRequests( statusarray, status, reqtypeid,regionid, pagenumber) {        console.log(status)        console.log(reqtypeid)        console.log("inside fetchreq");
+    function fetchRequests(statusarray, status, reqtypeid, regionid, pagenumber, searchdata) {
+        console.log(status)        console.log(reqtypeid)        console.log("inside fetchreq");
         // var status = status;
+        var searchdata = $('#searchdata').val().trim();
         var statusarray = statusarray;
         var reqtypeid = reqtypeid;
         
@@ -127,13 +228,41 @@
                 reqtypeid: reqtypeid,
                 regionId : regionid,
                 pagenumber : pagenumber,
-               },            success: function (response) {                console.log("Function Success")                $('#partial_container').html(response)            },            error: function () {                console.log("Function Fail")            }        })    }
+                searchdata : searchdata,
+               },            success: function (response) {                console.log(status);                console.log("Function Success");                $('#partial_container').html(response);                $('#searchdata').val("");                $('.form-select').val(0);                statechange(status);            },            error: function () {                console.log("Function Fail")            }        })    };
+
+    //for status change
+    function statechange(status) {
+        switch (status) {
+            case "1":
+                $('#statechange').html("New");
+                break;
+            case "2":
+                $('#statechange').html("Pending");
+                break;
+            case "4,5" :
+                $('#statechange').html("Active");
+                break;
+            case "6" :
+                $('#statechange').html("Conclude");
+                break;
+            case "3,7,8" :
+                $('#statechange').html("To Close");
+                break;
+            case "9" :
+                $('#statechange').html("Unpiad");
+                break;
+
+        }
+    }
 
 
-    function filterRequests(statusarray,status, reqtypeid, regionId,pagenumber) {
+
+    function filterRequests(statusarray,status, reqtypeid, regionId,pagenumber,searchdata) {
         console.log("inside filterreq");
-        console.log(status)
-        console.log(reqtypeid)
+        console.log(status);
+        console.log(reqtypeid);
+        var searchdata = $('#searchdata').val().trim();
         var statusarray = statusarray;
         var status = status;
         var regionId = regionId;
@@ -146,6 +275,7 @@
                 reqtypeid: reqtypeid,
                 regionId : regionId, 
                 PageNumber : pagenumber,
+                searchdata : searchdata,
             },
             success: function (response) {
                 console.log("Function Success")

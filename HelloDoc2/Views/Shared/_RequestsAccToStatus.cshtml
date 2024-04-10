@@ -8,111 +8,10 @@
 </head>
 
 
-<div class="d-flex justify-content-between align-items-center">
-    <h5 class="ms-3 d-flex">Patients (
-        @if(Model.StatusForName == 1)
-        {
-            <p>New</p>
-        }
-        else if(Model.StatusForName == 2)
-        {
-            <p>Pending</p>
-        }
-        else if(Model.StatusForName == 4 || Model.StatusForName == 5)
-        {
-            <p>Active</p>
-        }
-        else if(Model.StatusForName == 6)
-        {
-            <p>Conclude</p>
-        }
-        else if(Model.StatusForName == 3 || Model.StatusForName == 7 || Model.StatusForName == 8)
-        {
-            <p>To Close</p>
-        }
-        else if(Model.StatusForName == 9)
-        {
-            <p>Unpaid</p>
-        })</h5>
-    <div class="d-flex me-3">
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
-            <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
-                Send
-                Link
-            </span>
-        </button>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="location.href='@Url.Action("AdminCreateRequest","Admin")'">
-            <i class="bi bi-pencil-square me-md-1"></i>
-            <span class="d-md-block d-none px-2 ">
-                Create
-                Request
-            </span>
-        </button>
-        <a type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcel" asp-route-statusarray="@Model.statusArray" asp-route-status ="@Model.StatusForName" asp-route-regionId="@Model.regions">
-            <i class="bi bi-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">Export</span>
-        </a>
-        <a type="button" id="export-button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" asp-controller="Admin" asp-action="DownloadExcelAll">
-            <i class="bi bi-box-arrow-up-right me-md-1"></i><span class="d-md-block d-none px-2 ">
-                Export
-                All
-            </span>
-        </a>
-        <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light">
-            <i class="bi bi-person-plus me-md-1"></i><span class="d-md-block d-none px-2 ">
-                Request DTY
-                Support
-            </span>
-        </button>
-    </div>
-</div>
 
 
 <div class="mt-2 mb-2 container-fluid">
-    <div class="d-md-flex justify-content-between align-items-center gap-2">
 
-        <div class="d-md-flex gap-1">
-            <form role="search" class="mb-2">
-                <!-- <i class="bi bi-search"></i> -->
-                <input class="form-control py-3 pe-5 w-100" type="search" placeholder="Search" aria-label="Search" id="" onchange="">
-            </form>
-            <!-- Example split danger button -->
-            <select class="form-select w-100" aria-label="Default select example" onchange='filterRequests(@Model.statusArray,@Model.StatusForName,@Model.reqTypId,this.value,1)'>
-                <option value="0" selected>All Region</option>
-                @if(Model.regions != null)
-                {
-                    @foreach(var obj in Model.regions)
-                    {
-                        <option value="@obj.RegionId">@obj.Name</option>   
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="d-flex gap-2 align-items-center mb-2">
-            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,null,null,1)">All</button>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray,@Model.StatusForName,'1',@Model.RegionId,1)">
-                <i class="bi bi-circle-fill color_p"></i>
-                <div class="common-txt">Patient</div>
-            </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'2',@Model.RegionId,1)">
-                <i class="bi bi-circle-fill  color_f"></i>
-                <div class="common-txt">Family/Friends</div>
-            </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'3',@Model.RegionId,1)">
-                <i class="bi bi-circle-fill color_b"></i>
-                <div class="common-txt">Business</div>
-            </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.StatusForName,'4',@Model.RegionId,1)">
-                <i class="bi bi-circle-fill color_c"></i>
-                <div class="common-txt">Concierge</div>
-            </div>
-            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequests(@Model.statusArray, @Model.statusArray,'5',@Model.RegionId,1)">
-                <i class="bi bi-circle-fill color_v"></i>
-                <div class="common-txt">Vip</div>
-            </div>
-        </div>
-
-    </div>
     @if (Model.requestListAdminDash.Count > 0)
     {
         <div class="table-responsive d-none d-md-block">
@@ -124,7 +23,7 @@
                         {
                             <th scope="col">Date Of Birth</th>
                         }
-                        @if(Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
                         {
                             <th scope="col">Region</th>
                         }
@@ -150,7 +49,7 @@
                             <th scope="col">Phone</th>
                         }
                         <th scope="col">Address</th>
-                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 7 || x.Status == 8 ))
+                        @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 7 || x.Status == 8))
                         {
                             <th scope="col">Notes</th>
                         }
@@ -250,7 +149,7 @@
                                     {
                                         <li class="d-flex align-items-center ps-1"><i class="bi bi-file-earmark-text"></i><button class="dropdown-item p-1" onclick="sendagreement(@obj.RequestId,@obj.RequestTypeId)">Send Agreement</button></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 1))        
+                                    @if (Model.requestListAdminDash.Any(x => x.Status == 1))
                                     {
                                         <li class="d-flex align-items-center ps-1"><i class="bi bi-ban me-1"></i><button class="dropdown-item p-1" onclick="blockcase(@obj.RequestId)">Block Patient</button></li>
                                     }
@@ -305,27 +204,29 @@
                                             <b>@obj.Name</b>
                                         </div>
                                         <div class="d-flex">
-                                            <small class="d-flex">@if(obj.RequestTypeId == 1) 
+                                            <small class="d-flex">
+                                                @if (obj.RequestTypeId == 1)
                                                 {
                                                     <p>Patient</p>
                                                 }
-                                                else if(obj.RequestTypeId == 2)
+                                                else if (obj.RequestTypeId == 2)
                                                 {
                                                     <p>Family/Friends</p>
                                                 }
-                                                else if(obj.RequestTypeId == 3)
+                                                else if (obj.RequestTypeId == 3)
                                                 {
                                                     <p>Business</p>
                                                 }
                                                 else if (obj.RequestTypeId == 4)
                                                 {
                                                     <p>Concierge</p>
-                                                }                                
+                                                }
                                                 else if (obj.RequestTypeId == 5)
                                                 {
                                                     <p>VIP</p>
                                                 }
-                                                <i class="bi bi-circle-fill colorfor_@obj.RequestTypeId ms-2"></i></small>
+                                                <i class="bi bi-circle-fill colorfor_@obj.RequestTypeId ms-2"></i>
+                                            </small>
                                         </div>
                                     </div>
                                     <div class="w-100 d-flex justify-content-between m-1 align-items-center">
@@ -450,11 +351,7 @@
         </div>
     </div>
 
-    @*Accordian End*@
-
-
-
-    <nav aria-label="Page navigation example " class="pb-1">
+    @*Accordian End*@    <nav aria-label="Page navigation example " class="pb-1">
         <div class="justify-content-between d-flex">
             @if ((Model.skipCount + Model.Page.itemperpage) >= Model.Page.totalitem)
             {
@@ -521,6 +418,7 @@
 
 
 <script>
+
     // function cancelcase(RequestId, Name) {
 
     //     $('#requestid').val(RequestId);

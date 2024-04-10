@@ -22,19 +22,24 @@
 <main class="bg-light container" >
     <h4>Provider Information</h4>
     <div class="d-flex flex-column">
-        <div class="d-flex align-items-center justify-content-between mt-3 mb-3 ">
-            <select class="form-select providerRegion" id="selectedRegion">
-                <option selected value="">All Region</option>
-                @foreach (var obj in Model.regions)
-                {
-                    <option value="@obj.RegionId">@obj.Name</option>  
-                }
-            </select>                
+        <div class="d-flex align-items-center justify-content-between mt-3 mb-3 row">
+            <div class="col-md-3">
+                <select class="form-select providerRegion" id="selectedRegion">
+                    <option selected value="">All Region</option>
+                    @foreach (var obj in Model.regions)
+                    {
+                        <option value="@obj.RegionId">@obj.Name</option>  
+                    }
+                </select>    
+            </div>
+            <div class="col-md-2 col-sm-12 justify-content-end">
+
             <button type="button" class="btn bg-info d-flex justify-content-end me-5">
-                <Span class=" d-none d-md-block text-white" onclick="location.href='@Url.Action("CreateProviderAccountByAdmin", "Admin")'">
+                <Span class="text-white" onclick="location.href='@Url.Action("CreateProviderAccountByAdmin", "Admin")'">
                         Create Provider Account
-                    </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
+                    </Span>
             </button>
+            </div>
         </div>
 
 

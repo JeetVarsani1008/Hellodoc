@@ -37,13 +37,17 @@ namespace BLL.Repositery
         }
 
         #region reqwuestDataAdmin
-        public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId)
+        public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId, string searchdata)
         {
 
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
             var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
             //List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
-
+            if(searchdata != null)
+            {
+                searchdata = searchdata.ToLower();
+                requestList = requestList.Where(x => x.FirstName.ToLower().Contains(searchdata));
+            }
             if (reqTypeId != "0" && reqTypeId != null)
             {
                 requestList = requestList.Where(o => o.RequestTypeId.ToString() == reqTypeId);
@@ -59,7 +63,6 @@ namespace BLL.Repositery
 
             var GetRequestData = requestList.Select(r => new RequestListAdminDash()
             {
-
                 FirstName = r.RequestClients.Select(x => x.FirstName).First(),
                 LastName = r.RequestClients.Select(x => x.LastName).First(),
                 RequestId = r.RequestId,
@@ -1951,7 +1954,7 @@ namespace BLL.Repositery
                 EndTime = data.EndTime,
                 Region = _context.Regions.FirstOrDefault(i => i.RegionId == data.RegionId).Name,
                 PhysicianName = _context.Physicians.FirstOrDefault(v => v.PhysicianId == shift.PhysicianId).FirstName,
-                ShiftDate = data.ShiftDate,
+                StartDate = data.ShiftDate.ToDateTime(TimeOnly.MinValue),
             };
             return viewShiftVm;
         }
@@ -1977,7 +1980,7 @@ namespace BLL.Repositery
             if(command == 2)
             {
                 var shiftupdate = _context.ShiftDetails.FirstOrDefault(x => x.ShiftDetailId == model.ShiftDetailId);
-                shiftupdate.ShiftDate = model.ShiftDate;
+                shiftupdate.ShiftDate = DateOnly.FromDateTime( model.StartDate);
                 shiftupdate.StartTime = model.StartTime;
                 shiftupdate.EndTime = model.EndTime;
                 _context.SaveChanges();
@@ -2056,7 +2059,8 @@ namespace BLL.Repositery
 
             var currentDate = DateOnly.FromDateTime(DateTime.Now);
             TimeOnly currentTime = new TimeOnly(DateTime.Now.Hour,DateTime.Now.Minute, DateTime.Now.Second);
-            var list = _context.Physicians.Include(x => x.Shifts).ThenInclude(j => j.ShiftDetails).ToList();
+            var list = _context.Physicians.Include(x => x.Shifts).ThenInclude(j => j.ShiftDetails).Where(p => p.Shifts.Any()).ToList();
+
             var data = list.Select(x => new Provider()
             {
                 Name = x.FirstName,

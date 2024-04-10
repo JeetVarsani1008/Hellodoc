@@ -165,7 +165,8 @@ namespace DAL.Controllers
 
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
             {
-
+                statusArray = "1",
+                reqTypId = "0",
                 NewCount = newCount,
                 PendingCount = pendingCount,
                 ActiveCount = activeCount,
@@ -180,7 +181,7 @@ namespace DAL.Controllers
         #endregion
 
         #region AdminDashboardTable
-        public IActionResult AdminDashboardTable(string reqtypeid)
+        public IActionResult AdminDashboardTable(string reqtypeid,string searchdata)
         {
             int PageNumber = 1;
             int PageSize = 5;
@@ -192,7 +193,7 @@ namespace DAL.Controllers
             var getRegion = _adminDashboard.getRegions();
 
 
-            var requestAdmin = _adminDashboard.requestDataAdmin(str, arr, null, 0);
+            var requestAdmin = _adminDashboard.requestDataAdmin(str, arr, null, 0,searchdata);
             var requestAdminPaginationData = requestAdmin.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel()
@@ -219,10 +220,14 @@ namespace DAL.Controllers
             return PartialView("_RequestsAccToStatus", adminDashboardViewModel);
         }
         #endregion
-
+ 
         #region FetchRequests
-        public IActionResult FetchRequests(string statusarray,string status, string reqtypeid,int regionId, int PageNumber)
+        public IActionResult FetchRequests(string statusarray,string status, string reqtypeid,int regionId, int PageNumber,string searchdata)
         {
+            if(searchdata != null)
+            {
+                searchdata = null;
+            }
             int PageSize = 5;
             int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
@@ -230,7 +235,7 @@ namespace DAL.Controllers
             {
                 reqtypeid = "0";
             }
-            var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid, regionId);
+            var requestAdmin = _adminDashboard.requestDataAdmin(statusarray, Status, reqtypeid, regionId,searchdata);
             var requestAdminPaginationData = requestAdmin.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
             AdminDashboardViewModel adminDashboardViewModel = new AdminDashboardViewModel
@@ -256,15 +261,14 @@ namespace DAL.Controllers
         }
         #endregion
 
-
         #region FilterRequests
-        public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid,int regionId,int PageNumber)
+        public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid,int regionId,int PageNumber,string searchdata)
         {
             int PageSize = 5;
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
 
-            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid, regionId);
+            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, reqtypeid, regionId,searchdata);
             var requestAdminPaginationData = requestListAdmin.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
 
@@ -292,13 +296,13 @@ namespace DAL.Controllers
         #endregion
 
         #region FilterPagination
-        public IActionResult FilterPagination(string statusarray, int[] status, string reqtypeid, int regionId, int PageNumber, string RequestTypeId)
+        public IActionResult FilterPagination(string statusarray, int[] status, string reqtypeid, int regionId, int PageNumber, string RequestTypeId,string searchdata)
         {
             int PageSize = 5;
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
 
-            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, RequestTypeId, regionId);
+            var requestListAdmin = _adminDashboard.requestDataAdmin(statusarray, status, RequestTypeId, regionId,searchdata);
             var requestAdminPaginationData = requestListAdmin.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
 
@@ -747,10 +751,10 @@ namespace DAL.Controllers
         //this is for download excel
         //this is download excel file for indevidual status (new,pending, active,conclude, toclose and unpaid)
         #region DownloadExcel
-        public IActionResult DownloadExcel(string statusarray, int[] status, int regionId)
+        public IActionResult DownloadExcel(string statusarray, int[] status, int regionId, string searchdata)
         {
             string str = statusarray;
-            var data = _adminDashboard.requestDataAdmin(str, status, null, regionId);
+            var data = _adminDashboard.requestDataAdmin(str, status, null, regionId, searchdata);
             var excelData = _adminDashboard.ExportToExcel(data);
             return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "AdminData.xlsx");
         }

@@ -37,11 +37,10 @@
 	}
 
 </div>
-<div class="d-block d-md-none">
+<div class="d-block d-md-none w-100">
 	@foreach (var item in Model.patientHistory)
 	{
-		<button class="table-btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#content-@item.PatientId"
-				aria-expanded="false" aria-controls="content">
+		<button class="table-btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#content-@item.PatientId" aria-expanded="false" aria-controls="content">
 			<hr class="m-0 mb-1" />
 			<div class="d-flex justify-content-start p-2" style="height: 60px; padding-left: 20px;">
 				<span>@item.FirstName</span>

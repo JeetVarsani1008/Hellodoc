@@ -65,12 +65,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-	//this is for pass null date
-	$("#sentdate").change(function () {
-		if ($(this).val() == "") {
-			$(this).val(null);
-		}
-	});
 	//this ajax is call when this page is load
 	$(document).ready(function () {
 		$.ajax({
@@ -143,19 +137,24 @@
 	//for clear
 	function clearfxn(pageNumber) {
 		var receivername;
-		var email;
 		var createdate;
+		var sentdate;
 		var roleid;
+		var phonenumber;
 		var pageNumber = pageNumber;
+
+		console.log("jeet132");
+
 		$.ajax({
 			url: "/Admin/SMSLogTable",
 			type: "POST",
 			data: {
-				patientname: patientname,
-				date: date,
-				email: email,
-				phonenumber: phonenumber,
-				pageNumber: pageNumber,
+				roleid: roleid,
+				receivername: receivername,
+				phoneNumber: phonenumber,
+				sentdate: sentdate,
+				createdate: createdate,
+				PageNumber: pageNumber,
 			},
 			dataType: "html",
 			success: function (data) {
@@ -165,6 +164,8 @@
 				$("#createdate").val("");
 				$("#phonenumber").val("");
 				$("#roleid").val("");
+				$("#phonenumber").removeClass("is-invalid");
+
 			},
 			error: function (error) {
 
