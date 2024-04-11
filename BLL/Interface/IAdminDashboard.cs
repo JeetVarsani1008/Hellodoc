@@ -169,7 +169,7 @@ namespace BLL.Interface
 
         void createShiftPost(ViewShiftVm model, int aspId, List<int> WeekDaysList);
 
-        List<Provider> getPhysicianList();
+        List<Provider> getPhysicianList(int regionId);
 
         List<RequestedShift> requestedShiftData(int regionId);
 

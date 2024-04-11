@@ -6,7 +6,7 @@
 
 <div class="container-fluid h-100">
         
-        <a asp-action="Index" asp-controller="Home" class="backbtn">&lt; Back</a>
+        <button onclick="window.location.href='@Url.Action("Index","Home")'" type="button" class="btn btn-outline-info text-info border-info backbtn">&lt; Back</button>
         <main class="container-fluid h-100">
             <div class=" d-flex flex-column justify-content-center align-items-center">
                 <h2 class="iam">I am a...</h2>
@@ -17,6 +17,7 @@
             </div>
         </main>
 </div>
+
 
 <script>
     function myFunction() {

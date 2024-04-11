@@ -16,9 +16,9 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please enter Last Name")]
         public string? LastName { get; set; }
 
-        [Required(ErrorMessage = "Please Enter the Phone")]
-        [StringLength(12, MinimumLength = 8, ErrorMessage = "Phone Number should be between 8 and 12 characters")]
-        public string? Phone { get; set; }
+		[Required(ErrorMessage = "Enter your Phone Number")]
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string? Phone { get; set; }
 
         [Required(ErrorMessage = "Enter your Birthdate")]
         public DateTime? BirthDate { get; set; }

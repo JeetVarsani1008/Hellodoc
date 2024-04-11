@@ -28,6 +28,8 @@ namespace DAL.ViewModel
         [Required(ErrorMessage ="Please Enter Email")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Please Enter your Phone Number")]
+        [RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
         public string Phone { get; set; }
 
         [Compare("Email")]
@@ -40,16 +42,22 @@ namespace DAL.ViewModel
         public string City { get; set; }
         public string State { get; set; }
 
+        [Required(ErrorMessage = "Please Enter Zip Code")]
+        [RegularExpression(@"^\d{6}(?:[-\s]\d{4})?$", ErrorMessage = "invalid zipcode")]
         public string Zip {  get; set; }
+
 
         public string Mobile { get; set; }
 
+
+        [RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
         public string AlternateMobile { get; set; }
 
         public List<Region> regions { get; set; }
 
         public List<AdminRegion> AdminRegions { get; set; }
 
+        [Required(ErrorMessage ="Select Region From Given Region")]
         public int RegionId { get; set; }
 
         public int RoleId { get; set; }

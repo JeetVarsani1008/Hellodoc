@@ -39,7 +39,58 @@
 	}
 </div>
 
+@* accordian *@
+<div class="d-block d-md-none my-3">
+	<div class="accordion accordion-flush" id="smslogsAccordion">
+		@foreach (var item in Model.smsLog)
+		{
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="heading_@item.SmsLogId">
+					<button class="accordion-button collapsed rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.SmsLogId" aria-expanded="false" aria-controls="content" style="background-color: #E6faff;">
+						<div class="d-flex justify-content-start align-items-center">
+							<div>
+								<p class="mb-0" style="font-weight: 600;">@item.Recipient</p>
+								<br />
+								<p class="mb-0" style="color:gray; font-size:12px;">Action Name : <span>@item.Action</span></p>
+								<p class="mb-0" style="color: gray; font-size: 12px;">Email : <span style="font-weight: 600;">@item.Email</span></p>
+							</div>
+						</div>
+					</button>
+				</h2>
+				<div id="contentaccordian_@item.SmsLogId" class="accordion-collapse collapse" style="background:#E6faff" aria-labelledby="heading_@item.SmsLogId" data-bs-parent="#smslogsAccordion">
+					<div class="accordion-body">
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-person text-info"></i>
+							<span>Role Name : @item.RoleName</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-calendar-week text-info"></i>
+							<span>Created Date : @item.CreatedDate</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-calendar-week text-info"></i>
+							<span>Sent Date : @item.SentDate</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-check-circle text-info"></i>
+							<span>Phone : @item.Sent</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-envelope text-info"></i>
+							<span>Sent Tries : @item.SentTries</span>
+						</div>
 
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-check-circle text-info"></i>
+							<span>Confirmation Number : @item.ConfirmationNumber</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
+@* accordian end *@
 
 
 <nav aria-label="Page navigation example " class="pb-1">

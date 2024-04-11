@@ -28,10 +28,10 @@
     top: 4.5em;
     right: 6em;
     margin-right: 4em;
-    background-color: white;
+    /*background-color: white;*/
     border: 1px solid #01bce9;
     border-radius:5px;
-    background: transparent;
+    /*background: transparent;*/
 }
 .formpart {
     margin-top: 6em;
@@ -98,26 +98,6 @@ body{
     margin-left:1em;
 }
 
-footer {
-    position: relative;
-    bottom: 0;
-    color: #fff;
-    padding-top : 0.5em;
-}
-
-.footertext {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin: 0 0 3em 0;
-}
-.footertext2 {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin-right : 2em;
-    margin-bottom: 1em;
-}
 .iti__flag-container {
     z-index: 5;
 }

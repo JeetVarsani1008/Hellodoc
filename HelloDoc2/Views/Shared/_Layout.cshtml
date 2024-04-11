@@ -21,20 +21,22 @@
         </div>
     </div>
 
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-100" style="position:absolute">
         <main role="main" class="h-100">
             <partial name="_ToastNotification" />
             @RenderBody()
+            <footer class="bg-dark container-fluid mb-0" style="position:relative">
+                <div class="footer d-flex justify-content-end">
+                    <div>
+                        <a class="footertext">Terms of Conditions</a> <span class="bg-secondary">|</span> <a class="footertext2">Privacy</a>
+                    </div>
+                </div>
+            </footer>
         </main>
     </div>
 
-    <footer class="bg-dark container-fluid">
-        <div class="footer d-flex justify-content-end">
-            <div>
-                <a class="footertext" href="#">Terms of Conditions</a> <span style="color: gray;">|</span> <a class="footertext2" href="#">Privacy</a>
-            </div>
-        </div>
-    </footer>
+
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

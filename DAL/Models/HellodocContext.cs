@@ -179,6 +179,8 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.EmailLogId).HasName("EmailLog_pkey");
 
+            entity.Property(e => e.EmailLogId).HasIdentityOptions(2L, null, null, 100000L, null, null);
+
             entity.HasOne(d => d.Request).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RequestId_fkey");
 
             entity.HasOne(d => d.Role).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RoleId_fkey");

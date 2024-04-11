@@ -100,27 +100,6 @@ body {
     border-radius: 5px;
 }
 
-footer {
-    position: relative;
-    bottom: 0;
-    color: #fff;
-    padding-top: 0.5em;
-}
-
-.footertext {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin: 0 0 3em 0;
-}
-
-.footertext2 {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin-right: 2em;
-    margin-bottom: 1em;
-}
 
 .iti__flag-container {
     z-index: 5;

@@ -11,8 +11,7 @@ public partial class EmailLog
 {
     [Key]
     [Column("EmailLogID")]
-    [Precision(9, 0)]
-    public decimal EmailLogId { get; set; }
+    public int EmailLogId { get; set; }
 
     [Column(TypeName = "character varying")]
     public string EmailTemplate { get; set; } = null!;

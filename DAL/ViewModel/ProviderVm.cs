@@ -22,7 +22,10 @@ namespace DAL.ViewModel
 
         // this part is for edit provider account
 
+        [Required(ErrorMessage ="Enter Your Region From Given Region!")]
         public int RegionId {  get; set; }
+
+        [Required(ErrorMessage ="Select One Role.")]
         public int RoleId { get; set; }
 
         [Required(ErrorMessage = "Please Enter Username")]
@@ -41,11 +44,15 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter Email Address")]
         public string Email {  get; set; }
 
+
         [Required(ErrorMessage = "Enter your Phone Number")]
-        [StringLength(12, MinimumLength = 8, ErrorMessage = "Phone Number should be between 8 and 12 characters")]
-        public string Phone { get; set; }
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string Phone { get; set; }
+
         public string MedicalLicence { get; set; }
-        public string AltPhone { get; set; }
+
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string AltPhone { get; set; }
         public string NPINumber { get; set;}
         public string SynchronizationEmail { get; set;}
 
@@ -55,8 +62,11 @@ namespace DAL.ViewModel
         public string Address2 { get; set; }
 
         public string City { get; set; }
-        public string State { get; set; } 
-        public string Zip { get; set; }
+        public string State { get; set; }
+
+		[Required(ErrorMessage = "ZipCode is required")]
+		[RegularExpression(@"^\d{6}(?:[-\s]\d{4})?$", ErrorMessage = "invalid zipcode")]
+		public string Zip { get; set; }
 
         [Required(ErrorMessage = "Please Enter your Business Name")]
         public string BusinessName { get; set; }
@@ -81,6 +91,7 @@ namespace DAL.ViewModel
         public bool IsNonDisclosureDoc { get; set; }
 
         //for store name 
+        public IFormFile PhotoFile { get; set; }
         public IFormFile AgreementDoc { get; set; }
         public IFormFile BackgroundDoc { get; set; }
         public IFormFile NonDisclosureDoc { get; set; }

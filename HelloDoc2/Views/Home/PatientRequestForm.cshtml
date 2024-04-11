@@ -9,13 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 
-
+ 
 <div class="container patient-main">
     <div class="container-fluid">
-        <a class="back">
-            <button onclick="@("window.location.href ='" + @Url.Action("Submit_Request","Home") + "'");" class="back-btn mt-5">
-                &lt; Back
-        </a>
+            <button onclick="window.location.href='@Url.Action("Submit_Request","Home")'" class="back-btn mt-3 tex-info btn btn-outline-info me-0">
+                &lt; Back 
         </button>
     </div>
     <form method="post" enctype="multipart/form-data" asp-action="PatientRequestForm" asp-controller="Home">
@@ -135,7 +133,19 @@
         </div>
     </div>
     </form>
+
+
+    @* footer text *@
 </div>
+    @* <div class="footer-container position-absolute mb-0 w-100">
+        <footer class="bg-dark container-fluid">
+            <div class="footer d-flex justify-content-end">
+                <div>
+                    <a class="footertext">Terms of Conditions</a> <span class="bg-secondary">|</span> <a class="footertext2">Privacy</a>
+                </div>
+            </div>
+        </footer>
+    </div> *@
 <script>
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {

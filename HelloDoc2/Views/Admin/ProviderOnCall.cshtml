@@ -7,11 +7,11 @@
 <main class="bg-light container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="d-flex justify-content-start">MDs On Call</h3>
-        <button class="btn btn-outline-info">&lt; Back</button>
+        <button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("Scheduling","Admin")'">&lt; Back</button>
     </div>
     <div class="d-flex flex-column">
         <div class="d-flex align-items-center justify-content-between mt-3 mb-3 ">
-            <select class="form-select providerRegion w-25" id="selectedRegion">
+            <select class="form-select providerRegion w-25" id="selectedRegion" >
                 <option selected value="">All Region</option>
                 @foreach (var obj in Model.regions)
                 {
@@ -25,7 +25,7 @@
                     </Span><i class="bi bi-plus-lg d-block d-md-none"></i>
                 </button>
                 <button type="button" class="btn bg-info">
-                    <span class="d-none d-md-block text-white">Shift For Review</span>
+                    <span class="d-none d-md-block text-white" onclick="window.location.href='@Url.Action("RequestedShift","Admin")'">Shift For Review</span>
                 </button>
             </div>
         </div>
@@ -45,8 +45,8 @@
     $(document).ready(function () {
         $.ajax({
             url: "/Admin/ProviderOnCallContent",
-            type : 'POST',
-            dataType : "html",
+            type: 'POST',
+            dataType: "html",
             success: function (data) {
                 $('#provideroncall').html(data);
             },
@@ -54,5 +54,28 @@
                 $('#provideroncall').html("Something Went Wrong");
             },
         });
-    })
+    });
+
+    $("#selectedRegion").on("input", function () {
+        regionId = $(this).val();
+        AjaxForRegionSearch();
+    });
+
+    function AjaxForRegionSearch() {
+        $.ajax({
+            url: "/Admin/ProviderOnCallContent",
+            type: "POST",
+            data: { regionId: regionId },
+            dataType: "html",
+            success: function (data) {
+                $("#provideroncall").html(data);
+
+            },
+            error: function (error) {
+
+                $("#provideroncall").html("Something Went Wrong");
+            }
+        });
+    }
+
 </script>

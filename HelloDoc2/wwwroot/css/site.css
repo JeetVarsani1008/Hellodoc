@@ -25,6 +25,13 @@ html {
 }*/
 
 
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
 .forback {
     background-image: url('images/11116016_415.jpg');
 }

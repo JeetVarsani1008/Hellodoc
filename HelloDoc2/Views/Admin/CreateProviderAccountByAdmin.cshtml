@@ -51,12 +51,14 @@
 				@* role *@
 				<div class="form-floating mb-3 col-sm-12 col-lg-4">
 					<select class="form-select" aria-label="Default select example" style=" width: 100%; height:57px;" asp-for="RoleId">
+						<option value="0" selected disabled>All</option>
 								@foreach(var obj in Model.roles)
 								{
 									<option value="@obj.RoleId">@obj.Name</option>
 								}
 					</select>
 					<label for="select" class="ms-2">Role</label>
+					<span asp-validation-for="RoleId" class="text-danger"></span>
 				</div>
 			</div>
 
@@ -88,6 +90,9 @@
 				@* Phone Number *@
 				<div class="form-floating col-lg-6 col-sm-12 ">
 					<input id="phone" type="tel" class="form-control" style="height: 60px;" asp-for="Phone">
+						<div class="invalid-feedback">
+							Please enter only numbers.
+						</div>
 					<span asp-validation-for="Phone" class="text-danger"></span>
 				</div>
 
@@ -143,12 +148,14 @@
 				@* State *@
 				<div class="form-floating mb-3 col-sm-12 col-lg-6">
 					<select class="form-select w-100" aria-label="Default select example" asp-for="RegionId">
+						<option value="" selected disabled>All Regions</option>
 							@foreach(var item in Model.regions)
 							{
 							<option value="@item.RegionId">@item.Name</option>	
 							}
 					</select>
 					<label for="select" class="ms-2">State</label>
+					<span asp-validation-for="RegionId" class="text-danger"></span>
 				</div>
 
 				@*Zip*@
@@ -183,7 +190,7 @@
 				@* upload photo *@
  				<div class="form-floating col-sm-12 col-md-6 col-lg-6" style="height: 57px">
 					<div class="input-group">
-							<input type="file" class="form-control bg-transparent mb-0" id="uploadphoto" asp-for="Photo">
+							<input type="file" class="form-control bg-transparent mb-0" id="uploadphoto" asp-for="PhotoFile">
 							<button type="button" id="upload-btn" class="btn btn-info text-white" onclick="uploadPhoto()">
 							<i class="bi bi-cloud-arrow-up me-1"></i>
 							<span class="d-none d-sm-inline-block">Photo</span>
@@ -211,15 +218,16 @@
 				<div class="row mt-3 d-flex align-items-center">
 					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
 						<div class="form-check me-3">
-							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_0" />
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_1" />
 						</div>
 					</div>
 					<div class="col-lg-8">
 						<h5>Independent Contractor Agreement</h5>
+							<span id="agreement"></span>
 					</div>
 					<div class="col-lg-2">
-							<input type="file" id="agreementDoc" class="d-none" asp-for="AgreementDoc" />
-							<label for="agreementDoc" class="btn btn-info text-white my-1 mx-1">
+							<input type="file" id="AgreementDoc" class="d-none" asp-for="AgreementDoc" disabled onchange="updateFileName()" />
+							<label for="AgreementDoc" class="btn btn-info text-white my-1 mx-1 disabled">
 								<i class="bi bi-cloud-upload"></i>
 							Upload
 						</label>
@@ -229,14 +237,15 @@
 				@* onboarding-two *@
 				<div class="row mt-3 d-flex align-items-center">
 					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
-							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_1" />
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_2" />
 					</div>
 					<div class="col-lg-8">
 						<h5>Background Check</h5>
+						<span id="background"></span>
 					</div>
 					<div class="col-lg-2">
-							<input type="file" id="backgroundDoc" class="d-none" asp-for="BackgroundDoc" />
-							<label for="backgroundDoc" class="btn btn-info text-white my-1 mx-1">
+							<input type="file" id="BackgroundDoc" class="d-none" asp-for="BackgroundDoc" disabled onchange="updateFileNameBackground()" />
+							<label for="BackgroundDoc" class="btn btn-info text-white my-1 mx-1 disabled">
 							<i class="bi bi-cloud-upload"></i>
 							Upload
 						</label>
@@ -247,15 +256,16 @@
 				<div class="row mt-3 mb-3 d-flex align-items-center">
 					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
 						<div class="form-check me-3">
-							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_2" />
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_3" />
 						</div>
 					</div>
 					<div class="col-lg-8">
 						<h5>HIPAA Compliance</h5>
+						<span id="hipaa"></span>
 					</div>
 					<div class="col-lg-2">
-						<input type="file" id="hippaCompliance" hidden asp-for="HIPAACompliance"/>
-						<label for="hippaCompliance" class="btn btn-info text-white my-1 mx-1">
+							<input type="file" id="HIPAACompliance" hidden asp-for="HIPAACompliance" disabled onchange="updateFileNameHipaa()" />
+							<label for="HIPAACompliance" class="btn btn-info text-white my-1 mx-1 disabled">
 							<i class="bi bi-cloud-upload"></i>
 							Upload
 						</label>
@@ -266,24 +276,25 @@
 				<div class="row mt-3 d-flex align-items-center">
 					<div class="col-lg-1 col-sm-1 form-floating d-flex flex-wrap">
 						<div class="form-check me-3">
-							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_3" />
+							<input class="form-check-input enabled1" name="checkboxForAll" type="checkbox" id="checkbox_4" />
 						</div>
 					</div>
 					<div class="col-lg-8">
 						<h5>Non Disclosure Agreement</h5>
+							<span id="nondisclosure"></span>
 					</div>
 					<div class="col-lg-2">
-							<input type="file" class="d-none" id="nonDisclosureDoc" asp-for="NonDisclosureDoc" />
-							<label for="nonDisclosureDoc" type="button" class="btn btn-info text-white my-1 mx-1">
+							<input type="file" class="d-none" id="NonDisclosureDoc" asp-for="NonDisclosureDoc" disabled onchange="updateFileNameNonDisclosure()" />
+							<label for="NonDisclosureDoc" type="button" class="btn btn-info text-white my-1 mx-1 disabled">
 								<i class="bi bi-cloud-upload"></i>
 								Upload
 							</label>
 					</div>
 				</div>
 			</div>
-
+			
 			<hr class="mt-3">
-
+			
 			<div class="d-flex justify-content-end me-3 mt-3">
 				<button class="btn btn-success" type="submit">Create Account</button>
 			</div>
@@ -313,7 +324,6 @@
 	});
 
 
-
 	function uploadPhoto() {
 		console.log()
 		const url = document.getElementById('uploadphoto');
@@ -338,29 +348,8 @@
 		const formData = new FormData();
 		formData.append('Filepath', file);
 
-		$.ajax({
-			method: "POST",
-			url: "/Admin/UploadPhoto",
-			data: formData,
-			processData: false,
-			contentType: false,
-			success: function (data) {
-
-				console.log(data.filePath);
-
-			},
-			error: function (xhr, status, error) {
-				console.log("eroor123")
-				console.error(xhr.responseText);
-
-			},
-		});
-
 	};
-
-
-
-
+		
 
 	//this is for store latitude and longitude
 	document.getElementById('City').addEventListener('focusout', getCoordinates);
@@ -385,26 +374,47 @@
 		//return true;
 	};
 
-	['hippaCompliance', 'nonDisclosureDoc', 'agreementDoc', 'backgroundDoc'].forEach(function (id) {
+
+
+	['AgreementDoc', 'NonDisclosureDoc', 'HIPAACompliance', 'BackgroundDoc'].forEach(function (id) {
 		var fileInput = document.getElementById(id);
 		if (fileInput) {
 			fileInput.addEventListener('change', function () {
 				var filePath = this.value;
 				var allowedExtensions = /(\.pdf)$/i;
 
-				if (allowedExtensions.exec(filePath)) {
-					// var checkbox = document.getElementById('checkbox_');
-					// if(checkbox){
-					// 	checkbox.checked = true;
-					// }
-					
-				}
-				else {
+				if (!allowedExtensions.exec(filePath)) {
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
 						text: 'You can only upload PDF files!',
 					});
+
+
+					if (fileInput.id == "AgreementDoc") {
+						var fileNameSpan = document.querySelector('#agreement');
+						if (fileNameSpan) {
+							fileNameSpan.textContent = '';
+						}
+					}
+					else if (fileInput.id == "NonDisclosureDoc") {
+						var fileNameSpan = document.querySelector('#nondisclosure');
+						if (fileNameSpan) {
+							fileNameSpan.textContent = '';
+						}
+					}
+					else if (fileInput.id == "HIPAACompliance") {
+						var fileNameSpan = document.querySelector('#hipaa');
+						if (fileNameSpan) {
+							fileNameSpan.textContent = '';
+						}
+					}
+					else if (fileInput.id == "BackgroundDoc"){
+						var fileNameSpan = document.querySelector('#background');
+						if (fileNameSpan) {
+							fileNameSpan.textContent = '';
+						}
+					}
 				}
 				// Clear the file input
 				this.value = '';
@@ -414,6 +424,90 @@
 	});
 
 
+	//check box when provider check then and then give permission to store file data - for agreement
+	const checkbox1 = document.getElementById('checkbox_1');
+	const agreement = document.getElementById('AgreementDoc');
+	const agreementlabel = document.querySelector('label[for="AgreementDoc"]');
+
+	checkbox1.addEventListener('change', function () {
+		if (checkbox1.checked) {
+			agreement.removeAttribute('disabled');
+			agreementlabel.classList.remove('disabled');
+		}
+		else {
+			agreement.setAttribute('disabled', 'disabled');
+			agreementlabel.classList.add('disabled');
+		}
+	});	
+	
+	function updateFileName() {
+		var fileInput = document.querySelector('#AgreementDoc');
+		var fileName = fileInput.files[0].name;
+		document.querySelector('#agreement').textContent = fileName;
+	}
+
+	//check box when provider check then and then give permission to store file data - for background
+	const checkbox2 = document.getElementById('checkbox_2');
+	const background = document.getElementById('BackgroundDoc');
+	const backgroundlabel = document.querySelector('label[for="BackgroundDoc"]');
+
+	checkbox2.addEventListener('change', function () {
+		if (checkbox2.checked) {
+			background.removeAttribute('disabled');
+			backgroundlabel.classList.remove('disabled');
+		}
+		else {
+			background.setAttribute('disabled', 'disabled');
+			backgroundlabel.classList.add('disabled');
+		}
+	});	
+	function updateFileNameBackground() {
+		var fileInput = document.querySelector('#BackgroundDoc');
+		var fileName = fileInput.files[0].name;
+		document.querySelector('#background').textContent = fileName;
+	}
+	
+	//check box when provider check then and then give permission to store file data - for hipaa
+	const checkbox3 = document.getElementById('checkbox_3');
+	const hippacompliance = document.getElementById('HIPAACompliance');
+	const hippacompliancelabel = document.querySelector('label[for="HIPAACompliance"]');
+
+	checkbox3.addEventListener('change', function () {
+		if (checkbox3.checked) {
+			hippacompliance.removeAttribute('disabled');
+			hippacompliancelabel.classList.remove('disabled');
+		}
+		else {
+			hippacompliance.setAttribute('disabled', 'disabled');
+			hippacompliancelabel.classList.add('disabled');
+		}
+	});
+	function updateFileNameHipaa() {
+		var fileInput = document.querySelector('#HIPAACompliance');
+		var fileName = fileInput.files[0].name;
+		document.querySelector('#hipaa').textContent = fileName;
+	}
+	
+	//check box when provider check then and then give permission to store file data - for non disclosure
+	const checkbox4 = document.getElementById('checkbox_4');
+	const nondisclosure = document.getElementById('NonDisclosureDoc');
+	const nondisclosurelabel = document.querySelector('label[for="NonDisclosureDoc"]');
+
+	checkbox4.addEventListener('change', function () {
+		if (checkbox4.checked) {
+			nondisclosure.removeAttribute('disabled');
+			nondisclosurelabel.classList.remove('disabled');
+		}
+		else {
+			nondisclosure.setAttribute('disabled', 'disabled');
+			nondisclosurelabel.classList.add('disabled');
+		}
+	});
+	function updateFileNameNonDisclosure() {
+		var fileInput = document.querySelector('#NonDisclosureDoc');
+		var fileName = fileInput.files[0].name;
+		document.querySelector('#nondisclosure').textContent = fileName;
+	}
 
 	
 
@@ -423,7 +517,7 @@
 
 @section Scripts {
 	@{
-				<partial name="_ValidationScriptsPartial" />
+											<partial name="_ValidationScriptsPartial" />
 	}
 }
 

@@ -49,23 +49,7 @@ body{
 .same-text {
     margin: 1em 0;
 }
-/* input[type="file"] {
-    display: none;
-}
-.upload-file {
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: flex-end;
-    padding: 7px 30px;
-    color: #292929;
-    background: #01bce9;
-}
 
-.file-upload {
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 0;
-} */
 .upload-btn {
     margin-right:10px;
     font-size :1.25em;
@@ -108,26 +92,7 @@ body{
     margin-left:1em;
     border-radius: 5px;
 }
-footer {
-    position: relative;
-    bottom: 0;
-    color: #fff;
-    padding-top : 0.5em;
-}
 
-.footertext {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin: 0 0 3em 0;
-}
-.footertext2 {
-    color: gray;
-    text-decoration: none;
-    padding: 0.5em;
-    margin-right : 2em;
-    margin-bottom: 1em;
-}
 .iti__flag-container {
     z-index: 5;
 }

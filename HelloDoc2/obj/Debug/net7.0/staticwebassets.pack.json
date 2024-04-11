@@ -901,6 +901,14 @@
       "PackagePath": "staticwebassets\\upload\\1_AgreementDoc.pdf"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_BackgroundDoc.pdf",
+      "PackagePath": "staticwebassets\\upload\\1_BackgroundDoc.pdf"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_NonDisclosureDoc.pdf",
+      "PackagePath": "staticwebassets\\upload\\1_NonDisclosureDoc.pdf"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_NonDisclosureDoc.jpg",
       "PackagePath": "staticwebassets\\upload\\2_NonDisclosureDoc.jpg"
     },

@@ -1163,7 +1163,7 @@ namespace DAL.Controllers
         [HttpPost]
         public IActionResult CreateProviderAccount(ProviderVm model, List<int>? checkboxForAll)
         {
-            _adminDashboard.createProviderAccount(model, checkboxForAll);
+            //_adminDashboard.createProviderAccount(model, checkboxForAll);
             return RedirectToAction("Provider", "Admin");
         }
         #endregion
@@ -1338,13 +1338,14 @@ namespace DAL.Controllers
         [HttpGet]
         public IActionResult AdminCreateAccount()
         {
+            ViewBag.ActiveDashboardNav = "Access";
             AdminProfileVm adminProfileVm = new AdminProfileVm();
             adminProfileVm.regions = _adminDashboard.getRegions();
             return View(adminProfileVm);
         }
         #endregion
 
-        #region AdminCreateAccount
+        #region AdminCreateAccount :post
         [HttpPost]
         public IActionResult AdminCreateAccount(AdminProfileVm model, List<int>? checkboxForAllRegion)
         {
@@ -1768,6 +1769,7 @@ namespace DAL.Controllers
 		#region RequestedShift
         public IActionResult RequestedShift()
         {
+            ViewBag.ActiveDashboardNav = "Provider";
             ShiftViewModel shiftViewModel = new ShiftViewModel();
             shiftViewModel.regions = _adminDashboard.getRegions();
             return View(shiftViewModel);
@@ -1822,10 +1824,10 @@ namespace DAL.Controllers
         #endregion
 
         #region ProviderOnCallContent
-        public IActionResult ProviderOnCallContent()
+        public IActionResult ProviderOnCallContent(int regionId)
         {
             ProviderVm providerVm = new ProviderVm();
-            providerVm.providers = _adminDashboard.getPhysicianList();
+            providerVm.providers = _adminDashboard.getPhysicianList(regionId);
             return PartialView("Admin/_ProviderOnCallContent",providerVm);
         }
         #endregion

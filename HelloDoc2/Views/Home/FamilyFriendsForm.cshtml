@@ -10,10 +10,8 @@
 
 <div class="container patient-main">
     <div class="container-fluid">
-        <a class="back">
-            <button onclick="@("window.location.href ='" + @Url.Action("Submit_Request","Home") + "'");" class="back-btn mt-5">
+        <button onclick="window.location.href ='@Url.Action("Submit_Request","Home")'" class="text-white btn btn-info position-absolute mt-5" style="top : 4.5em; right : 6em">
                 &lt; Back
-        </a>
         </button>
     </div>
     <form method="post" asp-action="FamilyFriendsForm" asp-controller="Home">

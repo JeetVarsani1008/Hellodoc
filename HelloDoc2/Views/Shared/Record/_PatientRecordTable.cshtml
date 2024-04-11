@@ -37,55 +37,45 @@
 	}
 
 </div>
-<div class="d-block d-md-none w-100">
-	@foreach (var item in Model.patientHistory)
-	{
-		<button class="table-btn p-0" type="button" data-bs-toggle="collapse" data-bs-target="#content-@item.PatientId" aria-expanded="false" aria-controls="content">
-			<hr class="m-0 mb-1" />
-			<div class="d-flex justify-content-start p-2" style="height: 60px; padding-left: 20px;">
-				<span>@item.FirstName</span>
-			</div>
-			<div class="d-flex justify-content-start p-2" style="height: 60px; padding-left: 20px;">
-				<span>@item.Phone</span>
-			</div>
-		</button>
-		<div id="content-@item.PatientId" class="collapse collapse1">
 
 
-			<div class="info1 d-flex gap-2 pad">
-				<div class="icons">
-					<i class="fa-regular fa-envelope" style="color: #01bce9;"></i>
+
+<div class="d-block d-md-none mb-3">
+	<div class="accordion accordion-flush" id="patientsAccordion">
+		@foreach (var item in Model.patientHistory)
+		{
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="heading_@item.PatientId">
+					<button class="accordion-button collapsed rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#contentaccordian_@item.PatientId" aria-expanded="false" aria-controls="content" style="background-color: #E6faff;">
+						<div class="d-flex justify-content-start align-items-center">
+							<div>
+								<p class="mb-0" style="font-weight: 600;">@item.FirstName</p>
+								<br />
+								<p class="mb-0" style="color: gray; font-size: 12px;">Phone: <span style="font-weight: 600;">@item.Phone</span></p>
+							</div>
+						</div>
+					</button>
+				</h2>
+				<div id="contentaccordian_@item.PatientId" class="accordion-collapse collapse" style="background:#E6faff" aria-labelledby="heading_@item.PatientId" data-bs-parent="#patientsAccordion">
+					<div class="accordion-body">
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-envelope text-info"></i>
+							<span>Email : @item.Email</span>
+						</div>
+						<div class="d-flex align-items-center gap-3 mb-3">
+							<i class="bi bi-telephone-forward text-info"></i>
+							<span>Phone : @item.Phone</span>
+						</div>
+						<div class="d-flex justify-content-end">
+							<button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("PatientRecordExplore","Admin",new {patientId = item.PatientId})'">Explore</button>
+						</div>
+					</div>
 				</div>
-				<span>Email : </span>
-				@if (item.Email.Length > 30)
-				{
-					<span>@item.Email.Substring(0, 30)...</span>
-				}
-				@if (item.Email.Length <= 30)
-				{
-					<span>@item.Email</span>
-				}
 			</div>
-			<div class="info1 d-flex gap-2 pad">
-				<div class="icons">
-					<i class="fa-solid fa-phone" style="color: #01bce9;"></i>
-				</div>
-				<span>Phone : </span>
-				<span>@item.Phone</span>
-
-			</div>
-
-
-
-
-			<div class="d-flex justify-content-end mt-2">
-
-				<button class="btn btn-outline-primary providersmallbtns me-1" type="button">Explore</button>
-			</div>
-
-		</div>
-	}
+		}
+	</div>
 </div>
+
 
 <nav aria-label="Page navigation example " class="pb-1">
 	<div class="justify-content-between d-flex">

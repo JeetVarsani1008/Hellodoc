@@ -12,9 +12,10 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter the Last Name")]
         public string F_LastName { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Phone Number")]
 
-        public string F_Phone { get; set; }
+		[Required(ErrorMessage = "Please Enter your Phone Number")]
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string F_Phone { get; set; }
 
         [Required(ErrorMessage = "Please Enter Your Email")]
         public string F_Email { get; set; }
@@ -36,8 +37,9 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter Patient's Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Phone")]
-        public string Phone { get; set; }
+		[Required(ErrorMessage = "Please Enter your Phone Number")]
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string Phone { get; set; }
 
         [Required(ErrorMessage = "Please Enter Street")]
         public string Street { get; set; }
@@ -49,6 +51,7 @@ namespace DAL.ViewModel
         public string State { get; set; }
 
         [Required(ErrorMessage = "Please Enter Zip Code")]
+        [RegularExpression(@"^\d{6}(?:[-\s]\d{4})?$", ErrorMessage = "invalid zipcode")]
         public string ZipCode { get; set; }
 
         public string? Room { get; set; }
@@ -56,8 +59,9 @@ namespace DAL.ViewModel
         [Required(ErrorMessage = "Please Enter Password")]
         public string PasswordHash { get; set; }
 
-        [Required(ErrorMessage = "Please Enter Phone Number")]
-        public string PhoneNumber { get; set; }
+		[Required(ErrorMessage = "Please Enter your Phone Number")]
+		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
+		public string PhoneNumber { get; set; }
         public string File { get; set; }
         public List<Region> regions { get; set; }
 

@@ -1201,14 +1201,26 @@ namespace BLL.Repositery
 
             //in this method this content is for save file
 			string uniquefileName = "";
+
+            if(model.PhotoFile != null && model.PhotoFile.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot", "upload");
+                uniquefileName = $"{physician.PhysicianId}" + "_Photo";
+                string filePath = Path.Combine(uploadfolder, uniquefileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.PhotoFile.CopyTo(stream);
+                }
+                physician.Photo = uniquefileName;
+            }
 			if (model.AgreementDoc != null && model.AgreementDoc.Length > 0)
 			{
 				string uploadfolder = Path.Combine("wwwroot", "upload");
                 uniquefileName = $"{physician.PhysicianId}" + "_AgreementDoc.pdf";
                 string filePath = Path.Combine(uploadfolder, uniquefileName);
-                using (var strem = new FileStream(filePath, FileMode.Create))
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    model.AgreementDoc.CopyTo(strem);
+                    model.AgreementDoc.CopyTo(stream);
                 }
                 physician.IsAgreementDoc = true;
 			}
@@ -1716,6 +1728,7 @@ namespace BLL.Repositery
             }
             var data = list.Select(x => new EmailLogs()
 			{
+                EmailLogId = (int)x.EmailLogId,
 				Recipient = _context.Requests.FirstOrDefault(i => i.RequestId == x.RequestId).FirstName,
 				Action = x.Action,
 				RoleName = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
@@ -1762,6 +1775,7 @@ namespace BLL.Repositery
 
 			var data = list.Select(x => new SmsLogs()
             {
+                SmsLogId = (int)x.SmslogId,
 				Recipient = _context.Requests.FirstOrDefault(i => i.RequestId == x.RequestId).FirstName,
 				Action = x.Action,
 				RoleName = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
@@ -1847,6 +1861,7 @@ namespace BLL.Repositery
                         
                         select new
                         {
+                            requestId = r.RequestId,
                             requestType = r.RequestTypeId,
                             patientName = result.FirstName == null ? "" : result.FirstName,
                             requestor = r.FirstName,
@@ -1901,6 +1916,7 @@ namespace BLL.Repositery
 
 			var data = list.Select(x => new SearchRecord()
 			{
+                RequestId = x.requestId,
 				PatientName = x.patientName,
                 Requestor = x.requestor,
                 Email = x.email,
@@ -2054,13 +2070,17 @@ namespace BLL.Repositery
         #endregion
 
         #region getPhysicianList
-        public List<Provider> getPhysicianList()
+        public List<Provider> getPhysicianList(int regionId)
         {
 
             var currentDate = DateOnly.FromDateTime(DateTime.Now);
             TimeOnly currentTime = new TimeOnly(DateTime.Now.Hour,DateTime.Now.Minute, DateTime.Now.Second);
             var list = _context.Physicians.Include(x => x.Shifts).ThenInclude(j => j.ShiftDetails).Where(p => p.Shifts.Any()).ToList();
 
+            if(regionId != 0)
+            {
+                list = list.Where(x => x.RegionId == regionId).ToList();
+            }
             var data = list.Select(x => new Provider()
             {
                 Name = x.FirstName,
@@ -2152,3 +2172,4 @@ namespace BLL.Repositery
         #endregion
     }
 }
+

@@ -46,6 +46,7 @@ namespace DAL.ViewModel
 	#region EmailLogs
 	public class EmailLogs
 	{
+		public int EmailLogId { get; set; }
 		public string Recipient { get; set; }
 		public int? Action { get; set; }
 
@@ -84,6 +85,7 @@ namespace DAL.ViewModel
 	#region SmsLogs 
 	public class SmsLogs
 	{
+		public int SmsLogId { get; set; }
 		public string Recipient { get; set; }
 		public int? Action { get; set; }
 
@@ -103,6 +105,7 @@ namespace DAL.ViewModel
 	#region SearchRecord
 	public class SearchRecord
 	{
+		public int RequestId { get; set; }
 		public string PatientName { get; set; }
 
 		public string Requestor { get; set; }
