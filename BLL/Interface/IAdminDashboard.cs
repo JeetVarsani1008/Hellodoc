@@ -107,6 +107,12 @@ namespace BLL.Interface
         //void changeCheckBox(int physicianId, int checkbox);
         void updateProviderDoc(ProviderVm model);
 
+
+        //this is for send mail to provider
+        ProviderVm getPhysicianDetailsByPhysicianId(int phyId);
+
+		void adminSendMailToProvider(ProviderVm model, string subject, string body,string ContactType);
+
         //create account for physician by admin
         List<Role> getRoles();
         void createProviderAccount(ProviderVm model, List<int>? checkboxForAll);
@@ -168,6 +174,7 @@ namespace BLL.Interface
         List<Physician> getPhysicianByRegion(int regionId);
 
         void createShiftPost(ViewShiftVm model, int aspId, List<int> WeekDaysList);
+        bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime);
 
         List<Provider> getPhysicianList(int regionId);
 
@@ -177,6 +184,5 @@ namespace BLL.Interface
 
         bool approveSelectedShift(List<int> shiftDetailId);
 
-        
     }
 }

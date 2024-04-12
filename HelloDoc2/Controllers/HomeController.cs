@@ -430,6 +430,8 @@ namespace DAL.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+
+        //this is for checkmail 
         [Route("/Home/PatientRequestForm/checkemailexists/{email}")]
 
         [HttpGet]

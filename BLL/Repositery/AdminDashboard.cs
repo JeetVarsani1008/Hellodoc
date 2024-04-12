@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
+using MimeKit;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Org.BouncyCastle.Asn1.Ocsp;
@@ -1103,11 +1104,136 @@ namespace BLL.Repositery
             _context.SaveChanges();
 
         }
-        #endregion
-        //edit provider details completed
+		#endregion
+		//edit provider details completed
 
-        #region getRoles
-        public List<Role> getRoles()
+
+		#region getPhysicianDetailsByPhysicianId
+        public ProviderVm getPhysicianDetailsByPhysicianId(int phyId)
+        {
+            var data = _context.Physicians.FirstOrDefault(x => x.PhysicianId == phyId);
+            ProviderVm providerVm = new ProviderVm()
+            {
+                Email = data.Email,
+                SMS = data.Mobile,
+            };
+            return providerVm;
+        }
+		#endregion
+
+		#region adminSendMailToProvider
+		public void adminSendMailToProvider(ProviderVm model, string subject, string body,string ContactType)
+        {
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("HelloDoc2", "testinghere1008@outlook.com"));
+            message.To.Add(new MailboxAddress("HelloDoc2 Member", model.Email));
+            message.Subject = subject;
+
+            var bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = body;
+
+
+            message.Body = bodyBuilder.ToMessageBody();
+
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            {
+                client.Connect("smtp.office365.com", 587, false);
+                client.Authenticate("testinghere1008@outlook.com", "Simple@12345");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+
+            if (ContactType == "Email")
+            {
+                var email = _context.EmailLogs.Any(x => x.EmailId == model.Email && x.SubjectName == subject);
+                if (email)
+                {
+                    var data = _context.EmailLogs.FirstOrDefault(j => j.EmailId == model.Email);
+                    data.SentTries += 1;
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    
+
+                    EmailLog emailLog = new EmailLog();
+                    emailLog.EmailId = model.Email;
+                    emailLog.SubjectName = subject;
+                    emailLog.EmailTemplate = body;
+                    _context.EmailLogs.Add(emailLog);   
+                    _context.SaveChanges();
+                }
+            }
+            else if(ContactType == "SMS")
+            {
+                var sms = _context.Smslogs.Any(x => x.MobileNumber == model.SMS);
+                if (sms)
+                {
+                    var data = _context.Smslogs.FirstOrDefault(j => j.MobileNumber == model.SMS);
+                    data.SentTries += 1;
+                    data.SentDate = DateOnly.FromDateTime(DateTime.Now);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    Smslog smsLog = new Smslog();
+                    smsLog.MobileNumber = model.SMS;
+                    smsLog.Smstemplate = model.Description;
+                    smsLog.SentTries = 1;
+                    smsLog.CreateDate = DateOnly.FromDateTime(DateTime.Now);
+                    smsLog.SentDate = DateOnly.FromDateTime(DateTime.Now);
+                    _context.Smslogs.Add(smsLog);
+                    _context.SaveChanges();
+                }
+            }
+            else
+            {
+                var email = _context.EmailLogs.Any(x => x.EmailId == model.Email && x.SubjectName == subject);
+                if (email)
+                {
+                    var data = _context.EmailLogs.FirstOrDefault(j => j.EmailId == model.Email);
+                    data.SentTries += 1;
+                    data.SentDate = DateOnly.FromDateTime(DateTime.Now);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    EmailLog emailLog = new EmailLog();
+                    emailLog.EmailId = model.Email;
+                    emailLog.SubjectName = subject;
+                    emailLog.EmailTemplate = body;
+                    emailLog.SentTries = 1;
+                    _context.EmailLogs.Add(emailLog);
+                    _context.SaveChanges();
+                }
+
+
+                var sms = _context.Smslogs.Any(x => x.MobileNumber == model.SMS);
+                if(sms)
+                {
+                    var data = _context.Smslogs.FirstOrDefault(j => j.MobileNumber == model.SMS);
+                    data.SentTries += 1;
+                    data.SentDate = DateOnly.FromDateTime(DateTime.Now);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    Smslog smsLog = new Smslog();
+                    smsLog.MobileNumber = model.SMS;
+                    smsLog.Smstemplate = model.Description;
+                    smsLog.SentTries = 1;
+                    smsLog.CreateDate = DateOnly.FromDateTime(DateTime.Now);
+                    smsLog.SentDate = DateOnly.FromDateTime(DateTime.Now);
+                    _context.Smslogs.Add(smsLog);
+                    _context.SaveChanges();
+                }
+            }
+        }
+		#endregion
+
+		#region getRoles
+		public List<Role> getRoles()
         {
             var data = _context.Roles.Where(x => x.IsDeleted == false).ToList();
             return data;
@@ -2069,6 +2195,21 @@ namespace BLL.Repositery
         }
         #endregion
 
+        #region checkshiftExistsForPhysician
+        public bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime)
+        {
+            var data1 = _context.Shifts.Include(j => j.ShiftDetails).Any(x => x.PhysicianId == physicianId && x.ShiftDetails.Select(c => c.ShiftDate).First() == shiftdate && (x.ShiftDetails.Select(x=>x.StartTime <= starttime && x.EndTime >= starttime).First()) || (x.ShiftDetails.Select(x => x.StartTime <= endtime && x.EndTime >= endtime ).First()));
+
+            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId &&  (x.ShiftDate == shiftdate) && (x.StartTime <= starttime  || x.EndTime <= starttime));
+            
+            if (data)
+            {
+                return true;
+            }   
+            return false;
+        }
+        #endregion
+
         #region getPhysicianList
         public List<Provider> getPhysicianList(int regionId)
         {
@@ -2170,6 +2311,7 @@ namespace BLL.Repositery
             }
         }
         #endregion
+
     }
 }
 

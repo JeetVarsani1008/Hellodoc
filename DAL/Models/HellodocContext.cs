@@ -465,6 +465,8 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.SmslogId).HasName("SMSLog_pkey");
 
+            entity.Property(e => e.SmslogId).HasIdentityOptions(null, null, null, 100000L, null, null);
+
             entity.HasOne(d => d.Request).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_RequestId_fkey");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_RoleId_fkey");

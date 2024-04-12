@@ -111,6 +111,7 @@ namespace DAL.Controllers
                     HttpContext.Session.SetInt32("UserId", user1.UserId);
 
                     TempData["loginsuccess"] = "Login Successfull";
+
                     return RedirectToAction("AdminDashboard", "Admin");
                 }
             }
@@ -224,6 +225,7 @@ namespace DAL.Controllers
         #region FetchRequests
         public IActionResult FetchRequests(string statusarray,string status, string reqtypeid,int regionId, int PageNumber,string searchdata)
         {
+            HttpContext.Session.SetString("statusfetch", statusarray);
             if(searchdata != null)
             {
                 searchdata = null;
@@ -264,6 +266,7 @@ namespace DAL.Controllers
         #region FilterRequests
         public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid,int regionId,int PageNumber,string searchdata)
         {
+            statusarray = HttpContext.Session.GetString("statusfetch");
             int PageSize = 5;
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
@@ -1119,28 +1122,23 @@ namespace DAL.Controllers
         #region ContactProvider
         public IActionResult ContactProvider(int phyId)
         {
-            var email = _context.Physicians.FirstOrDefault(x => x.PhysicianId == phyId).Email;
-            ProviderVm providerVm = new ProviderVm();
-            providerVm.Email = email;
-            return PartialView("Admin/_providerContactPopup",providerVm);
+            var data = _adminDashboard.getPhysicianDetailsByPhysicianId(phyId);
+            return PartialView("Admin/_providerContactPopup",data);
         }
         #endregion
 
         #region AdminSendMailToProvider
-        public async Task<IActionResult> AdminSendMailToProvider(ProviderVm model)
+        public async Task<IActionResult> AdminSendMailToProvider(ProviderVm model,string ContactType)
         {
-            var Email = model.Email;
             var subject = "Provider Contact";
             var body = "Description:-" + model.Description;
-            if(Email != null)
+
+            _adminDashboard.adminSendMailToProvider(model, subject, body,ContactType);
+            if (ContactType == "Email")
             {
-                await SendEmailAsync(Email, subject, body);
+                TempData["success"] = "Email Send Successfully!";
             }
-            else
-            {
-                TempData["error"] = "Email not Send Successfully";
-            }
-			
+
             return RedirectToAction("Provider");
         }
         #endregion
@@ -1163,7 +1161,7 @@ namespace DAL.Controllers
         [HttpPost]
         public IActionResult CreateProviderAccount(ProviderVm model, List<int>? checkboxForAll)
         {
-            //_adminDashboard.createProviderAccount(model, checkboxForAll);
+            _adminDashboard.createProviderAccount(model, checkboxForAll);
             return RedirectToAction("Provider", "Admin");
         }
         #endregion
@@ -1753,6 +1751,13 @@ namespace DAL.Controllers
             return Json(new { viewShiftVm });
         }
         #endregion
+
+        [Route("/Admin/Scheduling/checkshiftexist/{physicianId}/{shiftdate}/{starttime}/{endtime}")]
+        public IActionResult checkshiftexist(int physicianId, DateOnly shiftdate,TimeOnly starttime,TimeOnly endtime)
+        {
+            var existshift = _adminDashboard.checkshiftExistsForPhysician(physicianId,shiftdate, starttime, endtime);
+            return Json(new { exist = existshift });
+        }
 
         #region CreateShiftPost
         public IActionResult CreateShiftPost(ViewShiftVm model, List<int> WeekDaysList)
