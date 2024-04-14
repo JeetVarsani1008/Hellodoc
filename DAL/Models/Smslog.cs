@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,7 +12,8 @@ public partial class Smslog
 {
     [Key]
     [Column("SMSLogID")]
-    public int SmslogId { get; set; }
+    [Precision(9, 0)]
+    public decimal SmslogId { get; set; }
 
     [Column("SMSTemplate", TypeName = "character varying")]
     public string Smstemplate { get; set; } = null!;
@@ -34,12 +36,12 @@ public partial class Smslog
 
     public DateOnly? SentDate { get; set; }
 
+    [Column("IsSMSSent", TypeName = "bit(1)")]
+    public BitArray? IsSmssent { get; set; }
+
     public int SentTries { get; set; }
 
     public int? Action { get; set; }
-
-    [Column("IsSMSSent")]
-    public bool? IsSmssent { get; set; }
 
     [ForeignKey("RequestId")]
     [InverseProperty("Smslogs")]

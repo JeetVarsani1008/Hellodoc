@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -35,6 +36,9 @@ public partial class Business
     [StringLength(20)]
     public string? FaxNumber { get; set; }
 
+    [Column(TypeName = "bit(1)")]
+    public BitArray? IsRegistered { get; set; }
+
     [Column(TypeName = "timestamp without time zone")]
     public DateTime? CreatedDate { get; set; }
 
@@ -43,6 +47,9 @@ public partial class Business
 
     public short? Status { get; set; }
 
+    [Column(TypeName = "bit(1)")]
+    public BitArray? IsDeleted { get; set; }
+
     [Column("IP")]
     [StringLength(20)]
     public string? Ip { get; set; }
@@ -50,10 +57,6 @@ public partial class Business
     public int? CreatedBy { get; set; }
 
     public int? ModifiedBy { get; set; }
-
-    public bool? IsDeleted { get; set; }
-
-    public bool? IsRegistered { get; set; }
 
     [ForeignKey("CreatedBy")]
     [InverseProperty("BusinessCreatedByNavigations")]

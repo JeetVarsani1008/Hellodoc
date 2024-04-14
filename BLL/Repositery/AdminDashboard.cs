@@ -2198,9 +2198,7 @@ namespace BLL.Repositery
         #region checkshiftExistsForPhysician
         public bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime)
         {
-            var data1 = _context.Shifts.Include(j => j.ShiftDetails).Any(x => x.PhysicianId == physicianId && x.ShiftDetails.Select(c => c.ShiftDate).First() == shiftdate && (x.ShiftDetails.Select(x=>x.StartTime <= starttime && x.EndTime >= starttime).First()) || (x.ShiftDetails.Select(x => x.StartTime <= endtime && x.EndTime >= endtime ).First()));
-
-            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId &&  (x.ShiftDate == shiftdate) && (x.StartTime <= starttime  || x.EndTime <= starttime));
+            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId &&  (x.ShiftDate == shiftdate) && (x.StartTime <= starttime  && x.EndTime <= starttime));
             
             if (data)
             {

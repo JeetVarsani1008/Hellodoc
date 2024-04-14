@@ -1,0 +1,130 @@
+﻿@model DAL.ViewModelProvider.ProviderDashboardVm;
+
+@{
+	Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+}
+
+<div class="main-dashboard">
+
+    <div class="container111 mx-1">
+        <div class="inner row">
+            <div class="col-md-2 col-sm-4 col-4">
+                <button class="box bx1 selected" id="box" onclick="fetchRequestsProvider('1',0,null)">
+
+                    <div class="up d-flex align-items-center">
+                        <i class="bi bi-person-plus me-2 d-none d-md-block fs-4"></i>
+                        <span class="stext">NEW</span>
+                    </div>
+                    <div class="down">
+                        <span class="btext">@Model.NewCount<span>
+                    </div>
+
+                </button>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+                <button class="box bx2" onclick="fetchRequestsProvider('2',0,null)">
+                    <div class="up d-flex align-items-center">
+                        <i class="bi bi-person me-2 d-none px-1 d-md-block fs-4"></i>
+                        <span class="stext">PENDING</span>
+                    </div>
+                    <div class="down">
+                        <span class="btext">@Model.PendingCount</span>
+                    </div>
+
+                </button>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+
+                <button class="box bx3" onclick="fetchRequestsProvider('45',0,null)">
+                    <div class="up d-flex align-items-center">
+                        <i class="bi bi-check2-circle me-2 d-none px-1 d-md-block fs-4"></i>
+                        <span class="stext">ACTIVE</span>
+                    </div>
+                    <div class="down">
+                        <span class="btext">@Model.ActiveCount</span>
+                    </div>
+                </button>
+            </div>
+            <div class="col-md-2 col-sm-4 col-4">
+                <button class="box bx4" onclick="fetchRequestsProvider('6',0,null)">
+                    <div class="up d-flex align-items-center">
+                        <i class="bi bi-clock-history me-2 d-none px-1 d-md-block fs-4"></i>
+                        <span class="stext">CONCLUDE</span>
+                    </div>
+                    <div class="down">
+                        <span class="btext">@Model.ConcludeCount</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mt-2 mb-2 container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 class="ms-3 d-flex">
+                Patients (<div id="statechange">New</div>)
+            </h5>
+            <div class="d-flex me-3">
+                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
+                    <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
+                        Send
+                        Link
+                    </span>
+                </button>
+                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-1 p-sm-2 align-items-center text-light" onclick="location.href='@Url.Action("ProviderCreateRequest","Provider")'">
+                    <i class="bi bi-pencil-square me-md-1"></i>
+                    <span class="d-md-block d-none px-2 ">
+                        Create
+                        Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="d-md-flex justify-content-between align-items-center gap-2 mx-4">
+
+        <div class="d-md-flex gap-1">
+                <input class="form-control py-3 pe-5 w-100" type="search" placeholder="Search" aria-label="Search" id="searchdata">
+        </div>
+
+        <div class="d-flex gap-2 align-items-center mb-2">
+            <button class="btn btn-outline-secondary d-none d-md-block" onclick="filterRequestsProvider(@Model.statusArray,0,null)">All</button>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequestsProvider(@Model.statusArray,1,null)">
+                <i class="bi bi-circle-fill color_p"></i>
+                <div class="common-txt">Patient</div>
+            </div>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequestsProvider(@Model.statusArray,2,null)">
+                <i class="bi bi-circle-fill  color_f"></i>
+                <div class="common-txt">Family/Friends</div>
+            </div>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequestsProvider(@Model.statusArray,3,null)">
+                <i class="bi bi-circle-fill color_b"></i>
+                <div class="common-txt">Business</div>
+            </div>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequestsProvider(@Model.statusArray,4,null)">
+                <i class="bi bi-circle-fill color_c"></i>
+                <div class="common-txt">Concierge</div>
+            </div>
+            <div type="button" class="d-md-flex gap-1 mx-auto text-center align-items-center" onclick="filterRequestsProvider(@Model.statusArray,5,null)">
+                <i class="bi bi-circle-fill color_v"></i>
+                <div class="common-txt">Vip</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    @* this is for table  *@
+    <div id="provider-partial-table">
+
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script src="~/js/Provider.js"></script>

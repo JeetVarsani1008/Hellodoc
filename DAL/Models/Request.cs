@@ -36,6 +36,9 @@ public partial class Request
     [StringLength(20)]
     public string? ConfirmationNumber { get; set; }
 
+    [Column(TypeName = "bit(1)")]
+    public BitArray? IsDeleted { get; set; }
+
     [Column(TypeName = "timestamp without time zone")]
     public DateTime? ModifiedDate { get; set; }
 
@@ -85,8 +88,6 @@ public partial class Request
 
     [Column(TypeName = "timestamp without time zone")]
     public DateTime? CreatedDate { get; set; }
-
-    public bool? IsDeleted { get; set; }
 
     [InverseProperty("Request")]
     public virtual ICollection<BlockRequest> BlockRequests { get; set; } = new List<BlockRequest>();

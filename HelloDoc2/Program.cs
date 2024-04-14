@@ -1,10 +1,10 @@
 using BLL.Interface;
 using BLL.Repositery;
 using DAL.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,16 +16,16 @@ var jwtKey = builder.Configuration.GetSection("Jwt:Key").Get<string>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
  .AddJwtBearer(options =>
  {
-     options.TokenValidationParameters = new TokenValidationParameters
-     {
-         ValidateIssuer = true,
-         ValidateAudience = true,
-         ValidateLifetime = true,
-         ValidateIssuerSigningKey = true,
-         ValidIssuer = jwtIssuer,
-         ValidAudience = jwtIssuer,
-         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
-     };
+	 options.TokenValidationParameters = new TokenValidationParameters
+	 {
+		 ValidateIssuer = true,
+		 ValidateAudience = true,
+		 ValidateLifetime = true,
+		 ValidateIssuerSigningKey = true,
+		 ValidIssuer = jwtIssuer,
+		 ValidAudience = jwtIssuer,
+		 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+	 };
  });
 
 // Add services to the container.
@@ -40,21 +40,24 @@ builder.Services.AddScoped<ILogin, Login>();
 builder.Services.AddScoped<IPatientRequest, PatientRequest>();
 builder.Services.AddScoped<IPatientDashboard, PatientDashboard>();
 builder.Services.AddScoped<IAdminDashboard, AdminDashboard>();
+builder.Services.AddScoped<IProviderDashboard, ProviderDashboard>();
 builder.Services.AddSession();
 
+//add Ihhtpcontectaccessor service
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
-
+	
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+	app.UseExceptionHandler("/Home/Error");
+	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+	app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();	
 app.UseStaticFiles();
 app.UseSession();
 
@@ -64,7 +67,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Admin}/{action=AdminLogin}/{id?}");
+	name: "default",
+	pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();

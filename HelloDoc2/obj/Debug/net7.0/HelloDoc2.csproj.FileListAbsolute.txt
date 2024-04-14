@@ -1262,3 +1262,4 @@ C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.pdb
 C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.genruntimeconfig.cache
 C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\ref\HelloDoc2.dll
 D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Twilio.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Twilio.dll

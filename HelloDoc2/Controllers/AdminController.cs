@@ -1,26 +1,15 @@
 ﻿using BLL.Interface;
-using BLL.Repositery;
 using DAL.Models;
 using DAL.ViewModel;
 using HelloDoc2.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
-using System.Collections;
-using System.IO.Compression;
-using System.Net.Mail;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Drawing;
-using HellodocContext = DAL.Models.HellodocContext;
-using AspNetUser = DAL.Models.AspNetUser;
-using System.Data;
-using ClosedXML.Excel;
-using HtmlAgilityPack;
 using MimeKit;
-using Org.BouncyCastle.Ocsp;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using DocumentFormat.OpenXml.Drawing.Spreadsheet;
-using DocumentFormat.OpenXml.Wordprocessing;
+using System.Collections;
+using System.Data;
+using System.Net;
+using System.Net.Mail;
+using HellodocContext = DAL.Models.HellodocContext;
 namespace DAL.Controllers
 {
     public class AdminController : Controller
@@ -38,86 +27,18 @@ namespace DAL.Controllers
             _jwt = jwt;
         }
 
-        #region AdminLogin
-        public IActionResult AdminLogin()
-        {
-            HttpContext.Session.Clear();
-            Response.Cookies.Delete("Jwt");
-            Response.Cookies.Delete(".AspNetCore.Session");
-            Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
-            return View();
-        }
-        #endregion
+        //#region AdminLogin
+        //public IActionResult AdminLogin()
+        //{
+        //    HttpContext.Session.Clear();
+        //    Response.Cookies.Delete("Jwt");
+        //    Response.Cookies.Delete(".AspNetCore.Session");
+        //    Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
+        //    return View();
+        //}
+        //#endregion
 
-        #region AdminLogin : Post
-        [HttpPost]
-        public IActionResult AdminLogin(LoginVm loginVm)
-        {
-            var netuser = _context.AspNetUsers.FirstOrDefault(x => x.Email == loginVm.Email);
-            if(netuser != null)
-            {
-                var Id = netuser.Id;
-                HttpContext.Session.SetInt32("AspId",Id);
-            }
-            else
-            {
-                TempData["error"] = "Email Does Not Exist";
-                return View();
-            }
-
-            //var adminId = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email)!.AdminId;
-
-            var admin = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email);
-            if(admin != null)
-            {
-                var adminId = admin.AdminId;
-                HttpContext.Session.SetInt32("AdminId", adminId);
-            }
-            else
-            {
-                TempData["error"] = "This Email Has No Access To Admin";
-                return View();
-            }
-
-            var name = _context.Admins.FirstOrDefault(x => x.Email == loginVm.Email).FirstName;
-            HttpContext.Session.SetString("adminName", name);
-
-            AspNetUser user = _login.adminLogin(loginVm);
-            if (user != null)   
-            {
-            AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
-                if (aspNetUserRole == null)
-                {
-                    ModelState.AddModelError(String.Empty, "Cant Have access to this site");
-                    return View("Patient_Login");
-                }
-                else
-                {
-                    Admin? admin1 = _context.Admins.FirstOrDefault(x => x.AdminId == admin.AdminId);
-                    var roleCookie = new Cookie()
-                    {
-                        Name = "RoleMenu",
-                        Value = admin1!.RoleId.ToString(),
-                    };
-                    Response.Cookies.Append(roleCookie.Name, roleCookie.Value!);
-
-
-                    var jwtToken = _jwt.GenerateJwtToken(aspNetUserRole);
-                    Response.Cookies.Append("Jwt", jwtToken);
-                    User user1 = _context.Users.FirstOrDefault(u => u.Email == user.Email);
-                    HttpContext.Session.SetString("session1", user.UserName);
-                    HttpContext.Session.SetString("email", user.Email);
-
-                    HttpContext.Session.SetInt32("UserId", user1.UserId);
-
-                    TempData["loginsuccess"] = "Login Successfull";
-
-                    return RedirectToAction("AdminDashboard", "Admin");
-                }
-            }
-            return View();
-        }
-        #endregion
+        
 
         #region AdminLogout
         public IActionResult AdminLogout()
@@ -126,7 +47,7 @@ namespace DAL.Controllers
             Response.Cookies.Delete("Jwt");
             Response.Cookies.Delete(".AspNetCore.Session");
             Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
-            return RedirectToAction("AdminLogin", "Admin");
+            return RedirectToAction("Login", "Login");
         }
         #endregion
 
@@ -954,7 +875,7 @@ namespace DAL.Controllers
 
         //this is for admin profile 
         [CustomAuthorize("1")]
-        [RoleAuthorize(1)]
+        //[RoleAuthorize(1)]
         #region AdminMyProfile
         public IActionResult AdminMyProfile()
         {
@@ -1116,7 +1037,7 @@ namespace DAL.Controllers
             _adminDashboard.physicianEditDetails3(model);
             var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
             return View("EditPhysicianAccount", data);
-        }
+            }
         #endregion
 
         #region ContactProvider

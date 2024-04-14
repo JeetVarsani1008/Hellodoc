@@ -10,5 +10,7 @@ namespace DAL.ViewModel
     public class SchedulingVm
     {
         public List<Region> region {  get; set; }
+
+        public int PhysicianId { get; set; }
     }
 }

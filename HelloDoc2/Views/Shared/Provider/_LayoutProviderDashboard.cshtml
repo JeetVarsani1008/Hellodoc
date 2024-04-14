@@ -1,0 +1,103 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HelloDoc2</title>
+    <link rel="stylesheet" href="~/css/ProviderDashboard.css" />
+    <link rel="stylesheet" href="~/css/MySchedule.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    @* TOASTER *@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- bootstrap CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body id="partial-change">
+
+
+    <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Togglenavigation" style="height: 50%;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand header-logo"><img src="~/SRS Screen Shorts/doctorlogo.png" alt="doctor-logo" class="doctor-img logo"></a>
+            </div>
+            <div>
+                <ul class="navbar-nav ms-auto d-flex flex-nowrap">
+                    <li class="nav-item p-2 d-none d-sm-flex">
+                        Welcome <span class="fw-bolder  ms-2">@Accessor.HttpContext.Session.GetString("Name")</span>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("AdminLogout","Admin")'">
+                            <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-info ms-2" onclick="changeTheme()">
+                            <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr class="m-0 hr_line">
+
+    <nav class="navbar navbar-expand-lg py-0 pt-2" style="z-index: 10;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link @(ViewBag.ActiveDashboardNav == "ProviderDashboard" ? "active" : "")" asp-action="ProviderDashboard" asp-controller="Provider">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link @(ViewBag.ActiveDashboardNav == "Invoicing" ? "active" : "")">Invoicing</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link @(ViewBag.ActiveDashboardNav == "MySchedule" ? "active" : "")" onclick="window.location.href='@Url.Action("MySchedule","Provider")'">My Schedule</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link @(ViewBag.ActiveDashboardNav == "ProviderMyProfile" ? "active" : "")" onclick="window.location.href='@Url.Action("ProviderMyProfile","Provider")'">My Profile</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 mt-3">
+        <main role="main" class="">
+            <partial name="_ToastNotification" />
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

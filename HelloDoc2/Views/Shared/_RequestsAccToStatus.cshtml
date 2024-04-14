@@ -8,8 +8,6 @@
 </head>
 
 
-
-
 <div class="mt-2 mb-2 container-fluid">
 
     @if (Model.requestListAdminDash.Count > 0)
@@ -351,7 +349,9 @@
         </div>
     </div>
 
-    @*Accordian End*@    <nav aria-label="Page navigation example " class="pb-1">
+    @*Accordian End*@    
+    
+    <nav aria-label="Page navigation example " class="pb-1">
         <div class="justify-content-between d-flex">
             @if ((Model.skipCount + Model.Page.itemperpage) >= Model.Page.totalitem)
             {

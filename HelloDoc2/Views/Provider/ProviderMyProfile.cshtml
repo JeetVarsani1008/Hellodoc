@@ -1,0 +1,293 @@
+﻿@model DAL.ViewModelProvider.ProviderProfileVm;
+@{
+	Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <style>
+        .iti__flag-container {
+            z-index: 5;
+        }
+
+        .iti {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<div class="bg-body-tertiary ">
+    <div class="container">
+
+        @*Page Header*@
+        <div class="d-flex justify-content-between">
+            <h2 class="mt-3 mb-4"> My Profile </h2>
+            <a asp-controller="Provider" asp-action="ProviderDashboard">
+                <span type="button" class="btn btn-outline-primary border-info text-info mt-3 mb-4 ">&lt; Back</span>
+            </a>
+        </div>
+
+        @*Main Section*@
+        <div class="shadow bg-white rounded-3 p-4">
+
+            @*First div*@
+            <h2 class="">Account Information</h2>
+            <form asp-action="AdminResetPassword" asp-controller="Admin">
+                <input asp-for="AspNetUserId" hidden />
+                <div class="row g-2">
+
+                    @*Username*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control " id="pi_name" placeholder="UserName" asp-for="UserName" disabled>
+                        <label>Username</label>
+                    </div>
+
+                    @*Password*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="password" class="form-control enabled" id="resetPassword" placeholder="password" asp-for="Password" disabled>
+                        <label for="floatingInput" style="margin-left: 1em">Password</label>
+                    </div>
+
+
+                </div>
+                @*Reset Password*@
+                <div class="col-12 d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary colorlessbtn" id="resetpasswordbtn">Reset Password</button>
+
+
+                    <button type="submit" name="command" value="1" class="btn btn-primary me-2 colorbtn" id="providerprofilesavebtn" style="display: none;" disabled>Save</button>
+
+                    <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="providerprofilecancelbtn" style="display: none;">Cancel</a>
+                </div>
+            </form>
+
+
+            @*Second Div*@
+            <h2>Physician Information</h2>
+                <input asp-for="AspNetUserId" hidden />
+
+                <div class="row g-2">
+
+                    @*Firstnanme*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled1" id="pi_name" placeholder="FirstName" asp-for="FirstName" disabled>
+                        <label class="">First Name</label>
+                    </div>
+
+                    @*Lastname*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled1" id="pi_name" placeholder="LastName" asp-for="LastName" disabled>
+                        <label>Last Name</label>
+                    </div>
+
+                    @*Email*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="email" class="form-control " id="email" placeholder="Email" asp-for="Email" disabled>
+                        <label>Email</label>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6 col-sm-12 ">
+                        <input id="phone" type="tel" class="form-control py-3" asp-for="Mobile" disabled>
+                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                    </div> 
+
+                @*Medical License*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled1" id="medicallicense" placeholder="MedicalLicense" disabled>
+                        <label>Medical License</label>
+                    </div>
+
+                    @*Npi Number*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled1" id="npinumber" placeholder="NPINumber" disabled>
+                        <label class="">NPI Number</label>
+                    </div>
+
+                <div class="col-sm-6 form-floating mb-3 d-flex flex-wrap">
+                    @foreach (var item in Model.regions)
+                    {
+                        <div class="form-check me-3">
+                            @if (Model.PhysicianRegions.Count(x => x.RegionId == item.RegionId) > 0)
+                            {
+                                <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" checked disabled value="@item.RegionId" id="checkbox-@item.RegionId" />
+                            }
+                            else
+                            {
+                                <input class="form-check-input administrativeinfo enabled1" name="checkboxForAll" type="checkbox" disabled value="@item.RegionId" />
+                            }
+                            <label class="form-check-label" for="checkbox-@item.RegionId" style="font-size: 15px; margin:0px;">@item.Name</label>
+                        </div>
+                    }
+                </div>
+
+
+                </div>
+
+
+            @*Third Div*@
+            <h4>Mailing & Billing Information</h4>
+                <div class="row g-2">
+
+                    @*Address*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled2" id="pi_name" placeholder="Address1" asp-for="Address1" disabled>
+                        <label>Address #1</label>
+                    </div>
+
+                    @*Address*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled2" id="pi_name" placeholder="Address2" asp-for="Address2" disabled>
+                        <label>Address #2</label>
+                    </div>
+
+                    @*City*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled2" id="pi_name" placeholder="City" asp-for="City" disabled>
+                        <label>City</label>
+                    </div>
+
+                    @*State*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled2" id="pi_name" placeholder="State" asp-for="State" disabled>
+                        <label>State</label>
+                    </div>
+
+                    @*Zip*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled2" id="pi_name" placeholder="Zip" asp-for="Zip" disabled>
+                        <label>Zip</label>
+                    </div>
+
+                    @*Phone*@
+                    <div class="form-floating mb-3 col-md-6 col-lg-6">
+                    <input type="tel" class="form-control pt-3 pb-3" id="phone1" asp-for="AlternateMobile" disabled>
+                    </div>
+                </div>
+
+
+                @* fourth div *@
+            <h4 class="mt-4">Provider Profile</h4>
+                <div class="row g-2">
+                @*Business name*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="text" class="form-control enabled1" id="businessname" placeholder="BusinessName" asp-for="BusinessName" disabled>
+                        <label>Business Name</label>
+                    </div>
+
+                    @*Business website*@
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <input type="email" class="form-control " id="businesswebsite" placeholder="BusinessWebsite" asp-for="BusinessWebSite" disabled>
+                        <label>Business Website</label>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
+                        <div class="input-group">
+                            <input type="file" class="form-control mb-0 enabled3" id="uploadphoto" disabled asp-for="PhotoFile">
+                            <button type="button" id="upload-btn" class="btn btn-info text-white" onclick="uploadPhoto()">
+                                <i class="bi bi-cloud-arrow-up me-1"></i>
+                                <span class="d-none d-sm-inline-block">Photo</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-10 col-md-5 col-lg-5 ">
+                        <div class="input-group">
+                            <input type="file" class="form-control mb-0 enabled3" id="uploadsignature" disabled asp-for="SignatureFile">
+                            <button type="button" id="upload-btn" class="btn btn-info text-white" onclick="uploadSignature()">
+                                <i class="bi bi-cloud-arrow-up me-1"></i>
+                                <span class="d-none d-sm-inline-block">Signature</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3 col-sm-2 col-md-1 col-lg-1">
+                        <button type="button" class="btn btn-info text-white ml-2">
+                            Create
+                        </button>
+                    </div>
+
+                    <div class="form-floating mb-3 col-smbg-opacity-25 col-md-6 col-sm-12">
+                    <img class="img-fluid" src="~/upload/@Model.Photo" alt="physician photo" style="height:8em; width:10em;" />
+                    </div>
+
+                    <div class="form-floating mb-3 col-smbg-opacity-25 col-md-6 col-sm-12">
+                    <img src="~/upload/@Model.Signature" class="img-fluid" style="height:8em; width:10em;" />
+                    </div>
+
+                    <hr />
+
+                @* onboardibg-one *@
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-3 col-lg-3">
+                        Independent Contractor Agreement
+                    </div>
+                    <div class="col-md-1 col-lg-1">
+                        <a href="~/upload/@(Model.PhysicianId)_AgreementDoc.pdf" target="_blank" type="button" class="btn btn-info text-white my-1 mx-1">View</a>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    
+    const phoneInputField1 = document.querySelector("#phone1");
+    const phoneInput1 = window.intlTelInput(phoneInputField1, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    //this is for reset password that user can not enter null value
+    document.getElementById('resetPassword').addEventListener('input', resetPass);
+    function resetPass() {
+        var pass = document.getElementById('resetPassword').value;
+        var resetSaveButton = document.getElementById('providerprofilesavebtn');
+        if (pass == null || pass === '') {
+            resetSaveButton.disabled = true;
+        }
+        else {
+            resetSaveButton.disabled = false;
+        }
+    };
+
+
+
+    //this is for reset password and save and cancel
+    const editbtn = document.getElementById('resetpasswordbtn')
+    const submitcancel = document.getElementById('providerprofilesavebtn')
+    const cancelbtn = document.getElementById('providerprofilecancelbtn');
+    const enabled = document.getElementsByClassName('enabled')
+    editbtn.addEventListener('click', function (e) {
+
+        for (let index = 0; index < enabled.length; index++) {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = false;
+            enabled[index].disabled = false;
+        }
+        submitcancel.style.display = "block";
+        cancelbtn.style.display = "block";
+        this.style.display = "none"
+    })
+
+    cancelbtn.addEventListener('click', function (e) {
+
+
+        for (let index = 0; index < enabled.length; index++) {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = true;
+            enabled[index].disabled = true;
+        }
+        submitcancel.style.display = "none";
+        editbtn.style.display = "block";
+        this.style.display = "none"
+    })
+</script>
