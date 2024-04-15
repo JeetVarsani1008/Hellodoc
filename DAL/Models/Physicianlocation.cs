@@ -18,6 +18,7 @@ public partial class PhysicianLocation
 
     public decimal? Longitude { get; set; }
 
+    [Column(TypeName = "timestamp without time zone")]
     public DateTime? CreatedDate { get; set; }
 
     [StringLength(50)]

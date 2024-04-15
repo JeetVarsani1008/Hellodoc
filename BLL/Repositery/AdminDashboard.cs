@@ -1032,17 +1032,41 @@ namespace BLL.Repositery
             var physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
             physician.BusinessName = model.BusinessName;
             physician.BusinessWebsite = model.BusinessWebsite;
+            //if(model.Photo != null)
+            //{
+            //    physician.Photo = model.Photo;
+            //    _context.SaveChanges();
+            //}
+            //if(model.Signature != null)
+            //{
+            //    physician.Signature = model.Signature;
+            //    _context.SaveChanges();
+            //}
+            string uniquefilename1 = null;
+            if (model.PhotoFile != null && model.PhotoFile.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot", "upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_Photo.jpg";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.PhotoFile.CopyTo(stream);
+                }
+                physician!.Photo = uniquefilename1;
+            }
+            
+            if (model.SignatureFile != null && model.SignatureFile.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot", "upload");
+                uniquefilename1 = $"{model.PhysicianId}" + "_Signature.jpg";
+                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.SignatureFile.CopyTo(stream);
+                }
+                physician!.Signature = uniquefilename1;
+            }
             _context.SaveChanges();
-            if(model.Photo != null)
-            {
-                physician.Photo = model.Photo;
-                _context.SaveChanges();
-            }
-            if(model.Signature != null)
-            {
-                physician.Signature = model.Signature;
-                _context.SaveChanges();
-            }
 
         }
         #endregion

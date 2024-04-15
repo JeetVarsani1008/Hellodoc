@@ -22,7 +22,7 @@
                 <td class="d-flex">
                     @if(obj.AccountType == "Admin")
                     {
-                        <button class="btn btn-outline-info ms-2" onclick="window.location.href='@Url.Action("AdminMyProfile","Admin")'">Edit</button>
+                        <button class="btn btn-outline-info ms-2" onclick="window.location.href='@Url.Action("AdminMyProfile","Admin",new{ adminId = obj.AdminId})'">Edit</button>
                     }
                     else
                     {

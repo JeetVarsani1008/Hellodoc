@@ -1,5 +1,6 @@
 ﻿using BLL.Interface;
 using DAL.Models;
+using DAL.ViewModel;
 using DAL.ViewModelProvider;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -37,7 +38,7 @@ namespace BLL.Repositery
 
             var data = list.Select(x => new RequestDataProvider()
             {
-                
+                RequestId = x.RequestId,
                 RequestTypeId = x.RequestTypeId,
                 Name = x.RequestClients.Select(j => j.FirstName).First() + " " + x.RequestClients.Select(h => h.LastName).First(),
                 Phone = x.PhoneNumber,
@@ -105,6 +106,99 @@ namespace BLL.Repositery
         {
             var data = _context.Regions.ToList();
             return data;
+        }
+        #endregion
+
+        #region providerResetPassword
+        public bool providerResetPassword(string password, int physicianId)
+        {
+            var aspId = _context.Physicians.FirstOrDefault(x => x.PhysicianId == physicianId).AspNetUserId;
+            var passdata = _context.AspNetUsers.FirstOrDefault(x => x.Id == aspId);
+
+            passdata.PasswordHash = password;
+            _context.SaveChanges();
+            return true;
+        }
+        #endregion
+
+        #region createShiftPost
+        public void createShiftPost(ViewShiftVm model, int aspId, List<int> WeekDaysList)
+        {
+            Shift shift = new Shift()
+            {
+                PhysicianId = model.PhysicianId,
+                StartDate = model.ShiftDate,
+                RepeatUpto = model.RepeatUpto,
+                CreatedDate = DateTime.Now,
+                CreatedBy = aspId,
+                IsRepeat = model.IsRepeat,
+
+            };
+            _context.Shifts.Add(shift);
+            _context.SaveChanges();
+
+            ShiftDetail shiftDetail = new ShiftDetail()
+            {
+                ShiftId = shift.ShiftId,
+                ShiftDate = model.ShiftDate,
+                StartTime = model.StartTime,
+                EndTime = model.EndTime,
+                Status = 0,
+                IsDeleted = false,
+                RegionId = model.RegionId,
+
+            };
+            _context.ShiftDetails.Add(shiftDetail);
+            _context.SaveChanges();
+
+
+            for (int i = 0; i < model.RepeatUpto; i++)
+            {
+                DateOnly shiftDate = model.ShiftDate.AddDays(7 * i);
+                foreach (DayOfWeek dow in WeekDaysList)
+                {
+                    ShiftDetail shiftDetail1 = new ShiftDetail();
+                    shiftDetail1.ShiftId = shift.ShiftId;
+                    shiftDetail1.ShiftDate = dow - shiftDate.DayOfWeek > 0 ? shiftDate.AddDays(dow - model.ShiftDate.DayOfWeek) : shiftDate.AddDays(7 + dow - model.ShiftDate.DayOfWeek);
+                    shiftDetail1.RegionId = model.RegionId;
+                    shiftDetail1.StartTime = model.StartTime;
+                    shiftDetail1.EndTime = model.EndTime;
+                    shiftDetail1.Status = 0;
+                    shiftDetail1.IsDeleted = false;
+                    _context.ShiftDetails.Add(shiftDetail1);
+                    _context.SaveChanges();
+                }
+            }
+        }
+        #endregion
+
+        #region checkshiftExistsForPhysician
+        public bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime)
+        {
+            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId && (x.ShiftDate == shiftdate) && (x.StartTime <= starttime && x.EndTime >= starttime));
+
+            if (data)
+            {
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
+
+        #region editViewNotes
+        public void editViewNotes(ViewNotesVm model, int requestId)
+        {
+            var reqnotes = _context.RequestNotes.FirstOrDefault(x => x.RequestId == requestId);
+            var req = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            if (reqnotes != null)
+            {
+                reqnotes.PhysicianNotes = model.PhysicianNotes;
+                reqnotes.ModifiedBy = (int)_context.Users.FirstOrDefault(x => x.UserId == req.UserId).AspNetUserId;
+                reqnotes.ModifiedDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+
         }
         #endregion
     }

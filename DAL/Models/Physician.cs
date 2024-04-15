@@ -51,10 +51,8 @@ public partial class Physician
     [StringLength(20)]
     public string? AltPhone { get; set; }
 
-    [Column(TypeName = "timestamp without time zone")]
     public DateTime CreatedDate { get; set; }
 
-    [Column(TypeName = "timestamp without time zone")]
     public DateTime? ModifiedDate { get; set; }
 
     public short? Status { get; set; }
@@ -65,9 +63,6 @@ public partial class Physician
     [StringLength(200)]
     public string BusinessWebsite { get; set; } = null!;
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
-
     public int? RoleId { get; set; }
 
     [Column("NPINumber")]
@@ -76,6 +71,12 @@ public partial class Physician
 
     [StringLength(100)]
     public string? Signature { get; set; }
+
+    [Column(TypeName = "bit(1)")]
+    public BitArray? IsCredentialDoc { get; set; }
+
+    [Column(TypeName = "bit(1)")]
+    public BitArray? IsTokenGenerate { get; set; }
 
     [StringLength(50)]
     public string? SyncEmailAddress { get; set; }
@@ -86,19 +87,17 @@ public partial class Physician
 
     public int? ModifiedBy { get; set; }
 
-    public bool? IsCredentialDoc { get; set; }
-
     public bool? IsAgreementDoc { get; set; }
 
     public bool? IsBackgroundDoc { get; set; }
-
-    public bool? IsLicenseDoc { get; set; }
 
     public bool? IsTrainingDoc { get; set; }
 
     public bool? IsNonDisclosureDoc { get; set; }
 
-    public bool? IsTokenGenerate { get; set; }
+    public bool? IsDeleted { get; set; }
+
+    public bool? IsLicenseDoc { get; set; }
 
     [ForeignKey("AspNetUserId")]
     [InverseProperty("PhysicianAspNetUsers")]

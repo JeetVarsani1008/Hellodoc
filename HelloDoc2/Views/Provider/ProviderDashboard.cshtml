@@ -3,6 +3,10 @@
 @{
 	Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
 }
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
 
 <div class="main-dashboard">
 
@@ -66,9 +70,9 @@
                 Patients (<div id="statechange">New</div>)
             </h5>
             <div class="d-flex me-3">
-                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="sendmail()">
+                <button type="button" class="btn btn-info d-flex ms-1 ms-sm-2 p-sm-2 p-1 align-items-center text-light" onclick="providersendlink()">
                     <i class="bi bi-send  me-md-1"></i><span class="d-md-block d-none  px-2 ">
-                        Send
+                        Send    
                         Link
                     </span>
                 </button>
@@ -123,8 +127,10 @@
     </div>
 </div>
 
-
+<div id="providerSendlink"></div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script src="~/js/Provider.js"></script>
+
+

@@ -1,1099 +1,1119 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HelloDoc2.bundle.scp.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HelloDoc2.bundle.scp.css",
       "PackagePath": "staticwebassets\\HelloDoc2.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\11116016_415.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\11116016_415.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\11116016_415.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\7768657_3763028.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\7768657_3763028.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\7768657_3763028.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\7774236_3736765.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\7774236_3736765.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\7774236_3736765.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig Contact your Provider.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig Contact your Provider.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig Contact your Provider.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig1. Platform login page.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig1. Platform login page.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig1. Platform login page.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig10. View case.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig10. View case.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig10. View case.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig11. View Notes.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig11. View Notes.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig11. View Notes.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig12. Cancel Case pop-up.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig12. Cancel Case pop-up.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig12. Cancel Case pop-up.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig13. Assign case.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig13. Assign case.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig13. Assign case.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig14. Block case.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig14. Block case.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig14. Block case.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig15.View Uploads-PatientsConclude.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig15.View Uploads-PatientsConclude.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig15.View Uploads-PatientsConclude.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig16. Orders.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig16. Orders.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig16. Orders.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig17.Transfer.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig17.Transfer.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig17.Transfer.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig18.Clear Case.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig18.Clear Case.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig18.Clear Case.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig19.Send Agreement pop-up.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig19.Send Agreement pop-up.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig19.Send Agreement pop-up.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig2. Forgot Password.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig2. Forgot Password.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig2. Forgot Password.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig20.Close case.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig20.Close case.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig20.Close case.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig21. Admin My profile..jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig21. Admin My profile..jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig21. Admin My profile..jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig22 Regions menu.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig22 Regions menu.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig22 Regions menu.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig23.Request Support.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig23.Request Support.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig23.Request Support.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig24. Provider Menu.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig24. Provider Menu.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig24. Provider Menu.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig25. Contact your Provider.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig25. Contact your Provider.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig25. Contact your Provider.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig26. Edit Physician Account.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig26. Edit Physician Account.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig26. Edit Physician Account.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig27. Roles.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig27. Roles.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig27. Roles.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig28. Create Role All.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig28. Create Role All.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig28. Create Role All.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig29. Create Role Admin.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig29. Create Role Admin.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig29. Create Role Admin.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig3. Admin Dashboard.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig3. Admin Dashboard.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig3. Admin Dashboard.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig30. Create Role Physician.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig30. Create Role Physician.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig30. Create Role Physician.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig31. 1 Create Role Patient.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig31. 1 Create Role Patient.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig31. 1 Create Role Patient.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig31.2 Create Role Patient UserAccess.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig31.2 Create Role Patient UserAccess.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig31.2 Create Role Patient UserAccess.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig32. Day wise Scheduling.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig32. Day wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig32. Day wise Scheduling.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig33. Month wise Scheduling.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig33. Month wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig33. Month wise Scheduling.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig34. Week wise Scheduling.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig34. Week wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig34. Week wise Scheduling.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig35. Provider on call (MDs On Call).jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig35. Provider on call (MDs On Call).jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig35. Provider on call (MDs On Call).jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig36. Requested Shift.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig36. Requested Shift.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig36. Requested Shift.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig37. Create Shift.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig37. Create Shift.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig37. Create Shift.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig38. View Shift.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig38. View Shift.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig38. View Shift.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig39. Provider Location.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig39. Provider Location.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig39. Provider Location.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig4. Admin dashboard in New state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig4. Admin dashboard in New state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig4. Admin dashboard in New state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig40. Profession menu Vendors.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig40. Profession menu Vendors.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig40. Profession menu Vendors.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig41.Add business page.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig41.Add business page.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig41.Add business page.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig42.Edit business page.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig42.Edit business page.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig42.Edit business page.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig43. Patient history.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig43. Patient history.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig43. Patient history.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig44. Patient Record Explore.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig44. Patient Record Explore.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig44. Patient Record Explore.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig45. Search Records.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig45. Search Records.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig45. Search Records.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig45.Email Logs.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig45.Email Logs.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig45.Email Logs.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig46. SMS Logs.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig46. SMS Logs.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig46. SMS Logs.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig47. Block History.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig47. Block History.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig47. Block History.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig48. Create Requests.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig48. Create Requests.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig48. Create Requests.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig49. Provider dashboard.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig49. Provider dashboard.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig49. Provider dashboard.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig5. Admin dashboard in pending state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig5. Admin dashboard in pending state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig5. Admin dashboard in pending state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig50.Encounter (Type Of care).png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig50.Encounter (Type Of care).png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig50.Encounter (Type Of care).png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig51.Conclude State  Action  Encounter Form.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig51.Conclude State  Action  Encounter Form.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig51.Conclude State  Action  Encounter Form.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig52. Encounter Finalize popup.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig52. Encounter Finalize popup.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig52. Encounter Finalize popup.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig53. Provider transfer request pop-up.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig53. Provider transfer request pop-up.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig53. Provider transfer request pop-up.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig54. Provider My Profile.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig54. Provider My Profile.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig54. Provider My Profile.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig55. Provider My Profile Request to Admin.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig55. Provider My Profile Request to Admin.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig55. Provider My Profile Request to Admin.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig56. Patient site.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig56. Patient site.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig56. Patient site.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig57.Submit request screen.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig57.Submit request screen.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig57.Submit request screen.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig58. Create Patient request.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig58. Create Patient request.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig58. Create Patient request.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig59.1.FamilyFriend Information1.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig59.1.FamilyFriend Information1.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig59.1.FamilyFriend Information1.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig59.FamilyFriend Information2.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig59.FamilyFriend Information2.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig59.FamilyFriend Information2.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig6. Admin dashboard in Active state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig6. Admin dashboard in Active state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig6. Admin dashboard in Active state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig60.Concierge Information.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig60.Concierge Information.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig60.Concierge Information.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig61.Business Information.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig61.Business Information.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig61.Business Information.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig62.Login Patient Account Registered Patient.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig62.Login Patient Account Registered Patient.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig62.Login Patient Account Registered Patient.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig63.Reset Your Password Patient.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig63.Reset Your Password Patient.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig63.Reset Your Password Patient.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig64. Patient Dashboard ,Patient Medical History.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig64. Patient Dashboard ,Patient Medical History.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig64. Patient Dashboard ,Patient Medical History.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig65.Patient Create New Request.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig65.Patient Create New Request.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig65.Patient Create New Request.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig66.Submit Information me.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig66.Submit Information me.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig66.Submit Information me.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig67.Submit Information Some one else.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig67.Submit Information Some one else.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig67.Submit Information Some one else.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig68. View Documents.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig68. View Documents.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig68. View Documents.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig7. Admin dashboard in Conclude state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig7. Admin dashboard in Conclude state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig7. Admin dashboard in Conclude state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig8. Admin dashboard in To Close state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig8. Admin dashboard in To Close state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig8. Admin dashboard in To Close state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig9. Admin dashboard in Unpaid state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Fig9. Admin dashboard in Unpaid state.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Fig9. Admin dashboard in Unpaid state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Account Access\\Acocunt Access_mobile_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Admin_menus_mobile_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Close case\\Close case_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create Request_Admin_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create request - Admin - Provider\\Create request_Provider_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Admin_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Patient_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create Role-Physician_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Create-Update Role\\Create role -all_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_active_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_conclude_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_new_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pagination.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_pending_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_to-close_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Dashboard_mobile_unpaid_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Active_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Conclude_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_Pending_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Dashboard\\Physician_Dashboard_new_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Edit Physician Account\\Edit Provider_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\My profile_Provider_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\My Profile\\my profile_admin_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Create Business_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Edit Business_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Partners\\Partners_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Physician_menus_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider location\\Provider Location_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Provider on call\\provider on call_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Providers\\Providers_mobile_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Block history_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Email logs_mobile_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient History_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Patient Records_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\SMS Logs_mobile_2.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Records\\Search records_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Requested Shifts\\Requested shifts_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_day view_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_month view_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Schedulling\\Schedulling_week view_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\Send Order\\Send Order_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\User Access\\Use access_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Case\\View case_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Notes\\View Notes_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Admin-Provider Site\\View Uploads\\View Uploads_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Business Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Concirge Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Family-friend Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Create Patient Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Create Request\\Submit Request Screen-mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Dashboard\\dashboard_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_forget password_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_login_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\Patient site_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\Hallo Doc - Mobile - Screenshots\\Patient Site\\View Documents\\View documents_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\LesfImage.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\LesfImage.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\LesfImage.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\doctorlogo.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\doctorlogo.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\doctorlogo.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\login-banner.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\login-banner.png",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\login-banner.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminDashboard.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminDashboard.css",
       "PackagePath": "staticwebassets\\css\\AdminDashboard.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminLogin.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AdminLogin.css",
       "PackagePath": "staticwebassets\\css\\AdminLogin.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AllModel.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\AllModel.css",
       "PackagePath": "staticwebassets\\css\\AllModel.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\MySchedule.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\MySchedule.css",
       "PackagePath": "staticwebassets\\css\\MySchedule.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\PatientDashboard.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\PatientDashboard.css",
       "PackagePath": "staticwebassets\\css\\PatientDashboard.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\PatientRequestForBoth.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\PatientRequestForBoth.css",
       "PackagePath": "staticwebassets\\css\\PatientRequestForBoth.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\ProviderDashboard.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\ProviderDashboard.css",
       "PackagePath": "staticwebassets\\css\\ProviderDashboard.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\business.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\business.css",
       "PackagePath": "staticwebassets\\css\\business.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\conciergeform.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\conciergeform.css",
       "PackagePath": "staticwebassets\\css\\conciergeform.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\familyFriendsForm.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\familyFriendsForm.css",
       "PackagePath": "staticwebassets\\css\\familyFriendsForm.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\forgotPassword.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\forgotPassword.css",
       "PackagePath": "staticwebassets\\css\\forgotPassword.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientlogin.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientlogin.css",
       "PackagePath": "staticwebassets\\css\\patientlogin.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientreqform.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientreqform.css",
       "PackagePath": "staticwebassets\\css\\patientreqform.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientsite.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\patientsite.css",
       "PackagePath": "staticwebassets\\css\\patientsite.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\platformlogin.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\platformlogin.css",
       "PackagePath": "staticwebassets\\css\\platformlogin.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\record.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\record.css",
       "PackagePath": "staticwebassets\\css\\record.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\site.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\submitrequest.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\submitrequest.css",
       "PackagePath": "staticwebassets\\css\\submitrequest.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\favicon.ico",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\js\\Provider.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\js\\Provider.js",
       "PackagePath": "staticwebassets\\js\\Provider.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\js\\site.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\.net-Whole-Plane-2024.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\.net-Whole-Plane-2024.pdf",
       "PackagePath": "staticwebassets\\upload\\.net-Whole-Plane-2024.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_AgreementDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_AgreementDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\1_AgreementDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_BackgroundDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_BackgroundDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\1_BackgroundDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_NonDisclosureDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_NonDisclosureDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\1_NonDisclosureDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_NonDisclosureDoc.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_Photo",
+      "PackagePath": "staticwebassets\\upload"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_Photo.jpg",
+      "PackagePath": "staticwebassets\\upload\\1_Photo.jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_Signature",
+      "PackagePath": "staticwebassets\\upload"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_NonDisclosureDoc.jpg",
       "PackagePath": "staticwebassets\\upload\\2_NonDisclosureDoc.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_AgreementDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_AgreementDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\5_AgreementDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_BackgroundDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_BackgroundDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\5_BackgroundDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_NonDisclosureDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_NonDisclosureDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\5_NonDisclosureDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\6_AgreementDoc.pdf",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\6_AgreementDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\6_AgreementDoc.pdf"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7768657_3763028.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7768657_3763028.jpg",
       "PackagePath": "staticwebassets\\upload\\7768657_3763028.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7774236_3736765.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7774236_3736765.jpg",
       "PackagePath": "staticwebassets\\upload\\7774236_3736765.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Acocunt Access_mobile_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Acocunt Access_mobile_1.png",
       "PackagePath": "staticwebassets\\upload\\Acocunt Access_mobile_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Business Request_mobile (4).png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Business Request_mobile (4).png",
       "PackagePath": "staticwebassets\\upload\\Create Business Request_mobile (4).png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Business Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Business Request_mobile (5).png",
+      "PackagePath": "staticwebassets\\upload\\Create Business Request_mobile (5).png"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Business Request_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Create Business Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Family-friend Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Family-friend Request_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Create Family-friend Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Patient Request_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Patient Request_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Create Patient Request_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Role-Admin_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Role-Admin_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Create Role-Admin_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Role-Physician_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Create Role-Physician_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Create Role-Physician_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig1. Platform login page.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig19.Send Agreement pop-up.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig18.Clear Case.png",
+      "PackagePath": "staticwebassets\\upload\\Fig18.Clear Case.png"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig19.Send Agreement pop-up.png",
       "PackagePath": "staticwebassets\\upload\\Fig19.Send Agreement pop-up.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig2. Forgot Password.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig2. Forgot Password.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig2. Forgot Password.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig23.Request Support.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig23.Request Support.png",
       "PackagePath": "staticwebassets\\upload\\Fig23.Request Support.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig33. Month wise Scheduling.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig33. Month wise Scheduling.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig33. Month wise Scheduling.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig39. Provider Location.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig39. Provider Location.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig39. Provider Location.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig4. Admin dashboard in New state (1).jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig4. Admin dashboard in New state (1).jpg",
       "PackagePath": "staticwebassets\\upload\\Fig4. Admin dashboard in New state (1).jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig4. Admin dashboard in New state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig4. Admin dashboard in New state.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig4. Admin dashboard in New state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig68. View Documents.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig68. View Documents.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig68. View Documents.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig7. Admin dashboard in Conclude state.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig7. Admin dashboard in Conclude state.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig7. Admin dashboard in Conclude state.jpg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\HelloDoc.xlsx",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\HelloDoc.xlsx",
       "PackagePath": "staticwebassets\\upload\\HelloDoc.xlsx"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Jeel_Patel.xlsx",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Jeel_Patel.xlsx",
       "PackagePath": "staticwebassets\\upload\\Jeel_Patel.xlsx"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Patient site_forget password_mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Patient site_forget password_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Patient site_forget password_mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",
       "PackagePath": "staticwebassets\\upload\\Screenshot (2) (1).png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (7).png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (7).png",
       "PackagePath": "staticwebassets\\upload\\Screenshot (7).png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (9).png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (9).png",
       "PackagePath": "staticwebassets\\upload\\Screenshot (9).png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Submit Request Screen-mobile.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Submit Request Screen-mobile.png",
       "PackagePath": "staticwebassets\\upload\\Submit Request Screen-mobile.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\View documents_1.png",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\View documents_1.png",
       "PackagePath": "staticwebassets\\upload\\View documents_1.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\WhatsApp Image 2024-01-03 at 6.34.28 PM.jpeg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\WhatsApp Image 2024-01-03 at 6.34.28 PM.jpeg",
       "PackagePath": "staticwebassets\\upload\\WhatsApp Image 2024-01-03 at 6.34.28 PM.jpeg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\WhatsApp Image 2024-02-18 at 1.33.46 PM.jpeg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\WhatsApp Image 2024-02-18 at 1.33.46 PM.jpeg",
       "PackagePath": "staticwebassets\\upload\\WhatsApp Image 2024-02-18 at 1.33.46 PM.jpeg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\check-icon.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\check-icon.svg",
       "PackagePath": "staticwebassets\\upload\\check-icon.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-default.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\dashboard-default.svg",
       "PackagePath": "staticwebassets\\upload\\dashboard-default.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\download_46.zip",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\download_46.zip",
       "PackagePath": "staticwebassets\\upload\\download_46.zip"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\downward-arrow.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\downward-arrow.svg",
       "PackagePath": "staticwebassets\\upload\\downward-arrow.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\index.html",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\index.html",
       "PackagePath": "staticwebassets\\upload\\index.html"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\inner.css",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\inner.css",
       "PackagePath": "staticwebassets\\upload\\inner.css"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\logo.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\logo.svg",
       "PackagePath": "staticwebassets\\upload\\logo.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\success-icon.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\success-icon.svg",
       "PackagePath": "staticwebassets\\upload\\success-icon.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\user-active.svg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\user-active.svg",
       "PackagePath": "staticwebassets\\upload\\user-active.svg"
     },
     {
-      "Id": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\vvp logo.jpg",
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\vvp logo.jpg",
       "PackagePath": "staticwebassets\\upload\\vvp logo.jpg"
     },
     {

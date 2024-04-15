@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,8 +16,7 @@ public partial class ShiftDetailRegion
 
     public int RegionId { get; set; }
 
-    [Column(TypeName = "bit(1)")]
-    public BitArray? IsDeleted { get; set; }
+    public bool? IsDeleted { get; set; }
 
     [ForeignKey("RegionId")]
     [InverseProperty("ShiftDetailRegions")]

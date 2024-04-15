@@ -19,7 +19,7 @@ namespace HelloDoc2.Auth
             var jwtService = context.HttpContext.RequestServices.GetService<IJWT>();
             if (jwtService == null && _role=="1")
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Login" }));
                 return;
             }
             if(jwtService == null && _role == "2")
@@ -33,7 +33,7 @@ namespace HelloDoc2.Auth
 
             if (token == null || !jwtService.ValidateToken(token, out JwtSecurityToken jwtToken) && _role == "1")
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Login" }));
                 return;
             }
 
@@ -41,13 +41,13 @@ namespace HelloDoc2.Auth
 
             if (roleClaim == null)
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Login" }));
                 return;
             }
 
             if (string.IsNullOrEmpty(_role) || roleClaim.Value != _role && _role=="1")
             {
-                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Admin", action = "AdminLogin" }));
+                context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Login" }));
                 return;
             }
             if (string.IsNullOrEmpty(_role) || roleClaim.Value != _role && _role == "2")

@@ -294,7 +294,6 @@ namespace DAL.Controllers
         #endregion
         //view notes completed
 
-
         [CustomAuthorize("1")]
         //cancel case start : 2 methods
         #region CancelCase : get
@@ -833,13 +832,6 @@ namespace DAL.Controllers
         }
         #endregion
 
-        #region AdminCreateRequest
-        public IActionResult AdminCreateRequest()
-        {
-            return View();
-        }
-        #endregion 
-
         #region SendMail : post
         [HttpPost]
         public async Task<IActionResult> SendMail(AdminClearVm model)
@@ -853,6 +845,14 @@ namespace DAL.Controllers
             return RedirectToAction("AdminDashboard");
         }
         #endregion 
+
+        #region AdminCreateRequest
+        public IActionResult AdminCreateRequest()
+        {
+            return View();
+        }
+        #endregion 
+
 
         //this part is for close case
         #region CloseCase
@@ -877,13 +877,17 @@ namespace DAL.Controllers
         [CustomAuthorize("1")]
         //[RoleAuthorize(1)]
         #region AdminMyProfile
-        public IActionResult AdminMyProfile()
+        public IActionResult AdminMyProfile(int adminId)
         {
             ViewBag.AdminName = HttpContext.Session.GetString("adminName");
-            int? adminId = HttpContext.Session.GetInt32("AdminId");
+            if(adminId == 0)
+            {
+            adminId = HttpContext.Session.GetInt32("AdminId")?? 0;
+
+            }
             ViewBag.ActiveDashboardNav = "AdminMyProfile";
             int? id = HttpContext.Session.GetInt32("AspId");
-            var data = _adminDashboard.getAdminDetails(id??0, adminId?? 0);
+            var data = _adminDashboard.getAdminDetails(id??0, adminId);
             return View(data);
         }
         #endregion
@@ -1037,7 +1041,7 @@ namespace DAL.Controllers
             _adminDashboard.physicianEditDetails3(model);
             var data = _adminDashboard.getPhysicianDetails(model.PhysicianId);
             return View("EditPhysicianAccount", data);
-            }
+        }
         #endregion
 
         #region ContactProvider

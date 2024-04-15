@@ -45,7 +45,9 @@ function fetchRequestsProvider(statusarray, reqtypeid, searchdata) {
             $('#provider-partial-table').html("Something Went Wrong");
         }
     })
-};function filterRequestsProvider(statusarray, reqtypeid, searchdata) {
+};
+
+function filterRequestsProvider(statusarray, reqtypeid, searchdata) {
     console.log(reqtypeid)
     console.log("inside fetchreq");
     // var status = status;
@@ -73,3 +75,19 @@ function fetchRequestsProvider(statusarray, reqtypeid, searchdata) {
         }
     })
 };
+
+
+function providersendlink() {
+    $.ajax({
+        url: "/Provider/SendLink",
+        type: "GET",
+        dataType : "html",
+        success: function (data) {
+            $('#providerSendlink').html(data);
+            $('#sendlinkmodel').modal("show");
+        },
+        error: function () {
+            $('#providerSendlink').html("Something Went Wrong");
+        }
+    })
+}

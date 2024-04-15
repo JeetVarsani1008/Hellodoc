@@ -2,6 +2,8 @@
 
 @{
 	Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+    var newShift = TempData["NewShift"] as string;
+
 }
 
 
@@ -14,7 +16,7 @@
 
             <p class="h4">My Schedule </p>
 
-            <button type="button" class="btn btn-info rounded-1 border-info">
+            <button type="button" class="btn btn-info rounded-1 border-info"  onclick="window.location.href='@Url.Action("ProviderDashboard","Provider")'">
 
                 <span class="text-white">&lt; Back </span>
 
@@ -48,7 +50,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-info createShift text-white">Add New Shift</button>
+                    <button class="btn btn-info createShift text-white" data-physicianid="@Model.PhysicianId">Add New Shift</button>
                 </div>
             </div>
         </div>
@@ -139,10 +141,11 @@
     };
 
     $('.createShift').click(function () {
-
+        var physicianId = $(this).data('physicianid');
         $.ajax({
-            url: "/Provider/CreateShift",
+            url: "/Provider/CreateShiftProvider",
             type: "GET",
+            data: {physicianId : physicianId},
             dataType: "html",
             success: function (data) {
                 $("#createshift").html(data);
@@ -155,5 +158,16 @@
             }
         });
     });
+
+    //this is for display success sweet msg that : create shift successfully
+    if ('@newShift') {
+        Swal.fire({
+            icon: 'success',
+            title: 'New Shift Created!',
+            timer: 2000, // Auto close the alert after 3 seconds
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
+    };
 </script>
 

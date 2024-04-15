@@ -5,6 +5,7 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <style>
         .iti__flag-container {
             z-index: 5;
@@ -16,7 +17,7 @@
     </style>
 </head>
 
-<div class="bg-body-tertiary ">
+<div class="bg-body-tertiary "> 
     <div class="container">
 
         @*Page Header*@
@@ -30,11 +31,15 @@
         @*Main Section*@
         <div class="shadow bg-white rounded-3 p-4">
 
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-info" onclick="requesttoadmin()">Request To Admin</button>
+            </div>
             @*First div*@
             <h2 class="">Account Information</h2>
-            <form asp-action="AdminResetPassword" asp-controller="Admin">
+            <form method="post" id="accountInfo">
                 <input asp-for="AspNetUserId" hidden />
-                <div class="row g-2">
+                <input asp-for="PhysicianId" id="physicianId" hidden/>
+                <div class="row g-2">   
 
                     @*Username*@
                     <div class="form-floating mb-3 col-sm-12 col-md-6 col-lg-6">
@@ -55,7 +60,7 @@
                     <button type="button" class="btn btn-outline-primary colorlessbtn" id="resetpasswordbtn">Reset Password</button>
 
 
-                    <button type="submit" name="command" value="1" class="btn btn-primary me-2 colorbtn" id="providerprofilesavebtn" style="display: none;" disabled>Save</button>
+                    <button type="submit" class="btn btn-primary me-2 colorbtn" id="providerprofilesavebtn" style="display: none;" disabled>Save</button>
 
                     <a href="#" type="button" class="btn btn-outline-primary colorlessbtn" id="providerprofilecancelbtn" style="display: none;">Cancel</a>
                 </div>
@@ -64,7 +69,6 @@
 
             @*Second Div*@
             <h2>Physician Information</h2>
-                <input asp-for="AspNetUserId" hidden />
 
                 <div class="row g-2">
 
@@ -218,21 +222,46 @@
                 @* onboardibg-one *@
                 <div class="row d-flex align-items-center">
                     <div class="col-md-3 col-lg-3">
-                        Independent Contractor Agreement
+                        Provider Agreement
                     </div>
                     <div class="col-md-1 col-lg-1">
                         <a href="~/upload/@(Model.PhysicianId)_AgreementDoc.pdf" target="_blank" type="button" class="btn btn-info text-white my-1 mx-1">View</a>
+                    </div>
+                </div>
+                
+                @* onboardibg-two *@
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-3 col-lg-3">
+                        HIPAA Compliance
+                    </div>
+                    <div class="col-md-1 col-lg-1">
+                        <a href="~/upload/@(Model.PhysicianId)_HIPAAComplianceDoc.pdf" target="_blank" type="button" class="btn btn-info text-white my-1 mx-1">View</a>
                     </div>
                 </div>
                 </div>
         </div>
     </div>
 </div>
-
+<div id="requestToAdminContent"></div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
+
+    function requesttoadmin() {
+        $.ajax({
+            url : "/Provider/RequestToAdmin",
+            type : "GET",
+            success: function (data) {
+                $('#requestToAdminContent').html(data);
+                $('#requestToAdmin').modal("show");
+            },
+            error: function (data) {
+                $('#requestToAdminContent').html("Something Went Wrong");
+            }
+        })
+    };
 
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {
@@ -263,7 +292,7 @@
 
     //this is for reset password and save and cancel
     const editbtn = document.getElementById('resetpasswordbtn')
-    const submitcancel = document.getElementById('providerprofilesavebtn')
+    const submitbtn = document.getElementById('providerprofilesavebtn')
     const cancelbtn = document.getElementById('providerprofilecancelbtn');
     const enabled = document.getElementsByClassName('enabled')
     editbtn.addEventListener('click', function (e) {
@@ -273,10 +302,10 @@
             //enabled1[index].readOnly = false;
             enabled[index].disabled = false;
         }
-        submitcancel.style.display = "block";
+        submitbtn.style.display = "block";
         cancelbtn.style.display = "block";
         this.style.display = "none"
-    })
+    });
 
     cancelbtn.addEventListener('click', function (e) {
 
@@ -286,8 +315,55 @@
             //enabled1[index].readOnly = true;
             enabled[index].disabled = true;
         }
-        submitcancel.style.display = "none";
+        submitbtn.style.display = "none";
         editbtn.style.display = "block";
         this.style.display = "none"
-    })
+    });
+
+    submitbtn.addEventListener('click', function (e) {
+
+
+        for (let index = 0; index < enabled.length; index++) {
+            //if i want to use read only instend of disabled i can use by this way
+            //enabled1[index].readOnly = true;
+            enabled[index].disabled = true;
+        }
+        cancelbtn.style.display = "none";
+        editbtn.style.display = "block";
+        this.style.display = "none"
+    });
+    
+    $("#accountInfo").on("submit", function (event) {
+        event.preventDefault(); // prevent the form from submitting normally
+
+        var form = $(this);
+        var password = $('#resetPassword').val();
+        var physicianId = $('#physicianId').val();
+        console.log(password);
+        $.ajax({
+            type: "POST",
+            url: "/Provider/ProviderResetPassword",
+            data: {
+                password: password,
+                physicianId: physicianId,
+            }, // serialize the form data
+            dataType: "json", // specify that the server will return JSON data
+            success: function (data) {
+                if (data.success) {
+                    $('#resetPassword').val("");
+                    resetPass();
+                    toastr.success('Password reset successfully!');
+                } else {
+                    // handle form submission error
+                    alert('Something Went Wrong');
+                }
+            },
+            error: function (xhr, status, error) {
+                // handle AJAX error
+                alert("An error occurred while submitting the form: " + xhr.responseText);
+            }
+        });
+    });
+
+   
 </script>

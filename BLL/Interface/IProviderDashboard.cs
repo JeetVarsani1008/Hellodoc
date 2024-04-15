@@ -19,5 +19,13 @@ namespace BLL.Interface
         List<ShiftDetail> getParticularScheduleData(int PhysicianId);
 
         List<Region> getRegions();
+
+        //for my profile 
+        bool providerResetPassword(string password, int physicianId);
+        void createShiftPost(ViewShiftVm model, int aspId, List<int> WeekDaysList);
+        bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime);
+
+        void editViewNotes(ViewNotesVm model, int requestId);
+
     }
 }

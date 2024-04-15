@@ -92,6 +92,7 @@ namespace DAL.ViewModel
 
         //for store name 
         public IFormFile PhotoFile { get; set; }
+        public IFormFile SignatureFile { get; set; }
         public IFormFile AgreementDoc { get; set; }
         public IFormFile BackgroundDoc { get; set; }
         public IFormFile NonDisclosureDoc { get; set; }

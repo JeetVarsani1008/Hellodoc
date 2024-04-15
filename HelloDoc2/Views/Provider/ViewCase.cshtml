@@ -1,0 +1,190 @@
+﻿@using System.Globalization;
+@model DAL.ViewModel.ViewCaseVm;
+@{
+    Layout = "/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+}
+<head>
+
+    <link rel="stylesheet" href="~/css/AdminDashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+<div class="container-fluid bg-bodybg-body-tertiary vh-100">
+
+    <div class="container d-flex flex-column gap-2 p-3 ">
+
+        @*Header of view page*@
+        <div class="container d-flex justify-content-between p-0 my-2">
+            <div>
+                <h5>
+                    View Reservation
+                    <span class="badge p-2 color_@Model.RequestTypeId border rounded-5" style="--bs-bg-opacity: .9; font-size: 0.8rem; padding: 8px 12px;">
+                        @if (Model.RequestTypeId == 1)
+                        {
+                            <span>Patient</span>
+                        }
+                        else if (Model.RequestTypeId == 2)
+                        {
+                            <span>Family/Friends</span>
+                        }
+                        else if (Model.RequestTypeId == 3)
+                        {
+                            <span>Business</span>
+                        }
+                        else if (Model.RequestTypeId == 4)
+                        {
+                            <span>Concierge</span>
+                        }
+                        else
+                        {
+                            <span>VIP</span>
+                        }
+                    </span>
+                </h5>
+            </div>
+
+            <a asp-controller="Provider" asp-action="ProviderDashboard">
+                <span class="border border-info text-info p-2 rounded-2">
+                    < Back
+                </span>
+            </a>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="container d-flex flex-column shadow gap-4 p-4">
+            <div class="container">
+                <h4 class="ms-auto me-auto mb-4">Patient Information</h4>
+
+                <h6 style="font-size: 14px">Confirmation Number</h6>
+                <p class="text-info fs-5 mb-3">MD092723TETE0002</p>
+
+                <div>
+                    <div class="form-floating mb-3 h-100">
+                        <textarea class="form-control bg-transparent h-100" id="floatingInput" placeholder="Textarea" rows="3" asp-for="Notes"></textarea>
+                        <label for="floatingInput" class="text-wrap ">Patient Notes</label>
+                    </div>
+
+                    <div class="mt-1">
+                        <div class="row">
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="John" required asp-for="FirstName" disabled>
+                                <label for="floatingInput" class="ms-2 ">First Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Wick" asp-for="LastName" disabled>
+                                <label for="floatingInput" class="ms-2 ">Last Name</label>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-6">
+                                <input type="date" class="form-control bg-transparent" id="floatingInput" placeholder="02-10-2002" asp-for="DateOfBirth">
+                                <label for="floatingInput" class="ms-2 ">Date of Birth</label>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-md-5">
+                                <input type="tel" class=" form-control bg-transparent w-100" style="height: 60px;" id="phone" placeholder="23464544564" asp-for="PhoneNumber" disabled>
+                            </div>
+
+                            <div class="form-floating mb-3 col-12 col-sm-1 ">
+                                <i class="btn bi bi-telephone border border-info rounded-2 px-4 py-3 text-info"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-floating mb-3 col-12 col-sm-6">
+                            <input type="email" class="form-control bg-transparent emailInp" id="floatingInput1" placeholder="test@google.com" asp-for="Email" disabled>
+                            <label for="floatingInput" class="ms-2 ">Email</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <h4 class="ms-auto me-auto">Location Information</h4>
+
+
+                        <div class="form-floating mb-3 col-12 col-sm-6">
+                            <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Maryland" asp-for="Region">
+                            <label for="floatingInput" class="ms-2 ">Region</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-12 col-sm-5">
+                            <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="Maryland">
+                            <label for="floatingInput" class="ms-2 ">Business Name / Address</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-12 col-sm-1 ">
+                            <i class="btn bi bi-geo-alt border border-info rounded-2 text-info px-4 py-3 text-info"></i>
+                        </div>
+
+                        <div class="form-floating mb-3 col-12 col-sm-6">
+                            <input type="text" class="form-control bg-transparent" id="floatingInput" placeholder="007">
+                            <label for="floatingInput" class="ms-2 ">Room #</label>
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end mb-3">
+
+                        <div class="d-flex">
+                            <div class="form-floating mx-2">
+                                <button type="button" class="btn text-white btn-info" onclick="asigncase(@Model.RequestId)">Assign</button>
+                            </div>
+
+                            <div class="form-floating mx-2">
+                                <button type="button" class="btn text-white btn-info">View Notes</button>
+                            </div>
+
+                            <div class="form-floating mx-2">
+                                <button type="button" class="btn text-white btn-danger">Cancel</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+        </form>
+
+        @*FORM*@
+
+    </div>
+</div>
+
+@* for asign case *@
+<div id="contentAsignNote">
+</div>
+
+
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+
+    //ajax for asign case model
+    function asigncase(reqid) {
+
+        console.log("CLicked")
+
+        $.ajax({
+            url: '/Provider/AsignCase',
+            type: 'POST',
+            data: { req: reqid },
+            success: function (result) {
+                console.log(result)
+                $('#contentAsignNote').html(result);
+                $('#myModalAssign').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
+</script>

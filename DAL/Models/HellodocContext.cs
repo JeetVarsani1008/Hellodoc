@@ -89,7 +89,7 @@ public partial class HellodocContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("User ID = postgres;Password=1008@jd@2003;Server=localhost;Port=5432;Database=HelloDoc;Integrated Security=true;Pooling=true;");
+        => optionsBuilder.UseNpgsql("User ID = postgres;Password=1008@jd@2003;Server=localhost;Port=5432;Database=Hellodoc;Integrated Security=true;Pooling=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -179,6 +179,8 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.EmailLogId).HasName("EmailLog_pkey");
 
+            entity.Property(e => e.EmailLogId).HasIdentityOptions(2L, null, null, 100000L, null, null);
+
             entity.HasOne(d => d.Request).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RequestId_fkey");
 
             entity.HasOne(d => d.Role).WithMany(p => p.EmailLogs).HasConstraintName("EmailLog_RoleId_fkey");
@@ -197,7 +199,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.VendorId).HasName("HealthProfessionals_pkey");
 
-            entity.Property(e => e.VendorId).HasIdentityOptions(null, null, null, 100000L, null, null);
+            entity.Property(e => e.VendorId).HasIdentityOptions(4L, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.ProfessionNavigation).WithMany(p => p.HealthProfessionals).HasConstraintName("HealthProfessionals_Profession_fkey");
         });
@@ -213,7 +215,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.MenuId).HasName("Menu_pkey");
 
-            entity.Property(e => e.MenuId).ValueGeneratedNever();
+            entity.Property(e => e.MenuId).HasIdentityOptions(null, null, null, 100000L, null, null);
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -227,7 +229,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.PhysicianId).HasName("Physician_pkey");
 
-            entity.Property(e => e.PhysicianId).HasIdentityOptions(null, null, null, 100000L, null, null);
+            entity.Property(e => e.PhysicianId).HasIdentityOptions(4L, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.AspNetUser).WithMany(p => p.PhysicianAspNetUsers).HasConstraintName("Physician_AspNetUserId_fkey");
 
@@ -244,7 +246,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.LocationId).HasName("PhysicianLocation_pkey");
 
-            entity.Property(e => e.LocationId).ValueGeneratedNever();
+            entity.Property(e => e.LocationId).HasIdentityOptions(2L, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianLocations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -255,7 +257,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PhysicianNotification_pkey");
 
-            entity.Property(e => e.Id).HasIdentityOptions(null, null, null, 10000L, null, null);
+            entity.Property(e => e.Id).HasIdentityOptions(4L, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianNotifications)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -297,7 +299,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.RequestBusinessId).HasName("RequestBusiness_pkey");
 
-            entity.Property(e => e.RequestBusinessId).ValueGeneratedNever();
+            entity.Property(e => e.RequestBusinessId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Business).WithMany(p => p.RequestBusinesses)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -317,7 +319,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.RequestClosedId).HasName("RequestClosed_pkey");
 
-            entity.Property(e => e.RequestClosedId).ValueGeneratedNever();
+            entity.Property(e => e.RequestClosedId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Request).WithMany(p => p.RequestCloseds)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -328,7 +330,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("RequestConcierge_pkey");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Concierge).WithMany(p => p.RequestConcierges)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -342,8 +344,6 @@ public partial class HellodocContext : DbContext
         modelBuilder.Entity<RequestNote>(entity =>
         {
             entity.HasKey(e => e.RequestNotesId).HasName("RequestNotes_pkey");
-
-            entity.Property(e => e.RequestNotesId).HasIdentityOptions(null, null, null, 1000000L, null, null);
 
             entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.RequestNoteCreatedByNavigations)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -377,7 +377,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.RequestTypeId).HasName("RequestType_pkey");
 
-            entity.Property(e => e.RequestTypeId).ValueGeneratedNever();
+            entity.Property(e => e.RequestTypeId).HasIdentityOptions(null, null, null, 100000L, null, null);
         });
 
         modelBuilder.Entity<RequestWiseFile>(entity =>
@@ -399,14 +399,14 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.RoleId).HasName("Role_pkey");
 
-            entity.Property(e => e.RoleId).ValueGeneratedNever();
+            entity.Property(e => e.RoleId).HasIdentityOptions(null, null, null, 100000L, null, null);
         });
 
         modelBuilder.Entity<RoleMenu>(entity =>
         {
             entity.HasKey(e => e.RoleMenuId).HasName("RoleMenu_pkey");
 
-            entity.Property(e => e.RoleMenuId).ValueGeneratedNever();
+            entity.Property(e => e.RoleMenuId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Menu).WithMany(p => p.RoleMenus)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -450,7 +450,7 @@ public partial class HellodocContext : DbContext
         {
             entity.HasKey(e => e.ShiftDetailRegionId).HasName("ShiftDetailRegion_pkey");
 
-            entity.Property(e => e.ShiftDetailRegionId).ValueGeneratedNever();
+            entity.Property(e => e.ShiftDetailRegionId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Region).WithMany(p => p.ShiftDetailRegions)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -464,6 +464,8 @@ public partial class HellodocContext : DbContext
         modelBuilder.Entity<Smslog>(entity =>
         {
             entity.HasKey(e => e.SmslogId).HasName("SMSLog_pkey");
+
+            entity.Property(e => e.SmslogId).HasIdentityOptions(null, null, null, 100000L, null, null);
 
             entity.HasOne(d => d.Request).WithMany(p => p.Smslogs).HasConstraintName("SMSLog_RequestId_fkey");
 

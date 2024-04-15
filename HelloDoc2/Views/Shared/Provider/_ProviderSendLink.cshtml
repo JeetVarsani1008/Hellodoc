@@ -1,0 +1,62 @@
+﻿@model DAL.ViewModel.AdminClearVm;
+<head>
+    <style>
+        .iti {
+            width: 100% ;
+        }
+
+        .iti__flag-container {
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<div class="modal fade" id="sendlinkmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header bg-info">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Send mail to patient for submitting request</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="ProviderSendLink" asp-controller="Provider" method="post">
+                    <div class="d-flex">
+                    </div>
+                    <div class="row mt-4">
+                        <div class="form-floating mb-3 col-12">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="First Name" asp-for="FirstName" required>
+                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">First Name</label>
+                        </div>
+                        <div class="form-floating mb-3 col-12">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Last Name" asp-for="LastName" required>
+                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Last Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-12">
+                            <input id="phone" type="tel" class="form-control py-3 w-100" style="width:max-content">
+                        </div>
+                       
+                        <div class="form-floating mb-3 col-12">
+                            <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email" required>
+                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Email</label>
+                        </div>
+                    </div>
+                    <div id="pop_buttons_container" class="d-flex justify-content-end">
+                        <button type="submit" id="pop_submit" class="btn btn-info me-2">Confirm</button>
+                        <button type="button" class="btn btn-outline-info rounded-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+</script>
