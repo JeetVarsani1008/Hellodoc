@@ -123,6 +123,7 @@
                                         <li class="d-flex align-items-center ps-1"><i class="bi bi-file-arrow-up-fill me-1"></i><button class="dropdown-item p-0" onclick="location.href='@Url.Action("ViewUploads","Admin", new {requestId = @obj.RequestId})'">View Uploads</button></li>
                                     }
                                     <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1" asp-action="ViewNotes" asp-controller="Admin" asp-route-requestId="@obj.RequestId">View Notes</a></li>
+
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li class="d-flex align-items-center ps-1"> <i class="bi bi-file-diff me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("Orders","Admin", new {requestId = @obj.RequestId})'">Orders</button></li>

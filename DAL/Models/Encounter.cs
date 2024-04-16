@@ -99,6 +99,8 @@ public partial class Encounter
     [StringLength(200)]
     public string? HistoryOfPresentIllnessOrInjury { get; set; }
 
+    public bool? IsFinalize { get; set; }
+
     [ForeignKey("RequestId")]
     [InverseProperty("Encounters")]
     public virtual Request Request { get; set; } = null!;

@@ -1,7 +1,9 @@
 ﻿@model DAL.ViewModelProvider.ProviderDashboardVm;
 
 @{
-	Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+    Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+    var accept = TempData["acceptrequest"] as string;
+
 }
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
@@ -128,9 +130,21 @@
 </div>
 
 <div id="providerSendlink"></div>
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="~/js/Provider.js"></script>
 
 
+<script>
+
+        //this is for display success sweet msg
+        if ('@accept') {
+        Swal.fire({
+            title: 'Success!',
+            text: 'Request accepted successfully.',
+            icon: 'success'
+        });
+    };
+
+</script>

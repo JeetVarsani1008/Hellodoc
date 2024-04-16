@@ -47,7 +47,7 @@ namespace BLL.Repositery
             if(searchdata != null)
             {
                 searchdata = searchdata.ToLower();
-                requestList = requestList.Where(x => x.FirstName.ToLower().Contains(searchdata));
+                requestList = requestList.Where(x => x.FirstName.ToLower().Contains(searchdata) || x.LastName.ToLower().Contains(searchdata));
             }
             if (reqTypeId != "0" && reqTypeId != null)
             {
@@ -448,6 +448,7 @@ namespace BLL.Repositery
                 Prescription = model.Prescription,
                 NoOfRefill = model.Refill,
                 CreatedDate = DateTime.Now,
+                CreatedBy = "Admin",
             };
             _context.OrderDetails.Add(orderDetail);
             _context.SaveChanges();
@@ -1884,10 +1885,10 @@ namespace BLL.Repositery
 				RoleName = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
 				Email = x.EmailId,
                 CreatedDate = x.CreateDate,
-                SentDate = x.SentDate,
+                SentDate = x.SentDate ?? DateOnly.MinValue,
 				Sent = x.SentTries > 0 ? true : false,
-				SentTries = x.SentTries,
-				ConfirmationNumber = x.ConfirmationNumber,
+				SentTries = x.SentTries ?? 1,
+				ConfirmationNumber = x.ConfirmationNumber ?? "MD0001JK45",
 			}).ToList();
 			return data;
 		}

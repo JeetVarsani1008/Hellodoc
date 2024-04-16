@@ -1,0 +1,29 @@
+﻿@model DAL.ViewModel.EncounterVm;
+<!-- Modal -->
+<div class="modal fade" id="TypeOfCare" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Select Type Of Care</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="TypeOfCare" asp-controller="Provider">
+                <input asp-for="RequestId" hidden/>
+                <div class="modal-body">
+                    <div class="text-center mt-3 d-flex justify-content-center">
+                        <input type="radio" class="btn-check" name="care" value="Housecall" id="btn-check-outlined" autocomplete="off">
+                        <label class="btn btn-outline-info me-2" for="btn-check-outlined">House Call</label><br>
+                        <input type="radio" class="btn-check" name="care" value="Consult" id="btn-check-outlined1" autocomplete="off">
+                        <label class="btn btn-outline-info" for="btn-check-outlined1">Consult</label><br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info" style="color:white" id="continue-btn">Continue</button>
+                    <button type="button" class="btn btn-outline-info btnmodal" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

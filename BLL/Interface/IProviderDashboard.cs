@@ -12,9 +12,9 @@ namespace BLL.Interface
     public interface IProviderDashboard
     {
         ProviderProfileVm getProviderDetails(int id, int physicianId);
-        List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata);
+        List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata, int phyId);
 
-        IQueryable<Request> forCountRequest { get; }
+        IQueryable<Request> forCountRequest(int phyId);
 
         List<ShiftDetail> getParticularScheduleData(int PhysicianId);
 
@@ -26,6 +26,16 @@ namespace BLL.Interface
         bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime);
 
         void editViewNotes(ViewNotesVm model, int requestId);
+        void acceptRequest(int requestId);
+        Request getRequestData(int requestId);
+
+        void transferCasePost(AdminAsignVm model, int newStatus);
+        void orderDataStore(AdminOrderVm model, int requestID);
+
+        bool typeOfCare(EncounterVm model, string care);
+
+        bool houseCall(int requestId);
+        void postEncounterData(EncounterVm model, int encounterbtn);
 
     }
 }

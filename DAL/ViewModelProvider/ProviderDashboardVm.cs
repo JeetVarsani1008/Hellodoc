@@ -29,6 +29,7 @@ namespace DAL.ViewModelProvider
 
     public class RequestDataProvider
     {
+        public bool IsFinalize { get; set; }
         public int RequestId { get; set; }
         public int RequestTypeId { get; set; }
         public string Name { get; set; }

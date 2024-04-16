@@ -5,6 +5,7 @@ using DAL.ViewModelProvider;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,9 @@ namespace BLL.Repositery
 
 
         #region getRequestDataForProvider
-        public List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata)
+        public List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata, int phyId)
         {
-            var list = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()) && o.PhysicianId.HasValue);
+            var list = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()) && o.PhysicianId == phyId);
 
             if (searchdata != null)
             {
@@ -45,6 +46,7 @@ namespace BLL.Repositery
                 Address = x.RequestClients.Select(x => x.Street).First() + "," + x.RequestClients.Select(x => x.City).First() + "," + x.RequestClients.Select(x => x.State).First(),
                 Status = "1",
                 StatusForDash = x.Status,
+                IsFinalize = x.Encounters.Select(x => x.IsFinalize).First() ?? false,
             }).ToList();
 
             return data;
@@ -52,7 +54,11 @@ namespace BLL.Repositery
         #endregion
 
         #region forCountRequest
-        public IQueryable<Request> forCountRequest => _context.Requests.Where(x => x.PhysicianId.HasValue);
+        public IQueryable<Request> forCountRequest(int phyId)
+        {
+            var data = _context.Requests.Where(x => x.PhysicianId == phyId);
+            return data;
+        }
         #endregion
 
         #region getProviderDetails : for my profile
@@ -185,7 +191,6 @@ namespace BLL.Repositery
         }
         #endregion
 
-
         #region editViewNotes
         public void editViewNotes(ViewNotesVm model, int requestId)
         {
@@ -199,6 +204,153 @@ namespace BLL.Repositery
                 _context.SaveChanges();
             }
 
+        }
+        #endregion
+
+        #region acceptRequest
+        public void acceptRequest(int requestId)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            data.Status = 2;
+            data.AcceptedDate = DateTime.Now;
+            _context.SaveChanges();
+        }
+        #endregion
+
+        #region getRequestData
+        public Request getRequestData(int requestId)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            return data;
+        }
+        #endregion
+
+        #region transferCasePost
+        public void transferCasePost(AdminAsignVm model, int newStatus)
+        {
+            var request = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+            request.ModifiedDate = DateTime.Now;
+            request.PhysicianId = null;
+            request.Status = 1;
+            _context.SaveChanges();
+
+            var reqstatus = new RequestStatusLog
+            {
+                RequestId = model.RequestId,
+                Status = 1,
+                Notes = model.Description,
+                CreatedDate = DateTime.Now,
+                PhysicianId = model.PhysicianId,
+                TransToAdmin = new BitArray(1, true),
+            };
+            _context.RequestStatusLogs.Add(reqstatus);
+            _context.SaveChanges();
+
+        }
+        #endregion
+
+        #region orderDataStore
+        public void orderDataStore(AdminOrderVm model, int requestId)
+        {
+
+            OrderDetail orderDetail = new OrderDetail
+            {
+                VendorId = model.VendorId,
+                RequestId = requestId,
+                FaxNumber = model.FaxNumber,
+                Email = model.Email,
+                BusinessContact = model.BusinessContact,
+                Prescription = model.Prescription,
+                NoOfRefill = model.Refill,
+                CreatedDate = DateTime.Now,
+                CreatedBy = "Physician",
+            };
+            _context.OrderDetails.Add(orderDetail);
+            _context.SaveChanges();
+        }
+        #endregion
+
+        #region typeOfCare
+        public bool typeOfCare(EncounterVm model, string care)
+        {
+            if(care == "Housecall")
+            {
+                var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+                data.Status = 5;
+                _context.SaveChanges();
+                return true;
+            }
+            else if(care == "Consult")
+            {
+                var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+                data.Status = 6;
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region houseCall 
+        public bool houseCall(int requestId)
+        {
+            if(requestId != 0)
+            {
+                var data = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+                data.Status = 6;
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region postEncounterData
+        public void postEncounterData(EncounterVm model,int encounterbtn)
+        {
+            if(encounterbtn == 1)
+            {
+                var data = _context.Encounters.FirstOrDefault(x => x.RequestId == model.RequestId);
+                if (data != null)
+                {
+                    data.MedicalHistory = model.MedicalHistory;
+                    data.Medications = model.Medications;
+                    data.Allergies = model.Allergies;
+                    data.Temp = model.Temp;
+                    data.Hr = model.Hr;
+                    data.Rr = model.Rr;
+                    data.BloodPressureS = model.BloodPressureS;
+                    data.BloodPressureD = model.BloodPressureD;
+                    data.O2 = model.O2;
+                    data.Pain = model.Pain;
+                    data.Heent = model.Heent;
+                    data.Cv = model.Cv;
+                    data.Chest = model.Chest;
+                    data.Abd = model.Abd;
+                    data.Extr = model.Extr;
+                    data.Skin = model.Skin;
+                    data.Neuro = model.Neuro;
+                    data.Other = model.Other;
+                    data.Diagnosis = model.Diagnosis;
+                    data.TreatmentPlan = model.TreatmentPlan;
+                    data.MedicationsDispensed = model.MedicationsDispensed;
+                    data.Procedures = model.Procedures;
+                    data.Followup = model.FollowUp;
+                }
+                _context.SaveChanges();
+            }
+            else
+            {
+                var data = _context.Encounters.FirstOrDefault(x => x.RequestId == model.RequestId);
+                data.IsFinalize = true;
+                _context.SaveChanges();
+            }
         }
         #endregion
     }

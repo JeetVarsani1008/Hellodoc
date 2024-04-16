@@ -226,8 +226,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxTdWJtaXRfUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/EncounterForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcRW5jb3VudGVyRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Provider/MySchedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcTXlTY2hlZHVsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Provider/ProviderDashboard.cshtml]
@@ -244,6 +252,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Provider/ViewNotes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcVmlld05vdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ViewUploadsProvider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcVmlld1VwbG9hZHNQcm92aWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/CreateShift.cshtml]
@@ -290,6 +302,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9DcmVhdGVTaGlmdFByb3ZpZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterFinalize.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9FbmNvdW50ZXJGaW5hbGl6ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterPopUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9FbmNvdW50ZXJQb3BVcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_LayoutProviderDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9MYXlvdXRQcm92aWRlckRhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -300,6 +320,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_RequestToAdminToChangeProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9SZXF1ZXN0VG9BZG1pblRvQ2hhbmdlUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_SendAgreementProvider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9TZW5kQWdyZWVtZW50UHJvdmlkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_TransferCaseProvider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9UcmFuc2ZlckNhc2VQcm92aWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_BlockHistoryTable.cshtml]

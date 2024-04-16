@@ -30,9 +30,16 @@
                         <td><div>@obj.Name</div></td>
                         <td><div>@obj.Phone</div></td>
                         <td><div>@obj.Address</div></td>
-                        @if(Model.requestDataProvider.Any(x => x.StatusForDash == 4 || x.StatusForDash == 5))
+                        @if(obj.StatusForDash == 5 || obj.StatusForDash == 4)
                         {
-                            <td><div>obj.Status</div></td>
+                            if (obj.StatusForDash == 5)
+                            {
+                                <td><button class="btn btn-info text-white" onclick="window.location.href='@Url.Action("HouseCall","Provider",new{requestId = obj.RequestId})'">House Call</button></td>
+                            }
+                            else
+                            {
+                                <td><div></div></td>
+                            }
                         }
                         <td class="dropdown">
                             <button class="btn btn-outline-primary text-white border-white d-none d-md-block" data-bs-toggle="dropdown">Actions</button>
@@ -43,31 +50,44 @@
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 6))
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Conclude Care</a></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Conclude Care</a></li>
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 2))
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Send Agreement</a></li>  
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1" onclick="sendagreementprovider(@obj.RequestId,@obj.RequestTypeId)">Send Agreement</a></li>
                                 }
+
                                 <li class="d-flex align-items-center ps-1"><i class="bi bi-search me-1"></i><button class="dropdown-item p-1 @(ViewBag.ActiveDashboardNav == "ProviderDashboard" ? "active" : "")" onclick="location.href='@Url.Action("ViewCase","Provider", new {requestId = obj.RequestId})'">View Case</button></li>
 
+                                <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("ViewNotes","Provider", new {requestId = obj.RequestId})'">View Notes</button></li>
 
-                                <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("ViewNotes","Provider", new {requestId = obj.RequestId})'">View Notes</button></li>
+
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 2 || x.StatusForDash == 4 || x.StatusForDash == 5 || x.StatusForDash == 6))
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">View Upload</a></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-0" onclick="location.href='@Url.Action("ViewUploadsProvider","Provider", new {requestId = @obj.RequestId})'">View Uploads</button></li>
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 2))
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Transfer</a></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="transfercase(@obj.RequestId)">Transfer</button></li>
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 4 || x.StatusForDash == 5))
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Orders</a></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("Orders","Provider", new {requestId = @obj.RequestId})'">Orders</button></li>
                                 }
-                                @if(Model.requestDataProvider.Any(x => x.StatusForDash == 4 || x.StatusForDash == 5 || x.StatusForDash == 6))
+                                @if(obj.StatusForDash == 4 || obj.StatusForDash == 5 || obj.StatusForDash == 6)
                                 {
-                                    <li class="d-flex align-items-cente ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Encounter</a></li>
+                                    if(obj.StatusForDash == 5 || obj.StatusForDash == 6)
+                                    {
+                                        if(obj.IsFinalize == false)
+                                        {
+                                        <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="window.location.href='@Url.Action("EncounterForm","Provider", new {requestId = obj.RequestId})'">Encounter</button></li>
+                                        }
+                                        <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="encounterfinalize(@obj.RequestId)"></button></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="encounterpopup(@obj.RequestId)">Encounter</button></li>
+                                    }
                                 }
                             </ul>
                         </td>
@@ -79,8 +99,9 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<div id="contentSendAgreement"></div>
+<div id="contentTransferNote"></div>
+<div id="encounterpopup"></div>
 
 <nav aria-label="Page navigation example " class="pb-1 mx-4">
     <div class="justify-content-between d-flex">
@@ -110,9 +131,11 @@
         </ul>
     </div>
 </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @section Scripts {
     @{
-        <partial name="_ValidationScriptsPartial" />
+                <partial name="_ValidationScriptsPartial" />
     }
 }
 
@@ -124,8 +147,8 @@
         event.preventDefault();
         console.log('Accept button clicked');
 
-        var requestId = this.getAttribute('data-requestId');
-
+        var requestId = event.target.getAttribute('data-requestId');
+        console.log(requestId);
         Swal.fire({
             title: 'Are you sure?',
             text: "Are you Sure You Want to accept this request!",
@@ -137,26 +160,100 @@
         }).then((result) => {
 
             if (result.isConfirmed) {
-                $.ajax({
-                    url: "/Provider/Accept",
-                    type: 'POST',
-                    data: { requestId: requestId },
-                    success: function (response) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Request accepted successfully.',
-                            icon: 'success'
-                        });
-                    },
-                    error: function (xhr, status, error) {
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'An error occurred while accepting the request.',
-                            icon: 'error'
-                        });
-                    }
-                });
+                window.location.href = '/Provider/Accept?requestId=' + requestId;
             }
         });
     });
+
+
+    //ajax for Send agreement model
+    function sendagreementprovider(reqid, reqtypeid) {
+        console.log("CLicked send agreement")
+        console.log(reqtypeid)
+        $.ajax({
+            url: "/Provider/SendAgreementProvider",
+            type: 'GET',
+            data: {
+                req: reqid,
+                reqTypeId: reqtypeid
+            },
+            success: function (result) {
+                console.log(result);
+                $('#contentSendAgreement').html(result);
+                $('#mySendAgreement').modal("show");
+
+            },
+            error: function () {
+                alert('Something went wrong');
+            },
+        });
+    };
+
+
+    //ajax for transfer case model
+    function transfercase(reqid) {
+
+        console.log("CLicked")
+
+        let action = "/Provider/TransferCaseProvider"
+        $.ajax({
+            url: action,
+            type: 'GET',
+            data: { reqId: reqid },
+            success: function (result) {
+                console.log(result)
+                $('#contentTransferNote').html(result);
+                $('#myModalTransfer').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    };
+
+
+    //ajax for encounter popup model
+    function encounterpopup(requestId) {
+
+        console.log("CLicked")
+        $.ajax({
+            url: '@Url.Action("EncounterPopUp", "Provider")',
+            type: 'GET',
+            data: {requestId : requestId},
+            success: function (result) {
+                console.log(result)
+                $('#encounterpopup').html(result);
+                $('#TypeOfCare').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    };
+    
+    
+    
+    //ajax for encounter finalize popup model
+    function encounterfinalize(requestId) {
+
+        console.log("CLicked")
+        $.ajax({
+            url: '@Url.Action("EncounterFinalize", "Provider")',
+            type: 'GET',
+            data: {requestId : requestId},
+            success: function (result) {
+                console.log(result)
+                $('#encounterfinalize').html(result);
+                $('#encounterFinalize').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    }
+
+
 </script>

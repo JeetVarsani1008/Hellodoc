@@ -609,7 +609,6 @@ namespace DAL.Controllers
             adminOrderVm.RequestId = requestID;
             return View(adminOrderVm);
         }
-
         #endregion Orders
 
         #region BusinessSelect
@@ -779,10 +778,9 @@ namespace DAL.Controllers
         #endregion
 
         //this part is for review agreement
-        [CustomAuthorize("1")]
         #region ReviewAgreement
         public IActionResult ReviewAgreement(string email, int requestId)
-         {
+        {
             ReviewAgreementVm reviewAgreementVm = new ReviewAgreementVm();
             reviewAgreementVm.RequestId = requestId;
             return View(reviewAgreementVm);
@@ -801,7 +799,7 @@ namespace DAL.Controllers
             {
                 TempData["error"] = "Status Already Changed";
             }
-            return RedirectToAction("AdminDashboard");
+            return RedirectToAction("Login","Login");
         }
         #endregion
 
@@ -817,7 +815,7 @@ namespace DAL.Controllers
             {
                 TempData["error"] = "Your Agreement Already Cancelled.";
             }
-            return RedirectToAction("AdminDashboard");
+            return RedirectToAction("Login","Login");
         }
         #endregion
         //review agreement complete
@@ -832,8 +830,8 @@ namespace DAL.Controllers
         }
         #endregion
 
-        #region SendMail : post
         [HttpPost]
+        #region SendMail : post
         public async Task<IActionResult> SendMail(AdminClearVm model)
         {
             var subject = "Submit Request";
@@ -1678,11 +1676,13 @@ namespace DAL.Controllers
         #endregion
 
         [Route("/Admin/Scheduling/checkshiftexist/{physicianId}/{shiftdate}/{starttime}/{endtime}")]
+        #region checkshiftexist
         public IActionResult checkshiftexist(int physicianId, DateOnly shiftdate,TimeOnly starttime,TimeOnly endtime)
         {
             var existshift = _adminDashboard.checkshiftExistsForPhysician(physicianId,shiftdate, starttime, endtime);
             return Json(new { exist = existshift });
         }
+        #endregion
 
         #region CreateShiftPost
         public IActionResult CreateShiftPost(ViewShiftVm model, List<int> WeekDaysList)

@@ -86,8 +86,33 @@
                 initialView: 'dayGridMonth',
                 eventDisplay: 'block',
                 datesSet: function (info) {
-                    var title = info.view.title;
-                    $("#calendarTitle").html(title);
+
+                    var view = info.view;
+                    var start = info.start;
+                    var end = info.end;
+
+                    // Check if the view is dayGridMonth
+                    if (view.type === 'dayGridMonth') {
+                        // Set the first day of the month
+                        var firstDisplayedDate = new Date(start.getFullYear(), start.getMonth(), 1);
+
+                        // Set the last day of the month
+                        var lastDayOfMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+                        var lastDisplayedDate = new Date(start.getFullYear(), start.getMonth(), lastDayOfMonth.getDate());
+
+                        var formattedStart = firstDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + firstDisplayedDate.getDate();
+                        var formattedEnd = lastDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + lastDisplayedDate.getDate() + ', ' + lastDisplayedDate.getFullYear();
+                    } else {
+                        var formattedStart = start.toLocaleString('default', { month: 'short' }) + ' ' + start.getDate();
+                        var formattedEnd = end.toLocaleString('default', { month: 'short' }) + ' ' + end.getDate() + ', ' + end.getFullYear();
+                    }
+
+                    document.getElementById('calendarTitle').textContent = 'Schedule for: ' + formattedStart + ' - ' + formattedEnd;
+
+
+
+                    // var title = info.view.title;
+                    // $("#calendarTitle").html(title);
                     // loadResources();
                     loadShifts();
                 },

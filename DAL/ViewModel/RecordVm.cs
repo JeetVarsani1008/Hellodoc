@@ -53,7 +53,7 @@ namespace DAL.ViewModel
 		public string RoleName { get; set; }
 		public string Email { get; set; }
 
-		public DateOnly CreatedDate { get; set; }
+		public DateOnly? CreatedDate { get; set; }
 		public DateOnly? SentDate { get; set; }
 
 		public int? SentTries { get; set; }

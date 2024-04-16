@@ -56,7 +56,6 @@ namespace BLL.Interface
         List<HealthProfessional> getVendorDetails(int vendorId);
         void orderDataStore(AdminOrderVm model, int requestID);
 
-
         //transfer case all methods
         List<Region> transferRegion();
         List<Physician> transferPhysician(int regionId);
