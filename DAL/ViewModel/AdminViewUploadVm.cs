@@ -13,7 +13,9 @@ namespace DAL.ViewModel
         
         public string Name { get; set; }
 
-
+        public string ProviderNotes { get; set; }
         public List<RequestWiseFile> requestWiseFiles { get; set; }
+
+        public bool IsFinalized { get; set; }
     }
 }

@@ -48,5 +48,7 @@ namespace DAL.ViewModelProvider
         public string NPINumber { get; set; }
         public string Photo {  get; set; }
         public string Signature {  get; set; }
+
+        public string Message { get; set; }
     }
 }

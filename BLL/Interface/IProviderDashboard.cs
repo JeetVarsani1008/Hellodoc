@@ -22,6 +22,10 @@ namespace BLL.Interface
 
         //for my profile 
         bool providerResetPassword(string password, int physicianId);
+
+        //send request via mail to edit profile
+        Physician getPhysician(ProviderProfileVm model);
+        AspNetUser getEmailByCreatedBy(int createdBy);
         void createShiftPost(ViewShiftVm model, int aspId, List<int> WeekDaysList);
         bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime);
 
@@ -34,8 +38,16 @@ namespace BLL.Interface
 
         bool typeOfCare(EncounterVm model, string care);
 
-        bool houseCall(int requestId);
+        bool houseCall(int requestId);  
         void postEncounterData(EncounterVm model, int encounterbtn);
+        bool CreateNewReq(AdminCreateRequestVm model, int PhysicianId);
+
+        bool aspNetUserCheck(string userData);
+        List<RequestWiseFile> getFilesByRequestId(int requestId);
+        bool concludeCareDelete(int documentId);
+        void concludeCarePost(AdminViewUploadVm model);
+
+        Encounter getEncounterDataByRequestId(int requestId);
 
     }
 }

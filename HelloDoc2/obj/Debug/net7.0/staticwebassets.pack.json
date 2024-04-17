@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\HelloDoc2.bundle.scp.css"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "PackagePath": "staticwebassets\\Rotativa\\wkhtmltopdf.exe"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\SRS Screen Shorts\\11116016_415.jpg",
       "PackagePath": "staticwebassets\\SRS Screen Shorts\\11116016_415.jpg"
     },
@@ -1047,6 +1051,10 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Patient site_forget password_mobile.png",
       "PackagePath": "staticwebassets\\upload\\Patient site_forget password_mobile.png"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\PatientRecords (5).xlsx",
+      "PackagePath": "staticwebassets\\upload\\PatientRecords (5).xlsx"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",

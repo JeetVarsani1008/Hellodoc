@@ -68,7 +68,6 @@ function filterRequestsProvider(statusarray, reqtypeid, searchdata) {
             console.log(status);
             console.log("Function Success");
             $('#provider-partial-table').html(response);
-            $('#searchdata').val("");
         },
         error: function () {
             $('#provider-partial-table').html("Something Went Wrong");

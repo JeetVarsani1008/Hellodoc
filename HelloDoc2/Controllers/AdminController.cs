@@ -369,7 +369,7 @@ namespace DAL.Controllers
         public IActionResult AsignCasePost(AdminAsignVm model)
         {
             var req = HttpContext.Session.GetInt32("asignReq");
-            _adminDashboard.asignCasePost(model, req ?? 0, 2);
+            _adminDashboard.asignCasePost(model, req ?? 0);
             return RedirectToAction("AdminDashboard", "Admin");
         }
         #endregion

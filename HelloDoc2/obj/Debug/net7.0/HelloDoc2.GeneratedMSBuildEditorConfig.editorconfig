@@ -226,8 +226,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxTdWJtaXRfUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ConcludeCare.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcQ29uY2x1ZGVDYXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/CreateRequestProvider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcQ3JlYXRlUmVxdWVzdFByb3ZpZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/main project/Hellodoc/HelloDoc2/Views/Provider/EncounterForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcRW5jb3VudGVyRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/EncounterPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcRW5jb3VudGVyUGRmLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/main project/Hellodoc/HelloDoc2/Views/Provider/MySchedule.cshtml]

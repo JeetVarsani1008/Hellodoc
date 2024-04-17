@@ -7,6 +7,8 @@ using HelloDoc2.Auth;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using Org.BouncyCastle.Ocsp;
+using Rotativa.AspNetCore;
+using System.Collections;
 
 namespace HelloDoc2.Controllers
 {
@@ -121,12 +123,16 @@ namespace HelloDoc2.Controllers
             int PageSize = 5;
 
             var phyId = HttpContext.Session.GetInt32("PhysicianId");
-            statusarray = HttpContext.Session.GetString("StatusFetch");
+            if(searchdata == null)
+            {
+                statusarray = HttpContext.Session.GetString("StatusFetch");
+            }
             var reqProvider = _providerDashboard.getRequestDataForProvider(statusarray, requestTypeId, searchdata, phyId??0);
             var reqProviderPaginatedData = reqProvider.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
             ProviderDashboardVm providerDashboardVm = new ProviderDashboardVm()
             {
+                
                 requestDataProvider = reqProviderPaginatedData,
                 Page = new PageVm
                 {
@@ -177,9 +183,27 @@ namespace HelloDoc2.Controllers
         #endregion 
 
         #region RequestToAdmin
-        public IActionResult RequestToAdmin()
+        [HttpGet]
+        public IActionResult RequestToAdmin(int physicianId)
         {
-            return PartialView("Provider/_RequestToAdminToChangeProfile");
+            ProviderProfileVm providerProfileVm = new ProviderProfileVm();
+            providerProfileVm.PhysicianId = physicianId;
+            return PartialView("Provider/_RequestToAdminToChangeProfile",providerProfileVm);
+        }
+        #endregion
+
+        #region RequestToAdmin : post 
+        [HttpPost]
+        public IActionResult RequestToAdmin(ProviderProfileVm model)
+        {
+            var data = _providerDashboard.getPhysician(model);
+            var aspuser = _providerDashboard.getEmailByCreatedBy(data.CreatedBy);
+            var subject = "To Edit Or Update Physician Profile Data";
+            var body = "Request :- " + model.Message;
+
+            SendEmailAsync(aspuser.Email, subject, body);
+            TempData["sucess"] = "Request Sent Successfully to Admin";
+            return RedirectToAction("ProviderMyProfile", "Provider");
         }
         #endregion
 
@@ -352,6 +376,7 @@ namespace HelloDoc2.Controllers
             var returnViewData = _adminDashboard.GetAdminViewUploadData(model, requestId);
             var documents = _adminDashboard.GetFilesByRequestId(requestId);
             ViewBag.document = documents;
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
             return View(returnViewData);
         }
         #endregion
@@ -392,7 +417,7 @@ namespace HelloDoc2.Controllers
             AdminOrderVm adminOrderVm = new AdminOrderVm();
             adminOrderVm.healthProfessionType = _adminDashboard.healthProfessionalTypes();
             adminOrderVm.RequestId = requestID;
-
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
             return View(adminOrderVm);
         }
         #endregion Orders
@@ -454,6 +479,7 @@ namespace HelloDoc2.Controllers
         #region EncounterForm 
         public IActionResult EncounterForm(int requestId)
         {
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
             var data = _adminDashboard.encounterFormGetData(requestId);
             return View(data);
         }
@@ -476,10 +502,154 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
+        #region GeneratePDF
+        public IActionResult GeneratePDF(int requestid)
+        {
+            //AdminDashboardModel model = new AdminDashboardModel();
+            //model.encounterModel = _adminDashboardService.GetEncounterData(requestid);
+            EncounterVm model = new EncounterVm();
+            model = _adminDashboard.encounterFormGetData(requestid);
+
+            if (model == null)
+            {
+                TempData["error"] = "Something Went Wrong!";
+                return NotFound();
+            }
+
+            DateTime currentDateTime = DateTime.Now;
+            string fileName = $"encounter_{currentDateTime.ToString("ddMMyyyy_HHmmss")}.pdf";
+            return new ViewAsPdf("EncounterPdf", model)
+            {
+                FileName = fileName
+            };
+
+        }
+        #endregion
+
         #region EncounterFinalize 
         public IActionResult EncounterFinalize(int requestId)
         {
+            HttpContext.Session.SetInt32("RequestId", requestId);
             return PartialView("Provider/_EncounterFinalize");
+        }
+        #endregion
+
+        #region CreateRequestProvider
+        public IActionResult CreateRequestProvider()
+        {
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
+            AdminCreateRequestVm adminCreateRequestVm = new AdminCreateRequestVm();
+            adminCreateRequestVm.regions = _providerDashboard.getRegions();
+            return View(adminCreateRequestVm);
+        }
+        #endregion
+
+        #region CreateRequestProvider : post
+        [HttpPost]
+        public async Task<IActionResult> CreateRequestProvider(AdminCreateRequestVm model)
+        {
+            int physicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
+            var user = _providerDashboard.CreateNewReq(model, physicianId);
+
+            if (user == true)
+            {
+                var resetLink = "<a href=" + Url.Action("CreateAccount", "Home", new { }, "https") + "> CreateAccount</a>";
+
+                var subject = "Create Account Link";
+                var body = "<b>Please Create Your Account</b><br/>" + resetLink;
+
+
+                await SendEmailAsync(model.Email, subject, body);
+                TempData["success"] = "Request Created Successfully & Create Account link is sent to Patient's Email";
+                return RedirectToAction("ProviderDashboard", "Provider");
+            }
+            else
+            {
+                TempData["success"] = "Request Created Successfully";
+                return RedirectToAction("ProviderDashboard","Provider");
+            }
+            
+        }
+        #endregion
+
+        #region  Checkemail
+        public IActionResult Checkemail(string userdata)
+        {
+            var data = _providerDashboard.aspNetUserCheck(userdata);
+            return Json(data);
+        }
+        #endregion
+
+        #region ConcludeCare : get
+        public IActionResult ConcludeCare(int requestId)
+        {
+            var encounterdata = _providerDashboard.getEncounterDataByRequestId(requestId);
+            AdminViewUploadVm adminViewUploadVm = new AdminViewUploadVm();
+            adminViewUploadVm.requestWiseFiles = _providerDashboard.getFilesByRequestId(requestId);
+            adminViewUploadVm.RequestId = requestId;
+            adminViewUploadVm.IsFinalized = encounterdata.IsFinalize ?? false;
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
+            return View(adminViewUploadVm);
+        }
+        #endregion
+
+        #region ViewUploadDownload
+        public IActionResult ConcludeCareDownload(int documentId)
+        {
+            var filename = _adminDashboard.GetFileById(documentId);
+            if (filename == null)
+            {
+                return NotFound();
+            }
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
+            return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
+        }
+        #endregion
+
+        #region ConcludeCareDelete
+        //this part is for delete single file
+        public IActionResult ConCludeCareDelete(int documentId, int requestId)
+        {
+            var fileToDelete = _adminDashboard.GetFileById(documentId);
+            if (fileToDelete == null)
+            {
+                return NotFound();
+            }
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", fileToDelete.FileName);
+
+            try
+            {
+                System.IO.File.Delete(filePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting file : {ex.Message}");
+                return StatusCode(500); // this is for internal server error
+            }
+
+
+            //now delete this file only from upload but isdeleted is change in requestwisefile 
+            var filedelete = _providerDashboard.concludeCareDelete(documentId);
+            if (filedelete)
+            {
+                TempData["success"] = "File deleted successfully.";
+                return RedirectToAction();
+            }
+            else
+            {
+                TempData["error"] = "Something Went Wrong";
+                return RedirectToAction("ConcludeCare", "Provider", new { requestId });
+            }
+        }
+        #endregion
+
+        #region ConcludeCare : post 
+        [HttpPost]
+        public IActionResult ConcludeCare(AdminViewUploadVm model)
+        {
+            _providerDashboard.concludeCarePost(model);
+            TempData["success"] = "Request Concluded Successfully.";
+            return RedirectToAction("ProviderDashboard","Provider");
         }
         #endregion
     }

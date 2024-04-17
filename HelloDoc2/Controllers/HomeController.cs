@@ -164,7 +164,8 @@ namespace DAL.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAccount(LoginVm loginVm) {
+        public IActionResult CreateAccount(LoginVm loginVm) 
+        {
                 if (loginVm.Email == null)
                 {
                     TempData["errorEmail"] = "Enter UserName";
@@ -178,12 +179,14 @@ namespace DAL.Controllers
                     if (aspnetUser == null)
                     {
                         _login.addNewUserData(loginVm, requestClient);
-                        TempData["successrequest"] = "Your Account is Created Succesfully";
+                        TempData["success"] = "Your Account is Created Succesfully";
                         return RedirectToAction("Patient_Login");
                     }
                     else
                     {
-                        TempData["ErrorMsg"] = "Entered Email is wrong or Existing Email";
+                        aspnetUser.PasswordHash = loginVm.PasswordHash;
+                        _context.SaveChanges();
+                        TempData["success"] = "Entered Email is Exist And Password Saved";
                         return View("CreateAccount");
                     }
                 }

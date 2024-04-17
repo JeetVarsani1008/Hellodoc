@@ -9,9 +9,9 @@
 
 <div class="mt-2 mb-2 container-fluid ">
 
-    <div class="table-responsive d-none d-md-block">
+    <div class="table-responsive d-none d-md-block" style=" min-height:400px">
             <table class="table overflow-visible" id="New">
-                <thead>
+                <thead class="table-active">
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Phone</th>
@@ -27,9 +27,11 @@
                 @foreach(var obj in Model.requestDataProvider)
                 {
                     <tr class="align-middle color_@obj.RequestTypeId" id="SearchData">
-                        <td><div>@obj.Name</div></td>
-                        <td><div>@obj.Phone</div></td>
-                        <td><div>@obj.Address</div></td>
+                        <td class="text-white"><div>@obj.Name</div></td>
+                        <td>
+                            <button class="btn border-white text-white d-flex align-items-center"><i class="bi bi-telephone me-2"></i>@obj.Phone</button>
+                        </td>
+                        <td class="text-white"><div>@obj.Address</div></td>
                         @if(obj.StatusForDash == 5 || obj.StatusForDash == 4)
                         {
                             if (obj.StatusForDash == 5)
@@ -46,11 +48,11 @@
                             <ul class="dropdown-menu overflow-visible">
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 1))
                                 {
-                                    <li class="d-flex align-items-center ps-1"><a data-requestId=" @obj.RequestId" id="accept">Accept</a></li>
+                                    <li class="d-flex align-items-center ps-1"><button class="dropdown-item p-1 accept" data-requestId="@obj.RequestId">Accept</button></li>
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 6))
                                 {
-                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><a class="dropdown-item p-1">Conclude Care</a></li>
+                                    <li class="d-flex align-items-center ps-1"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="window.location.href='@Url.Action("ConcludeCare","Provider", new{requestId = obj.RequestId})'">Conclude Care</button></li>
                                 }
                                 @if(Model.requestDataProvider.Any(x => x.StatusForDash == 2))
                                 {
@@ -80,9 +82,13 @@
                                     {
                                         if(obj.IsFinalize == false)
                                         {
-                                        <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="window.location.href='@Url.Action("EncounterForm","Provider", new {requestId = obj.RequestId})'">Encounter</button></li>
+                                            <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="window.location.href='@Url.Action("EncounterForm","Provider", new {requestId = obj.RequestId})'">Encounter</button></li>
                                         }
-                                        <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="encounterfinalize(@obj.RequestId)"></button></li>
+                                        else
+                                        {
+                                        <li class="d-flex align-items-center"><i class="bi bi-card-checklist me-1"></i><button class="dropdown-item p-1" onclick="encounterfinalize(@obj.RequestId)">Encounter</button></li>
+                                            
+                                        }
                                     }
                                     else
                                     {
@@ -95,14 +101,6 @@
                 }                    
                 </tbody>
             </table>
-        </div>
-
-</div>
-
-<div id="contentSendAgreement"></div>
-<div id="contentTransferNote"></div>
-<div id="encounterpopup"></div>
-
 <nav aria-label="Page navigation example " class="pb-1 mx-4">
     <div class="justify-content-between d-flex">
         @if ((Model.skipCount + Model.Page.itemperpage) >= Model.Page.totalitem)
@@ -131,17 +129,28 @@
         </ul>
     </div>
 </nav>
+        </div>
+
+</div>
+
+<div id="contentSendAgreement"></div>
+<div id="contentTransferNote"></div>
+<div id="encounterpopup"></div>
+<div id="encounterfinalize"></div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @section Scripts {
     @{
-                <partial name="_ValidationScriptsPartial" />
+        <partial name="_ValidationScriptsPartial" />
     }
 }
 
 
 <script>
-    var acceptbtn = document.getElementById('accept');
+    var acceptbtns = document.querySelectorAll('.accept');
+    acceptbtns.forEach(function (acceptbtn) {
+
         acceptbtn.addEventListener('click', function (event) {
 
         event.preventDefault();
@@ -164,6 +173,7 @@
             }
         });
     });
+    }); 
 
 
     //ajax for Send agreement model

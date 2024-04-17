@@ -70,6 +70,9 @@ namespace DAL.ViewModel
 
         public string FollowUp { get; set; }
 
+        public string Location { get; set; }
 
+        public string DateOfService { get; set; }   
+        public string HistoryOfPresentIllness { get; set; }
     }
 }

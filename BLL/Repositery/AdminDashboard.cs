@@ -324,28 +324,24 @@ namespace BLL.Repositery
         #endregion
 
         #region asignCasePost
-        public void asignCasePost(AdminAsignVm model, int requestId, int newStatus)
+        public void asignCasePost(AdminAsignVm model, int requestId)
         {
             var request = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
-            request.Status = (short)newStatus;
             request.ModifiedDate = DateTime.Now;
+            request.PhysicianId = model.PhysicianId;
             _context.SaveChanges();
             var reqstatus = new RequestStatusLog
             {
                 RequestId = requestId,
-                Status = (short)newStatus,
+                Status = 1,
                 Notes = model.Description,
                 CreatedDate = DateTime.Now,
                 PhysicianId = model.PhysicianId,
             };
-            if (newStatus == 2)
-            {
-                reqstatus.TransToPhysicianId = model.PhysicianId;
-                request.PhysicianId = model.PhysicianId;
-            }
-            _context.Requests.Update(request);
             _context.RequestStatusLogs.Add(reqstatus);
             _context.SaveChanges();
+
+            reqstatus.TransToPhysicianId = model.PhysicianId;
         }
 		#endregion
 

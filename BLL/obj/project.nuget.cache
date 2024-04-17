@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AJpgYbCfADEEXP6knmDw8CywpYI/y2EQLlA+ufg+rHPIPl4IyHUMVzCOjHE/PjGuLL3j2G/YC0Ye8bj97dzzqQ==",
+  "dgSpecHash": "Q43eqG7puHB8xQ2r4v5id/LfLESoO5ZTNRedRWwl+aWTev7YZ32CxoQvriif4X3OeewGBDHIEhf1guKq24rPPg==",
   "success": true,
   "projectFilePath": "D:\\main project\\Hellodoc\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\pci19\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\npgsql\\7.0.6\\npgsql.7.0.6.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.11\\npgsql.entityframeworkcore.postgresql.7.0.11.nupkg.sha512",
+    "C:\\Users\\pci19\\.nuget\\packages\\rotativa.aspnetcore\\1.3.2\\rotativa.aspnetcore.1.3.2.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",

@@ -32,7 +32,7 @@
         <div class="shadow bg-white rounded-3 p-4">
 
             <div class="d-flex justify-content-end">
-                <button class="btn btn-outline-info" onclick="requesttoadmin()">Request To Admin</button>
+                <button class="btn btn-outline-info" onclick="requesttoadmin(@Model.PhysicianId)">Request To Admin</button>
             </div>
             @*First div*@
             <h2 class="">Account Information</h2>
@@ -249,10 +249,11 @@
 
 <script>
 
-    function requesttoadmin() {
+    function requesttoadmin(physicianId) {
         $.ajax({
             url : "/Provider/RequestToAdmin",
             type : "GET",
+            data: {physicianId : physicianId},
             success: function (data) {
                 $('#requestToAdminContent').html(data);
                 $('#requestToAdmin').modal("show");

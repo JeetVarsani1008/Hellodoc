@@ -1,25 +1,20 @@
 ﻿<div class="modal fade" id="encounterFinalize" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered rounded-4">
         <div class="modal-content">
             <div class="modal-header bg-info">
-                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Select Type Of Care</h1>
+                <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Encounter Form</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form asp-action="TypeOfCare" asp-controller="Provider">
-                @* <input asp-for="RequestId" hidden /> *@
-                <div class="modal-body">
-                    <div class="text-center mt-3 d-flex justify-content-center">
-                        <input type="radio" class="btn-check" name="care" value="Housecall" id="btn-check-outlined" autocomplete="off">
-                        <label class="btn btn-outline-info me-2" for="btn-check-outlined">House Call</label><br>
-                        <input type="radio" class="btn-check" name="care" value="Consult" id="btn-check-outlined1" autocomplete="off">
-                        <label class="btn btn-outline-info" for="btn-check-outlined1">Consult</label><br>
+            <form asp-action="GeneratePDF" asp-controller="Provider">
+                <div class="mx-2 py-3" >
+                    <p>Encounter form is finalized successfully!</p>
+                    <input type="hidden" id="requestId" name="requestId" value="@Context.Session.GetInt32("RequestId")" />
+                    <div class="d-flex justify-content-center my-2">
+                        <button type="submit" class="btn btn-info" style="color:white" id="continue-btn" data-bs-dismiss="modal">Download</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-info" style="color:white" id="continue-btn">Continue</button>
-                    <button type="button" class="btn btn-outline-info btnmodal" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+ 

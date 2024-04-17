@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,6 +125,22 @@ namespace BLL.Repositery
             passdata.PasswordHash = password;
             _context.SaveChanges();
             return true;
+        }
+        #endregion
+
+        #region getPhysician
+        public Physician getPhysician(ProviderProfileVm model)
+        {
+            var data = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
+            return data;
+        }
+        #endregion
+
+        #region getEmailByCreatedBy
+        public AspNetUser getEmailByCreatedBy(int createdBy)
+        {
+            var data = _context.AspNetUsers.FirstOrDefault(x => x.Id == createdBy);
+            return data;
         }
         #endregion
 
@@ -351,6 +368,186 @@ namespace BLL.Repositery
                 data.IsFinalize = true;
                 _context.SaveChanges();
             }
+        }
+        #endregion
+
+        #region CreateNewReq
+        public bool CreateNewReq(AdminCreateRequestVm model, int PhysicianId)
+        {
+            User user1 = _context.Users.FirstOrDefault(x => x.Email == model.Email);
+
+
+            string abbreviation;
+            if (model.RegionId == 1)
+            {
+                abbreviation = "GJ";
+            }
+            else if (model.RegionId == 2)
+            {
+                abbreviation = "RJ";
+            }
+            else if (model.RegionId == 3)
+            {
+                abbreviation = "PN";
+            }
+            else
+            {
+                abbreviation = "GO";
+            }
+
+            Request request = new Request();
+            RequestClient requestClient = new RequestClient();
+            var st = _context.Regions.FirstOrDefault(u => u.RegionId == model.RegionId);
+
+            request.FirstName = model.FirstName;
+            request.LastName = model.LastName;
+            request.PhoneNumber = model.Phone;
+            request.Email = model.Email;
+            request.Status = 1;
+            request.CreatedDate = DateTime.Now;
+            request.RequestTypeId = 2;
+            request.PhysicianId = PhysicianId;
+            _context.Requests.Add(request);
+            _context.SaveChanges();
+
+
+            requestClient.RequestId = request.RequestId;
+            requestClient.FirstName = model.FirstName;
+            requestClient.LastName = model.LastName;
+            requestClient.Email = model.Email;
+            requestClient.Notes = model.Symptoms;
+            requestClient.Street = model.Street;
+            requestClient.City = model.City;
+            requestClient.State = st.Name;
+            requestClient.RegionId = st.RegionId;
+            requestClient.ZipCode = model.ZipCode;
+            requestClient.Address = model.Street + " " + model.City + " " + st.Name + " " + model.ZipCode;
+            requestClient.PhoneNumber = request.PhoneNumber;
+            requestClient.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.DateOfBirth.Month);
+            requestClient.IntYear = model.DateOfBirth.Year;
+            requestClient.IntDate = model.DateOfBirth.Day;
+            _context.RequestClients.Add(requestClient);
+            _context.SaveChanges();
+
+            if (user1 != null)
+            {
+                request.UserId = user1.UserId;
+                _context.SaveChanges();
+                return false;
+            }
+            else
+            {
+                AspNetUser aspNetUser = new AspNetUser();
+                User user = new User();
+                AspNetUserRole aspNetUserRole = new AspNetUserRole();
+
+
+
+                aspNetUser.UserName = model.FirstName + model.LastName;
+                aspNetUser.Email = model.Email;
+                aspNetUser.Phonenumber = model.Phone;
+                aspNetUser.CreatedDate = DateTime.Now;
+                _context.AspNetUsers.Add(aspNetUser);
+                _context.SaveChanges();
+
+
+                user.AspNetUserId = aspNetUser.Id;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Email = model.Email;
+                user.Mobile = model.Phone;
+                user.Street = model.Street;
+                user.City = model.City;
+                user.State = st.Name;
+                user.RegionId = st.RegionId;
+                user.ZipCode = model.ZipCode;
+                user.CreatedBy = PhysicianId.ToString();
+                user.CreatedDate = DateTime.Now;
+                user.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.DateOfBirth.Month);
+                user.IntDate = model.DateOfBirth.Day;
+                user.IntYear = model.DateOfBirth.Year;
+
+                _context.Users.Add(user);
+                _context.SaveChanges();
+
+                aspNetUserRole.UserId = aspNetUser.Id;
+                aspNetUserRole.RoleId = 2;
+
+                _context.AspNetUserRoles.Add(aspNetUserRole);
+                _context.SaveChanges();
+
+
+                request.UserId = user.UserId;
+                request.CreatedUserId = user.UserId;
+                request.PatientAccountId = user.AspNetUserId.ToString();
+                var numberString = request.RequestId.ToString();
+                var paddedNumberString = numberString.PadLeft(4, '0');
+                var ConfirmationNumber = abbreviation + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + model.FirstName.ToUpper().Substring(0, 2) + model.LastName.ToUpper().Substring(0, 2) + paddedNumberString;
+                request.ConfirmationNumber = ConfirmationNumber;
+                request.UserId = user.UserId;
+                _context.SaveChanges();
+
+                return true;
+            }
+        }
+        #endregion
+
+        #region aspNetUserCheck
+        public bool aspNetUserCheck(string userData)
+        {
+            var data = _context.AspNetUsers.FirstOrDefault(x => x.Email == userData);
+            if(data != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        //for conclude 
+        #region getFilesByRequestId
+        public List<RequestWiseFile> getFilesByRequestId(int requestId)
+        {
+            var data = _context.RequestWiseFiles.Where(x => x.RequestId == requestId).ToList();
+            return data;
+        }
+        #endregion
+
+        #region concludeCareDelete
+        public bool concludeCareDelete(int documentId)
+        {
+            //BitArray bit = new BitArray(1,true);
+            RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == documentId);
+            if(requestWiseFile != null)
+            {
+                requestWiseFile.IsDeleted = new BitArray(1, true);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        #region concludeCarePost 
+        public void concludeCarePost(AdminViewUploadVm model)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == model.RequestId);
+            data.Status = 8;
+            _context.SaveChanges();
+        }
+        #endregion
+
+        #region getEncounterDataByRequestId
+        public Encounter getEncounterDataByRequestId(int requestId)
+        {
+            var data = _context.Encounters.FirstOrDefault(x => x.RequestId == requestId);
+            return data;
         }
         #endregion
     }

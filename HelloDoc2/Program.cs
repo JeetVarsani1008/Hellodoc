@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http;
 using System.Text;
+using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +63,7 @@ app.UseStaticFiles();
 app.UseSession();
 
 app.UseRouting();
+app.UseRotativa();
 
 app.UseAuthentication();
 app.UseAuthorization();

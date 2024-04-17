@@ -36,7 +36,7 @@ namespace BLL.Interface
         void blockCase(AdminBlockVm model, int regionId);
         AdminBlockVm adminBlockVm(int RequestId);
 
-        void asignCasePost(AdminAsignVm model, int requestId, int newStatus);
+        void asignCasePost(AdminAsignVm model, int requestId);
 
         //view upload section 
         void UploadFile(int requestId, string fileName);
