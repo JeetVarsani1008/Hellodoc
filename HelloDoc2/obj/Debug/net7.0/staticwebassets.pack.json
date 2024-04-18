@@ -997,6 +997,10 @@
       "PackagePath": "staticwebassets\\upload\\Create Role-Physician_mobile.png"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig Contact your Provider.jpg",
+      "PackagePath": "staticwebassets\\upload\\Fig Contact your Provider.jpg"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Fig1. Platform login page.jpg",
       "PackagePath": "staticwebassets\\upload\\Fig1. Platform login page.jpg"
     },
@@ -1057,6 +1061,10 @@
       "PackagePath": "staticwebassets\\upload\\PatientRecords (5).xlsx"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\PatientRecords (6).xlsx",
+      "PackagePath": "staticwebassets\\upload\\PatientRecords (6).xlsx"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",
       "PackagePath": "staticwebassets\\upload\\Screenshot (2) (1).png"
     },
@@ -1099,6 +1107,10 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\downward-arrow.svg",
       "PackagePath": "staticwebassets\\upload\\downward-arrow.svg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\encounter_17042024_145753.pdf",
+      "PackagePath": "staticwebassets\\upload\\encounter_17042024_145753.pdf"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\index.html",

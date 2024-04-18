@@ -36,27 +36,36 @@ namespace DAL.Controllers
             _jwt = jwt;
         }
 
+        #region Index
         public IActionResult Index()
         {
             var model = new List<PatientData>();
             return View();
         }
+        #endregion
 
+        #region Privacy
         public IActionResult Privacy()
         {
             return View();
         }
+        #endregion
 
+        #region Forgot_Password
         public IActionResult Forgot_Password()
         {
             return View();
         }
+        #endregion
 
+        #region Patient_Login
         public IActionResult Patient_Login()
         {
             return View();
         }
+        #endregion
 
+        #region Patient_Login : post
         [HttpPost]
         public IActionResult Patient_Login(LoginVm loginVm)
         {
@@ -68,7 +77,7 @@ namespace DAL.Controllers
                     AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
                     //var user1 = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
 
-                    if (aspNetUserRole == null)
+                    if (aspNetUserRole.RoleId == 1 || aspNetUserRole.RoleId == 3)
                     {
                         //ModelState.AddModelError(String.Empty, "Cant Have access to this site");
                         TempData["error"] = "this email has no access to this site";
@@ -87,11 +96,17 @@ namespace DAL.Controllers
                     }
 
                 }
+                else
+                {
+                    TempData["error"] = "Invalid Username or Password!";
+                    return View();
+                }
             }
             return View();
         }
+        #endregion
 
-
+        #region patient_logout
         public IActionResult patient_logout()
         {
             HttpContext.SignOutAsync();
@@ -99,45 +114,54 @@ namespace DAL.Controllers
             HttpContext.Session.Clear();
             return View("Patient_Login");
         }
-
+        #endregion
 
         [CustomAuthorize("2")]
+        #region PatientDashboard
         public IActionResult PatientDashboard()
         {
             int? uid = HttpContext.Session.GetInt32("userId");
-            ViewBag.UserName = HttpContext.Session.GetString("username");
             ViewBag.ActivePage = "PatientDashboard";
             _patientDashboard.patientDashboardMain(uid);
             return View(_patientDashboard.patientDashboardMain(uid));
         }
+        #endregion
 
+        #region Submit_Request
         public IActionResult Submit_Request()
         {
             return View();
         }
+        #endregion
 
+        #region PatientRequestForm
         public IActionResult PatientRequestForm()
         {
             PatientData patientData = new PatientData();
             patientData.regions = _patientRequest.getRegion();
             return View(patientData);
         }
+        #endregion
 
+        #region PatientRequestForm : post
         [HttpPost]
         public IActionResult PatientRequestForm(PatientData model)
         {
-                _patientRequest.patientRequestForm(model);
-                return RedirectToAction("Index","Home");       
-   
+            _patientRequest.patientRequestForm(model);
+            return RedirectToAction("Index","Home");       
         }
+        #endregion
 
+        #region FamilyFriendsForm
         public IActionResult FamilyFriendsForm()
         {
             FamilyData familyData = new FamilyData();
             familyData.regions = _patientRequest.getRegion();
             return View(familyData);
         }
+        #endregion
 
+        #region FamilyFriendsForm : post
         [HttpPost]
         public async Task<IActionResult> FamilyFriendsForm(FamilyData familyData)
         {
@@ -157,77 +181,87 @@ namespace DAL.Controllers
             }
             return RedirectToAction("Index","Home");
         }
+        #endregion
 
-
+        #region CreateAccount
         public IActionResult CreateAccount() {
             return View();
         }
+        #endregion
 
+        #region CreateAccount : post
         [HttpPost]
         public IActionResult CreateAccount(LoginVm loginVm) 
         {
-                if (loginVm.Email == null)
+            if (loginVm.Email == null)
+            {
+                TempData["errorEmail"] = "Enter UserName";
+                return View("CreateAccount", loginVm);
+            }
+            AspNetUser aspnetUser = _login.getAspUser(loginVm);
+            User user = _login.getUser(loginVm);
+            RequestClient requestClient = _login.getRequestClient(loginVm);
+            if (loginVm.PasswordHash == loginVm.PasswordHash)
+            {
+                if (aspnetUser == null)
                 {
-                    TempData["errorEmail"] = "Enter UserName";
-                    return View("CreateAccount", loginVm);
-                }
-                AspNetUser aspnetUser = _login.getAspUser(loginVm);
-                User user = _login.getUser(loginVm);
-                RequestClient requestClient = _login.getRequestClient(loginVm);
-                if (loginVm.PasswordHash == loginVm.PasswordHash)
-                {
-                    if (aspnetUser == null)
-                    {
-                        _login.addNewUserData(loginVm, requestClient);
-                        TempData["success"] = "Your Account is Created Succesfully";
-                        return RedirectToAction("Patient_Login");
-                    }
-                    else
-                    {
-                        aspnetUser.PasswordHash = loginVm.PasswordHash;
-                        _context.SaveChanges();
-                        TempData["success"] = "Entered Email is Exist And Password Saved";
-                        return View("CreateAccount");
-                    }
+                    _login.addNewUserData(loginVm, requestClient);
+                    TempData["success"] = "Your Account is Created Succesfully";
+                    return RedirectToAction("Patient_Login");
                 }
                 else
                 {
-                    return View("CreateAccount", loginVm);
+                    aspnetUser.PasswordHash = loginVm.PasswordHash;
+                    _context.SaveChanges();
+                    TempData["success"] = "Entered Email is Exist And Password Saved";
+                    return View("CreateAccount");
                 }
             }
+            else
+            {
+                return View("CreateAccount", loginVm);
+            }
+        }
+        #endregion
 
+        #region ConciergeForm
         public IActionResult ConciergeForm()
         {
             ConciergeData conciergeData = new ConciergeData();
             conciergeData.regions = _patientRequest.getRegion();
             return View(conciergeData);
         }
+        #endregion
 
+        #region ConciergeForm : post
         [HttpPost]
         public IActionResult ConciergeForm(ConciergeData model)
         {
-
             _patientRequest.conciergeRequestForm(model);
             return RedirectToAction("Index", "Home");
-
         }
+        #endregion
 
+        #region BusinessForm
         public IActionResult BusinessForm()
         {
             BusinessData businessData = new BusinessData();
             businessData.regions = _patientRequest.getRegion(); 
             return View(businessData);
         }
+        #endregion
 
+        #region BusinessForm : post
         [HttpPost]
         public IActionResult BusinessForm(BusinessData model)
         {
             _patientRequest.businessRequestForm(model);
             return RedirectToAction("Index","Home");
         }
-
+        #endregion
 
         [CustomAuthorize("2")]
+        #region PatientDashboardProfile
         public IActionResult PatientDashboardProfile()
         {
             ViewBag.ActivePage = "PatientDashboardProfile";
@@ -235,7 +269,9 @@ namespace DAL.Controllers
             _patientDashboard.patientDashboardProfile(userID);
             return View(_patientDashboard.patientDashboardProfile(userID));
         }
+        #endregion
 
+        #region EditProfile
         public IActionResult EditProfile(PatientProfile model) 
         {
             int? userid = HttpContext.Session.GetInt32("userId");
@@ -243,12 +279,14 @@ namespace DAL.Controllers
             TempData["success"] = "Profile Edited Successfully";
             return RedirectToAction("PatientDashboardProfile", "Home");
         }
+        #endregion
 
         [CustomAuthorize("2")]
+        #region ViewDocument
         public IActionResult ViewDocument(int reqId)
         {
-            ViewBag.userName = HttpContext.Session.GetString("session1");
             HttpContext.Session.SetInt32("RequestId", reqId);
+            ViewBag.ActivePage = "PatientDashboard";
             var requestData = _patientDashboard.GetRequestById(reqId);
             ViewBag.Uploader = requestData.FirstName;
             ViewBag.reqid = reqId;
@@ -256,9 +294,9 @@ namespace DAL.Controllers
             ViewBag.document = documents;
             return View();
         }
+        #endregion
 
-
-
+        #region Download
         public IActionResult Download(int documentid)
         {
             var filename = _patientDashboard.GetFileById(documentid);
@@ -269,9 +307,9 @@ namespace DAL.Controllers
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
             return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
         }
+        #endregion
 
-
-
+        #region DownloadAll
         public IActionResult DownloadAll(int reqId)
         {
             var filesRow = _patientDashboard.GetAllFilesByRequestId(reqId);
@@ -279,18 +317,34 @@ namespace DAL.Controllers
             using (ZipArchive zip = new ZipArchive(ms, ZipArchiveMode.Create, true))
                 filesRow.ForEach(file =>
                 {
-                    var path = "D:\\my copy\\HelloDoc2\\HelloDoc2\\wwwroot\\upload\\" + file.FileName;
+                    var path = "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\" + file.FileName;
                     ZipArchiveEntry zipEntry = zip.CreateEntry(file.FileName);
-                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-                    using (Stream zipEntryStream = zipEntry.Open())
+                    try
                     {
-                        fs.CopyTo(zipEntryStream);
+                        using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                        using (Stream zipEntryStream = zipEntry.Open())
+                        {
+                            fs.CopyTo(zipEntryStream);
+                        }
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        TempData["ErrorMessage"] = $"File '{file.FileName}' not found.";
                     }
                 });
-            return File(ms.ToArray(), "application/zip", "download.zip");
+            if (TempData.ContainsKey("ErrorMessage"))
+            {
+                TempData["error"] = "something went wrong while downloading file";
+                return RedirectToAction("ViewDocument","Home",new {reqId = reqId});
+            }
+            else
+            {
+                return File(ms.ToArray(), "application/zip", "download.zip");
+            }
         }
+        #endregion
 
-
+        #region Upload
         [HttpPost]
         public IActionResult Upload([FromForm] IFormFile Filepath)
         {
@@ -311,36 +365,48 @@ namespace DAL.Controllers
             TempData["Uploadscs"] = "File Uploaded Successfully.Please Refresh Page";
             return View();
         }
+        #endregion
 
         [CustomAuthorize("2")]
+        #region PatientRequestForMe
         public IActionResult PatientRequestForMe()
         {
+            ViewBag.ActivePage = "PatientDashboard";
             int? userID = HttpContext.Session.GetInt32("userId");
             _patientRequest.PatientRequestForMe(userID);
             return View(_patientRequest.PatientRequestForMe(userID));
         }
+        #endregion
 
+        #region PatientRequestForMe : post
         [HttpPost]
         public IActionResult PatientRequestForMe(PatientRequestForMeAndSomeone model)
         {
             _patientRequest.createRequestForMe(model);
             return RedirectToAction("PatientDashboard", "Home");
         }
+        #endregion
+
 
         [CustomAuthorize("2")]
+        #region PatientRequestForSomeone
         public IActionResult PatientRequestForSomeone()
         {
+            ViewBag.ActivePage = "PatientDashboard";
             return View();
         }
+        #endregion
 
+        #region PatientRequestForSomeone : post
         [HttpPost]
         public IActionResult PatientRequestForSomeone(PatientRequestForMeAndSomeone model)
         {
             _patientRequest.createRequestForSomeone(model);
             return RedirectToAction("PatientDashboard", "Home");
         }
+        #endregion
 
-
+        #region ResetPasswordPatient
         public IActionResult ResetPasswordPatient(String code, String email)
         {
             ViewBag.Code = code;
@@ -351,8 +417,9 @@ namespace DAL.Controllers
             }
             return View();
         }
+        #endregion
 
-
+        #region ResetPasswordPatient
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult ResetPasswordPatient(CreateAccount req)
@@ -377,7 +444,9 @@ namespace DAL.Controllers
             TempData["passerror"] = "Password and Confirmpassword doesn't match";
             return RedirectToAction("ResetPasswordPatient", "Home", new { code = req.Token, email = req.UserName });
         }
+        #endregion
 
+        #region SendEmailAsync
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendEmailAsync(string username, string subject, string body)
@@ -386,12 +455,16 @@ namespace DAL.Controllers
                 TempData["emailsuccess"] = "Email is sent successfully";
                 return RedirectToAction("Index", "Home");
         }
+        #endregion
 
+        #region GetTokenExpiration
         public IActionResult GetTokenExpiration()
         {
             return View();
         }
+        #endregion
 
+        #region GenerateToken : post
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult GenerateToken()
@@ -401,7 +474,9 @@ namespace DAL.Controllers
                 TempData["tokengenerated"] = "Token is generated successfully";
                 return RedirectToAction("Index", "Home");       
         }
+        #endregion
 
+        #region ResetPasswordRequest
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPasswordRequest(CreateAccount req)
@@ -424,24 +499,26 @@ namespace DAL.Controllers
             TempData["emailsend"] = "Email is sent successfully to your email account";
             return RedirectToAction("Patient_Login", "Home");
         }
-
+        #endregion
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        #region Error
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+        #endregion
 
         //this is for checkmail 
         [Route("/Home/PatientRequestForm/checkemailexists/{email}")]
-
+        #region checkemailexists : get
         [HttpGet]
         public IActionResult checkemailexists(string email)
         {
             var emailExists = _context.AspNetUsers.Any(u => u.Email == email);
             return Json(new { exists = emailExists });
         }
+        #endregion
     }
 }

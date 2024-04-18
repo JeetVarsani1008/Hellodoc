@@ -31,7 +31,7 @@ namespace BLL.Repositery
             if (searchdata != null)
             {
                 searchdata = searchdata.ToLower();
-                list = list.Where(x => x.FirstName.ToLower().Contains(searchdata));
+                list = list.Where(x => x.RequestClients.Select(j => j.FirstName).First().ToLower().Contains(searchdata));
             }
             if (reqTypeId != 0 )
             {
@@ -40,6 +40,8 @@ namespace BLL.Repositery
 
             var data = list.Select(x => new RequestDataProvider()
             {
+                Email = x.RequestClients.Select(x => x.Email).First(),
+                DateOfBirth = x.RequestClients.Select(x => x.IntDate).First() == null ? null : x.RequestClients.Select(x => x.IntDate).First() + "/" + x.RequestClients.Select(x => x.StrMonth).First() + "/" + x.RequestClients.Select(x => x.IntYear).First(),
                 RequestId = x.RequestId,
                 RequestTypeId = x.RequestTypeId,
                 Name = x.RequestClients.Select(j => j.FirstName).First() + " " + x.RequestClients.Select(h => h.LastName).First(),
@@ -375,6 +377,7 @@ namespace BLL.Repositery
         public bool CreateNewReq(AdminCreateRequestVm model, int PhysicianId)
         {
             User user1 = _context.Users.FirstOrDefault(x => x.Email == model.Email);
+            var physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == PhysicianId);
 
 
             string abbreviation;
@@ -461,7 +464,7 @@ namespace BLL.Repositery
                 user.State = st.Name;
                 user.RegionId = st.RegionId;
                 user.ZipCode = model.ZipCode;
-                user.CreatedBy = PhysicianId.ToString();
+                user.CreatedBy = physician.PhysicianId.ToString();
                 user.CreatedDate = DateTime.Now;
                 user.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.DateOfBirth.Month);
                 user.IntDate = model.DateOfBirth.Day;

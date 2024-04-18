@@ -29,6 +29,8 @@ namespace DAL.ViewModelProvider
 
     public class RequestDataProvider
     {
+        public string Email { get; set; }
+        public string DateOfBirth { get; set; }
         public bool IsFinalize { get; set; }
         public int RequestId { get; set; }
         public int RequestTypeId { get; set; }

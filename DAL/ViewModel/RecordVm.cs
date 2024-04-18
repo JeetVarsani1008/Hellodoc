@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace DAL.ViewModel
 		public List<SearchRecord> searchRecord { get; set; }
 
 		public List<SmsLogs> smsLog { get; set; }
+
 
 		public int? TotalPages { get; set; }
 		public int? skipCount;
@@ -128,6 +130,8 @@ namespace DAL.ViewModel
 	#region PatientRecordExplore
 	public class PatientRecordExplore
 	{
+		public int RequestId { get; set; }
+		public int DocCount { get; set; }
 		public string Client {  get; set; }
 
 		public string CreatedDate { get; set; }

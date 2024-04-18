@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +28,7 @@
     <link rel="stylesheet" href="~/css/PatientDashboard.css">
 </head>
 
-<body class="h-100">
+<body class="h-100" data-bs-theme="light" id="patientbody">
 
     <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
         <div class="container-fluid">
@@ -39,27 +42,20 @@
             </div>
             <div>
                 <ul class="navbar-nav ms-auto d-flex flex-nowrap">
-                    <div class="d-none d-sm-flex ">
+                    <li class="nav-item p-2 d-none d-sm-flex">
+                        Welcome <span class="fw-bolder  ms-2">@Accessor.HttpContext.Session.GetString("username")</span>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Welcome</a>
+                        <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("patient_logout","Home")'">
+                            <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
+                        </button>
                     </li>
-                    <li class="nav-item p-2 fw-bolder">
-                            @ViewBag.UserName
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-info ms-2" onclick="changeTheme()">
+                            <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
+                        </button>
                     </li>
-            </div>
-            <li class="nav-item">
-                <a asp-action="patient_logout">
-                    <button type="button" class="btn logout-btn ">
-                        <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
-                    </button>
-                </a>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn moonicon" onclick="changeTheme()">
-                    <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
-                </button>
-            </li>
-            </ul>
+                </ul>
         </div>
         </div>
     </nav>
@@ -93,15 +89,34 @@
             crossorigin="anonymous">
     </script>
     <script>
+        function changeTheme() {
+            console.log("change theme clicked");
+            var body = document.getElementById("patientbody");
+            var formProfileDiv = document.getElementById("formprofile");
+            if (body.getAttribute("data-bs-theme") === "dark") {
+                body.setAttribute("data-bs-theme", "light");
+                formProfileDiv.classList.add("form-profile");
+                localStorage.setItem("theme", "light"); 
+            } else {
+                body.setAttribute("data-bs-theme", "dark");
+                formProfileDiv.classList.remove("form-profile");
+                localStorage.setItem("theme", "dark");
+            }
+        };
 
-        // var links = document.querySelectorAll('.links');
-        // links.forEach(link => {
-        //     link.addEventListener("click", function () {
-        //         links.forEach(link => link.classList.remove('active'));
-        //         this.classList.add('active');
-        //     })
-        // })
 
+        // Check if a theme is stored in local storage and apply it
+        var theme = localStorage.getItem("theme");
+        // var formProfileDiv = document.getElementById("formprofile");
+        if (theme) {
+            var body = document.getElementById("patientbody");
+            var main = document.querySelector("main");
+            if (theme === "dark") {
+                body.setAttribute("data-bs-theme", "dark");
+            } else {
+                body.setAttribute("data-bs-theme", "light");
+            }
+        }
     </script>
 </body>
 </html>

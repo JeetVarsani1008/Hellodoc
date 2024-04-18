@@ -25,7 +25,7 @@
 
 </head>
 
-<body id="partial-change">
+<body id="partial-change" data-bs-theme="light">
 
 
     <nav class="navbar navbar-expand navbar-light rounded py-0" aria-label="">
@@ -47,7 +47,7 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-info ms-2" onclick="changeTheme()">
+                        <button type="button" class="btn btn-outline-info ms-2" onclick="changeThemeProvider()">
                             <i class="bi bi-moon switch1"></i><i class="bi bi-brightness-high switch2" style="display:none"></i>
                         </button>
                     </li>
@@ -99,5 +99,31 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+
+    <script>
+        function changeThemeProvider() {
+            console.log("change theme clicked");
+            var body = document.getElementById("partial-change");
+            if (body.getAttribute("data-bs-theme") === "dark") {
+                body.setAttribute("data-bs-theme", "light");
+                localStorage.setItem("theme", "light");
+            } else {
+                body.setAttribute("data-bs-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            }
+        };
+
+
+        // Check if a theme is stored in local storage and apply it
+        // var theme = localStorage.getItem("theme");
+        // if (theme) {
+        //     var body = document.getElementById("partial-change");
+        //     if (theme === "dark") {
+        //         body.setAttribute("data-bs-theme", "dark");
+        //     } else {
+        //         body.setAttribute("data-bs-theme", "light");
+        //     }
+        // }
+    </script>
 </body>
 </html>

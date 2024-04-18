@@ -106,6 +106,8 @@ namespace BLL.Interface
         //void changeCheckBox(int physicianId, int checkbox);
         void updateProviderDoc(ProviderVm model);
 
+        //this is for create request by admin
+        bool CreateNewReq(AdminCreateRequestVm model, int PhysicianId);
 
         //this is for send mail to provider
         ProviderVm getPhysicianDetailsByPhysicianId(int phyId);

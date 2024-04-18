@@ -23,6 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Region = DAL.Models.Region;
+using Request = DAL.Models.Request;
 
 namespace BLL.Repositery
 {
@@ -779,12 +780,133 @@ namespace BLL.Repositery
             data.AltPhone = model.AlternateMobile;
             _context.SaveChanges();
         }
-		#endregion
+        #endregion
 
 
-		//this part is for encounter form 
-		#region encounterFormGetData
-		public EncounterVm encounterFormGetData(int reqId)
+        //create request by admin
+        #region CreateNewReq
+        public bool CreateNewReq(AdminCreateRequestVm model, int adminId)
+        {
+            User user1 = _context.Users.FirstOrDefault(x => x.Email == model.Email);
+            var admin = _context.Admins.FirstOrDefault(x => x.AdminId == adminId);
+
+            string abbreviation;
+            if (model.RegionId == 1)
+            {
+                abbreviation = "GJ";
+            }
+            else if (model.RegionId == 2)
+            {
+                abbreviation = "RJ";
+            }
+            else if (model.RegionId == 3)
+            {
+                abbreviation = "PN";
+            }
+            else
+            {
+                abbreviation = "GO";
+            }
+
+            Request request = new Request();
+            RequestClient requestClient = new RequestClient();
+            var st = _context.Regions.FirstOrDefault(u => u.RegionId == model.RegionId);
+
+            request.FirstName = model.FirstName;
+            request.LastName = model.LastName;
+            request.PhoneNumber = model.Phone;
+            request.Email = model.Email;
+            request.Status = 1;
+            request.CreatedDate = DateTime.Now;
+            request.RequestTypeId = 2;
+            _context.Requests.Add(request);
+            _context.SaveChanges();
+
+
+            requestClient.RequestId = request.RequestId;
+            requestClient.FirstName = model.FirstName;
+            requestClient.LastName = model.LastName;
+            requestClient.Email = model.Email;
+            requestClient.Notes = model.Symptoms;
+            requestClient.Street = model.Street;
+            requestClient.City = model.City;
+            requestClient.State = st.Name;
+            requestClient.RegionId = st.RegionId;
+            requestClient.ZipCode = model.ZipCode;
+            requestClient.Address = model.Street + " " + model.City + " " + st.Name + " " + model.ZipCode;
+            requestClient.PhoneNumber = request.PhoneNumber;
+            requestClient.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.DateOfBirth.Month);
+            requestClient.IntYear = model.DateOfBirth.Year;
+            requestClient.IntDate = model.DateOfBirth.Day;
+            _context.RequestClients.Add(requestClient);
+            _context.SaveChanges();
+
+            if (user1 != null)
+            {
+                request.UserId = user1.UserId;
+                _context.SaveChanges();
+                return false;
+            }
+            else
+            {
+                AspNetUser aspNetUser = new AspNetUser();
+                User user = new User();
+                AspNetUserRole aspNetUserRole = new AspNetUserRole();
+
+
+
+                aspNetUser.UserName = model.FirstName + model.LastName;
+                aspNetUser.Email = model.Email;
+                aspNetUser.Phonenumber = model.Phone;
+                aspNetUser.CreatedDate = DateTime.Now;
+                _context.AspNetUsers.Add(aspNetUser);
+                _context.SaveChanges();
+
+
+                user.AspNetUserId = aspNetUser.Id;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Email = model.Email;
+                user.Mobile = model.Phone;
+                user.Street = model.Street;
+                user.City = model.City;
+                user.State = st.Name;
+                user.RegionId = st.RegionId;
+                user.ZipCode = model.ZipCode;
+                user.CreatedBy = admin.AspNetUserId.ToString();
+                user.CreatedDate = DateTime.Now;
+                user.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.DateOfBirth.Month);
+                user.IntDate = model.DateOfBirth.Day;
+                user.IntYear = model.DateOfBirth.Year;
+
+                _context.Users.Add(user);
+                _context.SaveChanges();
+
+                aspNetUserRole.UserId = aspNetUser.Id;
+                aspNetUserRole.RoleId = 2;
+
+                _context.AspNetUserRoles.Add(aspNetUserRole);
+                _context.SaveChanges();
+
+
+                request.UserId = user.UserId;
+                request.CreatedUserId = user.UserId;
+                request.PatientAccountId = user.AspNetUserId.ToString();
+                var numberString = request.RequestId.ToString();
+                var paddedNumberString = numberString.PadLeft(4, '0');
+                var ConfirmationNumber = abbreviation + DateTime.Now.ToString("dd") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("yy") + model.FirstName.ToUpper().Substring(0, 2) + model.LastName.ToUpper().Substring(0, 2) + paddedNumberString;
+                request.ConfirmationNumber = ConfirmationNumber;
+                request.UserId = user.UserId;
+                _context.SaveChanges();
+
+                return true;
+            }
+        }
+        #endregion
+
+        //this part is for encounter form 
+        #region encounterFormGetData
+        public EncounterVm encounterFormGetData(int reqId)
         {
             var enc = _context.Encounters.FirstOrDefault(x => x.RequestId == reqId);
             var reqClient = _context.RequestClients.FirstOrDefault(x => x.RequestId == reqId);
@@ -1818,7 +1940,9 @@ namespace BLL.Repositery
                 Client = x.FirstName,
                 //for option
                 //CreatedDate = x.StrMonth +" "+ x.IntDate+","+ x.IntYear,
-                CreatedDate = x.Request.CreatedDate?.ToString("MMM,dd-yyyy"),
+                RequestId = x.RequestId ??0,
+                DocCount = _context.RequestStatusLogs.Where(j => j.RequestId == x.RequestId).Count(),
+				CreatedDate = x.Request.CreatedDate?.ToString("MMM,dd-yyyy"),
                 Confirmation = x.Request.ConfirmationNumber ?? "Random Number",
 
                 ProviderName = x.Request.PhysicianId != null ? _context.Physicians?.FirstOrDefault(d => d.PhysicianId == x.Request.PhysicianId).FirstName : "No Physician",

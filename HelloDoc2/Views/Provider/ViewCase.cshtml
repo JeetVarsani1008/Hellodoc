@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
-<div class="container-fluid bg-bodybg-body-tertiary vh-100">
+<div class="container-fluid vh-100">
 
     <div class="container d-flex flex-column gap-2 p-3 ">
 
@@ -131,10 +131,6 @@
 
                         <div class="d-flex">
                             <div class="form-floating mx-2">
-                                <button type="button" class="btn text-white btn-info" onclick="asigncase(@Model.RequestId)">Assign</button>
-                            </div>
-
-                            <div class="form-floating mx-2">
                                 <button type="button" class="btn text-white btn-info">View Notes</button>
                             </div>
 
@@ -147,6 +143,7 @@
                     </div>
 
                 </div>
+               </div>
         </form>
 
         @*FORM*@
@@ -165,26 +162,4 @@
         utilsScript:
             "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
-
-
-    //ajax for asign case model
-    function asigncase(reqid) {
-
-        console.log("CLicked")
-
-        $.ajax({
-            url: '/Provider/AsignCase',
-            type: 'POST',
-            data: { req: reqid },
-            success: function (result) {
-                console.log(result)
-                $('#contentAsignNote').html(result);
-                $('#myModalAssign').modal('show');
-
-            },
-            error: function () {
-                alert('Error loading partial view');
-            },
-        });
-    }
 </script>

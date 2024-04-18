@@ -11,8 +11,8 @@
 		</button>
 	</div>
 
-	<div class="table-responsive mt-5">
-		<table class="table">
+	<div class="table-responsive mt-5" style=" min-height:400px">
+		<table class="table overflow-visible">
 			<thead class="table-active">
 				<tr>
 					<td>Client/Member</td>
@@ -39,7 +39,14 @@
 							<button class="btn btn-outline-info">View</button>
 						</td>
 						<td>
-							<button class="btn btn-outline-info">Actions</button>
+							@* <button class="dropdown btn btn-outline-info">Actions</button> *@
+							<li class="nav-item dropdown btn btn-outline-info">
+								<a class="nav-link w-100 bs-tooltip-auto links " role="button" data-bs-toggle="dropdown">Actions</a>
+								<ul class="dropdown-menu">
+									<li class="dropdown-item" onclick="window.location.href='@Url.Action("ViewCase","Admin",new{requestId = obj.RequestId})'">View Case</li>
+									<li class="dropdown-item">(@obj.DocCount)Documents</li>
+								</ul>
+							</li>
 						</td>
 					</tr>
 				}

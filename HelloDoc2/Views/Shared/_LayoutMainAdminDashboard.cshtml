@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accesor;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -45,7 +48,7 @@
             <div>
                 <ul class="navbar-nav ms-auto d-flex flex-nowrap">
                         <li class="nav-item p-2 d-none d-sm-flex">
-                        Welcome <span class="fw-bolder  ms-2">@ViewBag.AdminName</span>
+                        Welcome <span class="fw-bolder  ms-2">@Accesor.HttpContext.Session.GetString("adminName")</span>
                         </li>
                     <li class="nav-item">
                             <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("AdminLogout","Admin")'">

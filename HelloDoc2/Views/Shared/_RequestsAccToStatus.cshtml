@@ -14,7 +14,7 @@
     {
         <div class="table-responsive d-none d-md-block">
             <table class="table overflow-visible" id="New">
-                <thead>
+                <thead class="table-active">
                     <tr>
                         <th scope="col">Name</th>
                         @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
@@ -61,39 +61,43 @@
                     {
 
                         <tr class="align-middle color_@obj.RequestTypeId" id="SearchData">
-                            <td><div>@obj.Name</div></td>
+                            <td class="text-white">@obj.Name</td>
                             @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                             {
-                                <td>@obj.DateOfBirth</td>
+                                <td class="text-white">@obj.DateOfBirth</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
                             {
-                                <td>Region</td>
+                                <td class="text-white">Region</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5))
                             {
-                                <td>@obj.Requestor</td>
+                                <td class="text-white">@obj.Requestor</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                             {
-                                <td>@obj.Physician</td>
+                                <td class="text-white">@obj.Physician</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
                             {
-                                <td>@obj.DateOfService</td>
+                                <td class="text-white">@obj.DateOfService</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 1))
                             {
-                                <td>@obj.RequestDate</td>
+                                <td class="text-white">@obj.RequestDate</td>
                             }
                             @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 9))
                             {
-                                <td>@obj.Phone</td>
+                                <td class="text-white">
+                                    <button class="btn border-white text-white">
+                                        <i class="bi bi-telephone me-2"></i> @obj.Phone
+                                    </button>
+                                </td>
                             }
-                            <td>@obj.Address</td>
+                            <td class="text-white">@obj.Address</td>
                             @if (Model.requestListAdminDash.Any(x => x.Status == 1 || x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 7 || x.Status == 8))
                             {
-                                <td>@obj.Notes</td>
+                                <td class="text-white">@obj.Notes</td>
                             }
 
                             <td class="d-flex dropdown">

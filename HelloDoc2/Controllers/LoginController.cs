@@ -23,7 +23,11 @@ namespace DAL.Controllers
 
 		public IActionResult Login()
 		{
-			return View();
+            Response.Cookies.Delete("Jwt");
+            Response.Cookies.Delete("RoleMenu");
+            Response.Cookies.Delete(".AspNetCore.Session");
+            Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
+            return View();
 		}
 
         #region AdminLogin : Post
@@ -100,15 +104,24 @@ namespace DAL.Controllers
 
                     return RedirectToAction("AdminDashboard", "Admin");
                 }
-                else
+                else if(aspNetUserRole.RoleId == 3)
                 {
                     var jwtToken = _jwt.GenerateJwtToken(aspNetUserRole);
                     Response.Cookies.Append("Jwt", jwtToken);
                     TempData["success"] = "Login SuccessFull";
                     return RedirectToAction("ProviderDashboard","Provider");
                 }
+                else
+                {
+                    TempData["error"] = "Can't have access to this site";
+                    return RedirectToAction("Login","Login");
+                }
             }
-            return View();
+            else
+            {
+                TempData["error"] = "Invalid Username or Password!";
+                return View();
+            }
         }
         #endregion
     }

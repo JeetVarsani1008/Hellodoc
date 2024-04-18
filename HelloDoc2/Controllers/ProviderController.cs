@@ -123,10 +123,9 @@ namespace HelloDoc2.Controllers
             int PageSize = 5;
 
             var phyId = HttpContext.Session.GetInt32("PhysicianId");
-            if(searchdata == null)
-            {
+
                 statusarray = HttpContext.Session.GetString("StatusFetch");
-            }
+            
             var reqProvider = _providerDashboard.getRequestDataForProvider(statusarray, requestTypeId, searchdata, phyId??0);
             var reqProviderPaginatedData = reqProvider.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
@@ -289,6 +288,7 @@ namespace HelloDoc2.Controllers
             return View(data);
         }
         #endregion
+
 
         [CustomAuthorize("3")]
         #region ViewNotes : get
@@ -580,6 +580,7 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
+        //this four method is for conclude care
         #region ConcludeCare : get
         public IActionResult ConcludeCare(int requestId)
         {
@@ -593,7 +594,7 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
-        #region ViewUploadDownload
+        #region ConcludeCareDownload
         public IActionResult ConcludeCareDownload(int documentId)
         {
             var filename = _adminDashboard.GetFileById(documentId);
@@ -652,6 +653,7 @@ namespace HelloDoc2.Controllers
             return RedirectToAction("ProviderDashboard","Provider");
         }
         #endregion
+        //conclude care complete
     }
 }
 

@@ -28,9 +28,7 @@ namespace BLL.Repositery
                                             r.RequestId,
                                             r.CreatedDate,
                                             r.Status,
-                                        }   
-
-                                        ).ToList();
+                                        }).ToList();
 
             List<PatientData> list = new List<PatientData>();
             foreach (var item in applicationDbContext)

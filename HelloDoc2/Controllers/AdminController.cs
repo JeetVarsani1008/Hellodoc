@@ -1,4 +1,5 @@
 ﻿using BLL.Interface;
+using BLL.Repositery;
 using DAL.Models;
 using DAL.ViewModel;
 using HelloDoc2.Auth;
@@ -15,14 +16,17 @@ namespace DAL.Controllers
     public class AdminController : Controller
     {
         private readonly IAdminDashboard _adminDashboard;
+        private readonly IProviderDashboard _providerDashboard;
         private readonly HellodocContext _context;
         private readonly ILogin _login;
         private readonly IJWT _jwt;
 
-        public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt)
+
+        public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt, IProviderDashboard providerDashboard)
         {
             _context = context;
             _adminDashboard = adminDashboard;
+            _providerDashboard = providerDashboard;
             _login = login;
             _jwt = jwt;
         }
@@ -66,7 +70,7 @@ namespace DAL.Controllers
         {
             ViewBag.ActiveDashboardNav = "AdminDashboard";
             var request = _context.Requests;
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            //ViewBag.AdminName = HttpContext.Session.GetString("adminName");
 
 
             var reqCount = request.GroupBy(o => o.Status).Select(h => new { Status = h.Key, Count = h.Count() }).ToList();
@@ -111,7 +115,7 @@ namespace DAL.Controllers
 
             string str = "1";
             int[] arr = { 1 };
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
+            //ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             var getRegion = _adminDashboard.getRegions();
 
 
@@ -715,10 +719,41 @@ namespace DAL.Controllers
         //clear case completed
 
         //create request for admin part
-        #region CreateRequestForAdmin
-        public IActionResult CreateRequestForAdmin()
+        #region AdminCreateRequest
+        public IActionResult AdminCreateRequest()
         {
-            return View();
+            ViewBag.ActiveDashboardNav = "ProviderDashboard";
+            AdminCreateRequestVm adminCreateRequestVm = new AdminCreateRequestVm();
+            adminCreateRequestVm.regions = _providerDashboard.getRegions();
+            return View(adminCreateRequestVm);
+        }
+        #endregion
+
+        #region AdminCreateRequest : post
+        [HttpPost]
+        public async Task<IActionResult> AdminCreateRequest(AdminCreateRequestVm model)
+        {
+            int adminId = (int)HttpContext.Session.GetInt32("AdminId");
+            var user = _adminDashboard.CreateNewReq(model, adminId);
+
+            if (user == true)
+            {
+                var resetLink = "<a href=" + Url.Action("CreateAccount", "Home", new { }, "https") + "> CreateAccount</a>";
+
+                var subject = "Create Account Link";
+                var body = "<b>Please Create Your Account</b><br/>" + resetLink;
+
+
+                await SendEmailAsync(model.Email, subject, body);
+                TempData["success"] = "Request Created Successfully & Create Account link is sent to Patient's Email";
+                return RedirectToAction("ProviderDashboard", "Provider");
+            }
+            else
+            {
+                TempData["success"] = "Request Created Successfully";
+                return RedirectToAction("ProviderDashboard", "Provider");
+            }
+
         }
         #endregion
 
@@ -844,14 +879,6 @@ namespace DAL.Controllers
         }
         #endregion 
 
-        #region AdminCreateRequest
-        public IActionResult AdminCreateRequest()
-        {
-            return View();
-        }
-        #endregion 
-
-
         //this part is for close case
         #region CloseCase
         public IActionResult CloseCase(int requestId)
@@ -873,7 +900,7 @@ namespace DAL.Controllers
 
         //this is for admin profile 
         [CustomAuthorize("1")]
-        //[RoleAuthorize(1)]
+        [RoleAuthorize(1)]
         #region AdminMyProfile
         public IActionResult AdminMyProfile(int adminId)
         {
@@ -930,8 +957,8 @@ namespace DAL.Controllers
 
         //admin profile part is completed
 
-        #region EncounterForm
         [CustomAuthorize("1")]
+        #region EncounterForm
         //this part is for encounter form 
         public IActionResult EncounterForm(int reqId)
         {
@@ -955,7 +982,6 @@ namespace DAL.Controllers
         {
             ViewBag.ActiveDashboardNav = "Provider";
             ViewBag.ActiveDropdown = "Provider";
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             ProviderVm providerVm = new ProviderVm();
             providerVm.regions = _adminDashboard.getRegions();
             //providerVm.providers = _adminDashboard.getPhysicianDetails(regionId);
@@ -1158,7 +1184,6 @@ namespace DAL.Controllers
             AccessVm accessVm = new AccessVm();
             accessVm.menu = _adminDashboard.getMenu();
             accessVm.aspNetRole = _adminDashboard.getAspNetRoles();
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             return View(accessVm);
         }
         #endregion
@@ -1179,7 +1204,6 @@ namespace DAL.Controllers
             AccessVm accssVm = new AccessVm();
             accssVm.access = _adminDashboard.getAccessRoles();
             ViewBag.ActiveDashboardNav = "Access";
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             return View("Access", accssVm);
         }
         #endregion
@@ -1210,7 +1234,6 @@ namespace DAL.Controllers
             AccessVm data = _adminDashboard.editAccessRole(RoleId, AccountType);
             data.aspNetRole = _adminDashboard.getAspNetRoles();
             ViewBag.ActiveDashboardNav = "Access";
-            ViewBag.AdminName = HttpContext.Session.GetString("adminName");
             return View(data);
         }
         #endregion
@@ -1326,7 +1349,6 @@ namespace DAL.Controllers
             ViewBag.ActiveDashboardNav = "Record";
             ViewBag.ActiveDropdown = "PatientRecord";
             ViewBag.AdminName = HttpContext.Session.GetString("adminName");
-
             RecordVm recordVm = new RecordVm();
             recordVm.patientRecordExplores = _adminDashboard.patientRecordExploreData(patientId);
             return View("Record/PatientRecordExplore",recordVm);
