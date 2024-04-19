@@ -92,15 +92,54 @@
                     var end = info.end;
 
                     // Check if the view is dayGridMonth
+                    // if (view.type === 'dayGridMonth') {
+
+                    //     // Set the first day of the month
+                    //     var firstDisplayedDate = new Date(start.getFullYear(), start.getMonth() + 1, 1);
+
+                    //     // Set the last day of the month
+                    //     var lastDayOfMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+                    //     var lastDisplayedDate = new Date(start.getFullYear(), start.getMonth(), lastDayOfMonth.getDate());
+
+                    //     var formattedStart = firstDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + firstDisplayedDate.getDate();
+                    //     var formattedEnd = lastDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + lastDisplayedDate.getDate() + ', ' + lastDisplayedDate.getFullYear();
+                    // } else {
+                    //     var formattedStart = start.toLocaleString('default', { month: 'short' }) + ' ' + start.getDate();
+                    //     var formattedEnd = end.toLocaleString('default', { month: 'short' }) + ' ' + end.getDate() + ', ' + end.getFullYear();
+                    // }
+
+                    // document.getElementById('calendarTitle').textContent = 'Schedule for: ' + formattedStart + ' - ' + formattedEnd;
+
+
+                    // if (view.type === 'dayGridMonth') {
+                    //     var firstDisplayedDate = new Date(start.getFullYear(), start.getMonth(), 1); // Set the first day of the month
+                    //     var lastDayOfMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0); // Set the last day of the month
+                    //     var lastDisplayedDate = new Date(start.getFullYear(), start.getMonth(), lastDayOfMonth.getDate());
+
+                    //     var formattedStart = firstDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + firstDisplayedDate.getDate();
+                    //     var formattedEnd = lastDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + lastDisplayedDate.getDate() + ', ' + lastDisplayedDate.getFullYear();
+                    // } else {
+                    //     var formattedStart = start.toLocaleString('default', { month: 'short' }) + ' ' + start.getDate();
+                    //     var formattedEnd = end.toLocaleString('default', { month: 'short' }) + ' ' + end.getDate() + ', ' + end.getFullYear();
+                    // }
+
+                    // document.getElementById('calendarTitle').textContent = 'Schedule for: ' + formattedStart + ' - ' + formattedEnd;
+
+
                     if (view.type === 'dayGridMonth') {
-                        // Set the first day of the month
-                        var firstDisplayedDate = new Date(start.getFullYear(), start.getMonth(), 1);
+                        var nextMonthIndex = start.getMonth() + 1;
+                        var nextYear = start.getFullYear();
 
-                        // Set the last day of the month
-                        var lastDayOfMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0);
-                        var lastDisplayedDate = new Date(start.getFullYear(), start.getMonth(), lastDayOfMonth.getDate());
+                        if (nextMonthIndex === 12) {
+                            nextMonthIndex = 0; // Reset to January
+                            nextYear++; // Increment the year
+                        }
 
-                        var formattedStart = firstDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + firstDisplayedDate.getDate();
+                        var firstDisplayedDate = new Date(nextYear, nextMonthIndex, 1); // Set the first day of the next month
+                        var lastDayOfMonth = new Date(nextYear, nextMonthIndex + 1, 0); // Set the last day of the next month
+                        var lastDisplayedDate = new Date(nextYear, nextMonthIndex, lastDayOfMonth.getDate());
+
+                        var formattedStart = firstDisplayedDate.toLocaleString('default', { month: 'long' }) + ' 1';
                         var formattedEnd = lastDisplayedDate.toLocaleString('default', { month: 'long' }) + ' ' + lastDisplayedDate.getDate() + ', ' + lastDisplayedDate.getFullYear();
                     } else {
                         var formattedStart = start.toLocaleString('default', { month: 'short' }) + ' ' + start.getDate();
@@ -108,8 +147,6 @@
                     }
 
                     document.getElementById('calendarTitle').textContent = 'Schedule for: ' + formattedStart + ' - ' + formattedEnd;
-
-
 
                     // var title = info.view.title;
                     // $("#calendarTitle").html(title);

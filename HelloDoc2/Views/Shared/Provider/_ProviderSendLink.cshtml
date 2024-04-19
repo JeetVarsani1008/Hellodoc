@@ -24,21 +24,25 @@
                     </div>
                     <div class="row mt-4">
                         <div class="form-floating mb-3 col-12">
-                            <input type="text" class="form-control" id="floatingPassword" placeholder="First Name" asp-for="FirstName" required>
-                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" asp-for="FirstName" >
+                            <label for="FirstName" style="margin-left: 1em" class="text-secondary">First Name</label>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="form-floating mb-3 col-12">
-                            <input type="text" class="form-control" id="floatingPassword" placeholder="Last Name" asp-for="LastName" required>
-                            <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" asp-for="LastName" >
+                            <label for="LastName" style="margin-left: 1em" class="text-secondary">Last Name</label>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3 col-12">
                             <input id="phone" type="tel" class="form-control py-3 w-100" style="width:max-content">
+                            <span asp-validation-for="Number" class="text-danger"></span>
                         </div>
                        
                         <div class="form-floating mb-3 col-12">
-                            <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email" required>
+                            <input type="email" class="form-control" placeholder="Email" asp-for="Email" required>
                             <label for="floatingInput" style="margin-left: 1em" class="text-secondary">Email</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
                     <div id="pop_buttons_container" class="d-flex justify-content-end">
@@ -60,3 +64,7 @@
     });
 
 </script>
+
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

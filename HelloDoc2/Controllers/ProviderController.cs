@@ -283,12 +283,16 @@ namespace HelloDoc2.Controllers
         #region ViewCase
         public IActionResult ViewCase(int requestId)
         {
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            if(!_providerDashboard.checkphysician(phyId ?? 0, requestId))
+            {
+                return View("ErrorPage");
+            }
             ViewBag.ActiveDashboardNav = "ProviderDashboard";
             var data = _adminDashboard.ViewCase(requestId);
             return View(data);
         }
         #endregion
-
 
         [CustomAuthorize("3")]
         #region ViewNotes : get
@@ -296,6 +300,11 @@ namespace HelloDoc2.Controllers
         public IActionResult ViewNotes(int requestId)
         {
             ViewBag.ActiveDashboardNav = "ProviderDashboard";
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            if (!_providerDashboard.checkphysician(phyId ?? 0, requestId))
+            {
+                return View("ErrorPage");
+            }
             var data = _adminDashboard.ViewNotes(requestId);
             return View(data);
         }
@@ -368,6 +377,11 @@ namespace HelloDoc2.Controllers
         #region ViewUploads
         public IActionResult ViewUploadsProvider(AdminViewUploadVm model, int requestId)
         {
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            if (!_providerDashboard.checkphysician(phyId ?? 0, requestId))
+            {
+                return View("ErrorPage");
+            }
             model.RequestId = requestId;
             HttpContext.Session.SetInt32("reqIdUpload", requestId);
             ViewBag.RequestIdForDownloadAll = requestId;

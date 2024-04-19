@@ -124,5 +124,69 @@ namespace DAL.Controllers
             }
         }
         #endregion
+
+
+        #region ForgotPassword
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        #endregion
+
+        #region ResetPasswordRequest
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPasswordRequest(CreateAccount req)
+        {
+            var user = _context.AspNetUsers.FirstOrDefault(u => u.Email == req.Email);
+            if (user.Email == null)
+            {
+                TempData["emailnotenter"] = "Please Enter Valid Email";
+                return RedirectToAction("ForgotPassword", "Login");
+            }
+
+            var resetToken = GenerateToken();
+            var resetLink = "<a href=" + Url.Action("ResetPasswordPatient", "Home", new { email = req.Email, code = resetToken }, "https") + ">Reset Password</a>";
+
+            var subject = "Password Reset Request";
+            var body = "<b>Please find the Password Reset Link.</b><br/>" + resetLink;
+
+
+            await SendEmailAsync(req.Email, subject, body);
+            TempData["emailsend"] = "Email is sent successfully to your email account";
+            return RedirectToAction("Login", "Login");
+        }
+        #endregion
+
+        #region GetTokenExpiration
+        public IActionResult GetTokenExpiration()
+        {
+            return View();
+        }
+        #endregion
+
+        #region GenerateToken : post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult GenerateToken()
+        {
+            string token = _login.GenerateToken();
+            // Use the token for your purpose
+            TempData["success"] = "Token is generated successfully";
+            return RedirectToAction("Login", "Login");
+        }
+        #endregion
+
+        #region SendEmailAsync
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmailAsync(string username, string subject, string body)
+        {
+            await _login.SendEmailAsync(username, subject, body);
+            TempData["success"] = "Email is sent successfully";
+            return RedirectToAction("Login", "Login");
+        }
+        #endregion
     }
 }

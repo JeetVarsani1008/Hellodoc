@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JTNYvh4K6dhIQ/A7oYLuhy1O9YRK1b5dinMmnRGx6x4=",
+  "Hash": "ggkt4mKpxhT85IJ4NQ4ntabAH1FcO3f1c5VXaA4WEJ4=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -5240,6 +5240,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\PatientRecords (6).xlsx"
+    },
+    {
+      "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Providers_mobile_2.png",
+      "SourceId": "HelloDoc2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\",
+      "BasePath": "_content/HelloDoc2",
+      "RelativePath": "upload/Providers_mobile_2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\upload\\Providers_mobile_2.png"
     },
     {
       "Identity": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Screenshot (2) (1).png",

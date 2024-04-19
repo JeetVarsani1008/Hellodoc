@@ -33,6 +33,8 @@ namespace BLL.Repositery
 
             AspNetUser aspNetUser = new AspNetUser();
 
+            AspNetUserRole aspNetUserRole = new AspNetUserRole();
+
             User user = new User();
 
             Request request = new Request();
@@ -74,6 +76,11 @@ namespace BLL.Repositery
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 request.UserId = user.UserId;
+
+                aspNetUserRole.UserId = aspNetUser.Id;
+                aspNetUserRole.RoleId = 2;
+                _context.AspNetUserRoles.Add(aspNetUserRole);
+                _context.SaveChanges();
             }
 
             request.RequestTypeId = 1;
@@ -101,6 +108,8 @@ namespace BLL.Repositery
             requestStatusLog.CreatedDate = DateTime.Now;
             _context.RequestStatusLogs.Add(requestStatusLog);
             _context.SaveChanges();
+
+
 
             if (model.Filepath != null)
             {

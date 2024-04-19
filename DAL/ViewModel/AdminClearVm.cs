@@ -12,6 +12,8 @@ namespace DAL.ViewModel
     {
         public int RequestId { get; set; }
 
+        [Required(ErrorMessage ="Enter Your Phone Number")]
+        [RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
         public string Number { get; set; }
 
         [Required(ErrorMessage ="Please Enter Email")]
@@ -20,9 +22,10 @@ namespace DAL.ViewModel
         public int RequestTypeId { get; set; }
 
         //send mail field
-        [Required]
-        public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Please Enter Your First Name")]
+        public string FirstName { get; set; } 
+
+        [Required(ErrorMessage ="Please Enter Your Last Name")]
         public string LastName { get; set; }
 
 

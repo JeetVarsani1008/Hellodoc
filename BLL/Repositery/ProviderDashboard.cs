@@ -22,6 +22,20 @@ namespace BLL.Repositery
             _context = context;
         }
 
+        #region checkphysician
+        public bool checkphysician(int phyId,int requestId)
+        {
+            var req = _context.Requests.Any(x => x.RequestId == requestId && x.PhysicianId == phyId);
+            if (req)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
 
         #region getRequestDataForProvider
         public List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata, int phyId)

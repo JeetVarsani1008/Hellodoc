@@ -273,6 +273,10 @@ namespace DAL.Controllers
         [CustomAuthorize("1")]
         public IActionResult ViewCase(int requestId)
         {
+            if (!_adminDashboard.checkreq(requestId))
+            {
+                return View("ErrorPage");
+            }
             var data = _adminDashboard.ViewCase(requestId);
             return View(data);
         }
@@ -283,6 +287,10 @@ namespace DAL.Controllers
         //view notes start : 2 methods
         public IActionResult ViewNotes(int requestId)
         {
+            if (!_adminDashboard.checkreq(requestId))
+            {
+                return View("ErrorPage");
+            }
             var data = _adminDashboard.ViewNotes(requestId);
             return View(data);
         }
@@ -384,6 +392,10 @@ namespace DAL.Controllers
         #region ViewUploads
         public IActionResult ViewUploads(AdminViewUploadVm model, int requestId)
         {
+            if (!_adminDashboard.checkreq(requestId))
+            {
+                return View("ErrorPage");
+            }
             model.RequestId = requestId;
             HttpContext.Session.SetInt32("reqIdUpload", requestId);
             ViewBag.RequestIdForDownloadAll = requestId;
@@ -426,13 +438,28 @@ namespace DAL.Controllers
         #region ViewUploadDownload
         public IActionResult ViewUploadDownload(int documentId)
         {
-            var filename = _adminDashboard.GetFileById(documentId);
-            if (filename == null)
+            try
             {
-                return NotFound();
+                var filename = _adminDashboard.GetFileById(documentId);
+                if (filename == null)
+                {
+                    return NotFound();
+                }
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
+
+                if (!System.IO.File.Exists(filePath))
+                {
+                    throw new FileNotFoundException("File not found", filePath);
+                }
+                return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
+
             }
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/upload", filename.FileName);
-            return File(System.IO.File.ReadAllBytes(filePath), "multipart/form-data", System.IO.Path.GetFileName(filePath));
+            catch
+            {
+                // Log the exception here, or handle it in a way that makes sense for your application
+                TempData["error"] = "File not found. Please try again.";
+                return RedirectToAction("ViewUpload", "Admin");
+            }
         }
         #endregion
         //single file download complete
@@ -883,19 +910,48 @@ namespace DAL.Controllers
         #region CloseCase
         public IActionResult CloseCase(int requestId)
         {
+
             var data = _adminDashboard.closeCaseGet(requestId);
-            return View(data);
+            if(data == null)
+            {
+                TempData["error"] = "Something Went Wrong. Please try again.";
+                return RedirectToAction("AdminDashboard", "Admin");
+            }
+            else
+            {
+                return View(data);
+            }
         }
         #endregion
 
         #region CloseCaseEdit
         public IActionResult CloseCaseEdit(int command, CloseCaseVm model, int requestId)
         {
-            _adminDashboard.closeCaseEdit(command, model, requestId);
-            var data = _adminDashboard.closeCaseGet(requestId);
-            return View("CloseCase", data);
+            try
+            {
+                _adminDashboard.closeCaseEdit(command, model, requestId);
+                var data = _adminDashboard.closeCaseGet(requestId);
+                if(command == 1)
+                {
+                    TempData["success"] = "Details saved Successfully";
+                    return View("CloseCase", data);
+                }
+                else
+                {
+                    TempData["success"] = "Request Closed Successfully";
+                    return RedirectToAction("AdminDashboard","Admin");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                // Log the exception here, or handle it in a way that makes sense for your application
+                TempData["error"] = "An error occurred while processing the request. Please try again.";
+                return RedirectToAction("AdminDashboard", "Admin");
+            }
         }
         #endregion
+
+
         //close case completed
 
         //this is for admin profile 
@@ -1254,6 +1310,7 @@ namespace DAL.Controllers
         public IActionResult DeleteAccessRole(int RoleId)
         {
             _adminDashboard.deleteAccessRole(RoleId);
+            TempData["success"] = "Role Deleted Successfully";
             return RedirectToAction("Access");
         }
         #endregion
@@ -1428,6 +1485,15 @@ namespace DAL.Controllers
             recordVm.skipCount = data.Take((PageNumber - 1) * PageSize).ToList().Count();
             recordVm.TotalPages = (int)Math.Ceiling((double)recordVm.Page.totalitem / PageSize);
 			return PartialView("Record/_SearchRecordTable", recordVm);
+		}
+		#endregion
+
+		#region DeleteSearchRecord
+        public IActionResult DeleteSearchRecord(int requestId)
+        {
+		    _adminDashboard.deleteSearchRecord(requestId);
+			TempData["success"] = "Record Deleted Successfully";
+			return RedirectToAction("SearchRecord", "Admin");
 		}
 		#endregion
 

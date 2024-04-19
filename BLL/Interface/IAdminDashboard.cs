@@ -13,6 +13,8 @@ namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
+
+        bool checkreq(int requestid);
         List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId,string searchdata);
 
         //this is for download excel for all request
@@ -164,9 +166,10 @@ namespace BLL.Interface
 		//search record 
 		List<SearchRecord> searchRecordData(string patietnname,int stauts, int requesttype, string email, DateOnly fromdate, DateOnly todate,string providername, string phoneNumber, int pageNumber);
 
+        void deleteSearchRecord(int requestId);
 
-        //this part is for scheduling
-        List<Physician> fetchRegionWiseProviders(int region);
+		//this part is for scheduling
+		List<Physician> fetchRegionWiseProviders(int region);
         List<ShiftDetail> GetScheduleData();
 
         ViewShiftVm viewShiftGetData(int ShiftDetailId);

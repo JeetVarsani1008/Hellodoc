@@ -11,6 +11,8 @@ namespace BLL.Interface
 {
     public interface IProviderDashboard
     {
+        //this is for user cannot open another request that nor exist or that not asign to him/her
+        bool checkphysician(int phyId, int requestId);
         ProviderProfileVm getProviderDetails(int id, int physicianId);
         List<RequestDataProvider> getRequestDataForProvider(string statusarray, int reqTypeId, string searchdata, int phyId);
 

@@ -38,6 +38,23 @@ namespace BLL.Repositery
 
         }
 
+        #region ErrorPage 
+        public bool checkreq(int requestid)
+        {
+            var req = _context.Requests.FirstOrDefault(c => c.RequestId == requestid);
+
+            if (req != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+
         #region reqwuestDataAdmin
         public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId, string searchdata)
         {
@@ -136,29 +153,30 @@ namespace BLL.Repositery
 		#region ViewCase
 		public ViewCaseVm ViewCase(int requestId)
         {
-            var request = _context.Requests.Where(o => o.RequestId == requestId);
-            var user = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
-            var reqtype = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).RequestTypeId;
 
-            var region = _context.Regions.FirstOrDefault(x => x.RegionId == user.RegionId)?.Name ?? "Unknown";
-            int intYear = user?.IntYear?? 1;
-            int intDate = user?.IntDate?? 1;
-            string month = user.StrMonth;
-            DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
-            ViewCaseVm viewCaseVm = new ViewCaseVm()
-            {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                Notes = user.Notes,
-                PhoneNumber = user.PhoneNumber,
-                Email = user.Email,
-                DateOfBirth = birthdate,
-                RequestTypeId = reqtype,
-                Region = region,
-                RequestId = requestId,
+                var request = _context.Requests.Where(o => o.RequestId == requestId);
+                var user = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+                var reqtype = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).RequestTypeId;
 
-            };
-            return viewCaseVm;
+                var region = _context.Regions.FirstOrDefault(x => x.RegionId == user.RegionId)?.Name ?? "Unknown";
+                int intYear = user?.IntYear?? 1;
+                int intDate = user?.IntDate?? 1;
+                string month = user.StrMonth;
+                DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
+                ViewCaseVm viewCaseVm = new ViewCaseVm()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Notes = user.Notes,
+                    PhoneNumber = user.PhoneNumber,
+                    Email = user.Email,
+                    DateOfBirth = birthdate,
+                    RequestTypeId = reqtype,
+                    Region = region,
+                    RequestId = requestId,
+
+                };
+                return viewCaseVm;
         }
         #endregion
 
@@ -223,7 +241,7 @@ namespace BLL.Repositery
             if (reqnotes != null)
             {
                 reqnotes.AdminNotes = model.AdminNotes;
-                reqnotes.PhysicianNotes = model.PhysicianNotes;
+                //reqnotes.PhysicianNotes = model.PhysicianNotes;
                 reqnotes.ModifiedBy = (int)_context.Users.FirstOrDefault(x => x.UserId == req.UserId).AspNetUserId;
                 reqnotes.ModifiedDate = DateTime.Now;
                 _context.SaveChanges();
@@ -684,7 +702,7 @@ namespace BLL.Repositery
                 RequestStatusLog requestStatusLog = new RequestStatusLog
                 {
                     RequestId = requestId,
-                    Status = 10,
+                    Status = 9,
                     CreatedDate = DateTime.Now,
                 };
                 _context.RequestStatusLogs.Add(requestStatusLog);
@@ -1821,6 +1839,7 @@ namespace BLL.Repositery
         #region updateBusiness 
         public Vendor updateBusiness(int vendorId)
         {
+            
             var data = _context.HealthProfessionals.FirstOrDefault(x => x.VendorId == vendorId);
 
             Vendor vendor = new Vendor
@@ -2129,6 +2148,7 @@ namespace BLL.Repositery
                         from logresult in physicianGroup.DefaultIfEmpty()
                         join rn in _context.RequestNotes on r.RequestId equals rn.RequestId into notesGroup
                         from noteresult in notesGroup.DefaultIfEmpty()
+                        where r.IsDeleted == false || r.IsDeleted == null
                         
                         select new
                         {
@@ -2203,8 +2223,18 @@ namespace BLL.Repositery
 			}).ToList();
 			return data;
 		}
+        #endregion
+
+        #region deleteSearchRecord
+        public void deleteSearchRecord(int requestId)
+        {
+            var data = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+            data.IsDeleted = true;
+            _context.SaveChanges();
+        }
 		#endregion
 
+		//this part is for sechduling
 		#region fetchRegionWiseProviders
 		public List<Physician> fetchRegionWiseProviders(int region)
 		{
@@ -2343,7 +2373,7 @@ namespace BLL.Repositery
         #region checkshiftExistsForPhysician
         public bool checkshiftExistsForPhysician(int physicianId, DateOnly shiftdate, TimeOnly starttime, TimeOnly endtime)
         {
-            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId &&  (x.ShiftDate == shiftdate) && (x.StartTime <= starttime  && x.EndTime <= starttime));
+            var data = _context.ShiftDetails.Any(x => x.Shift.PhysicianId == physicianId &&  (x.ShiftDate == shiftdate) && (x.StartTime <= starttime  && x.EndTime >= starttime));
             
             if (data)
             {
