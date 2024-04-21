@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,6 +7,9 @@ namespace DAL.ViewModel
 {
     public class FamilyData
     {
+        [Required(ErrorMessage ="Please Select One Region")]
+        public int RegionId { get; set; }
+
         [Required(ErrorMessage = "Please Enter the First Name")]
         public string F_FirstName { get; set; }
 
@@ -62,7 +66,9 @@ namespace DAL.ViewModel
 		[Required(ErrorMessage = "Please Enter your Phone Number")]
 		[RegularExpression(@"^[0-9]{8,12}$", ErrorMessage = "Please enter a valid phone number between 8 and 12 digits.")]
 		public string PhoneNumber { get; set; }
-        public string File { get; set; }
+        public string? File { get; set; }
+
+        public IFormFile? FilePath { get; set; }
         public List<Region> regions { get; set; }
 
     }

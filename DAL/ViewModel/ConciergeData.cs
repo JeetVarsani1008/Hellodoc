@@ -5,6 +5,9 @@ namespace DAL.ViewModel
 {
     public class ConciergeData
     {
+        [Required(ErrorMessage ="Please select one region")]
+        public int RegionId { get; set; }
+
         [Required(ErrorMessage = "Please Enter the First Name")]
         public string C_FirstName { get; set; }
 

@@ -5,6 +5,9 @@ namespace DAL.ViewModel
 {
     public class BusinessData
     {
+        [Required(ErrorMessage ="Please select one region")]
+        public int RegionId { get; set; }
+
         [Required, StringLength(50), Display(Name = "First Name")]
         public string B_FirstName { get; set; }
 

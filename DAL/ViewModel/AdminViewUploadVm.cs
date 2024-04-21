@@ -9,6 +9,7 @@ namespace DAL.ViewModel
 {
     public class AdminViewUploadVm
     {
+        public int PhysicianId { get; set; }
         public int RequestId { get; set; }
         
         public string Name { get; set; }
@@ -17,5 +18,7 @@ namespace DAL.ViewModel
         public List<RequestWiseFile> requestWiseFiles { get; set; }
 
         public bool IsFinalized { get; set; }
+
+        public string PatientName { get; set; }
     }
 }

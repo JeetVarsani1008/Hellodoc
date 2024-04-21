@@ -87,15 +87,17 @@
 
             </div>
                 <div class="form-floating mb-3 col-md-6 col-sm-12">
-                    <select class="form-select w-100" id="healthprofessionSelect" aria-label="Floating label select example" asp-for="State">
+                    <select class="form-select w-100" id="regionselect" aria-label="Floating label select example" asp-for="RegionId">
+                        <option value="" selected disabled>All</option>
                         @foreach (var obj in Model.regions)
                         {
-                            <option value="@obj.Name">
+                            <option value="@obj.RegionId">
                                 @obj.Name
                             </option>
                         }
                     </select>
-                    <span asp-validation-for="State" class="text-danger"></span>
+                    <label for="regionselect" class="form-label ms-2">State</label>
+                    <span asp-validation-for="RegionId" class="text-danger"></span>
                 </div>            
                 <div class="form-floating mb-3 col-md-6 col-sm-12">
                     <input type="text" class="form-control" id="floatingInput" placeholder="Zipcode" asp-for="ZipCode">

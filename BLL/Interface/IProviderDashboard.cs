@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using DAL.ViewModel;
 using DAL.ViewModelProvider;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,8 @@ namespace BLL.Interface
         void concludeCarePost(AdminViewUploadVm model);
 
         Encounter getEncounterDataByRequestId(int requestId);
+        string getPatientNameForConclude(int requestId);
 
+        bool concludeCareUpload(IFormFile file, int requestId, int physicianId);
     }
 }

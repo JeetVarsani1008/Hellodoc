@@ -124,7 +124,12 @@ namespace HelloDoc2.Controllers
 
             var phyId = HttpContext.Session.GetInt32("PhysicianId");
 
-                statusarray = HttpContext.Session.GetString("StatusFetch");
+            statusarray = HttpContext.Session.GetString("StatusFetch");
+
+            if(statusarray == null)
+            {
+                statusarray = "1";
+            }
             
             var reqProvider = _providerDashboard.getRequestDataForProvider(statusarray, requestTypeId, searchdata, phyId??0);
             var reqProviderPaginatedData = reqProvider.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
@@ -446,7 +451,6 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
-
         //type of care : encounter
 
         #region EncounterPopUp 
@@ -493,6 +497,11 @@ namespace HelloDoc2.Controllers
         #region EncounterForm 
         public IActionResult EncounterForm(int requestId)
         {
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            if (!_providerDashboard.checkphysician(phyId ?? 0, requestId))
+            {
+                return View("ErrorPage");
+            }
             ViewBag.ActiveDashboardNav = "ProviderDashboard";
             var data = _adminDashboard.encounterFormGetData(requestId);
             return View(data);
@@ -598,12 +607,15 @@ namespace HelloDoc2.Controllers
         #region ConcludeCare : get
         public IActionResult ConcludeCare(int requestId)
         {
+            var physicianId = HttpContext.Session.GetInt32("PhysicianId");
             var encounterdata = _providerDashboard.getEncounterDataByRequestId(requestId);
             AdminViewUploadVm adminViewUploadVm = new AdminViewUploadVm();
             adminViewUploadVm.requestWiseFiles = _providerDashboard.getFilesByRequestId(requestId);
             adminViewUploadVm.RequestId = requestId;
+            adminViewUploadVm.PhysicianId = (int)physicianId;
             adminViewUploadVm.IsFinalized = encounterdata.IsFinalize ?? false;
             ViewBag.ActiveDashboardNav = "ProviderDashboard";
+            adminViewUploadVm.PatientName = _providerDashboard.getPatientNameForConclude(requestId);
             return View(adminViewUploadVm);
         }
         #endregion
@@ -623,7 +635,7 @@ namespace HelloDoc2.Controllers
 
         #region ConcludeCareDelete
         //this part is for delete single file
-        public IActionResult ConCludeCareDelete(int documentId, int requestId)
+        public IActionResult ConcludeCareDelete(int documentId, int requestId)
         {
             var fileToDelete = _adminDashboard.GetFileById(documentId);
             if (fileToDelete == null)
@@ -648,7 +660,7 @@ namespace HelloDoc2.Controllers
             if (filedelete)
             {
                 TempData["success"] = "File deleted successfully.";
-                return RedirectToAction();
+                return RedirectToAction("ConcludeCare",new {requestId = requestId});
             }
             else
             {
@@ -658,9 +670,42 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
+        #region UploadForConcludeCare : post
+        [HttpPost]
+        public IActionResult UploadForConcludeCare(IFormFile file, int requestId, int physicianId)
+        {
+            if(file != null && file.Length > 0 )
+            {
+                var filePath = Path.Combine("wwwroot", "upload", file.FileName);
+                //var filePath = Path.Combine("", file.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                };
+
+                // this save file in database 
+                var data = _providerDashboard.concludeCareUpload(file,requestId, physicianId);
+
+                if (data)
+                {
+                    // Return a JSON response
+                    return Json(new { success = true, message = "File uploaded successfully" });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "File Not uploaded For this id." });
+                }
+            }
+            else
+            {
+                return Json(new { success = false, message = "No file provided" });
+            }
+        }
+        #endregion
+
         #region ConcludeCare : post 
         [HttpPost]
-        public IActionResult ConcludeCare(AdminViewUploadVm model)
+        public IActionResult ConcludeCarePost(AdminViewUploadVm model)
         {
             _providerDashboard.concludeCarePost(model);
             TempData["success"] = "Request Concluded Successfully.";

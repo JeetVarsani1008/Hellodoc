@@ -36,7 +36,7 @@
 						<td>@obj.ConcludedDate</td>
 						<td>@obj.Status</td>
 						<td>
-							<button class="btn btn-outline-info">View</button>
+							<button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("GeneratePDF","Provider",new {requestId = obj.RequestId})'">View</button>
 						</td>
 						<td>
 							@* <button class="dropdown btn btn-outline-info">Actions</button> *@

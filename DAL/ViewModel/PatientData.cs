@@ -5,6 +5,8 @@ namespace DAL.ViewModel
 {
     public class PatientData
     {
+        [Required(ErrorMessage ="Please select one region")]
+        public int RegionId { get; set; }
         public List<Request> Requests { get; set; }
         public string? Symptoms { get; set; }
 
@@ -51,7 +53,6 @@ namespace DAL.ViewModel
         public IFormFile? Filepath { get; set; } = null;
 
         public int? Count { get; set; }
-
         public List<Region> regions { get; set; }
     }
 }

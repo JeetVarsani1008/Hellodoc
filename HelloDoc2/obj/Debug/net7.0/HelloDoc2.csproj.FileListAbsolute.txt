@@ -1265,3 +1265,5 @@ D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Twilio.dll
 C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Twilio.dll
 D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Rotativa.AspNetCore.dll
 D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Rotativa.AspNetCore.dll
+C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cs

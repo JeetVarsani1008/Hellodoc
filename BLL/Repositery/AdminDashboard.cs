@@ -35,10 +35,9 @@ namespace BLL.Repositery
         public AdminDashboard(HellodocContext context)
         {
             _context = context;
-
         }
 
-        #region ErrorPage 
+        #region ErrorPage : checkreq
         public bool checkreq(int requestid)
         {
             var req = _context.Requests.FirstOrDefault(c => c.RequestId == requestid);
@@ -54,6 +53,33 @@ namespace BLL.Repositery
         }
         #endregion
 
+        #region checkPhysician
+        public bool checkPhysician(int physicianId)
+        {
+            var data = _context.Physicians.Any(x => x.PhysicianId == physicianId);
+            return data;
+        }
+        #endregion
+
+        #region checkRole
+        public bool checkRole(int roleId)
+        {
+            var data = _context.Roles.Any(z => z.RoleId == roleId);
+            return data;
+        }
+        #endregion
+
+        #region checkUser
+        public bool checkUser(int userId)
+        {
+            var data = _context.Users.Any(x => x.UserId == userId);
+            return data;
+        }
+        #endregion
+
+        #region forCountRequest
+        public IQueryable<Request> forCountRequestInAdmin => _context.Requests;
+        #endregion
 
         #region reqwuestDataAdmin
         public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId, string searchdata)
@@ -161,7 +187,7 @@ namespace BLL.Repositery
                 var region = _context.Regions.FirstOrDefault(x => x.RegionId == user.RegionId)?.Name ?? "Unknown";
                 int intYear = user?.IntYear?? 1;
                 int intDate = user?.IntDate?? 1;
-                string month = user.StrMonth;
+                string month = user.StrMonth ?? "Jan";
                 DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
                 ViewCaseVm viewCaseVm = new ViewCaseVm()
                 {

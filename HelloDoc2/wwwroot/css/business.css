@@ -125,3 +125,16 @@ body {
     box-shadow: none;
     border-radius: 5px;
 }
+
+/*for doing red border when show error*/
+.field-validation-error {
+    color: #e80c4d;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 2px solid #e80c4d;
+} 

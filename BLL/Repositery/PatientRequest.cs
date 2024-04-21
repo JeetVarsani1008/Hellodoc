@@ -99,11 +99,13 @@ namespace BLL.Repositery
             requestClient.LastName = model.LastName;
             requestClient.PhoneNumber = model.Phone;
             requestClient.Email = model.Email;
+            requestClient.State = _context.Regions.FirstOrDefault(x => x.RegionId == model.RegionId).Name ?? "Gujarat";
+            requestClient.RegionId = model.RegionId;
             _context.RequestClients.Add(requestClient);
             _context.SaveChanges();
 
             requestStatusLog.RequestId = request.RequestId;
-            requestStatusLog.Status = 3;
+            requestStatusLog.Status = 1;
             requestStatusLog.Notes = model.Symptoms;
             requestStatusLog.CreatedDate = DateTime.Now;
             _context.RequestStatusLogs.Add(requestStatusLog);
@@ -153,6 +155,8 @@ namespace BLL.Repositery
             request.LastName = familyData.F_LastName;
             request.Email = familyData.F_Email;
             request.CreatedDate = DateTime.Now;
+            request.PhoneNumber = familyData.PhoneNumber;
+            request.Status = 1;
             _context.Requests.Add(request);
             _context.SaveChanges();
 
@@ -167,11 +171,12 @@ namespace BLL.Repositery
             requestClient.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(familyData.Birthdate.Month);
             requestClient.IntYear = familyData.Birthdate.Year;
             requestClient.IntDate = familyData.Birthdate.Day;
-
             requestClient.Street = familyData.Street;
             requestClient.City = familyData.City;
             requestClient.State = familyData.State;
             requestClient.ZipCode = familyData.ZipCode;
+            requestClient.RegionId = familyData.RegionId;
+            requestClient.State = _context.Regions.FirstOrDefault(x => x.RegionId == familyData.RegionId).Name ?? "Gujarat";
 
             _context.RequestClients.Add(requestClient);
             _context.SaveChanges();
@@ -201,6 +206,11 @@ namespace BLL.Repositery
 
             request.FirstName = model.C_FirstName;
             request.LastName = model.C_LastName;
+            request.Status = 1;
+            request.RequestTypeId = 4;
+            request.Email = model.C_Email;
+            _context.Requests.Add(request);
+            _context.SaveChanges();
 
 
             concierge.ConciergeName = model.C_FirstName + " " + model.C_LastName;
@@ -215,17 +225,19 @@ namespace BLL.Repositery
 
 
             requestClient.FirstName = model.FirstName;
+            requestClient.RequestId = request.RequestId;
             requestClient.LastName = model.LastName;
             requestClient.Email = model.Email;
             requestClient.PhoneNumber = model.Phone;
             requestClient.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.Birthdate.Month);
             requestClient.IntYear = model.Birthdate.Year;
             requestClient.IntDate = model.Birthdate.Day;
+            requestClient.State = _context.Regions.FirstOrDefault(x => x.RegionId == model.RegionId).Name ?? "Gujarat";
+            requestClient.RegionId = model.RegionId;
             _context.RequestClients.Add(requestClient);
             _context.SaveChanges();
 
         }
-
 
         public void businessRequestForm(BusinessData model) 
         {
@@ -241,26 +253,33 @@ namespace BLL.Repositery
             business.Name = model.B_FirstName + " " + model.B_LastName;
             business.CreatedDate = DateTime.Now;
             _context.Businesses.Add(business);
+            _context.SaveChanges();
+
+
+
+            request.FirstName = model.B_FirstName;
+            request.LastName = model.B_LastName;
+            request.Email = model.B_Email;
+            request.RequestTypeId = 3;
+            request.Status = 1;
+            request.PhoneNumber = model.B_Phone;
+            _context.Requests.Add(request);
              _context.SaveChanges();
 
 
+            requestClient.RequestId = request.RequestId;
             requestClient.FirstName = model.FirstName;
             requestClient.LastName = model.LastName;
             requestClient.Email = model.Email;
             requestClient.PhoneNumber = model.Phone;
             requestClient.Street = model.Street;
             requestClient.City = model.City;
-            requestClient.State = model.State;
+            requestClient.State = _context.Regions.FirstOrDefault(x => x.RegionId == model.RegionId).Name;
+            requestClient.RegionId = model.RegionId;
             requestClient.ZipCode = model.ZipCode;
             _context.RequestClients.Add(requestClient);
              _context.SaveChanges();
 
-            request.FirstName = model.B_FirstName;
-            request.LastName = model.B_LastName;
-            request.Email = model.B_Email;
-            request.PhoneNumber = model.B_Phone;
-            _context.Requests.Add(request);
-             _context.SaveChanges();
         }
 
 
@@ -273,7 +292,8 @@ namespace BLL.Repositery
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 CreatedDate = DateTime.Now,
-                Status = 4,
+                Status = 1,
+                RequestTypeId = 1,
                 PhoneNumber = model.Phone,
                 Email = model.Email,
             };
@@ -366,7 +386,7 @@ namespace BLL.Repositery
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 CreatedDate = DateTime.Now,
-                Status = 4,
+                Status = 2,
                 PhoneNumber = model.Phone,
                 Email = model.Email,
             };

@@ -8,18 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Region = DAL.Models.Region;
+using Request = DAL.Models.Request;
 
 namespace BLL.Interface
 {
     public interface IAdminDashboard
     {
-
+        //this part is for check if user is exist then and then allow to access page otherwise give error page
         bool checkreq(int requestid);
+        bool checkRole(int roleId);
+        bool checkPhysician(int physicianId);
+        bool checkUser(int userId);
+        //user exist part completed
+
         List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId,string searchdata);
 
         //this is for download excel for all request
         List<RequestListAdminDash> requestDataDownloadExcelAll();
 
+        IQueryable<Request> forCountRequestInAdmin { get;  }
 
         ViewCaseVm ViewCase(int requestId);
 

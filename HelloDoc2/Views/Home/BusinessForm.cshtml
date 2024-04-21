@@ -13,8 +13,8 @@
         <a class="back">
             <button onclick="@("window.location.href ='" + @Url.Action("Submit_Request","Home") + "'");" class="back-btn mt-5">
                 &lt; Back
-        </a>
         </button>
+        </a>
     </div>
     <form method="post" asp-controller="Home" asp-action="BusinessForm">
 
@@ -26,7 +26,6 @@
                 <input type="text" class="form-control" id="floatingInput" placeholder="B_FirstName" asp-for="B_FirstName" >
                 <label for="floatingInput" style="margin-left: 1em">Your First Name</label>
                     <span asp-validation-for="B_FirstName" class="text-danger"></span>
-
             </div>
             <div class="form-floating mb-3 col-md-6 col-sm-12">
                 <input type="text" class="form-control" id="floatingPassword" placeholder="B_LastName" asp-for="B_LastName">
@@ -40,8 +39,8 @@
 
             </div>
             <div class="form-floating mb-3 col-md-6 col-sm-12">
-                <input type="Email" class="form-control" id="floatingInput" placeholder="name@example.com" asp-for="B_Email">
-                <label for="floatingInput" style="margin-left: 1em">Your Email</label>
+                <input type="email" class="form-control" placeholder="name@example.com" asp-for="B_Email">
+                    <label for="B_Email" style="margin-left: 1em">Your Email</label>
                     <span asp-validation-for="B_Email" class="text-danger"></span>
 
             </div>
@@ -84,8 +83,8 @@
         <h2 class="same-text">Patient Contact Information</h2>
         <div class="row mb-4">
             <div class="form-floating mb-3 col-md-6 col-sm-12">
-                <input type="email" class="form-control" id="floatingPassword" placeholder="Email" asp-for="Email">
-                <label class="t1" for="floatingEmail" style="margin-left: 1em">Email</label>
+                    <input type="email" class="form-control" asp-for="Email">
+                <label class="t1" for="Email" style="margin-left: 1em">Email</label>
                     <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-floating col-md-6 col-lg-6 mb-3">
@@ -108,22 +107,18 @@
                     <span asp-validation-for="City" class="text-danger"></span>
 
             </div>
-           @*  <div class="form-floating mb-3 col-md-6 col-sm-12">
-                <input type="text" class="form-control" id="floatingPassword" placeholder="State" asp-for="State">
-                <label for="floatingInput" style="margin-left: 1em">State</label>
-                    <span asp-validation-for="State" class="text-danger"></span>
-
-            </div> *@
                 <div class="form-floating mb-3 col-md-6 col-sm-12">
-                    <select class="form-select w-100" id="healthprofessionSelect" aria-label="Floating label select example" asp-for="State">
+                    <select class="form-select w-100" id="regionselect" aria-label="Floating label select example" asp-for="RegionId">
+                        <option value="" selected disabled>All</option>
                         @foreach (var obj in Model.regions)
                         {
-                            <option value="@obj.Name">
+                            <option value="@obj.RegionId">
                                 @obj.Name
                             </option>
                         }
                     </select>
-                    <span asp-validation-for="State" class="text-danger"></span>
+                        <label for="regionselect" class="form-label ms-2">State</label>
+                    <span asp-validation-for="RegionId" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3 col-md-6 col-sm-12">
                 <input type="text" class="form-control" id="floatingInput" placeholder="ZipCode" asp-for="ZipCode">
@@ -143,7 +138,7 @@
     </div>
     </form>
 </div>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+@* <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content text-center">
@@ -167,7 +162,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <script>
     const phoneInputField = document.querySelector("#phone");
     const phoneInput = window.intlTelInput(phoneInputField, {

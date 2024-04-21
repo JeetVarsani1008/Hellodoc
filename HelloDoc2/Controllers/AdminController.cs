@@ -30,19 +30,7 @@ namespace DAL.Controllers
             _login = login;
             _jwt = jwt;
         }
-
-        //#region AdminLogin
-        //public IActionResult AdminLogin()
-        //{
-        //    HttpContext.Session.Clear();
-        //    Response.Cookies.Delete("Jwt");
-        //    Response.Cookies.Delete(".AspNetCore.Session");
-        //    Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
-        //    return View();
-        //}
-        //#endregion
-
-        
+       
 
         #region AdminLogout
         public IActionResult AdminLogout()
@@ -51,6 +39,7 @@ namespace DAL.Controllers
             Response.Cookies.Delete("Jwt");
             Response.Cookies.Delete(".AspNetCore.Session");
             Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
+            Response.Cookies.Delete("RoleMenu");
             return RedirectToAction("Login", "Login");
         }
         #endregion
@@ -69,7 +58,7 @@ namespace DAL.Controllers
         public IActionResult AdminDashboard()
         {
             ViewBag.ActiveDashboardNav = "AdminDashboard";
-            var request = _context.Requests;
+            var request = _adminDashboard.forCountRequestInAdmin;
             //ViewBag.AdminName = HttpContext.Session.GetString("adminName");
 
 
@@ -192,6 +181,11 @@ namespace DAL.Controllers
         public IActionResult FilterRequests(string statusarray, int[] status, string reqtypeid,int regionId,int PageNumber,string searchdata)
         {
             statusarray = HttpContext.Session.GetString("statusfetch");
+
+            if(statusarray == null)
+            {
+                statusarray = "1";
+            }
             int PageSize = 5;
             //int[] Status = status.Split(',').Select(s => int.Parse(s)).ToArray();
             var getRegion = _adminDashboard.getRegions();
@@ -268,7 +262,6 @@ namespace DAL.Controllers
         }
         #endregion
 
-
         #region ViewCase
         [CustomAuthorize("1")]
         public IActionResult ViewCase(int requestId)
@@ -278,6 +271,7 @@ namespace DAL.Controllers
                 return View("ErrorPage");
             }
             var data = _adminDashboard.ViewCase(requestId);
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             return View(data);
         }
         #endregion
@@ -292,6 +286,7 @@ namespace DAL.Controllers
                 return View("ErrorPage");
             }
             var data = _adminDashboard.ViewNotes(requestId);
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             return View(data);
         }
         #endregion
@@ -341,7 +336,6 @@ namespace DAL.Controllers
             return PartialView("_adminBlockCase", adminBlockVm);
         }
         #endregion
-
 
         #region BlockCasePost
         [HttpPost]
@@ -403,6 +397,7 @@ namespace DAL.Controllers
             ViewBag.RequestIdForSendMail = requestId;
             var returnViewData = _adminDashboard.GetAdminViewUploadData(model, requestId);
             var documents = _adminDashboard.GetFilesByRequestId(requestId);
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             ViewBag.document = documents;
             return View(returnViewData);
         }
@@ -428,7 +423,7 @@ namespace DAL.Controllers
                 Filepath.CopyTo(stream);
             }
             TempData["Uploadscs"] = "File Uploaded Successfully.Please Refresh Page";
-            return View();
+            return Json(new {success = true});
         }
         #endregion
         //upload file in view upload completed
@@ -491,10 +486,12 @@ namespace DAL.Controllers
             BitArray bitarray = new BitArray(1);
             bitarray.Set(0, true);
 
-            RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == documentId);
-            requestWiseFile.IsDeleted = bitarray;
-            _context.RequestWiseFiles.Update(requestWiseFile);
-            _context.SaveChanges();
+            //RequestWiseFile requestWiseFile = _context.RequestWiseFiles.First(x => x.RequestWiseFileId == documentId);
+            //requestWiseFile.IsDeleted = bitarray;
+            //_context.RequestWiseFiles.Update(requestWiseFile);
+            //_context.SaveChanges();
+
+            _providerDashboard.concludeCareDelete(documentId);
 
             TempData["success"] = "File deleted successfully.";
             return RedirectToAction("ViewUploads", "Admin", new { requestId });
@@ -638,6 +635,7 @@ namespace DAL.Controllers
             AdminOrderVm adminOrderVm = new AdminOrderVm();
             adminOrderVm.healthProfessionType = _adminDashboard.healthProfessionalTypes();
             adminOrderVm.RequestId = requestID;
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             return View(adminOrderVm);
         }
         #endregion Orders
@@ -919,6 +917,7 @@ namespace DAL.Controllers
             }
             else
             {
+                ViewBag.ActiveDashboardNav = "AdminDashboard";
                 return View(data);
             }
         }
@@ -1018,7 +1017,12 @@ namespace DAL.Controllers
         //this part is for encounter form 
         public IActionResult EncounterForm(int reqId)
         {
+            if (!_adminDashboard.checkreq(reqId))
+            {
+                return View("ErrorPage");
+            }
             var data = _adminDashboard.encounterFormGetData(reqId);
+            ViewBag.ActiveDashboardNav = "AdminDashboard";
             return View(data);
         }
         #endregion
@@ -1082,6 +1086,10 @@ namespace DAL.Controllers
         [HttpGet]
         public IActionResult EditPhysicianAccount(int physicianId)
         {
+            if (!_adminDashboard.checkPhysician(physicianId))
+            {
+                return View("ErrorPage");
+            };
             ViewBag.ActiveDashboardNav = "Provider";
             var data = _adminDashboard.getPhysicianDetails(physicianId);
             return View(data);
@@ -1287,6 +1295,10 @@ namespace DAL.Controllers
         [HttpGet]
         public IActionResult EditAccessRole(int RoleId, int AccountType)
         {
+            if(!_adminDashboard.checkRole(RoleId))
+            {
+                return View("ErrorPage");
+            }
             AccessVm data = _adminDashboard.editAccessRole(RoleId, AccountType);
             data.aspNetRole = _adminDashboard.getAspNetRoles();
             ViewBag.ActiveDashboardNav = "Access";
@@ -1403,6 +1415,10 @@ namespace DAL.Controllers
         #region PatientRecordExplore
         public IActionResult PatientRecordExplore(int patientId)
         {
+            if (!_adminDashboard.checkUser(patientId))
+            {
+                return View("ErrorPage");
+            };
             ViewBag.ActiveDashboardNav = "Record";
             ViewBag.ActiveDropdown = "PatientRecord";
             ViewBag.AdminName = HttpContext.Session.GetString("adminName");

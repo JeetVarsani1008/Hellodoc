@@ -528,8 +528,7 @@ namespace BLL.Repositery
         #region getFilesByRequestId
         public List<RequestWiseFile> getFilesByRequestId(int requestId)
         {
-            var data = _context.RequestWiseFiles.Where(x => x.RequestId == requestId).ToList();
-            return data;
+            var data = _context.RequestWiseFiles.Where(x => x.RequestId == requestId).ToList().Where( x=> x.IsDeleted == null || !x.IsDeleted[0]).ToList(); return data;
         }
         #endregion
 
@@ -565,6 +564,42 @@ namespace BLL.Repositery
         {
             var data = _context.Encounters.FirstOrDefault(x => x.RequestId == requestId);
             return data;
+        }
+        #endregion
+
+        #region getPatientNameForConclude
+        public string getPatientNameForConclude(int requestId)
+        {
+            var data = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
+            var name = "";
+            if(data != null)
+            {
+                name = data.FirstName + " " + data.LastName;
+            }
+            return name;
+        }
+        #endregion
+
+        #region concludeCareUpload
+        public bool concludeCareUpload(IFormFile file, int requestId, int physicianId)
+        {
+            var data = _context.Requests.Any(x => x.RequestId == requestId);
+            if (data)
+            {
+                RequestWiseFile requestWiseFile = new RequestWiseFile();
+                requestWiseFile.RequestId = requestId;
+                requestWiseFile.FileName = file.FileName;
+                requestWiseFile.CreatedDate = DateTime.Now;
+                requestWiseFile.IsDeleted = new BitArray(1,false);
+                requestWiseFile.PhysicianId = physicianId;
+                _context.RequestWiseFiles.Add(requestWiseFile);
+                _context.SaveChanges();     
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
     }
