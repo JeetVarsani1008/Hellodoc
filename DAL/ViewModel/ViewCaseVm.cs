@@ -25,5 +25,7 @@ namespace DAL.ViewModel
         public int RequestTypeId { get; set; }
 
         public string Region {  get; set; }
+
+        public string Address { get; set; }
     }
 }

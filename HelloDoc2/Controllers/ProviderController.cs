@@ -152,6 +152,48 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
+
+        #region FilterPaginationProvider
+        public IActionResult FilterPaginationProvider(string statusarray, int requestTypeId, string searchdata, int PageNumber)
+        {
+            if(PageNumber == 0)
+            {
+                PageNumber = 1;
+            }
+            int PageSize = 5;
+
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+
+            statusarray = HttpContext.Session.GetString("StatusFetch");
+
+            if(statusarray == null)
+            {
+                statusarray = "1";
+            }
+            
+            var reqProvider = _providerDashboard.getRequestDataForProvider(statusarray, requestTypeId, searchdata, phyId??0);
+            var reqProviderPaginatedData = reqProvider.Skip((PageNumber - 1) * PageSize).Take(PageSize).ToList();
+
+            ProviderDashboardVm providerDashboardVm = new ProviderDashboardVm()
+            {
+                statusArray = statusarray,
+                requestDataProvider = reqProviderPaginatedData,
+                Page = new PageVm
+                {
+                    totalitem = reqProvider.Count(),
+                    currentpage = PageNumber,
+                    itemperpage = PageSize,
+                },
+                skipCount = reqProvider.Take((PageNumber - 1) * PageSize).ToList().Count(),
+                CurrentPage = PageNumber,
+            };
+            providerDashboardVm.TotalPages = (int)Math.Ceiling((decimal)providerDashboardVm.Page.totalitem / PageSize);
+            return PartialView("Provider/ProviderPartialTable", providerDashboardVm);
+        }
+        #endregion
+
+
+
         #region SendLink
         public IActionResult SendLink()
         {

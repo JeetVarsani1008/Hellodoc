@@ -112,18 +112,18 @@
             <p style="margin:0px; color:gray;">@(Model.skipCount + 1) to @(Model.skipCount + Model.Page.itemperpage) records out of @Model.Page.totalitem</p>
         }
         <ul class="pagination">
-            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")" onclick="filterPaginationProvider(@Model.statusArray, @Model.requestTypeId, null,@Model.CurrentPage-1)">
                 <button class="page-link" id="prevPageLink">Previous</button>
             </li>
 
             @for (int i = 1; i <= Model.TotalPages; i++)
             {
-                <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                <li class="page-item @(Model.CurrentPage == i ? "active" : "")" onclick="filterPaginationProvider(@Model.statusArray,@Model.requestTypeId,null,@i)">
                     <button class="page-link" id="pageLink">@i</button>
                 </li>
             }
 
-            <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                    <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")" onclick="filterPaginationProvider(@Model.statusArray,@Model.requestTypeId,null,@Model.CurrentPage + 1)">
                 <button class="page-link" id="nextPageLink">Next</button>
             </li>
         </ul>

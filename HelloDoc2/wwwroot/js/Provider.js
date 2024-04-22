@@ -75,6 +75,35 @@ function filterRequestsProvider(statusarray, reqtypeid, searchdata) {
     })
 };
 
+function filterPaginationProvider(statusarray, reqtypeid, searchdata,pagenumber) {
+    console.log(reqtypeid)
+    console.log("inside fetchreq");
+    // var status = status;
+    var searchdata = $('#searchdata').val().trim();
+    var statusarray = statusarray;
+    var reqtypeid = reqtypeid;
+
+
+    $.ajax({
+        method: "GET",
+        url: "/Provider/FilterPaginationProvider",
+        data: {
+            statusarray: statusarray,
+            requestTypeId: reqtypeid,
+            searchdata: searchdata,
+            PageNumber: pagenumber,
+        },
+        success: function (response) {
+            console.log(status);
+            console.log("Function Success");
+            $('#provider-partial-table').html(response);
+        },
+        error: function () {
+            $('#provider-partial-table').html("Something Went Wrong");
+        }
+    })
+};
+
 
 function providersendlink() {
     $.ajax({

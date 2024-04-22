@@ -74,7 +74,7 @@
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3 col-md-6 col-sm-12">
-                <input type="date" class="form-control" id="floatingPassword" placeholder="12/11/2023" asp-for="Birthdate">
+                    <input type="date" class="form-control" id="floatingPassword" placeholder="12/11/2023" value="<%= DateTime.Now.ToString(' yyyy-MM-dd') %>" asp-for="Birthdate">
                 <label for="floatingDate" style="margin-left: 1em">Date Of Birth</label>
                     <span asp-validation-for="Birthdate" class="text-danger"></span>
             </div>

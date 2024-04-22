@@ -950,7 +950,6 @@ namespace DAL.Controllers
         }
         #endregion
 
-
         //close case completed
 
         //this is for admin profile 
@@ -1031,6 +1030,7 @@ namespace DAL.Controllers
         public IActionResult PostEncounterData(EncounterVm model)
         {
             _adminDashboard.postEncounterData(model);
+            TempData["success"] = "Data Saved Successfully";
             return View("EncounterForm");
         }
         #endregion

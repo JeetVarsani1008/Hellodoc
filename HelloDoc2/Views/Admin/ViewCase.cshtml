@@ -94,7 +94,9 @@
                             </div>
 
                             <div class="form-floating mb-3 col-12 col-sm-1 ">
-                                <i class="btn bi bi-geo-alt border border-info rounded-2 text-info px-4 py-3 text-info"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=@Uri.EscapeDataString(@Model.Address)" target="_blank">
+                                <i class="btn bi bi-geo-alt border border-info rounded-2 text-info px-4 py-3 text-info" ></i>
+                                </a>
                             </div>
 
                             <div class="form-floating mb-3 col-12 col-sm-6">
@@ -112,9 +114,9 @@
                                 </div>
 
                                 <div class="form-floating mx-2">
-                                    <button type="button" class="btn text-white btn-info">View Notes</button>
+                                    <button type="button" class="btn text-white btn-info" onclick="window.location.href='@Url.Action("ViewNotes","Admin", new {requestId = Model.RequestId})'">View Notes</button>
                                 </div>
-
+                                    
                                 <div class="form-floating mx-2">
                                     <button type="button" class="btn text-white btn-danger">Cancel</button>
                                 </div>

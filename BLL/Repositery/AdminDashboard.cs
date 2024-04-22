@@ -200,7 +200,7 @@ namespace BLL.Repositery
                     RequestTypeId = reqtype,
                     Region = region,
                     RequestId = requestId,
-
+                    Address = user.Address,
                 };
                 return viewCaseVm;
         }
@@ -2042,12 +2042,13 @@ namespace BLL.Repositery
             {
                 list = list.Where(x => x.SentDate == sentDate).ToList();
             }
+
             var data = list.Select(x => new EmailLogs()
 			{
                 EmailLogId = (int)x.EmailLogId,
-				Recipient = _context.Requests.FirstOrDefault(i => i.RequestId == x.RequestId).FirstName,
-				Action = x.Action,
-				RoleName = _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
+				Recipient = (_context.Requests.FirstOrDefault(i => i.RequestId == x.RequestId) == null)?"Unknown": _context.Requests.FirstOrDefault(i => i.RequestId == x.RequestId).FirstName,
+				Action = x.Action ?? 1,
+				RoleName = (_context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId)==null)?"Admin": _context.Roles.FirstOrDefault(i => i.RoleId == x.RoleId).Name,
 				Email = x.EmailId,
                 CreatedDate = x.CreateDate,
                 SentDate = x.SentDate ?? DateOnly.MinValue,

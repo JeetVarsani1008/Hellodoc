@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "amPi0D084I9SkoP+9SRwJ4maa7HoHwVrFifbPSmz3zQ=",
+  "Hash": "l1st86wz7ClfpGMT5sJBFEflBczyf5CVWEj7aWKDhG0=",
   "Source": "HelloDoc2",
   "BasePath": "_content/HelloDoc2",
   "Mode": "Default",
@@ -5221,25 +5221,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\upload\\Jeel_Patel.xlsx"
-    },
-    {
-      "Identity": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\Jeet_Sem-8_Final_Report.docx",
-      "SourceId": "HelloDoc2",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\",
-      "BasePath": "_content/HelloDoc2",
-      "RelativePath": "upload/Jeet_Sem-8_Final_Report.docx",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\upload\\Jeet_Sem-8_Final_Report.docx"
     },
     {
       "Identity": "C:\\Users\\DELL\\Desktop\\project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\logo.svg",
