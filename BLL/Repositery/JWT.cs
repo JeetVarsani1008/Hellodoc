@@ -21,6 +21,8 @@ namespace BLL.Repositery
             this._configuration = configuration;
         }
 
+
+        #region GenerateJwtToken
         public string GenerateJwtToken(AspNetUserRole netUserRole)
         {
             var claim = new List<Claim>
@@ -43,7 +45,9 @@ namespace BLL.Repositery
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        #endregion
 
+        #region ValidateToken
         public bool ValidateToken(string token, out JwtSecurityToken jwtSecurityToken)
         {
             jwtSecurityToken = null;
@@ -78,5 +82,6 @@ namespace BLL.Repositery
                 return false;
             }
         }
+        #endregion
     }
 }

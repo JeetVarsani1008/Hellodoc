@@ -22,43 +22,56 @@ namespace BLL.Repositery
         }
 
         //login for patient
+        #region patientLogin
         public AspNetUser patientLogin(LoginVm loginVm)
         {
             var data = _context.AspNetUsers.FirstOrDefault(u => u.Email == loginVm.Email && u.PasswordHash == loginVm.PasswordHash);
             return data;
         }
+        #endregion
 
 
         //login for admin
+        #region adminLogin
         public AspNetUser adminLogin(LoginVm model)
         {
             var data = _context.AspNetUsers.FirstOrDefault(x => x.Email == model.Email && x.PasswordHash == model.PasswordHash);
                 return data;
         }
+        #endregion
 
+        #region findAspNetRole
         public AspNetUserRole findAspNetRole(AspNetUser user)
         {
              var admindata = _context.AspNetUserRoles.FirstOrDefault(x => x.UserId == user.Id);
             return admindata;
         }
-
+        #endregion
 
         //this is send mail and reset password and forgot password part
+        #region GetUserByEmail
         public AspNetUser GetUserByEmail(string email) {
             return _context.AspNetUsers.FirstOrDefault(o => o.Email == email);
         }
+        #endregion
 
+        #region UpdateUserPassword
         public void UpdateUserPassword(AspNetUser user, string newPassword) {
             user.PasswordHash = newPassword;
             _context.AspNetUsers.Update(user);
         }
+        #endregion
 
+        #region SaveChanges
         public void SaveChanges()
         {
             _context.SaveChanges();
         }
+        #endregion
 
-        public async Task SendEmailAsync(string toEmail, string subject, string body) {
+        #region SendEmailAsync
+        public async Task SendEmailAsync(string toEmail, string subject, string body) 
+        {
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("HelloDoc2", "testinghere1008@outlook.com"));
             message.To.Add(new MailboxAddress("HelloDoc2 Member", toEmail));
@@ -78,9 +91,11 @@ namespace BLL.Repositery
                 await client.DisconnectAsync(true);
             }
         }
-
+        #endregion
 
         private const int TokenExpirationHours = 24;
+
+        #region GenerateToken
         public string GenerateToken()
         {
             byte[] tokenBytes = new byte[32];
@@ -93,17 +108,23 @@ namespace BLL.Repositery
 
             return token;
         }
+        #endregion
 
+        #region GetTokenExpiration
         public DateTime GetTokenExpiration()
         {
             return DateTime.UtcNow.AddHours(TokenExpirationHours);
         }
+        #endregion
 
         //create account for family/friend part
+        #region getAspUser
         public AspNetUser getAspUser(LoginVm loginVm) {
             return _context.AspNetUsers.FirstOrDefault(o => o.Email == loginVm.Email);
         }
+        #endregion
 
+        #region addNewUserData
         public void addNewUserData(LoginVm loginVm, RequestClient requestClient)
         {
             AspNetUser newAspNetUser = new AspNetUser();
@@ -134,13 +155,18 @@ namespace BLL.Repositery
                 _context.Update(request);
             }
         }
+        #endregion
 
+        #region getUser
         public User getUser(LoginVm loginVm) {
             return _context.Users.FirstOrDefault(o => o.Email == loginVm.Email);
         }
+        #endregion
 
+        #region getRequestClient
         public RequestClient getRequestClient(LoginVm loginVm) {
             return _context.RequestClients.FirstOrDefault(o => o.Email == loginVm.Email);
         }
+        #endregion
     }
 }

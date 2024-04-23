@@ -389,7 +389,7 @@
 						title: 'Oops...',
 						text: 'You can only upload PDF files!',
 					});
-
+					this.value = "";
 
 					if (fileInput.id == "AgreementDoc") {
 						var fileNameSpan = document.querySelector('#agreement');
@@ -417,7 +417,7 @@
 					}
 				}
 				// Clear the file input
-				this.value = '';
+				// this.value = '';
 				return false;
 			});
 		}

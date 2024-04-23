@@ -18,6 +18,8 @@ namespace DAL.ViewModel
         public List<HealthProfessional> healthProfessionals { get; set; }
 
         [Required(ErrorMessage ="Please select one profession")]
+        public int ProfessionId { get; set; }
+
         public string ProfessionName { get; set; }
         public string Profession {  get; set; }
 

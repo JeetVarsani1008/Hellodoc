@@ -1,6 +1,7 @@
 ﻿using BLL.Interface;
 using DAL.Models;
 using DAL.ViewModel;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -18,12 +19,16 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Region = DAL.Models.Region;
 using Request = DAL.Models.Request;
+using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BLL.Repositery
 {
@@ -78,15 +83,15 @@ namespace BLL.Repositery
         #endregion
 
         #region forCountRequest
-        public IQueryable<Request> forCountRequestInAdmin => _context.Requests;
+        public IQueryable<Request> forCountRequestInAdmin => _context.Requests.Where(o => !o.IsDeleted.HasValue || o.IsDeleted == false);
         #endregion
 
-        #region reqwuestDataAdmin
+        #region requestDataAdmin
         public List<RequestListAdminDash> requestDataAdmin(string statusarray, int[] Status, string reqTypeId, int regionId, string searchdata)
         {
 
             //var requestTypeId = _context.Requests.Where(o => o.RequestTypeId == reqTypeId);
-            var requestList = _context.Requests.Where(o => statusarray.Contains(o.Status.ToString()));
+            var requestList = _context.Requests.Include(h => h.RequestNotes).Where(o => statusarray.Contains(o.Status.ToString()) && (!o.IsDeleted.HasValue || o.IsDeleted == false));
             //List<DAL.ViewModel.CaseTag> caseTag = new List<DAL.ViewModel.CaseTag>();
             if(searchdata != null)
             {
@@ -115,7 +120,7 @@ namespace BLL.Repositery
                 Requestor = r.FirstName + " " + r.LastName,
                 RequestDate = r.CreatedDate,
                 Address = r.RequestClients.Select(x => x.Street).First() + "," + r.RequestClients.Select(x => x.City).First() + "," + r.RequestClients.Select(x => x.State).First(),
-                Notes = r.RequestClients.Select(x => x.Notes).First(),
+                Notes = r.RequestNotes.Select(z => z.AdministrativeNotes).First(),
                 ChatWith = r.PhysicianId.ToString(),
                 Physician = r.Physician.FirstName,
                 Status = r.Status,
@@ -179,7 +184,6 @@ namespace BLL.Repositery
 		#region ViewCase
 		public ViewCaseVm ViewCase(int requestId)
         {
-
                 var request = _context.Requests.Where(o => o.RequestId == requestId);
                 var user = _context.RequestClients.FirstOrDefault(x => x.RequestId == requestId);
                 var reqtype = _context.Requests.FirstOrDefault(x => x.RequestId == requestId).RequestTypeId;
@@ -200,7 +204,7 @@ namespace BLL.Repositery
                     RequestTypeId = reqtype,
                     Region = region,
                     RequestId = requestId,
-                    Address = user.Address,
+                    Address = user.Address ?? "madhav park",
                 };
                 return viewCaseVm;
         }
@@ -442,12 +446,136 @@ namespace BLL.Repositery
         {
             return _context.RequestWiseFiles.Where(x => x.RequestId == reqId).ToList();
         }
-		#endregion
+        #endregion
+
+        //for request dty support
+        #region IsSendAllUnscheduledPhyMail
+        public bool IsSendAllUnscheduledPhyMail(string note, int aspId)
+        {
+            try
+            {
+                var shifts = _context.Shifts.Where(u => u.StartDate >= DateOnly.FromDateTime(DateTime.Now.Date)).ToList();
+
+                foreach (var item in shifts)
+                {
+                    var shiftId = item.ShiftId;
+                    var shiftDetails = _context.ShiftDetails.Where(u => u.ShiftId == shiftId && u.IsDeleted == false).ToList();
+                    bool isChecked = false;
+
+                    foreach (var shift in shiftDetails)
+                    {
+                        if (shift.StartTime >= TimeOnly.FromTimeSpan(DateTime.Now.TimeOfDay) && shift.EndTime <= TimeOnly.FromTimeSpan(DateTime.Now.TimeOfDay))
+                        {
+                            isChecked = true;
+                            break;
+                        }
+                    }
+
+                    if (!isChecked)
+                    {
+                        var phyId = item.PhysicianId;
+                        var email = _context.Physicians.FirstOrDefault(u => u.PhysicianId == phyId).Email;
+                        var tryCount = 1;
+                        bool isMailSend = false;
+
+                        var adm = _context.Admins.FirstOrDefault(u => u.AspNetUserId == aspId);
+
+                        while (tryCount <= 3)
+                        {
+                            try
+                            {
+                                var message = new MimeMessage();
+                                message.From.Add(new MailboxAddress("HelloDoc2", "testinghere1008@outlook.com"));
+                                message.To.Add(new MailboxAddress("HelloDoc2 Member", email));
+                                message.Subject = "send request";
+
+                                var bodyBuilder = new BodyBuilder();
+                                bodyBuilder.HtmlBody = note;
 
 
-		//from here 4 methods are for order details
-		#region healthProfessionalTypes
-		public List<HealthProfessionalType> healthProfessionalTypes()
+                                message.Body = bodyBuilder.ToMessageBody();
+
+                                using (var client = new MailKit.Net.Smtp.SmtpClient())
+                                {
+                                    try
+                                    {
+                                        client.Connect("smtp.office365.com", 587, false);
+                                        client.Authenticate("testinghere1008@outlook.com", "Simple@12345");
+                                        client.Send(message);
+                                        client.Disconnect(true);
+                                    }
+                                    catch (SmtpCommandException ex)
+                                    {
+                                        // Log or handle the exception here
+                                        Console.WriteLine($"Error sending email: {ex.Message}");
+                                    }
+                                }
+                                tryCount++;
+                            }
+                            catch
+                            {
+                                if (tryCount == 2)
+                                {
+                                    EmailLog emailLogs = new EmailLog
+                                    {
+                                        EmailTemplate = "Gmail",
+                                        SubjectName = "Request DTY Support",
+                                        EmailId = email,
+                                        ConfirmationNumber = "",
+                                        FilePath = "",
+                                        RoleId = 1,
+                                        RequestId = null,
+                                        AdminId = adm?.AdminId,
+                                        PhysicianId = null,
+                                        CreateDate = DateOnly.FromDateTime(DateTime.Now),
+                                        SentDate = DateOnly.FromDateTime( DateTime.Now),
+                                        IsEmailSent = true,
+                                        SentTries = tryCount,
+                                        Action = 0,
+                                    };
+
+                                    _context.EmailLogs.Add(emailLogs);
+                                    _context.SaveChanges();
+
+                                    return false;
+                                }
+                                tryCount++;
+                            }
+                        }
+                        EmailLog emailLog = new EmailLog
+                        {
+                            EmailTemplate = "Gmail",
+                            SubjectName = "Request DTY Support",
+                            EmailId = email,
+                            ConfirmationNumber = "",
+                            FilePath = "",
+                            RoleId = 1,
+                            RequestId = null,
+                            AdminId = adm?.AdminId,
+                            PhysicianId = null,
+                            CreateDate = DateOnly.FromDateTime(DateTime.Now),
+                            SentDate = DateOnly.FromDateTime(DateTime.Now),
+                            IsEmailSent = isMailSend ?true : false,
+                            SentTries = tryCount,
+                            Action = 0,
+                        };
+
+                        _context.EmailLogs.Add(emailLog);
+                        _context.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        //from here 4 methods are for order details
+        #region healthProfessionalTypes
+        public List<HealthProfessionalType> healthProfessionalTypes()
         {
             var data = _context.HealthProfessionalTypes.ToList();
             var mappedData = data.Select(item => new HealthProfessionalType
@@ -954,10 +1082,18 @@ namespace BLL.Repositery
         {
             var enc = _context.Encounters.FirstOrDefault(x => x.RequestId == reqId);
             var reqClient = _context.RequestClients.FirstOrDefault(x => x.RequestId == reqId);
-            int intYear = (int)reqClient.IntYear;
-            int intDate = (int)reqClient.IntDate;
-            string month = (string)reqClient.StrMonth;
-            DateTime birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
+            DateTime birthdate = DateTime.Now;
+            if(reqClient != null)
+            {
+                int intYear = reqClient.IntYear ?? 2000;
+                int intDate = reqClient.IntDate ?? 01;
+                string month = (string)reqClient.StrMonth ?? "Jan";
+                birthdate = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
+            }
+            else
+            {
+                birthdate = DateTime.MinValue;
+            }
 
             if (enc != null)
             {
@@ -1325,10 +1461,18 @@ namespace BLL.Repositery
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                client.Connect("smtp.office365.com", 587, false);
-                client.Authenticate("testinghere1008@outlook.com", "Simple@12345");
-                client.Send(message);
-                client.Disconnect(true);
+                try
+                {
+                    client.Connect("smtp.office365.com", 587, false);
+                    client.Authenticate("testinghere1008@outlook.com", "Simple@12345");
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+                catch(SmtpCommandException ex)
+                {
+                    // Log or handle the exception here
+                    Console.WriteLine($"Error sending email: {ex.Message}");
+                }
             }
 
             if (ContactType == "Email")

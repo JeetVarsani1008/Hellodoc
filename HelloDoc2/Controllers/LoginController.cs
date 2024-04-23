@@ -19,9 +19,9 @@ namespace DAL.Controllers
             _login = login;
             _jwt = jwt;
 		}
-	
 
-		public IActionResult Login()
+        #region Login
+        public IActionResult Login()
 		{
             Response.Cookies.Delete("Jwt");
             Response.Cookies.Delete("RoleMenu");
@@ -29,6 +29,7 @@ namespace DAL.Controllers
             Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
             return View();
 		}
+        #endregion
 
         #region AdminLogin : Post
         [HttpPost]
@@ -124,7 +125,6 @@ namespace DAL.Controllers
             }
         }
         #endregion
-
 
         #region ForgotPassword
         [HttpGet]

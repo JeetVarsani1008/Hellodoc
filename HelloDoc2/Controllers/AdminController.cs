@@ -21,7 +21,7 @@ namespace DAL.Controllers
         private readonly ILogin _login;
         private readonly IJWT _jwt;
 
-
+        #region AdminController
         public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt, IProviderDashboard providerDashboard)
         {
             _context = context;
@@ -30,7 +30,7 @@ namespace DAL.Controllers
             _login = login;
             _jwt = jwt;
         }
-       
+        #endregion
 
         #region AdminLogout
         public IActionResult AdminLogout()
@@ -902,7 +902,36 @@ namespace DAL.Controllers
             await SendEmailAsync(model.Email, subject, body);
             return RedirectToAction("AdminDashboard");
         }
-        #endregion 
+        #endregion
+
+
+        //this part is for requestdty support
+        #region RequestDTYSupportPopUp
+        public IActionResult RequestDTYSupportPopUp()
+        {
+            return PartialView("Admin/_RequestDTYSupport");
+        }
+        #endregion
+
+
+        #region requestDTYSupportSendLink
+        [HttpPost]
+        public IActionResult requestDTYSupportSendLink(string note)
+        {
+            var aspId = HttpContext.Session.GetInt32("AspId");
+            if (_adminDashboard.IsSendAllUnscheduledPhyMail(note,aspId??0))
+            {
+                TempData["success"] = "Request send to all unscheduled physician";
+                return RedirectToAction("AdminDashboard");
+            }
+            else
+            {
+                TempData["error"] = "Request Doesn't send, try again!";
+                return RedirectToAction("AdminDashboard");
+
+            }
+        }
+        #endregion
 
         //this part is for close case
         #region CloseCase

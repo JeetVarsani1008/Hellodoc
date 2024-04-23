@@ -11,15 +11,16 @@
         <h2>User Access</h2>
 
         <div class="d-flex justify-content-between my-2">
-            <select class="form-select  mb-2 providerRegion w-25" aria-label="Default select example" id="selectedRole">
+            <div class="row">
+            <div class="col-sm-12 col-md-4">
+
+            <select class="form-select  mb-2 providerRegion" aria-label="Default select example" id="selectedRole">
                 <option selected value="0">All Region</option>
                 <option value="1">Admin</option>
                 <option value="2">Physician</option>
             </select>
-
-
-            <button class="btn btn-outline-info" style="display:none" id="createbtn" onclick="window.location.href='@Url.Action("AdminCreateAccount","Admin")'">Create Admin Account</button>
-
+            </div>
+            </div>
         </div>
 
         <div id="userAccessTable">

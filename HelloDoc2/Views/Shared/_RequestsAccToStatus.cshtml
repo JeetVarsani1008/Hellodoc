@@ -133,10 +133,10 @@
                                     {
                                         <li class="d-flex align-items-center ps-1"> <i class="bi bi-file-diff me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("Orders","Admin", new {requestId = @obj.RequestId})'">Orders</button></li>
                                     }
-                                    @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
+@*                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li class="d-flex align-items-center ps-1"> <i class="bi bi-journal-x me-1"></i><a class="dropdown-item p-1" href="#">Doctors Notes</a></li>
-                                    }
+                                    } *@
                                     @if (Model.requestListAdminDash.Any(x => x.Status == 3 || x.Status == 7 || x.Status == 8))
                                     {
                                         <li class="d-flex align-items-center ps-1"><i class="bi bi-x-circle me-1"></i><button class="dropdown-item p-1" onclick="location.href='@Url.Action("CloseCase","Admin", new {requestId = @obj.RequestId})'">Close Case</button></li>
@@ -192,10 +192,6 @@
 
                     @foreach (var obj in Model.requestListAdminDash)
                     {
-                        @*
-                    <div class="accordion accordion-flush" id="accordionFlushExample@(counter)">
-                    <div class="accordion-item">
-                    *@
                         <tr class="d-flex flex-column">
                             <td>
                                 <h2 class="accordion-header" id="flush-heading@(counter)"></h2>
@@ -414,7 +410,7 @@
 @* for clear case  *@
 <div id="contentClear"></div>
 
-@* for clear case  *@
+@* for send mail  *@
 <div id="contentSendMail"></div>
 
 
@@ -422,20 +418,12 @@
 @* for Send Agreement  *@
 <div id="contentSendAgreement"></div>
 
+<div id="contentDTYSupport"></div>
+
 
 <script>
 
-    // function cancelcase(RequestId, Name) {
-
-    //     $('#requestid').val(RequestId);
-    //     $('#Fullname').text(Name);
-
-    //     $.get('/Admin/CancelCase', function (data) {
-    //         // Handle the response data here
-    //         console.log('GET method called successfully!');
-    //     });
-    // }
-
+    
     //ajax for cancel case model
     function cancelcase(reqid) {
 
@@ -603,6 +591,25 @@
             error: function () {
                 alert('Error loading partial view');
             }
+        });
+    };
+
+
+    //ajax for request Dty support model
+    function requestDtysupportPopup() {
+        let action = "/Admin" + "/" + "RequestDTYSupportPopUp"
+        $.ajax({
+            url: action,
+            type: 'GET',
+            success: function (result) {
+                console.log(result);
+                $('#contentDTYSupport').html(result);
+                $('#requestDTYSupportModal').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
         });
     }
     

@@ -9,435 +9,435 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HelloDoc2
 build_property.RootNamespace = HelloDoc2
-build_property.ProjectDir = C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\
+build_property.ProjectDir = D:\main project\Hellodoc\HelloDoc2\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2
+build_property.MSBuildProjectDirectory = D:\main project\Hellodoc\HelloDoc2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Access.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Access.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AccessDenied.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjZXNzRGVuaWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AddBusiness.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AddBusiness.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQnVzaW5lc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateAccount.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DcmVhdGVBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateRequest.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminCreateRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5DcmVhdGVSZXF1ZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AdminDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5EYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AdminLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Mb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/AdminMyProfile.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/AdminMyProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5NeVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/CloseCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CloseCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2xvc2VDYXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/CreateAccess.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CreateAccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/CreateProviderAccountByAdmin.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/CreateProviderAccountByAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlUHJvdmlkZXJBY2NvdW50QnlBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/EditAccessRole.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/EditAccessRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdEFjY2Vzc1JvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/EditPhysicianAccount.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/EditPhysicianAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFBoeXNpY2lhbkFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/EncounterForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/EncounterForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRW5jb3VudGVyRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Orders.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Partners.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Partners.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFydG5lcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Provider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Provider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvdmlkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ProviderLocation.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ProviderLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvdmlkZXJMb2NhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ProviderOnCall.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ProviderOnCall.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvdmlkZXJPbkNhbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/BlockHistory.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/BlockHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXEJsb2NrSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/EmailLog.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/EmailLog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXEVtYWlsTG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/PatientRecord.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/PatientRecord.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXFBhdGllbnRSZWNvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/PatientRecordExplore.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/PatientRecordExplore.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXFBhdGllbnRSZWNvcmRFeHBsb3JlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/SearchRecord.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/SearchRecord.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXFNlYXJjaFJlY29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Record/SMSLog.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Record/SMSLog.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVjb3JkXFNNU0xvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/RequestedShift.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/RequestedShift.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVxdWVzdGVkU2hpZnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ReviewAgreement.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ReviewAgreement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmV2aWV3QWdyZWVtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/Scheduling.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/Scheduling.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2NoZWR1bGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/UpdateBusiness.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/UpdateBusiness.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlQnVzaW5lc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/UserAccess.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/UserAccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlckFjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ViewCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ViewCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld0Nhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ViewNotes.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ViewNotes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld05vdGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Admin/ViewUploads.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Admin/ViewUploads.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVmlld1VwbG9hZHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/BusinessForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/BusinessForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCdXNpbmVzc0Zvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/ConciergeForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/ConciergeForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25jaWVyZ2VGb3JtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/CreateAccount.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/CreateAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/FamilyFriendsForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/FamilyFriendsForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGYW1pbHlGcmllbmRzRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/Forgot_Password.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/Forgot_Password.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3Jnb3RfUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/Index.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/PatientDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/PatientDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50RGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/PatientDashboardProfile.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/PatientDashboardProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50RGFzaGJvYXJkUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50UmVxdWVzdEZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForMe.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForMe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50UmVxdWVzdEZvck1lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForSomeone.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/PatientRequestForSomeone.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50UmVxdWVzdEZvclNvbWVvbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/Patient_Login.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/Patient_Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXRpZW50X0xvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/Privacy.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/ResetPasswordPatient.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/ResetPasswordPatient.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNldFBhc3N3b3JkUGF0aWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/Submit_Request.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/Submit_Request.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdWJtaXRfUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/user.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/user.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx1c2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Home/ViewDocument.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Home/ViewDocument.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3RG9jdW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Login/ForgotPassword.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Login/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ290UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Login/Login.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Patient/Submit_Request.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Patient/Submit_Request.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxTdWJtaXRfUmVxdWVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ConcludeCare.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ConcludeCare.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcQ29uY2x1ZGVDYXJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/CreateRequestProvider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/CreateRequestProvider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcQ3JlYXRlUmVxdWVzdFByb3ZpZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/EncounterForm.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/EncounterForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcRW5jb3VudGVyRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/EncounterPdf.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/EncounterPdf.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcRW5jb3VudGVyUGRmLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/MySchedule.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/MySchedule.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcTXlTY2hlZHVsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/Orders.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/Orders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ProviderDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ProviderDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcUHJvdmlkZXJEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ProviderMyProfile.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ProviderMyProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcUHJvdmlkZXJNeVByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ViewCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ViewCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcVmlld0Nhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ViewNotes.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ViewNotes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcVmlld05vdGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Provider/ViewUploadsProvider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Provider/ViewUploadsProvider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZXJcVmlld1VwbG9hZHNQcm92aWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/CreateShift.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/CreateShift.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXENyZWF0ZVNoaWZ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/ViewShift.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/ViewShift.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXFZpZXdTaGlmdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_CreateAccessTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_CreateAccessTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9DcmVhdGVBY2Nlc3NUYWJsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_PartnersTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_PartnersTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9QYXJ0bmVyc1RhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_providerContactPopup.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_providerContactPopup.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9wcm92aWRlckNvbnRhY3RQb3B1cC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_ProviderOnCallContent.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_ProviderOnCallContent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9Qcm92aWRlck9uQ2FsbENvbnRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_RequestedShiftTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_RequestDTYSupport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9SZXF1ZXN0RFRZU3VwcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_RequestedShiftTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9SZXF1ZXN0ZWRTaGlmdFRhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Admin/_UserAccessTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Admin/_UserAccessTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluXF9Vc2VyQWNjZXNzVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Error.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/ErrorPage.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/ErrorPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/ProviderPartialTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/ProviderPartialTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXFByb3ZpZGVyUGFydGlhbFRhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_CreateShiftProvider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_CreateShiftProvider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9DcmVhdGVTaGlmdFByb3ZpZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterFinalize.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterFinalize.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9FbmNvdW50ZXJGaW5hbGl6ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterPopUp.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_EncounterPopUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9FbmNvdW50ZXJQb3BVcC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_LayoutProviderDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_LayoutProviderDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9MYXlvdXRQcm92aWRlckRhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_ProviderSendLink.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_ProviderSendLink.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9Qcm92aWRlclNlbmRMaW5rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_RequestToAdminToChangeProfile.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_RequestToAdminToChangeProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9SZXF1ZXN0VG9BZG1pblRvQ2hhbmdlUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_SendAgreementProvider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_SendAgreementProvider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9TZW5kQWdyZWVtZW50UHJvdmlkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Provider/_TransferCaseProvider.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Provider/_TransferCaseProvider.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ZpZGVyXF9UcmFuc2ZlckNhc2VQcm92aWRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Record/_BlockHistoryTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_BlockHistoryTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY29yZFxfQmxvY2tIaXN0b3J5VGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Record/_EmailLogTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_EmailLogTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY29yZFxfRW1haWxMb2dUYWJsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Record/_PatientRecordTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_PatientRecordTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY29yZFxfUGF0aWVudFJlY29yZFRhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Record/_SearchRecordTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_SearchRecordTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY29yZFxfU2VhcmNoUmVjb3JkVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/Record/_SmsLogTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/Record/_SmsLogTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlY29yZFxfU21zTG9nVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminAsignCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminAsignCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkFzaWduQ2FzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminBlockCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminBlockCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkJsb2NrQ2FzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminCancelCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminCancelCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkNhbmNlbENhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminClearCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminClearCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbkNsZWFyQ2FzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_AdminMainPartialTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_AdminMainPartialTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbk1haW5QYXJ0aWFsVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminProviderTable.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminProviderTable.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pblByb3ZpZGVyVGFibGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminSendAgreement.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminSendAgreement.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pblNlbmRBZ3JlZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminSendMail.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminSendMail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pblNlbmRNYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_adminTransferCase.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_adminTransferCase.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pblRyYW5zZmVyQ2FzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_LayoutDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_LayoutDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_LayoutMainAdminDashboard.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_LayoutMainAdminDashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRNYWluQWRtaW5EYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_LayoutNone.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_LayoutNone.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROb25lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_RequestsAccToStatus.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_RequestsAccToStatus.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZXF1ZXN0c0FjY1RvU3RhdHVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_ToastNotification.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_ToastNotification.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub2FzdE5vdGlmaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/_ViewImports.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/_ViewStart.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/Desktop/project/Hellodoc/HelloDoc2/Views/Shared/_Layout.cshtml]
+[D:/main project/Hellodoc/HelloDoc2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-uvbqhtpt9g

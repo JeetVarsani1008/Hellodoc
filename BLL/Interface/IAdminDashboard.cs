@@ -76,6 +76,10 @@ namespace BLL.Interface
         //clear case 
         void clearCasePost(AdminClearVm model);
 
+        //request dty support
+        bool IsSendAllUnscheduledPhyMail(string note, int aspId);
+
+
         //review agreement and send agreement
         bool checkStatus(ReviewAgreementVm model);
         void reviewAgreeementSubmit(ReviewAgreementVm model);

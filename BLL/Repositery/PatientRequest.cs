@@ -23,13 +23,17 @@ namespace BLL.Repositery
             _context = context;
         }
 
-
+        #region getRegion
         public List<Region> getRegion()
         {
             var data = _context.Regions.ToList();
             return data;
         }
-        public void patientRequestForm(PatientData model) {
+        #endregion
+
+        #region patientRequestForm
+        public void patientRequestForm(PatientData model) 
+        {
 
             AspNetUser aspNetUser = new AspNetUser();
 
@@ -138,7 +142,9 @@ namespace BLL.Repositery
                 _context.SaveChanges();
             }
         }
+        #endregion
 
+        #region familyRequestForm
         public void familyRequestForm(FamilyData familyData) 
         {
 
@@ -193,7 +199,9 @@ namespace BLL.Repositery
                 
             }
         }
+        #endregion
 
+        #region conciergeRequestForm
         public void conciergeRequestForm(ConciergeData model) 
         {
             Request request = new Request();
@@ -238,7 +246,9 @@ namespace BLL.Repositery
             _context.SaveChanges();
 
         }
+        #endregion
 
+        #region businessRequestForm
         public void businessRequestForm(BusinessData model) 
         {
             Request request = new Request();
@@ -281,8 +291,9 @@ namespace BLL.Repositery
              _context.SaveChanges();
 
         }
+        #endregion
 
-
+        #region createRequestForMe
         public void createRequestForMe(PatientRequestForMeAndSomeone model)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
@@ -349,7 +360,9 @@ namespace BLL.Repositery
                 }
             }
         }
+        #endregion
 
+        #region PatientRequestForMe
         public PatientRequestForMeAndSomeone PatientRequestForMe(int? userID)
         {
 
@@ -374,8 +387,9 @@ namespace BLL.Repositery
             };
             return patientRequestForMe;
         }
+        #endregion
 
-
+        #region createRequestForSomeone
         public void createRequestForSomeone(PatientRequestForMeAndSomeone model)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
@@ -433,5 +447,6 @@ namespace BLL.Repositery
                 }
             }
         }
+        #endregion
     }
 }

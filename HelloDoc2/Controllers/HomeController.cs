@@ -27,6 +27,8 @@ namespace DAL.Controllers
         private readonly HellodocContext _context;
         private readonly ILogin _login;
         private readonly IJWT _jwt;
+
+
         public HomeController(HellodocContext context, ILogin login, IPatientRequest _PatientRequest, IPatientDashboard patientDashboard, IJWT jwt)
         {
             _context = context;

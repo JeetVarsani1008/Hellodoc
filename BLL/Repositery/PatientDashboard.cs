@@ -19,6 +19,8 @@ namespace BLL.Repositery
         {
             _context = context;
         }
+
+        #region patientDashboardMain
         public List<PatientData> patientDashboardMain(int? uid)
         {
             var applicationDbContext = (from r in _context.Requests
@@ -64,7 +66,9 @@ namespace BLL.Repositery
             return list;
 
         }
+        #endregion
 
+        #region patientDashboardProfile
         public PatientProfile patientDashboardProfile(int? userID)
         {
             var user = _context.Users.FirstOrDefault(u => u.UserId == userID);
@@ -89,8 +93,9 @@ namespace BLL.Repositery
             };
             return patientProfile;
         }
+        #endregion
 
-
+        #region editPatientProfile
         public void editPatientProfile(PatientProfile model, int? userid)
         {
             var existUser = _context.Users.FirstOrDefault(u => u.UserId == userid);
@@ -122,27 +127,37 @@ namespace BLL.Repositery
             }
 
         }
+        #endregion
 
+        #region GetRequestById
         public Request GetRequestById(int? requestId)
         {
             return _context.Requests.FirstOrDefault(u => u.RequestId == requestId);
         }
+        #endregion
 
+        #region GetFilesByRequestId
         public List<RequestWiseFile> GetFilesByRequestId(int requestId)
         {
             return _context.RequestWiseFiles.Where(u => u.RequestId == requestId).ToList();
         }
+        #endregion
 
+        #region GetFileById
         public RequestWiseFile GetFileById(int fileId)
         {
             return _context.RequestWiseFiles.FirstOrDefault(u => u.RequestWiseFileId == fileId);
         }
+        #endregion
 
+        #region GetAllFilesByRequestId
         public List<RequestWiseFile> GetAllFilesByRequestId(int reqId)
         {
             return _context.RequestWiseFiles.Where(x => x.RequestId == reqId).ToList();
         }
+        #endregion
 
+        #region UploadFile
         public void UploadFile(int requestId, string fileName)
         {
             RequestWiseFile requestWiseFile = new RequestWiseFile()
@@ -153,6 +168,6 @@ namespace BLL.Repositery
             _context.Add(requestWiseFile);
             _context.SaveChanges();
         }
-
+        #endregion
     }
 }
