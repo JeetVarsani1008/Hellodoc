@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<div class="d-flex justify-content-start fs-3 ps-2 py-1 text-white rounded-2 ps-2" style="background:#0c83b3">Library Management System</div>
+
+<div class="mx-5 mt-3">
+    <div class="d-flex align-items-center justify-content-between row">
+
+        <div class="d-flex outline mt-3 col-sm-12 col-md-2 pe-0">
+            <input id="inputsearch" type="search" class="form-control border-1 pt-2 pb-2 mb-0 search " placeholder="Search" oninput="searchlibraryData()" />
+        </div>
+
+        <div class="col-sm-12 col-md-3 d-flex justify-content-lg-end justify-content-sm-between mt-2">
+
+            <button class="btn text-black fw-bold" onclick="librarypopup()" style="background:#0c83b3">Add Book</button>
+        </div>
+    </div>
+
+    <div id="librarydashboardtable">
+    </div>
+
+    <div id="libraryPopup"></div>
+    <div id="libraryEditPopup"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    @* ajax for dashboard table *@
+        //this ajax is call when this page is load
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Home/LibraryDashboardTabel",
+                type: "POST",
+                dataType: "html",
+                success: function (data) {
+                    $("#librarydashboardtable").html(data);
+                },
+                error: function () {
+                    $("#librarydashboardtable").html('Something Went Wrong');
+                }
+            });
+
+        });
+
+    function librarypopup() {
+
+        console.log("CLicked")
+        $.ajax({
+            url: '@Url.Action("LibraryPopUp", "Home")',
+            type: 'GET',
+            success: function (result) {
+                console.log(result)
+                $('#libraryPopup').html(result);
+                $('#bookFormModel').modal('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    };
+
+
+    function editlibrarydata(bookId) {
+
+        console.log("CLicked")
+        $.ajax({
+            url: '@Url.Action("EditLibraryData", "Home")',
+            type: 'GET',
+            data: {bookId : bookId},
+            success: function (result) {
+                console.log(result)
+                $('#libraryEditPopup').html(result);
+                $('#bookEditModel').modal('show');
+            },
+            error: function () {
+                alert('Error loading partial view');
+            }
+        });
+    }
+</script>

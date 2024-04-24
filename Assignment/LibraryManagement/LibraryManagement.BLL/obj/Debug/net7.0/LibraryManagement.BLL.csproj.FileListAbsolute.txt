@@ -1,0 +1,17 @@
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.deps.json
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.runtimeconfig.json
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.pdb
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.DAL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.DAL.pdb
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.AssemblyReference.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.AssemblyInfoInputs.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.AssemblyInfo.cs
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.CoreCompileInputs.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.CopyComplete
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\refint\LibraryManagement.BLL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.pdb
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.genruntimeconfig.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\ref\LibraryManagement.BLL.dll

@@ -264,7 +264,7 @@
 						<span id="hipaa"></span>
 					</div>
 					<div class="col-lg-2">
-							<input type="file" id="HIPAACompliance" hidden asp-for="HIPAACompliance" disabled onchange="updateFileNameHipaa()" />
+							<input type="file" id="HIPAACompliance" hidden asp-for="CredentialDoc" disabled onchange="updateFileNameHipaa()" />
 							<label for="HIPAACompliance" class="btn btn-info text-white my-1 mx-1 disabled">
 							<i class="bi bi-cloud-upload"></i>
 							Upload
@@ -508,8 +508,6 @@
 		var fileName = fileInput.files[0].name;
 		document.querySelector('#nondisclosure').textContent = fileName;
 	}
-
-	
 
 </script>
 

@@ -1253,6 +1253,7 @@ namespace BLL.Repositery
                 IsBackgroundDoc = phy.IsBackgroundDoc ?? false,
                 IsNonDisclosureDoc = phy.IsNonDisclosureDoc ?? false,
                 IsLicenseDoc = phy.IsLicenseDoc ?? false,
+                IsCredentialDoc = phy.IsCredentialDoc ?? false,
             };
             return providerVm;
         }
@@ -1331,42 +1332,32 @@ namespace BLL.Repositery
             var physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
             physician.BusinessName = model.BusinessName;
             physician.BusinessWebsite = model.BusinessWebsite;
-            //if(model.Photo != null)
-            //{
-            //    physician.Photo = model.Photo;
-            //    _context.SaveChanges();
-            //}
-            //if(model.Signature != null)
-            //{
-            //    physician.Signature = model.Signature;
-            //    _context.SaveChanges();
-            //}
-            string uniquefilename1 = null;
+            physician.AdminNotes = model.AdminNotes;
+            string filename = null;
             if (model.PhotoFile != null && model.PhotoFile.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot", "upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_Photo.jpg";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + model.PhotoFile.FileName;
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.PhotoFile.CopyTo(stream);
                 }
-                physician!.Photo = uniquefilename1;
+                physician!.Photo = filename;
             }
             
             if (model.SignatureFile != null && model.SignatureFile.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot", "upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_Signature.jpg";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + model.SignatureFile.FileName;
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.SignatureFile.CopyTo(stream);
                 }
-                physician!.Signature = uniquefilename1;
+                physician!.Signature = filename;
             }
             _context.SaveChanges();
-
         }
         #endregion
 
@@ -1375,12 +1366,12 @@ namespace BLL.Repositery
         public void updateProviderDoc(ProviderVm model)
         {
             var phy = _context.Physicians.FirstOrDefault(x => x.PhysicianId == model.PhysicianId);
-            string uniquefilename1 = null;
+            string filename = null;
             if (model.AgreementDoc != null && model.AgreementDoc.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot", "upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_AgreementDoc.pdf";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + "_AgreementDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.AgreementDoc.CopyTo(stream);
@@ -1391,8 +1382,8 @@ namespace BLL.Repositery
             if(model.BackgroundDoc != null && model.BackgroundDoc.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot","upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_BackgroundDoc.pdf";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + "_BackgroundDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.BackgroundDoc.CopyTo(stream);
@@ -1403,8 +1394,8 @@ namespace BLL.Repositery
             if(model.NonDisclosureDoc != null && model.NonDisclosureDoc.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot","upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_NonDisclosureDoc.pdf";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + "_NonDisclosureDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.NonDisclosureDoc.CopyTo(stream);
@@ -1415,17 +1406,27 @@ namespace BLL.Repositery
             if(model.LicenseDoc != null && model.LicenseDoc.Length > 0)
             {
                 string uploadfolder = Path.Combine("wwwroot","upload");
-                uniquefilename1 = $"{model.PhysicianId}" + "_LicenseDoc.pdf";
-                string filePath = Path.Combine(uploadfolder, uniquefilename1);
+                filename = $"{model.PhysicianId}" + "_LicenseDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, filename);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     model.LicenseDoc.CopyTo(stream);
                 }
                 phy!.IsLicenseDoc = true;    
             }
-
+            
+            if(model.CredentialDoc != null && model.CredentialDoc.Length > 0)
+            {
+                string uploadfolder = Path.Combine("wwwroot","upload");
+                filename = $"{model.PhysicianId}" + "_CredentialDoc.pdf";
+                string filePath = Path.Combine(uploadfolder, filename);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.CredentialDoc.CopyTo(stream);
+                }
+                phy!.IsCredentialDoc = true;    
+            }
             _context.SaveChanges();
-
         }
 		#endregion
 		//edit provider details completed

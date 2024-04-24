@@ -73,9 +73,6 @@ public partial class Physician
     public string? Signature { get; set; }
 
     [Column(TypeName = "bit(1)")]
-    public BitArray? IsCredentialDoc { get; set; }
-
-    [Column(TypeName = "bit(1)")]
     public BitArray? IsTokenGenerate { get; set; }
 
     [StringLength(50)]
@@ -98,6 +95,8 @@ public partial class Physician
     public bool? IsDeleted { get; set; }
 
     public bool? IsLicenseDoc { get; set; }
+
+    public bool? IsCredentialDoc { get; set; }
 
     [ForeignKey("AspNetUserId")]
     [InverseProperty("PhysicianAspNetUsers")]

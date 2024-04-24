@@ -1,0 +1,81 @@
+﻿@model LibraryManagement.DAL.ViewModels.LibraryAddVm;
+
+<div class="modal fade" id="bookFormModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <form method="post" asp-action="LibraryAddBookData" asp-controller="Home">
+                @*HEADER*@
+                <div class="modal-header text-white" style="background:#0c83b3">
+                    <h5 class="modal-title" id="exampleModalLabel">Book Form </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                @*BODY*@
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-floating mb-3 col-6">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="BookName" asp-for="BookName">
+                            <label for="floatingInput" style="margin-left: 1em;">Book Name</label>
+                            <span asp-validation-for="BookName" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3 col-6">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Author" asp-for="Author">
+                            <label for="floatingInput" style="margin-left: 1em;">Author</label>
+                            <span asp-validation-for="Author" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3 col-6">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="BorrowerName" asp-for="BorrowerName">
+                            <label for="floatingInput" style="margin-left: 1em;">Borrower Name</label>
+                            <span asp-validation-for="BorrowerName" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3 col-6">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="DateOfIssue" asp-for="DateOfIssue">
+                            <label for="floatingInput" style="margin-left: 1em;">Date Of Issue</label>
+                            <span asp-validation-for="DateOfIssue" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3 col-6">
+                            <select class="form-select w-100" id="genereselect" aria-label="Floating label select example" asp-for="Genere">
+                                <option value="" selected disabled>All</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Science Fiction">Science Fiction</option>
+                                <option value="Historic Fiction">Historic Fiction</option>
+                            </select>
+                            <label for="genereselect" class="form-label ms-2">Genere</label>
+                            <span asp-validation-for="Genere" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3 col-6">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="City" asp-for="City">
+                            <label for="floatingInput" style="margin-left: 1em;">City</label>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                @*FOOTER*@
+                <div class="row mb-2 mx-2">
+                    <div class="col-6">
+                        <button type="reset" class="btn bg-light rounded-2 d-inline-block w-100" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn text-white border rounded-2 d-inline-block w-100" style="background:#3081D0">Save</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

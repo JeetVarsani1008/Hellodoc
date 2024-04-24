@@ -937,6 +937,38 @@
       "PackagePath": "staticwebassets\\upload"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\1_Signature.jpg",
+      "PackagePath": "staticwebassets\\upload\\1_Signature.jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2",
+      "PackagePath": "staticwebassets\\upload"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2Fig18.Clear Case (4).png",
+      "PackagePath": "staticwebassets\\upload\\2Fig18.Clear Case (4).png"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2Fig2. Forgot Password (1).jpg",
+      "PackagePath": "staticwebassets\\upload\\2Fig2. Forgot Password (1).jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2Fig7. Admin dashboard in Conclude state (1).jpg",
+      "PackagePath": "staticwebassets\\upload\\2Fig7. Admin dashboard in Conclude state (1).jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2Fig7. Admin dashboard in Conclude state (2).jpg",
+      "PackagePath": "staticwebassets\\upload\\2Fig7. Admin dashboard in Conclude state (2).jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_BackgroundDoc.pdf",
+      "PackagePath": "staticwebassets\\upload\\2_BackgroundDoc.pdf"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_CredentialDoc.pdf",
+      "PackagePath": "staticwebassets\\upload\\2_CredentialDoc.pdf"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\2_NonDisclosureDoc.jpg",
       "PackagePath": "staticwebassets\\upload\\2_NonDisclosureDoc.jpg"
     },

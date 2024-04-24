@@ -89,6 +89,7 @@ namespace DAL.ViewModel
         public bool IsLicenseDoc { get; set; }
         
         public bool IsNonDisclosureDoc { get; set; }
+        public bool IsCredentialDoc { get; set; }
 
         //for store name 
         public IFormFile PhotoFile { get; set; }
@@ -97,7 +98,7 @@ namespace DAL.ViewModel
         public IFormFile BackgroundDoc { get; set; }
         public IFormFile NonDisclosureDoc { get; set; }
 
-        public IFormFile HIPAACompliance {  get; set; }
+        public IFormFile CredentialDoc {  get; set; }
         public IFormFile LicenseDoc { get; set; }
 
         public decimal Latitude { get; set; }

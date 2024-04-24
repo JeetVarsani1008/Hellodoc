@@ -1,0 +1,14 @@
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.deps.json
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.runtimeconfig.json
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.pdb
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.csproj.AssemblyReference.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.AssemblyInfoInputs.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.AssemblyInfo.cs
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.csproj.CoreCompileInputs.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\refint\LibraryManagement.DAL.dll
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.pdb
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.genruntimeconfig.cache
+C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\ref\LibraryManagement.DAL.dll
