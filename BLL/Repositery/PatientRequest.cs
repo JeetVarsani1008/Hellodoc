@@ -225,7 +225,7 @@ namespace BLL.Repositery
             concierge.Address = model.Street + ", " + model.City + " " + model.State + " " + model.ZipCode;
             concierge.Street = model.Street;
             concierge.City = model.City;
-            concierge.State = model.State;
+            concierge.State = _context.Regions.FirstOrDefault(x => x.RegionId == model.RegionId)?.Name ?? "Gujarat";
             concierge.ZipCode = model.ZipCode;
             concierge.CreatedDate = DateTime.Now;
             _context.Concierges.Add(concierge);
@@ -287,8 +287,12 @@ namespace BLL.Repositery
             requestClient.State = _context.Regions.FirstOrDefault(x => x.RegionId == model.RegionId).Name;
             requestClient.RegionId = model.RegionId;
             requestClient.ZipCode = model.ZipCode;
+            requestClient.Address = model.Street + model.City + model.State + model.ZipCode;
+            requestClient.StrMonth = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(model.Birthdate.Month);
+            requestClient.IntYear = model.Birthdate.Year;
+            requestClient.IntDate = model.Birthdate.Day;
             _context.RequestClients.Add(requestClient);
-             _context.SaveChanges();
+            _context.SaveChanges();
 
         }
         #endregion

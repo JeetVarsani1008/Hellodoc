@@ -193,7 +193,6 @@ namespace HelloDoc2.Controllers
         #endregion
 
 
-
         #region SendLink
         public IActionResult SendLink()
         {
@@ -348,11 +347,12 @@ namespace HelloDoc2.Controllers
         {
             ViewBag.ActiveDashboardNav = "ProviderDashboard";
             var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            var adminId = 0;
             if (!_providerDashboard.checkphysician(phyId ?? 0, requestId))
             {
                 return View("ErrorPage");
             }
-            var data = _adminDashboard.ViewNotes(requestId);
+            var data = _adminDashboard.ViewNotes(requestId, adminId, phyId??0);
             return View(data);
         }
         #endregion
@@ -361,8 +361,10 @@ namespace HelloDoc2.Controllers
         [HttpPost]
         public IActionResult ViewNotes(ViewNotesVm model, int requestId)
         {
+            var phyId = HttpContext.Session.GetInt32("PhysicianId");
+            var adminId = 0;
             _providerDashboard.editViewNotes(model, requestId);
-            model = _adminDashboard.ViewNotes(requestId);
+            model = _adminDashboard.ViewNotes(requestId,adminId,phyId ?? 0);
             return View(model);
         }
         #endregion
@@ -384,7 +386,6 @@ namespace HelloDoc2.Controllers
         [HttpPost]
         public async Task<IActionResult> SendAgreement(AdminClearVm model)
         {
-
             var subject = "Review Agreement Request";
             var agreementLink = "<a href=" + Url.Action("ReviewAgreement", "Admin", new { email = model.Email, RequestId = model.RequestId }, "https") + ">Confirm Agreement</a>";
 

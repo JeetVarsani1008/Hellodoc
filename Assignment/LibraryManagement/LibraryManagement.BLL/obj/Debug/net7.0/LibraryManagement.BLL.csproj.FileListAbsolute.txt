@@ -15,3 +15,21 @@ C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\De
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.pdb
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.genruntimeconfig.cache
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\ref\LibraryManagement.BLL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.deps.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.runtimeconfig.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.BLL.pdb
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.DAL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\bin\Debug\net7.0\LibraryManagement.DAL.pdb
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.AssemblyReference.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.AssemblyInfoInputs.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.AssemblyInfo.cs
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.CoreCompileInputs.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.sourcelink.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.csproj.CopyComplete
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\refint\LibraryManagement.BLL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.pdb
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\LibraryManagement.BLL.genruntimeconfig.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.BLL\obj\Debug\net7.0\ref\LibraryManagement.BLL.dll

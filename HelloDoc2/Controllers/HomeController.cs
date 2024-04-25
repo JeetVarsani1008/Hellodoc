@@ -172,10 +172,10 @@ namespace DAL.Controllers
             if (email == null)
             {
                 var resetToken = GenerateToken();
-                var resetLink = "<a href=" + Url.Action("CreateAccount", "Home", new { email = familyData.Email, code = resetToken }, "https") + ">Reset Password</a>";
+                var createLink = "<a href=" + Url.Action("CreateAccount", "Home", new { email = familyData.Email, code = resetToken }, "https") + ">Create Account</a>";
 
-                var subject = "Password Reset Request";
-                var body = "<b>Please find the Password Reset Link.</b><br/>" + resetLink;
+                var subject = "Create account Request";
+                var body = "<b>Please find the Password Reset Link.</b><br/>" + createLink;
 
 
                 await SendEmailAsync(familyData.Email, subject, body);
@@ -216,7 +216,7 @@ namespace DAL.Controllers
                     aspnetUser.PasswordHash = loginVm.PasswordHash;
                     _context.SaveChanges();
                     TempData["success"] = "Entered Email is Exist And Password Saved";
-                    return View("CreateAccount");
+                    return RedirectToAction("Login","Login");
                 }
             }
             else
@@ -237,9 +237,22 @@ namespace DAL.Controllers
 
         #region ConciergeForm : post
         [HttpPost]
-        public IActionResult ConciergeForm(ConciergeData model)
+        public async Task<IActionResult> ConciergeForm(ConciergeData model)
         {
             _patientRequest.conciergeRequestForm(model);
+
+            var email = _context.Users.FirstOrDefault(o => o.Email == model.Email);
+            if (email == null)
+            {
+                var resetToken = GenerateToken();
+                var createLink = "<a href=" + Url.Action("CreateAccount", "Home", new { email = model.Email, code = resetToken }, "https") + ">Create Account</a>";
+
+                var subject = "Create account Request";
+                var body = "<b>Please find the Create Account Link.</b><br/>" + createLink;
+
+
+                await SendEmailAsync(model.Email, subject, body);
+            }
             return RedirectToAction("Index", "Home");
         }
         #endregion
@@ -255,9 +268,20 @@ namespace DAL.Controllers
 
         #region BusinessForm : post
         [HttpPost]
-        public IActionResult BusinessForm(BusinessData model)
+        public async Task<IActionResult> BusinessForm(BusinessData model)
         {
             _patientRequest.businessRequestForm(model);
+
+            var email = _context.Users.FirstOrDefault(o => o.Email == model.Email);
+            if (email == null)
+            {
+                var resetToken = GenerateToken();
+                var createLink = "<a href=" + Url.Action("CreateAccount", "Home", new { email = model.Email, code = resetToken }, "https") + ">Create Account</a>";
+
+                var subject = "Create account Request";
+                var body = "<b>Please find the Create Account Link.</b><br/>" + createLink;
+                await SendEmailAsync(model.Email, subject, body);
+            }
             return RedirectToAction("Index","Home");
         }
         #endregion

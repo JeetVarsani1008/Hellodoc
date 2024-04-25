@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/z3o11s2Iul/bh0/WnJ5qTGcxQ1YGweL2CM8+YIzFtvXoN1+s75SyO1tC5gTb1Sgfz1cNjsU44EEUYwwOrGsvw==",
+  "dgSpecHash": "q0pjUNhUioUTZwPQM/aYOAEHJU7BRxCPGXKdcJdNELVqxEvxgQzFjGrMivgtlX5NNRuerTzgVf2/GPw+3wW+uw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
+  "projectFilePath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pci19\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pci19\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.15\\microsoft.entityframeworkcore.7.0.15.nupkg.sha512",

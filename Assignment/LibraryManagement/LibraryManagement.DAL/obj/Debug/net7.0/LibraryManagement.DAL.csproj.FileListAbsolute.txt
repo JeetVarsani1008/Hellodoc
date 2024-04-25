@@ -12,3 +12,18 @@ C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\De
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.pdb
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.genruntimeconfig.cache
 C:\Users\pci19\Desktop\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\ref\LibraryManagement.DAL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.deps.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.runtimeconfig.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\bin\Debug\net7.0\LibraryManagement.DAL.pdb
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.csproj.AssemblyReference.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.AssemblyInfoInputs.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.AssemblyInfo.cs
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.csproj.CoreCompileInputs.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.sourcelink.json
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\refint\LibraryManagement.DAL.dll
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.pdb
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\LibraryManagement.DAL.genruntimeconfig.cache
+D:\main project\Hellodoc\Assignment\LibraryManagement\LibraryManagement.DAL\obj\Debug\net7.0\ref\LibraryManagement.DAL.dll

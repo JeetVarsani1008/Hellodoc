@@ -285,7 +285,9 @@ namespace DAL.Controllers
             {
                 return View("ErrorPage");
             }
-            var data = _adminDashboard.ViewNotes(requestId);
+            var phyId = 0;
+            var adminId = HttpContext.Session.GetInt32("AdminId");
+            var data = _adminDashboard.ViewNotes(requestId,adminId??0,phyId);
             ViewBag.ActiveDashboardNav = "AdminDashboard";
             return View(data);
         }
@@ -293,9 +295,12 @@ namespace DAL.Controllers
 
         #region ViewNotes : post
         [HttpPost]
-        public IActionResult ViewNotes(ViewNotesVm model, int requestId) {
+        public IActionResult ViewNotes(ViewNotesVm model, int requestId) 
+        {
             _adminDashboard.editViewNotes(model, requestId);
-            model = _adminDashboard.ViewNotes(requestId);
+            var phyId = 0;
+            var adminId = HttpContext.Session.GetInt32("AdminId");
+            model = _adminDashboard.ViewNotes(requestId,adminId??0,phyId);
             return View(model);
         }
         #endregion
@@ -376,6 +381,7 @@ namespace DAL.Controllers
         {
             var req = HttpContext.Session.GetInt32("asignReq");
             _adminDashboard.asignCasePost(model, req ?? 0);
+            TempData["success"] = "request Asign Successfully";
             return RedirectToAction("AdminDashboard", "Admin");
         }
         #endregion

@@ -633,6 +633,10 @@
       "PackagePath": "staticwebassets\\css\\conciergeform.css"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\createaccount.css",
+      "PackagePath": "staticwebassets\\css\\createaccount.css"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\css\\familyFriendsForm.css",
       "PackagePath": "staticwebassets\\css\\familyFriendsForm.css"
     },
@@ -985,8 +989,20 @@
       "PackagePath": "staticwebassets\\upload\\5_NonDisclosureDoc.pdf"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_Photo.jpg",
+      "PackagePath": "staticwebassets\\upload\\5_Photo.jpg"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\5_Signature.jpg",
+      "PackagePath": "staticwebassets\\upload\\5_Signature.jpg"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\6_AgreementDoc.pdf",
       "PackagePath": "staticwebassets\\upload\\6_AgreementDoc.pdf"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\6_Photo",
+      "PackagePath": "staticwebassets\\upload"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\7768657_3763028.jpg",
@@ -1171,6 +1187,10 @@
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\encounter_17042024_145753.pdf",
       "PackagePath": "staticwebassets\\upload\\encounter_17042024_145753.pdf"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\encounter_23042024_171501.pdf",
+      "PackagePath": "staticwebassets\\upload\\encounter_23042024_171501.pdf"
     },
     {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\upload\\index.html",

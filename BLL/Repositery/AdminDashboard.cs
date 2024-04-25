@@ -211,7 +211,7 @@ namespace BLL.Repositery
         #endregion
 
         #region ViewNotes
-        public ViewNotesVm ViewNotes(int requestId)
+        public ViewNotesVm ViewNotes(int requestId, int adminId, int phyId)
         {
 
             var user = _context.RequestNotes.FirstOrDefault(u => u.RequestId == requestId);
@@ -230,14 +230,30 @@ namespace BLL.Repositery
             }
             else
             {
-                var usermain = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
-                _context.RequestNotes.Add(new RequestNote()
+                if(phyId == 0)
                 {
-                    RequestId = requestId,
-                    CreatedBy = (int)_context.Users.FirstOrDefault(x => x.UserId == usermain.UserId).AspNetUserId,
-                    CreatedDate = DateTime.Now,
-                });
-                _context.SaveChanges();
+                    var usermain = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+                    var admin = _context.Admins.FirstOrDefault(x => x.AdminId == adminId);
+                    _context.RequestNotes.Add(new RequestNote()
+                    {
+                        RequestId = requestId,
+                        CreatedBy = admin.AspNetUserId,
+                        CreatedDate = DateTime.Now,
+                    });
+                    _context.SaveChanges();
+                }
+                else if(adminId == 0)
+                {
+                    var usermain = _context.Requests.FirstOrDefault(x => x.RequestId == requestId);
+                    var phy = _context.Physicians.FirstOrDefault(x => x.PhysicianId == phyId);
+                    _context.RequestNotes.Add(new RequestNote()
+                    {
+                        RequestId = requestId,
+                        CreatedBy = phy.AspNetUserId??0,
+                        CreatedDate = DateTime.Now,
+                    });
+                    _context.SaveChanges();
+                }
 
 
                 _context.RequestStatusLogs.Add(new RequestStatusLog()
@@ -387,10 +403,20 @@ namespace BLL.Repositery
                 CreatedDate = DateTime.Now,
                 PhysicianId = model.PhysicianId,
             };
+            reqstatus.TransToPhysicianId = model.PhysicianId;
             _context.RequestStatusLogs.Add(reqstatus);
             _context.SaveChanges();
 
-            reqstatus.TransToPhysicianId = model.PhysicianId;
+            RequestNote requestNote = new RequestNote
+            {
+                RequestId = requestId,
+                CreatedBy = 10,
+                CreatedDate = DateTime.Now,
+                AdminNotes = model.Description,
+            };
+            _context.RequestNotes.Add(requestNote);
+            _context.SaveChanges();
+
         }
 		#endregion
 
@@ -1953,13 +1979,10 @@ namespace BLL.Repositery
 				}
 			}
 
-            
-
-
             AspNetUserRole aspNetUserRole = new AspNetUserRole
             {
                 UserId = aspNetUser.Id,
-                RoleId = model.RoleId,
+                RoleId = 1,
             };
 
             _context.AspNetUserRoles.Add(aspNetUserRole);
@@ -2572,7 +2595,7 @@ namespace BLL.Repositery
                 Name = x.FirstName,
                 StartTime = x.Shifts.Select(x => x.ShiftDetails.Select(j => j.StartTime).First()).First(),
                 EndTime = x.Shifts.Select(x => x.ShiftDetails.Select(j => j.EndTime).First()).First(),
-                ShiftDate = x.Shifts.Select(x => x.ShiftDetails.Select(j => j.ShiftDate).First()).First(),
+                ShiftDate = x.Shifts.Select(x => x.ShiftDetails.Select(j => j.ShiftDate).Last()).Last(),
                 CurrentTime = currentTime,
                 CurrentDate = currentDate,
 			}).ToList();

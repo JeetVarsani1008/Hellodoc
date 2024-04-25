@@ -1071,11 +1071,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
+      "projectUniqueName": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
       "projectName": "LibraryManagement",
-      "projectPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
+      "projectPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement\\LibraryManagement.csproj",
       "packagesPath": "C:\\Users\\pci19\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement\\obj\\",
+      "outputPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pci19\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1092,11 +1092,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.BLL\\LibraryManagement.BLL.csproj": {
-              "projectPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.BLL\\LibraryManagement.BLL.csproj"
+            "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.BLL\\LibraryManagement.BLL.csproj": {
+              "projectPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.BLL\\LibraryManagement.BLL.csproj"
             },
-            "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj": {
-              "projectPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj"
+            "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj": {
+              "projectPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj"
             }
           }
         }

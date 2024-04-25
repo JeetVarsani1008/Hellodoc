@@ -1032,11 +1032,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj",
+      "projectUniqueName": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj",
       "projectName": "LibraryManagement.DAL",
-      "projectPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj",
+      "projectPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\LibraryManagement.DAL.csproj",
       "packagesPath": "C:\\Users\\pci19\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pci19\\Desktop\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\obj\\",
+      "outputPath": "D:\\main project\\Hellodoc\\Assignment\\LibraryManagement\\LibraryManagement.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pci19\\AppData\\Roaming\\NuGet\\NuGet.Config",

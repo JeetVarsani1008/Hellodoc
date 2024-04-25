@@ -30,7 +30,7 @@ namespace BLL.Interface
 
         ViewCaseVm ViewCase(int requestId);
 
-        ViewNotesVm ViewNotes(int requestId);
+        ViewNotesVm ViewNotes(int requestId, int adminId, int phyId);
 
         void editViewNotes(ViewNotesVm model, int requestId);
 

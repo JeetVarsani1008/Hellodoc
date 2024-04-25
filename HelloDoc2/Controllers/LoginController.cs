@@ -31,7 +31,7 @@ namespace DAL.Controllers
 		}
         #endregion
 
-        #region AdminLogin : Post
+        #region Login : Post
         [HttpPost]
         public IActionResult Login(LoginVm loginVm)
         {
