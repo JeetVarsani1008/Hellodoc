@@ -1,0 +1,93 @@
+﻿@model DAL.ViewModel.TimeSheetVm;
+@{
+    Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+}
+
+@{
+    var dateRanges = new List<Tuple<DateTime, DateTime>>();
+    int currMonth = DateTime.Now.Month;
+    // Get the current month and year
+    for (int i = currMonth; i >1 ; i--)
+    {
+        int currentMonth = DateTime.Now.AddMonths(i-currMonth).Month;
+        int currentYear = DateTime.Now.Year;
+
+        // Define date ranges
+
+        // Populate date ranges based on month and year
+        if (currentMonth == 2 && DateTime.IsLeapYear(currentYear)) // February with 29 days
+        {
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, 1, 1), new DateTime(currentYear, 1, 15)));
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, 1, 16), new DateTime(currentYear, 1, 31)));
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, 2, 1), new DateTime(currentYear, 2, 15)));
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, 2, 16), new DateTime(currentYear, 2, 29)));
+        }
+        else // Other months
+        {
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, currentMonth, 1), new DateTime(currentYear, currentMonth, 15)));
+            dateRanges.Add(new Tuple<DateTime, DateTime>(new DateTime(currentYear, currentMonth, 16), new DateTime(currentYear, currentMonth, DateTime.DaysInMonth(currentYear, currentMonth))));
+        }
+    }
+}
+<div class="container">
+
+    <div class="d-flex justify-content-between mb-3 mt-2">
+        <h4>Time Sheet</h4>
+        <button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("ProviderDashboard","Provider")'">&lt; Back</button>
+    </div>
+    <div class="d-flex row justify-content-between align-items-center">
+        <div class="form-floating col-md-3">
+            <select class="form-select" id="selectdropdown">
+                @foreach(var obj in dateRanges)
+                {
+                    <option value="@($"{obj.Item1:yyyy/MM/dd} - {obj.Item2:yyyy/MM/dd}")">@($"{obj.Item1:yyyy/MM/dd} - {obj.Item2:yyyy/MM/dd}")</option>
+                }
+            </select>
+            <label for="selectdropdown" class="ms-2 d-flex flex-wrap">Search by TimeSheetperiod</label>
+        </div>
+        <div class="col-md-3 d-flex justify-content-end">
+            <button class="btn btn-outline-info" onclick="finalizedfunction()" id="finalizeButton">Finalize Timesheet</button>
+        </div>
+    </div>
+
+    <div id="invoicingtable"></div>
+    <input asp-for="PhysicianId" id="physicianid"/>
+</div> 
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url : "/Provider/ProviderInvoicingTable",
+            method : "GET",
+            success: function (data) {
+                $('#invoicingtable').html(data);
+            },
+            error: function () {
+                $('#invoicingtable').html("Something Went Wrong");
+            }
+        })
+    });
+
+    function finalizedfunction() {
+        var selectedvalue = document.getElementById('selectdropdown').value;
+        console.log(selectedvalue);
+
+        var physicianId = document.getElementById('physicianid').value;
+        $.ajax({
+            url : "/Provider/FinalizeTable",
+            method : 'POST',
+            data: {
+                PhysicianId : physicianId,
+                SelectedValue : selectedvalue,
+            },
+            success : function() {
+
+            },
+            error: function () {
+                alert("Something went wrong");
+            }
+        });
+    }
+</script>

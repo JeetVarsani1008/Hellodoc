@@ -51,7 +51,7 @@
                         Welcome <span class="fw-bolder  ms-2">@Accesor.HttpContext.Session.GetString("adminName")</span>
                         </li>
                     <li class="nav-item">
-                            <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("AdminLogout","Admin")'">
+                            <button type="button" class="btn btn-outline-info logout-btn" onclick="logoutfxn()">
                                 <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
                             </button>
                     </li>
@@ -133,5 +133,10 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+    <script>
+        function logoutfxn() {
+            window.location.replace("/Login/Login");
+        }
+    </script>
 </body>
 </html>

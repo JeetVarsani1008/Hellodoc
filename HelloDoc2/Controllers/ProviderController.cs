@@ -152,7 +152,6 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
-
         #region FilterPaginationProvider
         public IActionResult FilterPaginationProvider(string statusarray, int requestTypeId, string searchdata, int PageNumber)
         {
@@ -756,6 +755,31 @@ namespace HelloDoc2.Controllers
         }
         #endregion
         //conclude care complete
+
+        #region Invoicing
+        public IActionResult Invoicing()
+        {
+            TimeSheetVm timeSheetVm = new TimeSheetVm();
+            timeSheetVm.PhysicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
+            ViewBag.ActiveDashboardNav = "Invoicing";
+            return View(timeSheetVm);
+        }
+        #endregion
+
+        #region ProviderInvoicingTable
+        public IActionResult ProviderInvoicingTable()
+        {
+            return PartialView("Provider/_ProviderInvoicingTable");
+        }
+        #endregion
+
+        #region FinalizeTable
+        public IActionResult FinalizeTable(int PhysicianId, string SelectedValue)
+        {   
+            ViewBag.ActiveDashboardNav = "Invoicing";
+            return View();
+        }
+        #endregion
     }
 }
 

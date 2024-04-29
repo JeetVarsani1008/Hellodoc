@@ -73,9 +73,9 @@ namespace BLL.Repositery
         {
             var user = _context.Users.FirstOrDefault(u => u.UserId == userID);
 
-            int intYear = (int)user?.IntYear;
-            int intDate = (int)user?.IntDate;
-            string month = (string)user?.StrMonth;
+            int intYear = user?.IntYear ?? 2000;
+            int intDate = user?.IntDate ?? 10;
+            string month = (string)user?.StrMonth ?? "Jan";
             DateTime date = new DateTime(intYear, DateTime.ParseExact(month, "MMM", CultureInfo.InvariantCulture).Month, intDate);
             PatientProfile patientProfile = new PatientProfile()
             {

@@ -46,7 +46,7 @@
                         Welcome <span class="fw-bolder  ms-2">@Accessor.HttpContext.Session.GetString("username")</span>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("patient_logout","Home")'">
+                        <button type="button" class="btn btn-outline-info logout-btn" onclick="logoutpatient()">
                             <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
                         </button>
                     </li>
@@ -116,7 +116,11 @@
             } else {
                 body.setAttribute("data-bs-theme", "light");
             }
-        }
+        };
+
+        function logoutpatient() {
+            window.location.replace("/Home/Patient_logout");
+        };
     </script>
 </body>
 </html>

@@ -42,7 +42,7 @@
                         Welcome <span class="fw-bolder  ms-2">@Accessor.HttpContext.Session.GetString("Name")</span>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-info logout-btn" onclick="window.location.href='@Url.Action("AdminLogout","Admin")'">
+                        <button type="button" class="btn btn-outline-info logout-btn" onclick="logoutphysician()">
                             <span class=" d-none d-md-block">Logout</span><i class="bi bi-box-arrow-right d-md-none d-block"></i>
                         </button>
                     </li>
@@ -65,7 +65,7 @@
                         <a class="nav-link @(ViewBag.ActiveDashboardNav == "ProviderDashboard" ? "active" : "")" asp-action="ProviderDashboard" asp-controller="Provider">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <button class="nav-link @(ViewBag.ActiveDashboardNav == "Invoicing" ? "active" : "")">Invoicing</button>
+                        <button class="nav-link @(ViewBag.ActiveDashboardNav == "Invoicing" ? "active" : "")" onclick="window.location.href='@Url.Action("Invoicing","Provider")'">Invoicing</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link @(ViewBag.ActiveDashboardNav == "MySchedule" ? "active" : "")" onclick="window.location.href='@Url.Action("MySchedule","Provider")'">My Schedule</button>
@@ -101,29 +101,9 @@
 
 
     <script>
-        // function changeThemeProvider() {
-        //     console.log("change theme clicked");
-        //     var body = document.getElementById("partial-change");
-        //     if (body.getAttribute("data-bs-theme") === "dark") {
-        //         body.setAttribute("data-bs-theme", "light");
-        //         localStorage.setItem("theme", "light");
-        //     } else {
-        //         body.setAttribute("data-bs-theme", "dark");
-        //         localStorage.setItem("theme", "dark");
-        //     }
-        // };
-
-
-        // Check if a theme is stored in local storage and apply it
-        // var theme = localStorage.getItem("theme");
-        // if (theme) {
-        //     var body = document.getElementById("partial-change");
-        //     if (theme === "dark") {
-        //         body.setAttribute("data-bs-theme", "dark");
-        //     } else {
-        //         body.setAttribute("data-bs-theme", "light");
-        //     }
-        // }
+        function logoutphysician() {
+            window.location.replace("/Login/Login");
+        }
     </script>
 </body>
 </html>

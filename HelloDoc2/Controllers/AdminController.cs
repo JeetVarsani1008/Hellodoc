@@ -41,6 +41,8 @@ namespace DAL.Controllers
             Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
             Response.Cookies.Delete("RoleMenu");
             return RedirectToAction("Login", "Login");
+
+            //return Redirect(Request.Headers["Referer"].ToString());
         }
         #endregion
 
