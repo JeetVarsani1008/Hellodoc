@@ -1,0 +1,57 @@
+﻿@model DAL.ViewModelProvider.FinalizeVm;
+@{
+    Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+
+}
+<head>
+    <style>
+        input[type=checkbox]{
+            transform : scale(1.5);
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("Invoicing","Provider")'">&lt; Back</button>
+    </div>
+
+    <div id="finalizetable"></div>
+    <div class="table-responsive"> 
+        <form asp-controller="Provider" asp-action="WeeklyTimeSheetSubmit" asp-route-PhysicianId="@Model.PhysicianId" method="post" enctype="multipart/form-data">
+        <table class="table">
+            <thead class="table-active">
+                <tr>
+                    <td>Date</td>
+                    <td>Oncall Hours</td>
+                    <td width="15%">Total Hours</td>
+                    <td class="text-center">Weekend/Holidays</td>
+                    <td>Number Of Housecalls</td>
+                    <td>Number Phone Consults</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for(var i = Model.StartDay; i<=Model.EndDay; i++)
+                {
+                    <tr>
+                        <td>@Model.Month/@i/@Model.Year</td>
+                        <td>0</td>
+                        <td><input class="form-control w-100" type="number" placeholder="0"/></td>
+                        <td class="text-center"><input type="checkbox" /></td>
+                        <td><input class="form-control w-50" type="number"/></td>
+                        <td><input class="form-control w-50" type="number"/></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-info" type="submit">Submit</button>
+        </div>
+        </form>
+        <div class="d-flex justify-content-start">
+            <button class="btn btn-info">Add Receipts</button>
+        </div>
+    </div>
+</div>
+
+

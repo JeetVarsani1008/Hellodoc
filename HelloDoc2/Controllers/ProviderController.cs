@@ -759,7 +759,7 @@ namespace HelloDoc2.Controllers
         #region Invoicing
         public IActionResult Invoicing()
         {
-            TimeSheetVm timeSheetVm = new TimeSheetVm();
+            FinalizeVm timeSheetVm = new FinalizeVm();
             timeSheetVm.PhysicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
             ViewBag.ActiveDashboardNav = "Invoicing";
             return View(timeSheetVm);
@@ -774,10 +774,13 @@ namespace HelloDoc2.Controllers
         #endregion
 
         #region FinalizeTable
-        public IActionResult FinalizeTable(int PhysicianId, string SelectedValue)
+        public IActionResult InvoicingFinalize(string SelectedValue)
         {   
             ViewBag.ActiveDashboardNav = "Invoicing";
-            return View();
+            var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+            FinalizeVm model = new FinalizeVm();
+            model = _providerDashboard.getFinalizeTimeSheetData((int)PhysicianId,SelectedValue);
+            return View(model);
         }
         #endregion
     }

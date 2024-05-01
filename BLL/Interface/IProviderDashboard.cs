@@ -54,5 +54,7 @@ namespace BLL.Interface
         string getPatientNameForConclude(int requestId);
 
         bool concludeCareUpload(IFormFile file, int requestId, int physicianId);
+
+        FinalizeVm getFinalizeTimeSheetData(int PhysicianId, string SelectedValue);
     }
 }

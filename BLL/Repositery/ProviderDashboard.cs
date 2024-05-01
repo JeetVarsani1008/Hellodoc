@@ -602,5 +602,19 @@ namespace BLL.Repositery
             }
         }
         #endregion
+
+        #region getFinalizeTimeSheetData 
+        public FinalizeVm getFinalizeTimeSheetData(int PhysicianId, string SelectedValue)
+        {
+            int[] selectedvalue = SelectedValue.Split('-').Select(x => int.Parse(x)).ToArray();
+            FinalizeVm finalizeVm = new FinalizeVm();
+            //finalizeVm.Year = selectedvalue[0];
+            //finalizeVm.Month = selectedvalue[1];
+            //finalizeVm.StartDay = selectedvalue[2];
+            //finalizeVm.EndDay = selectedvalue[5];
+            //finalizeVm.PhysicianId = PhysicianId;   
+            return finalizeVm;
+        }
+        #endregion
     }
 }

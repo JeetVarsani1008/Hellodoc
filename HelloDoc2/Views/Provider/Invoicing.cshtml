@@ -1,4 +1,4 @@
-﻿@model DAL.ViewModel.TimeSheetVm;
+﻿@model DAL.ViewModelProvider.FinalizeVm;
 @{
     Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
 }
@@ -36,17 +36,18 @@
         <button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("ProviderDashboard","Provider")'">&lt; Back</button>
     </div>
     <div class="d-flex row justify-content-between align-items-center">
+
         <div class="form-floating col-md-3">
             <select class="form-select" id="selectdropdown">
                 @foreach(var obj in dateRanges)
                 {
-                    <option value="@($"{obj.Item1:yyyy/MM/dd} - {obj.Item2:yyyy/MM/dd}")">@($"{obj.Item1:yyyy/MM/dd} - {obj.Item2:yyyy/MM/dd}")</option>
+                    <option value="@($"{obj.Item1:yyyy/MM/dd} - {obj.Item2:yyyy/MM/dd}")">@($"{obj.Item1:yyyy/MM/dd}  {obj.Item2:yyyy/MM/dd}")</option>
                 }
             </select>
             <label for="selectdropdown" class="ms-2 d-flex flex-wrap">Search by TimeSheetperiod</label>
         </div>
         <div class="col-md-3 d-flex justify-content-end">
-            <button class="btn btn-outline-info" onclick="finalizedfunction()" id="finalizeButton">Finalize Timesheet</button>
+                <button class="btn btn-outline-info" onclick="finalizeTimesheet()" id="finalizeButton">Finalize Timesheet</button>
         </div>
     </div>
 
@@ -70,24 +71,9 @@
         })
     });
 
-    function finalizedfunction() {
-        var selectedvalue = document.getElementById('selectdropdown').value;
-        console.log(selectedvalue);
-
-        var physicianId = document.getElementById('physicianid').value;
-        $.ajax({
-            url : "/Provider/FinalizeTable",
-            method : 'POST',
-            data: {
-                PhysicianId : physicianId,
-                SelectedValue : selectedvalue,
-            },
-            success : function() {
-
-            },
-            error: function () {
-                alert("Something went wrong");
-            }
-        });
+    function finalizeTimesheet() {
+        var dataRange = $('#selectdropdown').val();
+        console.log(dataRange);
+        window.location = '@Url.Action("InvoicingFinalize", "Provider")' + '?' + 'SelectedValue=' + dataRange;
     }
 </script>
