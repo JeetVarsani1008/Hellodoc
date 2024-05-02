@@ -759,7 +759,7 @@ namespace HelloDoc2.Controllers
         #region Invoicing
         public IActionResult Invoicing()
         {
-            FinalizeVm timeSheetVm = new FinalizeVm();
+            TimeSheetModel timeSheetVm = new TimeSheetModel();
             timeSheetVm.PhysicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
             ViewBag.ActiveDashboardNav = "Invoicing";
             return View(timeSheetVm);
@@ -767,22 +767,58 @@ namespace HelloDoc2.Controllers
         #endregion
 
         #region ProviderInvoicingTable
-        public IActionResult ProviderInvoicingTable()
+        public async Task<IActionResult> ProviderInvoicingTable(string SelectedValue)
         {
-            return PartialView("Provider/_ProviderInvoicingTable");
+            var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+            TimeSheetModel model = new TimeSheetModel();
+            if(SelectedValue == null)
+            {
+                model.CheckData = 1;
+                return PartialView("Provider/_ProviderInvoicingTable", model);
+            }
+            else
+            {
+                model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId, SelectedValue);
+                return PartialView("Provider/_ProviderInvoicingTable", model);
+            }
         }
         #endregion
 
-        #region FinalizeTable
-        public IActionResult InvoicingFinalize(string SelectedValue)
+        #region InvoicingFinalize
+        public async Task<IActionResult> InvoicingFinalize(string SelectedValue)
         {   
             ViewBag.ActiveDashboardNav = "Invoicing";
             var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
-            FinalizeVm model = new FinalizeVm();
-            model = _providerDashboard.getFinalizeTimeSheetData((int)PhysicianId,SelectedValue);
-            return View(model);
+            if(SelectedValue != null)
+            {
+                TimeSheetModel model = new TimeSheetModel();
+                model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId,SelectedValue);
+                return View(model);
+            }
+            else
+            {
+                TimeSheetModel model = new TimeSheetModel();
+                model.CheckData = 1;
+                return View(model);
+            }
         }
         #endregion
+
+        [HttpPost]
+        public IActionResult SubmitTimesheet(TimeSheetModel model, string operation)
+        {
+            int? PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+            if (PhysicianId.HasValue)
+            {
+                if (operation == "submit")
+                    _providerDashboard.SubmitBiWeeklyTimesheet(model, false, PhysicianId);
+                else if (operation == "finalize")
+                    _providerDashboard.SubmitBiWeeklyTimesheet(model, true, PhysicianId);
+
+                return RedirectToAction("Invoicing");
+            }
+            return RedirectToAction("ProviderDashboard", "Provider");
+        }
     }
 }
 

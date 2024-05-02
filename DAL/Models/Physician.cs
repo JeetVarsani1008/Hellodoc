@@ -117,6 +117,9 @@ public partial class Physician
     public virtual ICollection<PhysicianNotification> PhysicianNotifications { get; set; } = new List<PhysicianNotification>();
 
     [InverseProperty("Physician")]
+    public virtual ICollection<PhysicianPayRate> PhysicianPayRates { get; set; } = new List<PhysicianPayRate>();
+
+    [InverseProperty("Physician")]
     public virtual ICollection<PhysicianRegion> PhysicianRegions { get; set; } = new List<PhysicianRegion>();
 
     [InverseProperty("Physician")]
@@ -137,4 +140,7 @@ public partial class Physician
 
     [InverseProperty("Physician")]
     public virtual ICollection<Shift> Shifts { get; set; } = new List<Shift>();
+
+    [InverseProperty("Provider")]
+    public virtual ICollection<WeeklyTimeSheet> WeeklyTimeSheets { get; set; } = new List<WeeklyTimeSheet>();
 }

@@ -9,6 +9,7 @@ namespace DAL.ViewModelProvider
     public class TimePeriodModel
     {
         public DateOnly StartDate { get; set; }
+
         public DateOnly EndDate { get; set; }
     }
 }

@@ -604,17 +604,135 @@ namespace BLL.Repositery
         #endregion
 
         #region getFinalizeTimeSheetData 
-        public FinalizeVm getFinalizeTimeSheetData(int PhysicianId, string SelectedValue)
+        public async Task<TimeSheetModel> getFinalizeTimeSheetDataAsync(int PhysicianId, string SelectedValue)
         {
-            int[] selectedvalue = SelectedValue.Split('-').Select(x => int.Parse(x)).ToArray();
-            FinalizeVm finalizeVm = new FinalizeVm();
-            //finalizeVm.Year = selectedvalue[0];
-            //finalizeVm.Month = selectedvalue[1];
-            //finalizeVm.StartDay = selectedvalue[2];
-            //finalizeVm.EndDay = selectedvalue[5];
-            //finalizeVm.PhysicianId = PhysicianId;   
-            return finalizeVm;
+            TimeSheetModel finalizeVm = new TimeSheetModel();
+            string[] dateRange = SelectedValue.Split('*');
+            finalizeVm.SelectedStartDate = DateOnly.Parse(dateRange[0]);
+            finalizeVm.SelectedEndDate = DateOnly.Parse(dateRange[1]);
+
+            WeeklyTimeSheet weeklyTimesheet = await _context.WeeklyTimeSheets.FirstOrDefaultAsync(x => x.StartDate == finalizeVm.SelectedStartDate && x.ProviderId == PhysicianId);
+
+
+            if(weeklyTimesheet != null)
+            {
+                var sheet = await _context.WeeklyTimeSheetDetails.Where(u => u.TimeSheetId == weeklyTimesheet.TimeSheetId).Select(x => new BiWeeklyTimeSheetModel
+                {
+                    Date = x.Date,
+                    OnCallHours = (int)x.OnCallHours,
+                    TotalHours = (int)x.TotalHours,
+                    IsWeekend = (bool)x.IsWeekendHoliday,
+                    NoOfHouseCalls = x.HouseCall,
+                    NoOfPhoneConsults = x.PhoneConsult,
+                    NightWeekendHouseCall = x.HouseCallNightWeekend,
+                    NightWeekendPhoneConsult = x.PhoneConsultNightWeekend,
+                    Item = x.Item,
+                    Amount = (int)x.Amount,
+                    BillName = x.Bill,
+                }).ToListAsync();
+                List<BiWeeklyTimeSheetModel> list = new List<BiWeeklyTimeSheetModel>();
+                foreach(BiWeeklyTimeSheetModel i in sheet)
+                {
+                    var shift = await _context.Shifts.FirstOrDefaultAsync(x => x.PhysicianId == PhysicianId);
+                    var shiftdetail = await _context.ShiftDetails.FirstOrDefaultAsync(x => x.ShiftId == shift.ShiftId && x.ShiftDate == i.Date);
+
+                    if (shiftdetail != null)
+                    {
+                        i.OnCallHours = (int)(shiftdetail.EndTime - shiftdetail.StartTime).TotalMinutes / 60;
+                    }
+                    else
+                    {
+                        i.OnCallHours = 0;
+                    }
+                    list.Add(i);
+                }
+                finalizeVm.TimeSheetList = list;
+                return finalizeVm;
+            }
+
+            else
+            {
+                List<BiWeeklyTimeSheetModel> list = new List<BiWeeklyTimeSheetModel>();
+                for(var i = finalizeVm.SelectedStartDate; i<= finalizeVm.SelectedEndDate; i = i.AddDays(1))
+                {
+                    var shift = _context.Shifts.FirstOrDefault(x => x.PhysicianId == PhysicianId);
+                    var shiftdetail = _context.ShiftDetails.FirstOrDefault(x => x.ShiftId == shift.ShiftId && x.ShiftDate == i);
+
+                    BiWeeklyTimeSheetModel ListOfDates = new BiWeeklyTimeSheetModel();
+                    ListOfDates.Date = i;
+                    if(shiftdetail != null)
+                    {
+                        ListOfDates.OnCallHours = (int)(shiftdetail.EndTime - shiftdetail.StartTime).TotalMinutes / 60;
+                        ListOfDates.OnCallHours = ListOfDates.OnCallHours;
+                    }
+                    else
+                    {
+                        ListOfDates.OnCallHours = 0;
+                        ListOfDates.TotalHours = 0;
+                    }
+                    list.Add(ListOfDates);
+                }
+                finalizeVm.TimeSheetList = list;
+                return finalizeVm;
+            }
         }
         #endregion
+
+        public void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId)
+        {
+            WeeklyTimeSheet wts = _context.WeeklyTimeSheets.FirstOrDefault(u => u.StartDate == model.TimeSheetList[0].Date && u.ProviderId == physicianId);
+
+            int count = model.TimeSheetList.Count;
+
+            if (wts == null)
+            {
+                WeeklyTimeSheet newSheet = new WeeklyTimeSheet();
+                newSheet.StartDate = model.TimeSheetList[0].Date;
+                newSheet.EndDate = model.TimeSheetList[0].Date.AddDays(count - 1);
+                newSheet.Status = 1;
+                newSheet.CreatedDate = DateTime.Now;
+                newSheet.ProviderId = (int)physicianId;
+                if (isFinalize)
+                    newSheet.IsFinalized = true;
+
+                _context.WeeklyTimeSheets.Add(newSheet);
+                _context.SaveChanges();
+
+                for (int i = 0; i < count; i++)
+                {
+                    WeeklyTimeSheetDetail detail = new WeeklyTimeSheetDetail();
+                    detail.TimeSheetId = newSheet.TimeSheetId;
+                    detail.Date = model.TimeSheetList[i].Date;
+                    detail.TotalHours = model.TimeSheetList[i].TotalHours;
+                    detail.IsWeekendHoliday = model.TimeSheetList[i].IsWeekend;
+                    if (model.TimeSheetList[i].IsWeekend)
+                    {
+                        detail.HouseCallNightWeekend = model.TimeSheetList[i].NoOfHouseCalls;
+                        detail.PhoneConsultNightWeekend = model.TimeSheetList[i].NoOfPhoneConsults;
+                    }
+                    else
+                    {
+                        detail.HouseCall = model.TimeSheetList[i].NoOfHouseCalls;
+                        detail.PhoneConsult = model.TimeSheetList[i].NoOfPhoneConsults;
+                    }
+                    detail.Item = model.TimeSheetList[i].Item;
+                    detail.Amount = model.TimeSheetList[i].Amount;
+
+                    if (model.TimeSheetList[i].Bill != null)
+                    {
+                        detail.Bill = model.TimeSheetList[i].Bill.FileName;
+
+                        var filePath = Path.Combine("wwwroot", "PhysicianBillUploads", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
+                        using (FileStream stream = System.IO.File.Create(filePath))
+                        {
+                            model.TimeSheetList[i].Bill.CopyToAsync(stream);
+                        }
+                    }
+                    _context.WeeklyTimeSheetDetails.Add(detail);
+                    _context.SaveChanges();
+                }
+            }
+
+        }
     }
 }

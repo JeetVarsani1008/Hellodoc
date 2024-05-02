@@ -55,6 +55,8 @@ namespace BLL.Interface
 
         bool concludeCareUpload(IFormFile file, int requestId, int physicianId);
 
-        FinalizeVm getFinalizeTimeSheetData(int PhysicianId, string SelectedValue);
+        Task<TimeSheetModel> getFinalizeTimeSheetDataAsync(int PhysicianId, string SelectedValue);
+
+        void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId);
     }
 }

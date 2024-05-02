@@ -51,6 +51,8 @@ public partial class HellodocContext : DbContext
 
     public virtual DbSet<PhysicianNotification> PhysicianNotifications { get; set; }
 
+    public virtual DbSet<PhysicianPayRate> PhysicianPayRates { get; set; }
+
     public virtual DbSet<PhysicianRegion> PhysicianRegions { get; set; }
 
     public virtual DbSet<Region> Regions { get; set; }
@@ -86,6 +88,10 @@ public partial class HellodocContext : DbContext
     public virtual DbSet<Smslog> Smslogs { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<WeeklyTimeSheet> WeeklyTimeSheets { get; set; }
+
+    public virtual DbSet<WeeklyTimeSheetDetail> WeeklyTimeSheetDetails { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -262,6 +268,15 @@ public partial class HellodocContext : DbContext
             entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianNotifications)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("PhysicianNotification_PhysicianId_fkey");
+        });
+
+        modelBuilder.Entity<PhysicianPayRate>(entity =>
+        {
+            entity.HasKey(e => e.PhysicianPayRateId).HasName("PhysicianPayRate_pkey");
+
+            entity.Property(e => e.PhysicianPayRateId).UseIdentityAlwaysColumn();
+
+            entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianPayRates).HasConstraintName("PhysicianPayRate_PhysicianId_fkey");
         });
 
         modelBuilder.Entity<PhysicianRegion>(entity =>
@@ -479,6 +494,24 @@ public partial class HellodocContext : DbContext
             entity.Property(e => e.UserId).HasIdentityOptions(null, null, null, 498946546L, null, null);
 
             entity.HasOne(d => d.AspNetUser).WithMany(p => p.Users).HasConstraintName("User_AspNetUserId			_fkey");
+        });
+
+        modelBuilder.Entity<WeeklyTimeSheet>(entity =>
+        {
+            entity.HasKey(e => e.TimeSheetId).HasName("WeeklyTimeSheet_pkey");
+
+            entity.HasOne(d => d.Admin).WithMany(p => p.WeeklyTimeSheets).HasConstraintName("WeeklyTimeSheet_AdminId_fkey");
+
+            entity.HasOne(d => d.Provider).WithMany(p => p.WeeklyTimeSheets)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("WeeklyTimeSheet_ProviderId_fkey");
+        });
+
+        modelBuilder.Entity<WeeklyTimeSheetDetail>(entity =>
+        {
+            entity.HasKey(e => e.TimeSheetDetailId).HasName("WeeklyTimeSheetDetail_pkey");
+
+            entity.HasOne(d => d.TimeSheet).WithMany(p => p.WeeklyTimeSheetDetails).HasConstraintName("WeeklyTimeSheetDetail_TimeSheetId_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

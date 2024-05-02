@@ -1,28 +1,45 @@
-﻿<div class="table-responsive mt-4">
-    <table class="table">
-        <thead class="table-active">
-            <tr>
-                <th>Shift Date</th>
-                <th>Shift</th>
-                <th>NightShift Weekend</th>
-                <th>Housecall</th>
-                <th>Housecall Nights Weekend</th>
-                <th>Phone Consults</th>
-                <th>Phone Consults Night Weekend</th>
-                <th>Natch Testing</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>aug 10,2024</td>
-                <td>3</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        </tbody>
-    </table>
+﻿@model DAL.ViewModelProvider.TimeSheetModel;
+<div class="table-responsive mt-4">
+
+    @if(Model.CheckData != 1)
+    {
+        <table class="table">
+            <thead class="table-active">
+                <tr>
+                    <th>Shift Date</th>
+                    <th>Shift</th>
+                    <th>NightShift Weekend</th>
+                    <th>Housecall</th>
+                    <th>Housecall Nights Weekend</th>
+                    <th>Phone Consults</th>
+                    <th>Phone Consults Night Weekend</th>
+                    <th>Natch Testing</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int r = 0; r < Model.TimeSheetList.Count; r++)
+                {
+                    <tr>
+                        <td>@Model.TimeSheetList[r].Date</td>
+                        <td>0</td>
+                        <td>
+                            @Model.TimeSheetList[r].NoOfHouseCalls
+                        </td>
+                        <td>
+                            @Model.TimeSheetList[r].NightWeekendHouseCall
+                        </td>
+                        <td class="text-center">@Model.TimeSheetList[r].NoOfPhoneConsults </td>
+                        <td class="text-center">
+                            @Model.TimeSheetList[r].NightWeekendPhoneConsult
+                        </td>
+                        <td>0</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="h3">No Data Found</p>
+    }
 </div>

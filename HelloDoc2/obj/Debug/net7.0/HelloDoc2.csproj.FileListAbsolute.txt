@@ -1267,3 +1267,13 @@ D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Rotativa.AspNetCore.dll
 D:\main project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\bin\Debug\net7.0\Rotativa.AspNetCore.dll
 C:\Users\DELL\Desktop\project\Hellodoc\HelloDoc2\obj\Debug\net7.0\HelloDoc2.MvcApplicationPartsAssemblyInfo.cs
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EntityFramework.SqlServer.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\EntityFramework.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\LinqKit.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\LinqKit.Core.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\System.Data.SqlClient.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\main project\Hellodoc\HelloDoc2\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

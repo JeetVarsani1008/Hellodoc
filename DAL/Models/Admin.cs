@@ -76,4 +76,7 @@ public partial class Admin
 
     [InverseProperty("Admin")]
     public virtual ICollection<RequestWiseFile> RequestWiseFiles { get; set; } = new List<RequestWiseFile>();
+
+    [InverseProperty("Admin")]
+    public virtual ICollection<WeeklyTimeSheet> WeeklyTimeSheets { get; set; } = new List<WeeklyTimeSheet>();
 }
