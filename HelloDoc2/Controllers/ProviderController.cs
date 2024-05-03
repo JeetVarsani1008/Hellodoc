@@ -778,11 +778,13 @@ namespace HelloDoc2.Controllers
             }
             else
             {
-                model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId, SelectedValue);
+                model = await _providerDashboard.getInvoicingTableDataAsync((int)PhysicianId, SelectedValue);
                 return PartialView("Provider/_ProviderInvoicingTable", model);
             }
         }
         #endregion
+
+
 
         #region InvoicingFinalize
         public async Task<IActionResult> InvoicingFinalize(string SelectedValue)
@@ -804,6 +806,7 @@ namespace HelloDoc2.Controllers
         }
         #endregion
 
+        #region SubmitTimesheet
         [HttpPost]
         public IActionResult SubmitTimesheet(TimeSheetModel model, string operation)
         {
@@ -819,6 +822,7 @@ namespace HelloDoc2.Controllers
             }
             return RedirectToAction("ProviderDashboard", "Provider");
         }
+        #endregion
     }
 }
 

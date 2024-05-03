@@ -616,7 +616,7 @@ namespace BLL.Repositery
 
             if(weeklyTimesheet != null)
             {
-                var sheet = await _context.WeeklyTimeSheetDetails.Where(u => u.TimeSheetId == weeklyTimesheet.TimeSheetId).Select(x => new BiWeeklyTimeSheetModel
+                var sheet = await _context.WeeklyTimeSheetDetails.Where(u => u.TimeSheetId == weeklyTimesheet.TimeSheetId).OrderBy(x => x.Date).Select(x => new BiWeeklyTimeSheetModel
                 {
                     Date = x.Date,
                     OnCallHours = (int)x.OnCallHours,
@@ -678,6 +678,7 @@ namespace BLL.Repositery
         }
         #endregion
 
+        #region SubmitBiWeeklyTimesheet
         public void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId)
         {
             WeeklyTimeSheet wts = _context.WeeklyTimeSheets.FirstOrDefault(u => u.StartDate == model.TimeSheetList[0].Date && u.ProviderId == physicianId);
@@ -732,7 +733,84 @@ namespace BLL.Repositery
                     _context.SaveChanges();
                 }
             }
+            else
+            {
+                for(int i = 0; i < count; i++)
+                {
+                    WeeklyTimeSheetDetail detail = new WeeklyTimeSheetDetail();
+                    if (model.TimeSheetList[i].Bill != null)
+                    {
+                        detail.Bill = model.TimeSheetList[i].Bill.FileName;
+
+                        var filePath = Path.Combine("wwwroot", "InvoicingDoc", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
+                        using (FileStream stream = System.IO.File.Create(filePath))
+                        {
+                            model.TimeSheetList[i].Bill.CopyToAsync(stream);
+                        }
+                    }
+                    _context.WeeklyTimeSheetDetails.Add(detail);
+                    _context.SaveChanges();
+                }
+            }
 
         }
+        #endregion
+
+        #region getInvoicingTableDataAsync
+        public async Task<TimeSheetModel> getInvoicingTableDataAsync(int PhysicianId, string SelectedValue)
+        {
+            TimeSheetModel timeSheetModel = new TimeSheetModel();
+            string[] dateRange = SelectedValue.Split('*');
+            timeSheetModel.SelectedStartDate = DateOnly.Parse(dateRange[0]);
+            timeSheetModel.SelectedEndDate = DateOnly.Parse(dateRange[1]);
+
+            WeeklyTimeSheet weeklyTimesheet = await _context.WeeklyTimeSheets.FirstOrDefaultAsync(x => x.StartDate == timeSheetModel.SelectedStartDate && x.ProviderId == PhysicianId);
+
+            if (weeklyTimesheet == null)
+            {
+                timeSheetModel.CheckData = 1;
+                return timeSheetModel;
+            }
+            else
+            {
+                var sheet = await _context.WeeklyTimeSheetDetails.Where(u => u.TimeSheetId == weeklyTimesheet.TimeSheetId).OrderBy(x => x.Date).Select(x => new BiWeeklyTimeSheetModel
+                {
+                    Date = x.Date,
+                    OnCallHours = (int)x.OnCallHours,
+                    TotalHours = (int)x.TotalHours,
+                    IsWeekend = (bool)x.IsWeekendHoliday,
+                    NoOfHouseCalls = x.HouseCall,
+                    NoOfPhoneConsults = x.PhoneConsult,
+                    NightWeekendHouseCall = x.HouseCallNightWeekend,
+                    NightWeekendPhoneConsult = x.PhoneConsultNightWeekend,
+                    Item = x.Item,
+                    Amount = (int)x.Amount,
+                    BillName = x.Bill,
+                    NightShiftWeekend = x.NightShiftWeekend,
+                    NumberOfShift = x.NumberOfShifts,
+
+                }).ToListAsync();
+
+                List<BiWeeklyTimeSheetModel> list = new List<BiWeeklyTimeSheetModel>();
+                foreach (BiWeeklyTimeSheetModel i in sheet)
+                {
+                    var shift = await _context.Shifts.FirstOrDefaultAsync(x => x.PhysicianId == PhysicianId);
+                    var shiftdetail = await _context.ShiftDetails.FirstOrDefaultAsync(x => x.ShiftId == shift.ShiftId && x.ShiftDate == i.Date);
+
+                    if (shiftdetail != null)
+                    {
+                        i.OnCallHours = (int)(shiftdetail.EndTime - shiftdetail.StartTime).TotalMinutes / 60;
+                    }
+                    else
+                    {
+                        i.OnCallHours = 0;
+                    }
+                    list.Add(i);
+                }
+                timeSheetModel.TimeSheetList = list;
+                return timeSheetModel;
+            }
+        }
+        #endregion
     }
 }

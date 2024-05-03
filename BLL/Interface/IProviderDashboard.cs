@@ -58,5 +58,7 @@ namespace BLL.Interface
         Task<TimeSheetModel> getFinalizeTimeSheetDataAsync(int PhysicianId, string SelectedValue);
 
         void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId);
+
+        Task<TimeSheetModel> getInvoicingTableDataAsync(int PhysicianId, string SelectedValue);
     }
 }

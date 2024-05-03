@@ -48,6 +48,8 @@ public partial class WeeklyTimeSheetDetail
 
     public bool? IsWeekendHoliday { get; set; }
 
+    public bool? IsDeleted { get; set; }
+
     [ForeignKey("TimeSheetId")]
     [InverseProperty("WeeklyTimeSheetDetails")]
     public virtual WeeklyTimeSheet? TimeSheet { get; set; }

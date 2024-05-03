@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/Provider/_LayoutProviderDashboard.cshtml";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <div class="h4">Payrate</div>
+        <button class="btn btn-outline-info" onclick="window.location.href='@Url.Action("EditPhysicianAccount","Admin")'">&lt; Back</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-active">
+                <tr>
+                    <th width="40%">Category</th>
+                    <th width="40%">Payrate</th>
+                    <th width="20%">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Night Shift</td>
+                    <td><input class="form-control"/></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

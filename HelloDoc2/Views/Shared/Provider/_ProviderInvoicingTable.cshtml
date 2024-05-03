@@ -13,7 +13,7 @@
                     <th>Housecall Nights Weekend</th>
                     <th>Phone Consults</th>
                     <th>Phone Consults Night Weekend</th>
-                    <th>Natch Testing</th>
+                    <th>Batch Testing</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,9 +21,32 @@
                 {
                     <tr>
                         <td>@Model.TimeSheetList[r].Date</td>
-                        <td>0</td>
                         <td>
-                            @Model.TimeSheetList[r].NoOfHouseCalls
+                            @if (Model.TimeSheetList[r].NumberOfShift == null)
+                            {
+                                <text>0</text>
+                            }else
+                            {
+                                @Model.TimeSheetList[r].NumberOfShift
+                            }
+                        </td>
+                        <td>@if (Model.TimeSheetList[r].NightShiftWeekend == null)
+                            {
+                                <text>0</text>
+                            }
+                            else
+                            {
+                                @Model.TimeSheetList[r].NightShiftWeekend
+                            }
+                        </td>
+                        <td>
+                            @if (Model.TimeSheetList[r].NoOfHouseCalls == null)
+                            {
+                                <text>0</text>
+                            }else
+                            {
+                                @Model.TimeSheetList[r].NoOfHouseCalls
+                            }
                         </td>
                         <td>
                             @Model.TimeSheetList[r].NightWeekendHouseCall
@@ -40,6 +63,51 @@
     }
     else
     {
-        <p class="h3">No Data Found</p>
+        <p class="h5">No Data Found</p>
     }
+
+    <div class="shadow-2 container p-0">
+    <div class="d-flex justify-content-start h3">TimeSheet Reimbursement</div>
+    @if(Model.CheckData != 1)
+    {
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-active">
+                        <tr>
+                            <td>Date</td>
+                            <td>Item</td>
+                            <td>Amount</td>
+                            <td>Bill</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.TimeSheetList.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.TimeSheetList[i].Date</td>
+                                <td>@Model.TimeSheetList[i].Item</td>
+                                <td>@Model.TimeSheetList[i].Amount</td>
+                                <td>@Model.TimeSheetList[i].BillName</td>
+                                <td>
+                                    @if(Model.TimeSheetList[i].BillName != null)
+                                    {
+                                        <a href="~/InvoicingDoc/@Model.TimeSheetList[i].BillName" type="button" class="btn btn-outline-info" >View</a>
+                                    }
+                                    else
+                                    {
+                                        <div></div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+    }
+    else
+    {
+        <div class="h5">No Data Found</div>
+    }
+    </div>
 </div>

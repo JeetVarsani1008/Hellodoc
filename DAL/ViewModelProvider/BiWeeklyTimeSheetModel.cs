@@ -32,5 +32,9 @@ namespace DAL.ViewModelProvider
         public int? NightWeekendHouseCall { get; set; }
 
         public int? NightWeekendPhoneConsult { get; set; }
+
+        public int? NightShiftWeekend {  get; set; }
+
+        public int? NumberOfShift { get; set; }
     }
 }

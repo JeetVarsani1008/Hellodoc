@@ -66,37 +66,64 @@
             <button class="btn btn-info" onclick="toggleReceiptSection()">Add Receipts</button>
         </div>
 
-        <div class="table-responsive mt-3" id="billDetails">
-            <table class="table">
-                <thead class="table-active">
-                    <tr>
-                        <td>Date</td>
-                        <td>Item</td>
-                        <td>Amount</td>
-                        <td>Bill</td>
-                        <td class="d-flex justify-content-center">Action</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (var i = 0; i < Model.TimeSheetList.Count; i++)
-                    {
+
+        @if (Model.CheckData != 1)
+        {
+            <div class="table-responsive mt-3" id="billDetails">
+                <table class="table">
+                    <thead class="table-active">
                         <tr>
-                            <td>@Model.TimeSheetList[i].Date <input type="hidden" asp-for="TimeSheetList[i].Date" /></td>
-                            <td><input type="number" class="form-control w-50" /></td>
-                            <td><input type="number" class="form-control w-50" /></td>
-                            <td>@Model.TimeSheetList[i].BillName</td>
-                            <td>
-                                <div class="d-flex justify-content-center">
-                                    <button class="btn btn-outline-info me-2">Edit</button>
-                                    <button class="btn btn-outline-info me-2">Delete</button>
-                                    <button class="btn btn-outline-info">View</button>
-                                </div>
-                            </td>
+                            <td>Date</td>
+                            <td>Item</td>
+                            <td>Amount</td>
+                            <td>Bill</td>
+                            <td class="d-flex justify-content-center">Action</td>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @for (var i = 0; i < Model.TimeSheetList.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.TimeSheetList[i].Date <input type="hidden" asp-for="TimeSheetList[i].Date" /></td>
+                                <td><input type="number" class="form-control w-50" /></td>
+                                <td><input type="number" class="form-control w-50" /></td>
+                                <td>
+                                    @if (Model.TimeSheetList[i].BillName == null)
+                                    {
+                                        <div class="d-flex">
+                                            <button class="btn btn-info d-flex"><i class="bi bi-cloud-upload"></i>Upload</button>
+                                            <input type="file" class="form-control w-50" />
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        @Model.TimeSheetList[i].BillName
+                                    }
+                                </td>
+                                <td>
+                                    @if(Model.TimeSheetList[i].BillName != null)
+                                    {
+                                        <div class="d-flex justify-content-center">
+                                            <button class="btn btn-outline-info me-2">Edit</button>
+                                            <button class="btn btn-outline-info me-2">Delete</button>
+                                            <button class="btn btn-outline-info">View</button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div></div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="h5">Select Time Duration</div>
+        }
     </div>
 </div>
 
