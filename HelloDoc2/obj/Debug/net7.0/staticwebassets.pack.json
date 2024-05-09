@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\HelloDoc2.bundle.scp.css"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5Fig18.Clear Case (5).png",
+      "PackagePath": "staticwebassets\\InvoicingDocs\\5Fig18.Clear Case (5).png"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5Jeet_test_cases.xlsx",
+      "PackagePath": "staticwebassets\\InvoicingDocs\\5Jeet_test_cases.xlsx"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5RequestData (41).xlsx",
+      "PackagePath": "staticwebassets\\InvoicingDocs\\5RequestData (41).xlsx"
+    },
+    {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5sdfsf.txt",
+      "PackagePath": "staticwebassets\\InvoicingDocs\\5sdfsf.txt"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
       "PackagePath": "staticwebassets\\Rotativa\\wkhtmltopdf.exe"
     },

@@ -104,6 +104,16 @@ namespace DAL.ViewModel
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
         public string SMS { get; set; }
+
+
+        //for physician payrate 
+        public int? NightShiftWeekend { get; set; }
+        public int? Shift { get; set; }
+        public int? HouseCallsNightsWeekend { get; set; }
+        public int? PhoneConsults { get; set; }
+        public int? PhoneConsultsNightsWeekend { get; set; }
+        public int? BatchTesting { get; set; }
+        public int? HouseCalls { get; set; }
     }
 
     #region Provider

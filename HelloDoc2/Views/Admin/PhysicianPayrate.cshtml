@@ -1,0 +1,195 @@
+﻿@model DAL.ViewModel.ProviderVm;
+
+@{
+    Layout = "~/Views/Shared/_LayoutMainAdminDashboard.cshtml";
+}
+<div class="heading d-flex justify-content-between my-3 container">
+    <h3>Payrate</h3>
+
+        <button type="button" class=" btn btn-outline-info" onclick="window.location.href='@Url.Action("EditPhysicianAccount","Admin", new {PhysicianId = Model.PhysicianId})'">
+            <i class="bi bi-chevron-left"></i>Back
+        </button>
+
+</div>
+
+<div class="box1 mt-3">
+
+    <div class="headitem container">
+        <div class="table-responsive ">
+            <form asp-action="PayrateSubmit" asp-controller="Admin" class="bg-white submitForm" style="box-shadow: 0px 0px 4px gray; border-radius: 4px; padding: 12px;">
+                <input type="hidden" asp-for="PhysicianId" />
+                <table class="table ">
+
+                    <thead>
+                        <tr class="table-secondary" style="background-color: rgba(160, 160, 160, 0.137)">
+
+                            <th width="40%" style="text-align: center;">Category</th>
+                            <th width="40%" style="text-align: center;">Payrate</th>
+                            <th width="20%" style="text-align: center;">Action</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">NightShift_Weekend</div></td>
+                            <td>
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="NightShiftWeekend" class="form-control form-control-lg"/>
+                                    <label for="NightShiftWeekend">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="1" class="btn btn-info">
+                                    @if (Model.NightShiftWeekend == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">Shift</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="Shift" class="form-control form-control-lg" />
+                                    <label for="Shift">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="2" class="btn btn-info">
+                                    @if (Model.Shift == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">HouseCalls_Nights_Weekend</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="HouseCallsNightsWeekend" class="form-control form-control-lg" />
+                                    <label for="HouseCallsNightsWeekend">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="3" class="btn btn-info">
+                                    @if (Model.HouseCallsNightsWeekend == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">PhoneConsults</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="PhoneConsults" class="form-control form-control-lg" />
+                                    <label for="PhoneConsults">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="4" class="btn btn-info">
+                                    @if (Model.PhoneConsults == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">PhoneConsults_Nights_Weekend</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="PhoneConsultsNightsWeekend" class="form-control form-control-lg"/>
+                                    <label for="PhoneConsultsNightsWeekend">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="5" class="btn btn-info">
+                                    @if (Model.PhoneConsultsNightsWeekend == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">BatchTesting</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="BatchTesting" class="form-control form-control-lg" />
+                                    <label for="BatchTesting">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="6" class="btn btn-info">
+                                    @if (Model.BatchTesting == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="d-flex justify-content-center align-items-center">HouseCalls</div></td>
+                            <td class="d-flex justify-content-center">
+                                <div class="form-floating w-100">
+                                    <input type="number" asp-for="HouseCalls" class="form-control form-control-lg" />
+                                    <label for="HouseCalls">Payrate</label>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="submit" name="i" value="7" class="btn btn-info">
+                                    @if (Model.HouseCalls == 0)
+                                    {
+                                        <span>Submit</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Edit</span>
+                                    }
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    const editButton = document.getElementById('edit-button');
+    const saveButton = document.getElementById('save');
+
+    editButton.addEventListener('click', function () {
+        saveButton.style.display = 'inline-block';
+        editButton.style.display = 'none';
+    });
+</script>

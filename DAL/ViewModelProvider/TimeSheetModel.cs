@@ -20,5 +20,7 @@ namespace DAL.ViewModelProvider
         public string? SelectedPeriod { get; set; }
 
         public int PhysicianId { get; set; }
+
+        public bool IsFinalize { get; set; }
     }
 }

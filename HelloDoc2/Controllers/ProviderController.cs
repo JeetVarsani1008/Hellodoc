@@ -774,11 +774,13 @@ namespace HelloDoc2.Controllers
             if(SelectedValue == null)
             {
                 model.CheckData = 1;
+                model.PhysicianId = PhysicianId??0;
                 return PartialView("Provider/_ProviderInvoicingTable", model);
             }
             else
             {
                 model = await _providerDashboard.getInvoicingTableDataAsync((int)PhysicianId, SelectedValue);
+                model.PhysicianId = PhysicianId ?? 0;
                 return PartialView("Provider/_ProviderInvoicingTable", model);
             }
         }
@@ -786,7 +788,7 @@ namespace HelloDoc2.Controllers
 
 
 
-        #region InvoicingFinalize
+        #region InvoicingFinalize : get
         public async Task<IActionResult> InvoicingFinalize(string SelectedValue)
         {   
             ViewBag.ActiveDashboardNav = "Invoicing";
@@ -795,6 +797,7 @@ namespace HelloDoc2.Controllers
             {
                 TimeSheetModel model = new TimeSheetModel();
                 model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId,SelectedValue);
+                model.PhysicianId = (int)PhysicianId;
                 return View(model);
             }
             else

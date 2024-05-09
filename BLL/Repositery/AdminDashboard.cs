@@ -2680,6 +2680,100 @@ namespace BLL.Repositery
         }
         #endregion
 
+
+
+        public ProviderVm GetPayrate(int physicianId)
+        {
+            ProviderVm model = new ProviderVm();
+            PayRate payrate = _context.PayRates.FirstOrDefault(u => u.PhysicianId == physicianId);
+            if (payrate != null)
+            {
+                model.NightShiftWeekend = payrate.NightShiftWeekend ?? 0;
+                model.Shift = payrate.Shift ?? 0;
+                model.HouseCallsNightsWeekend = payrate.HouseCallNightWeekend ?? 0;
+                model.PhoneConsults = payrate.PhoneConsult ?? 0;
+                model.PhoneConsultsNightsWeekend = payrate.PhoneConsultNightWeekend ?? 0;
+                model.BatchTesting = payrate.BatchTesting ?? 0;
+                model.HouseCalls = payrate.HouseCall ?? 0;
+            }
+            else
+            {
+                model.NightShiftWeekend = 0;
+                model.Shift = 0;
+                model.HouseCallsNightsWeekend = 0;
+                model.PhoneConsults = 0;
+                model.PhoneConsultsNightsWeekend = 0;
+                model.BatchTesting = 0;
+                model.HouseCalls = 0;
+            }
+            return model;
+        }
+
+        public void SubmitPayrateData(ProviderVm model, int? i)
+        {
+            PayRate payrate = _context.PayRates.FirstOrDefault(u => u.PhysicianId == model.PhysicianId);
+            if (payrate == null)
+            {
+                PayRate newPayrate = new PayRate();
+                newPayrate.PhysicianId = model.PhysicianId;
+                newPayrate.CreatedDate = DateTime.Now;
+                switch (i)
+                {
+                    case 1:
+                        newPayrate.NightShiftWeekend = model.NightShiftWeekend;
+                        break;
+                    case 2:
+                        newPayrate.Shift = model.Shift;
+                        break;
+                    case 3:
+                        newPayrate.HouseCallNightWeekend = model.HouseCallsNightsWeekend;
+                        break;
+                    case 4:
+                        newPayrate.PhoneConsult = model.PhoneConsults;
+                        break;
+                    case 5:
+                        newPayrate.PhoneConsultNightWeekend = model.PhoneConsultsNightsWeekend;
+                        break;
+                    case 6:
+                        newPayrate.BatchTesting = model.BatchTesting;
+                        break;
+                    case 7:
+                        newPayrate.HouseCall = model.HouseCalls;
+                        break;
+                }
+                _context.PayRates.Add(newPayrate);
+                _context.SaveChanges();
+            }
+            else
+            {
+                switch (i)
+                {
+                    case 1:
+                        payrate.NightShiftWeekend = model.NightShiftWeekend;
+                        break;
+                    case 2:
+                        payrate.Shift = model.Shift;
+                        break;
+                    case 3:
+                        payrate.HouseCallNightWeekend = model.HouseCallsNightsWeekend;
+                        break;
+                    case 4:
+                        payrate.PhoneConsult = model.PhoneConsults;
+                        break;
+                    case 5:
+                        payrate.PhoneConsultNightWeekend = model.PhoneConsultsNightsWeekend;
+                        break;
+                    case 6:
+                        payrate.BatchTesting = model.BatchTesting;
+                        break;
+                    case 7:
+                        payrate.HouseCall = model.HouseCalls;
+                        break;
+                }
+                _context.PayRates.Update(payrate);
+                _context.SaveChanges();
+            }
+        }
     }
 }
 

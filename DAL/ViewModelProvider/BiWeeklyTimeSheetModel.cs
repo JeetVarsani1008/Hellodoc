@@ -9,6 +9,7 @@ namespace DAL.ViewModelProvider
 {
     public class BiWeeklyTimeSheetModel
     {
+        public int WeeklyTimeSheetId { get; set; }
         public DateOnly Date { get; set; }
 
         public int? OnCallHours { get; set; }
@@ -36,5 +37,7 @@ namespace DAL.ViewModelProvider
         public int? NightShiftWeekend {  get; set; }
 
         public int? NumberOfShift { get; set; }
+
+        public bool IsFinalize { get; set; }
     }
 }

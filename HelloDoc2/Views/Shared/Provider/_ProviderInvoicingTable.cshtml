@@ -92,7 +92,7 @@
                                 <td>
                                     @if(Model.TimeSheetList[i].BillName != null)
                                     {
-                                        <a href="~/InvoicingDoc/@Model.TimeSheetList[i].BillName" type="button" class="btn btn-outline-info" >View</a>
+                                        <a href="~/InvoicingDocs/@(Model.PhysicianId)@(Model.TimeSheetList[i].BillName)" type="button" target="_blank" class="btn btn-outline-info" >View</a>
                                     }
                                     else
                                     {

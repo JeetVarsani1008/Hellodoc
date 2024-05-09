@@ -41,8 +41,6 @@ namespace DAL.Controllers
             Response.Cookies.Delete(".AspNetCore.Antiforgery.N0iw8MAOgzI");
             Response.Cookies.Delete("RoleMenu");
             return RedirectToAction("Login", "Login");
-
-            //return Redirect(Request.Headers["Referer"].ToString());
         }
         #endregion
 
@@ -1900,6 +1898,36 @@ namespace DAL.Controllers
             ProviderVm providerVm = new ProviderVm();
             providerVm.providers = _adminDashboard.getPhysicianList(regionId);
             return PartialView("Admin/_ProviderOnCallContent",providerVm);
+        }
+        #endregion
+
+        //for payrate
+        #region PhysicianPayrate : get
+        [HttpGet]
+        public IActionResult PhysicianPayrate(int PhysicianId)
+        {
+            ViewBag.AdminName = HttpContext.Session.GetString("AdminName");
+            ProviderVm model = _adminDashboard.GetPayrate(PhysicianId);
+            model.PhysicianId = PhysicianId;
+            return View(model);
+        }
+        #endregion
+
+        #region PayrateSubmit
+        public IActionResult PayrateSubmit(ProviderVm model, int? i)
+        {
+            _adminDashboard.SubmitPayrateData(model, i);
+            return RedirectToAction("PhysicianPayrate", "Admin", new { PhysicianId = model.PhysicianId });
+        }
+        #endregion
+
+        //for invoicing for admin 
+        #region Invoicing 
+        public IActionResult Invoicing()
+        {
+            ViewBag.ActiveDashboardNav = "Provider";
+            ViewBag.ActiveDropdown = "Invoicing";
+            return View();
         }
         #endregion
     }

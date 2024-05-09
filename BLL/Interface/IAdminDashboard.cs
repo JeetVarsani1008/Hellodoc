@@ -199,5 +199,9 @@ namespace BLL.Interface
 
         bool approveSelectedShift(List<int> shiftDetailId);
 
+        //for payrate 
+        ProviderVm GetPayrate(int physicianId);
+
+        void SubmitPayrateData(ProviderVm model, int? i);
     }
 }

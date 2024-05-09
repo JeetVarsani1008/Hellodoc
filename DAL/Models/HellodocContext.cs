@@ -45,13 +45,13 @@ public partial class HellodocContext : DbContext
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
+    public virtual DbSet<PayRate> PayRates { get; set; }
+
     public virtual DbSet<Physician> Physicians { get; set; }
 
     public virtual DbSet<PhysicianLocation> PhysicianLocations { get; set; }
 
     public virtual DbSet<PhysicianNotification> PhysicianNotifications { get; set; }
-
-    public virtual DbSet<PhysicianPayRate> PhysicianPayRates { get; set; }
 
     public virtual DbSet<PhysicianRegion> PhysicianRegions { get; set; }
 
@@ -231,6 +231,15 @@ public partial class HellodocContext : DbContext
             entity.Property(e => e.Id).HasIdentityOptions(null, null, null, 10000L, null, null);
         });
 
+        modelBuilder.Entity<PayRate>(entity =>
+        {
+            entity.HasKey(e => e.PayRateId).HasName("PayRate_pkey");
+
+            entity.HasOne(d => d.Physician).WithMany(p => p.PayRates)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("PayRate_PhysicianId_fkey");
+        });
+
         modelBuilder.Entity<Physician>(entity =>
         {
             entity.HasKey(e => e.PhysicianId).HasName("Physician_pkey");
@@ -268,15 +277,6 @@ public partial class HellodocContext : DbContext
             entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianNotifications)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("PhysicianNotification_PhysicianId_fkey");
-        });
-
-        modelBuilder.Entity<PhysicianPayRate>(entity =>
-        {
-            entity.HasKey(e => e.PhysicianPayRateId).HasName("PhysicianPayRate_pkey");
-
-            entity.Property(e => e.PhysicianPayRateId).UseIdentityAlwaysColumn();
-
-            entity.HasOne(d => d.Physician).WithMany(p => p.PhysicianPayRates).HasConstraintName("PhysicianPayRate_PhysicianId_fkey");
         });
 
         modelBuilder.Entity<PhysicianRegion>(entity =>

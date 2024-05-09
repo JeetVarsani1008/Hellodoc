@@ -84,6 +84,9 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item @(ViewBag.ActiveDropdown == "Provider" ? "active" : "")" asp-action="Provider" asp-controller="Admin" >Provider</a></li>
                             <li><a class="dropdown-item @(ViewBag.ActiveDropdown == "Scheduling" ? "active" : "")" asp-action="Scheduling" asp-controller="Admin">Scheduling</a></li>
+                            <li>
+                                <a class="dropdown-item @(ViewBag.ActiveDropdown == "Invoicing" ? "active" : "")" asp-action="Invoicing" asp-controller="Admin">Invoicing</a>
+                            </li>
                         </ul>
                     </li>   
                     <li class="nav-item">

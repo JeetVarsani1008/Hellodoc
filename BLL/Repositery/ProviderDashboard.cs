@@ -629,6 +629,8 @@ namespace BLL.Repositery
                     Item = x.Item,
                     Amount = (int)x.Amount,
                     BillName = x.Bill,
+                    WeeklyTimeSheetId = x.TimeSheetDetailId,
+                    
                 }).ToListAsync();
                 List<BiWeeklyTimeSheetModel> list = new List<BiWeeklyTimeSheetModel>();
                 foreach(BiWeeklyTimeSheetModel i in sheet)
@@ -723,7 +725,7 @@ namespace BLL.Repositery
                     {
                         detail.Bill = model.TimeSheetList[i].Bill.FileName;
 
-                        var filePath = Path.Combine("wwwroot", "PhysicianBillUploads", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
+                        var filePath = Path.Combine("wwwroot", "InvoicingDocs", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
                         using (FileStream stream = System.IO.File.Create(filePath))
                         {
                             model.TimeSheetList[i].Bill.CopyToAsync(stream);
@@ -737,22 +739,23 @@ namespace BLL.Repositery
             {
                 for(int i = 0; i < count; i++)
                 {
-                    WeeklyTimeSheetDetail detail = new WeeklyTimeSheetDetail();
+
+                    //WeeklyTimeSheetDetail detail = new WeeklyTimeSheetDetail();
+                    var detail = _context.WeeklyTimeSheetDetails.FirstOrDefault(x => x.TimeSheetDetailId == model.TimeSheetList[i].WeeklyTimeSheetId);
                     if (model.TimeSheetList[i].Bill != null)
                     {
                         detail.Bill = model.TimeSheetList[i].Bill.FileName;
 
-                        var filePath = Path.Combine("wwwroot", "InvoicingDoc", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
+                        var filePath = Path.Combine("wwwroot", "InvoicingDocs", physicianId.ToString() + Path.GetFileName(model.TimeSheetList[i].Bill.FileName));
                         using (FileStream stream = System.IO.File.Create(filePath))
                         {
                             model.TimeSheetList[i].Bill.CopyToAsync(stream);
                         }
+                        //_context.WeeklyTimeSheetDetails.Add(detail);
+                        _context.SaveChanges();
                     }
-                    _context.WeeklyTimeSheetDetails.Add(detail);
-                    _context.SaveChanges();
                 }
             }
-
         }
         #endregion
 
@@ -788,7 +791,6 @@ namespace BLL.Repositery
                     BillName = x.Bill,
                     NightShiftWeekend = x.NightShiftWeekend,
                     NumberOfShift = x.NumberOfShifts,
-
                 }).ToListAsync();
 
                 List<BiWeeklyTimeSheetModel> list = new List<BiWeeklyTimeSheetModel>();
@@ -812,5 +814,6 @@ namespace BLL.Repositery
             }
         }
         #endregion
+
     }
 }
