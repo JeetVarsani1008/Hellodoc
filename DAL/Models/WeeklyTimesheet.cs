@@ -32,6 +32,8 @@ public partial class WeeklyTimeSheet
     [Column(TypeName = "character varying")]
     public string? AdminNote { get; set; }
 
+    public int? BonusAmount { get; set; }
+
     [ForeignKey("AdminId")]
     [InverseProperty("WeeklyTimeSheets")]
     public virtual Admin? Admin { get; set; }

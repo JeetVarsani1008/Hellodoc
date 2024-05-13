@@ -85,7 +85,7 @@
                             <li><a class="dropdown-item @(ViewBag.ActiveDropdown == "Provider" ? "active" : "")" asp-action="Provider" asp-controller="Admin" >Provider</a></li>
                             <li><a class="dropdown-item @(ViewBag.ActiveDropdown == "Scheduling" ? "active" : "")" asp-action="Scheduling" asp-controller="Admin">Scheduling</a></li>
                             <li>
-                                <a class="dropdown-item @(ViewBag.ActiveDropdown == "Invoicing" ? "active" : "")" asp-action="Invoicing" asp-controller="Admin">Invoicing</a>
+                                <a class="dropdown-item @(ViewBag.ActiveDropdown == "Invoicing" ? "active" : "")" asp-action="Invoicing" asp-controller="Provider" asp-route-IsAdmin="true">Invoicing</a>
                             </li>
                         </ul>
                     </li>   
@@ -139,6 +139,12 @@
     <script>
         function logoutfxn() {
             window.location.replace("/Login/Login");
+        }
+    </script>
+
+    <script>
+        function toggleReceiptSection() {
+            $('#billDetails').toggle();
         }
     </script>
 </body>

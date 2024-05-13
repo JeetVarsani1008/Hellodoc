@@ -756,60 +756,143 @@ namespace HelloDoc2.Controllers
         #endregion
         //conclude care complete
 
-        #region Invoicing
-        public IActionResult Invoicing()
-        {
-            TimeSheetModel timeSheetVm = new TimeSheetModel();
-            timeSheetVm.PhysicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
-            ViewBag.ActiveDashboardNav = "Invoicing";
-            return View(timeSheetVm);
-        }
-        #endregion
 
-        #region ProviderInvoicingTable
-        public async Task<IActionResult> ProviderInvoicingTable(string SelectedValue)
+
+        //#region Invoicing
+        //public IActionResult Invoicing()
+        //{
+        //    TimeSheetModel timeSheetVm = new TimeSheetModel();
+        //    timeSheetVm.PhysicianId = (int)HttpContext.Session.GetInt32("PhysicianId");
+        //    ViewBag.ActiveDashboardNav = "Invoicing";
+        //    return View(timeSheetVm);
+        //}
+        //#endregion
+
+        //#region ProviderInvoicingTable
+        //public async Task<IActionResult> ProviderInvoicingTable(string SelectedValue)
+        //{
+        //    var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+        //    TimeSheetModel model = new TimeSheetModel();
+        //    if(SelectedValue == null)
+        //    {
+        //        model.CheckData = 1;
+        //        model.PhysicianId = PhysicianId??0;
+        //        return PartialView("Provider/_ProviderInvoicingTable", model);
+        //    }
+        //    else
+        //    {
+        //        model = await _providerDashboard.getInvoicingTableDataAsync((int)PhysicianId, SelectedValue);
+        //        model.PhysicianId = PhysicianId ?? 0;
+        //        return PartialView("Provider/_ProviderInvoicingTable", model);
+        //    }
+        //}
+        //#endregion
+
+        //#region InvoicingFinalize : get
+        //public async Task<IActionResult> InvoicingFinalize(string SelectedValue)
+        //{   
+        //    ViewBag.ActiveDashboardNav = "Invoicing";
+        //    var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+        //    if(SelectedValue != null)
+        //    {
+        //        TimeSheetModel model = new TimeSheetModel();
+        //        model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId,SelectedValue);
+        //        model.PhysicianId = (int)PhysicianId;
+        //        return View(model);
+        //    }
+        //    else
+        //    {
+        //        TimeSheetModel model = new TimeSheetModel();
+        //        model.CheckData = 1;
+        //        return View(model);
+        //    }
+        //}
+        //#endregion
+
+        //#region SubmitTimesheet
+        //[HttpPost]
+        //public IActionResult SubmitTimesheet(TimeSheetModel model, string operation)
+        //{
+        //    int? PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
+        //    if (PhysicianId.HasValue)
+        //    {
+        //        if (operation == "submit")
+        //            _providerDashboard.SubmitBiWeeklyTimesheet(model, false, PhysicianId);
+        //        else if (operation == "finalize")
+        //            _providerDashboard.SubmitBiWeeklyTimesheet(model, true, PhysicianId);
+
+        //        return RedirectToAction("Invoicing");
+        //    }
+        //    return RedirectToAction("ProviderDashboard", "Provider");
+        //}
+        //#endregion
+
+        [HttpGet]
+        public IActionResult Invoicing(string? selectedDate, bool? IsAdmin, int? physicianId)
         {
-            var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
-            TimeSheetModel model = new TimeSheetModel();
-            if(SelectedValue == null)
+            if (physicianId == null)
             {
-                model.CheckData = 1;
-                model.PhysicianId = PhysicianId??0;
-                return PartialView("Provider/_ProviderInvoicingTable", model);
+                physicianId = HttpContext.Session.GetInt32("PhysicianId");
+            }
+            if (IsAdmin == true)
+            {
+                TimeSheetModel model = _providerDashboard.GetTimePeriodList(physicianId, selectedDate);
+                model.IsAdmin = true;
+                model.PhysicianId = physicianId ?? 0;
+                model.SelectedPeriod = selectedDate;
+                model.AdminId = HttpContext.Session.GetInt32("AdminId");
+                return View("Invoicing", model);
             }
             else
             {
-                model = await _providerDashboard.getInvoicingTableDataAsync((int)PhysicianId, SelectedValue);
-                model.PhysicianId = PhysicianId ?? 0;
-                return PartialView("Provider/_ProviderInvoicingTable", model);
+                int? providerId = HttpContext.Session.GetInt32("PhysicianId");
+                TimeSheetModel model = _providerDashboard.GetTimePeriodList(providerId, selectedDate);
+                model.IsAdmin = false;
+                model.PhysicianId = (int)providerId;
+                return View("Invoicing", model);
             }
         }
-        #endregion
 
-
-
-        #region InvoicingFinalize : get
-        public async Task<IActionResult> InvoicingFinalize(string SelectedValue)
-        {   
-            ViewBag.ActiveDashboardNav = "Invoicing";
-            var PhysicianId = HttpContext.Session.GetInt32("PhysicianId");
-            if(SelectedValue != null)
+        [HttpGet]
+        public IActionResult InvoicingFinalize(string selectedDate, string operation, int? physicianId)
+        {
+            if(physicianId == null)
             {
-                TimeSheetModel model = new TimeSheetModel();
-                model = await _providerDashboard.getFinalizeTimeSheetDataAsync((int)PhysicianId,SelectedValue);
-                model.PhysicianId = (int)PhysicianId;
-                return View(model);
+                physicianId = HttpContext.Session.GetInt32("PhysicianId");
+            }
+            //int? physicianId = HttpContext.Session.GetInt32("PhysicianId");
+            if (selectedDate == null)
+            {
+                return RedirectToAction("Invoicing");
+            }
+            if (physicianId.HasValue)
+            {
+                int? AdminId = HttpContext.Session.GetInt32("AdminId");
+                if (AdminId.HasValue && physicianId.HasValue)
+                {
+                    TimeSheetModel model = _providerDashboard.GetBiweeklyDetails((int)physicianId, selectedDate);
+                    model.IsAdmin = true;
+                    return View(model);
+                }
+                else
+                {
+                    TimeSheetModel model = _providerDashboard.GetBiweeklyDetails((int)physicianId, selectedDate);
+                    model.IsAdmin = false;
+                    return View(model);
+                }
+
             }
             else
             {
-                TimeSheetModel model = new TimeSheetModel();
-                model.CheckData = 1;
+                int? AdminId = HttpContext.Session.GetInt32("AdminId");
+                TimeSheetModel model = _providerDashboard.GetBiweeklyDetails((int)physicianId, selectedDate);
+                model.PhysicianId = physicianId ?? 0;
+                model.AdminId = AdminId;
+                model.IsAdmin = true;
                 return View(model);
             }
         }
-        #endregion
 
-        #region SubmitTimesheet
         [HttpPost]
         public IActionResult SubmitTimesheet(TimeSheetModel model, string operation)
         {
@@ -820,12 +903,21 @@ namespace HelloDoc2.Controllers
                     _providerDashboard.SubmitBiWeeklyTimesheet(model, false, PhysicianId);
                 else if (operation == "finalize")
                     _providerDashboard.SubmitBiWeeklyTimesheet(model, true, PhysicianId);
-
                 return RedirectToAction("Invoicing");
             }
-            return RedirectToAction("ProviderDashboard", "Provider");
+            else
+            {
+                model.AdminId = HttpContext.Session.GetInt32("AdminId");
+                if (operation == "submit")
+                    _providerDashboard.SubmitBiWeeklyTimesheet(model, false, model.PhysicianId);
+                else if (operation == "approve")
+                {
+                    _providerDashboard.SubmitBiWeeklyTimesheet(model, false, model.PhysicianId);
+                    _providerDashboard.ApproveBiWeeklyTimesheet(model);
+                }
+                return RedirectToAction("Invoicing", new { IsAdmin = true, physicianId = model.PhysicianId, selectedDate = model.SelectedPeriod });
+            }
         }
-        #endregion
     }
 }
 

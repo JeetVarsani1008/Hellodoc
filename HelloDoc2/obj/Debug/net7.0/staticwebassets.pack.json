@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\HelloDoc2.bundle.scp.css"
     },
     {
+      "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5AdminData (6).xlsx",
+      "PackagePath": "staticwebassets\\InvoicingDocs\\5AdminData (6).xlsx"
+    },
+    {
       "Id": "D:\\main project\\Hellodoc\\HelloDoc2\\wwwroot\\InvoicingDocs\\5Fig18.Clear Case (5).png",
       "PackagePath": "staticwebassets\\InvoicingDocs\\5Fig18.Clear Case (5).png"
     },

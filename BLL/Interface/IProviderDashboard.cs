@@ -55,10 +55,15 @@ namespace BLL.Interface
 
         bool concludeCareUpload(IFormFile file, int requestId, int physicianId);
 
-        Task<TimeSheetModel> getFinalizeTimeSheetDataAsync(int PhysicianId, string SelectedValue);
+        //Task<TimeSheetModel> getFinalizeTimeSheetDataAsync(int PhysicianId, string SelectedValue);
 
+        //void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId);
+
+        //Task<TimeSheetModel> getInvoicingTableDataAsync(int PhysicianId, string SelectedValue);
+
+        TimeSheetModel GetTimePeriodList(int? ProviderId, string? selectedDate);
+        TimeSheetModel GetBiweeklyDetails(int ProviderId, string selectedDate);
         void SubmitBiWeeklyTimesheet(TimeSheetModel model, bool isFinalize, int? physicianId);
-
-        Task<TimeSheetModel> getInvoicingTableDataAsync(int PhysicianId, string SelectedValue);
+        void ApproveBiWeeklyTimesheet(TimeSheetModel model);
     }
 }
