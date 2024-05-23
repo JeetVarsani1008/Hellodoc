@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using DAL.ViewModel;
+using DAL.ViewModelProvider;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
@@ -203,5 +204,10 @@ namespace BLL.Interface
         ProviderVm GetPayrate(int physicianId);
 
         void SubmitPayrateData(ProviderVm model, int? i);
+
+        //for chat 
+        void AddChats(ChatViewModel chatViewModel);
+        ChatViewModel GetPatientChatDetails(int? ProviderId, int RequestId, int? roleId);
+        ChatViewModel GetProviderChatDetails(int? AdminId, int ProviderId, int RequestId, int? roleId);
     }
 }

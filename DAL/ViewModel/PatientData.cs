@@ -54,5 +54,7 @@ namespace DAL.ViewModel
 
         public int? Count { get; set; }
         public List<Region> regions { get; set; }
+
+        public int? PhysicianId { get; set; }
     }
 }

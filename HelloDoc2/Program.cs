@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Http;
 using System.Text;
 using Rotativa.AspNetCore;
+using HelloDoc2.hub;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +43,9 @@ builder.Services.AddScoped<IPatientRequest, PatientRequest>();
 builder.Services.AddScoped<IPatientDashboard, PatientDashboard>();
 builder.Services.AddScoped<IAdminDashboard, AdminDashboard>();
 builder.Services.AddScoped<IProviderDashboard, ProviderDashboard>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSession();
+builder.Services.AddSignalR();
 
 //add Ihhtpcontectaccessor service
 builder.Services.AddHttpContextAccessor();
@@ -68,8 +71,10 @@ app.UseRotativa();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapHub<MessageHub>("/chatHub");
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Login}/{action=Login}/{id?}");
+
 
 app.Run();

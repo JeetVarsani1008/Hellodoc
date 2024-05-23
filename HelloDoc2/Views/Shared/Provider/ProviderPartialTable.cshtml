@@ -20,6 +20,9 @@
                         {
                             <th scope="col">Status</th>
                         }
+                        <th scope="col">
+                            Chat With
+                        </th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -43,6 +46,12 @@
                                 <td><div></div></td>
                             }
                         }
+                        <td>
+                            <div class="d-flex">
+                                <button class="btn btn-outline-info text-white border-white" onclick="chat(@obj.RequestId,1)">Admin</button>
+                                <button class="btn btn-outline-info text-white border-white ms-2" onclick="chat(@obj.RequestId,0)">Patient</button>
+                            </div>
+                        </td>
                         <td class="dropdown">
                             <button class="btn btn-outline-primary text-white border-white d-none d-md-block" data-bs-toggle="dropdown">Actions</button>
                             <ul class="dropdown-menu overflow-visible">
@@ -477,5 +486,29 @@
         });
     }
 
+    function chat(reqid, adminId) {
+
+        console.log("Clicked")
+        console.log(adminId)
+        $.ajax({
+            url: '/Provider/Chat',
+            type: 'GET',
+            data: {
+                AdminId: adminId,
+                RequestId: reqid,
+
+
+            },
+            success: function (result) {
+
+                $('#popupcontent').html(result);
+                $('#offcanvasRight').offcanvas('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    }
 
 </script>

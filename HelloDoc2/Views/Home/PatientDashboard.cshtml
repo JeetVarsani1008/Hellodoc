@@ -27,6 +27,7 @@
                         <tr>
                             <th scope="col">Created Date</th>
                             <th scope="col">Current Status</th>
+                            <th scope="col">Chat With</th>
                             <th scope="col">Documents</th>
                         </tr>
                     </thead>
@@ -37,6 +38,12 @@
         <tr>
             <td>@Html.DisplayFor(modelItem => Model[i].CreatedDate)</td>
             <td>@Html.DisplayFor(modelItem => Model[i].Status)</td>
+            <td>
+                <div class="d-flex">
+                    <button class="btn btn-outline-info" onclick="chat(@Model[i].Id,1,0)">Admin</button>
+                    <button class="btn btn-outline-info ms-2" onclick="chat(@Model[i].Id,0,@Model[i].PhysicianId)">Provider</button>
+                </div>
+            </td>
             <td class="document ">
                 @if (Model[i].Count > 0)
                 {
@@ -123,6 +130,7 @@
      </div>
  </div>
 
+    <div id="popupcontent"></div>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 
@@ -152,5 +160,30 @@
              }
          });
      });
+
+
+        function chat(reqid, adminId, ProviderId) {
+
+            console.log("Clicked")
+
+            $.ajax({
+                url: '/Home/Chat',
+                type: 'GET',
+                data: {
+                    req: reqid,
+                    adminId: adminId,
+                    ProviderId: ProviderId,
+                },
+                success: function (result) {
+
+                    $('#popupcontent').html(result);
+                    $('#offcanvasRight').offcanvas('show');
+
+                },
+                error: function () {
+                    alert('Error loading partial view');
+                },
+            });
+        }
  </script>
 </body>

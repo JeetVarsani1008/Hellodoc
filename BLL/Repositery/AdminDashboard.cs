@@ -29,6 +29,9 @@ using Region = DAL.Models.Region;
 using Request = DAL.Models.Request;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using DAL.ViewModelProvider;
+using LinqKit;
+using System.Linq.Expressions;
 
 namespace BLL.Repositery
 {
@@ -37,6 +40,12 @@ namespace BLL.Repositery
         private BitArray _isDeleted = new BitArray(1);
 
         private readonly HellodocContext _context;
+        public List<TEntity> GetAllData<TEntity>(Expression<Func<Chat, TEntity>> select, Expression<Func<Chat, bool>> where, Expression<Func<Chat, dynamic>> orderby) where TEntity : class
+        {
+
+            return _context.Chats.Where(where).OrderBy(orderby).Select(select).ToList();
+        }
+
         public AdminDashboard(HellodocContext context)
         {
             _context = context;
@@ -125,6 +134,7 @@ namespace BLL.Repositery
                 Physician = r.Physician.FirstName,
                 Status = r.Status,
                 Phone = r.PhoneNumber,
+                PhysicianId = r.PhysicianId,
                 //year = (int)_context.RequestClients.Select(x => x.IntYear).First(),
                 //date = (int)_context.RequestClients.Select(x => x.IntDate).First(),
                 //month = _context.RequestClients.Select(x => x.StrMonth).First(),
@@ -2774,6 +2784,104 @@ namespace BLL.Repositery
                 _context.SaveChanges();
             }
         }
+
+
+        //for chat
+        #region AddChats
+        public void AddChats(ChatViewModel chatViewModel)
+        {
+            Chat chat = new()
+            {
+                AdminId = chatViewModel.AdminId == 0 ? null : chatViewModel.AdminId,
+                Message = chatViewModel.Message,
+                ProviderId = chatViewModel.ProviderId == 0 ? null : chatViewModel.ProviderId,
+                RequestId = chatViewModel.RequestId,
+                CreatedDate = DateTime.Now,
+                SentBy = chatViewModel.sentBy,
+            };
+            _context.Chats.Add(chat);
+            _context.SaveChanges();
+        }
+        #endregion
+
+        #region GetPatientChatDetails
+        public ChatViewModel GetPatientChatDetails(int? AdminId, int RequestId, int? roleId)
+        {
+            if (RequestId != 0)
+            {
+                RequestClient requestClient = _context.RequestClients.FirstOrDefault(x => x.RequestId == RequestId);
+                AspNetUser aspNetUser = _context.AspNetUsers.FirstOrDefault(x => x.Email == requestClient.Email);
+                ChatViewModel chatViewModel = new()
+                {
+                    AdminId = AdminId,
+                    RequestId = RequestId,
+                    PatientName = requestClient.FirstName + " " + requestClient.LastName,
+                    PatientAspNetUserId = aspNetUser != null ? aspNetUser.Id : 0,
+                };
+
+                Expression<Func<Chat, bool>> whereClauseSyntext = PredicateBuilder.New<Chat>();
+                whereClauseSyntext = x => x.AdminId == AdminId && x.RequestId == RequestId;
+                var datatable = GetAllData(x => new ChatViewModel
+                {
+                    Message = x.Message,
+                    sentBy = x.SentBy ?? 0,
+                    sentDate = x.CreatedDate,
+                }, whereClauseSyntext, x => x.CreatedDate);
+                chatViewModel.ListOfChats = new List<ChatViewModel>();
+                foreach (ChatViewModel chat in datatable)
+                {
+                    if (chat.sentBy == roleId)
+                    {
+                        chat.IsSender = true;
+                    }
+                    chatViewModel.ListOfChats.Add(chat);
+                }
+                return chatViewModel;
+            }
+            return new ChatViewModel();
+        }
+
+        #endregion
+
+        #region GetProviderChatDetails
+        public ChatViewModel GetProviderChatDetails(int? AdminId, int ProviderId, int RequestId, int? roleId)
+        {
+            if (RequestId != 0)
+            {
+                Physician physician = _context.Physicians.FirstOrDefault(x => x.PhysicianId == ProviderId);
+                ChatViewModel chatViewModel = new()
+                {
+                    RequestId = RequestId,
+                    ProviderName = physician.FirstName + " " + physician.LastName,
+                    ProviderAspNetUserId = physician.AspNetUserId,
+                    ProviderPhoto = physician.Photo,
+                    ProviderId = ProviderId,
+                    AdminId = AdminId,
+                };
+
+                Expression<Func<Chat, bool>> whereClauseSyntext = PredicateBuilder.New<Chat>();
+                whereClauseSyntext = x => x.AdminId == AdminId && x.RequestId == RequestId && x.ProviderId == ProviderId;
+                var datatable = GetAllData(x => new ChatViewModel
+                {
+                    Message = x.Message,
+                    sentBy = x.SentBy ?? 0,
+                    sentDate = x.CreatedDate,
+                }, whereClauseSyntext, x => x.CreatedDate);
+                chatViewModel.ListOfChats = new List<ChatViewModel>();
+                foreach (ChatViewModel chat in datatable)
+                {
+                    if (chat.sentBy == roleId)
+                    {
+                        chat.IsSender = true;
+                    }
+                    chatViewModel.ListOfChats.Add(chat);
+                }
+                return chatViewModel;
+            }
+            return new ChatViewModel();
+        }
+
+        #endregion
     }
 }
 

@@ -31,6 +31,8 @@ public partial class HellodocContext : DbContext
 
     public virtual DbSet<CaseTag> CaseTags { get; set; }
 
+    public virtual DbSet<Chat> Chats { get; set; }
+
     public virtual DbSet<Concierge> Concierges { get; set; }
 
     public virtual DbSet<EmailLog> EmailLogs { get; set; }
@@ -170,6 +172,19 @@ public partial class HellodocContext : DbContext
             entity.HasOne(d => d.ModifiedByNavigation).WithMany(p => p.BusinessModifiedByNavigations).HasConstraintName("Business_ModifiedBy_fkey");
 
             entity.HasOne(d => d.Region).WithMany(p => p.Businesses).HasConstraintName("Business_RegionId_fkey");
+        });
+
+        modelBuilder.Entity<Chat>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Chat_pkey");
+
+            entity.Property(e => e.Id).HasIdentityOptions(null, null, null, 458227L, null, null);
+
+            entity.HasOne(d => d.Admin).WithMany(p => p.Chats).HasConstraintName("Chat_AdminId_fkey");
+
+            entity.HasOne(d => d.Provider).WithMany(p => p.Chats).HasConstraintName("Chat_ProviderId_fkey");
+
+            entity.HasOne(d => d.Request).WithMany(p => p.Chats).HasConstraintName("Chat_RequestId_fkey");
         });
 
         modelBuilder.Entity<Concierge>(entity =>

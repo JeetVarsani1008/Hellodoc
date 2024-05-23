@@ -52,6 +52,7 @@ namespace DAL.ViewModel
     
     public class RequestListAdminDash
     {
+        public int?  PhysicianId { get; set; }
         public int RequestId { get; set; }
 
         public string FirstName { get; set; }   

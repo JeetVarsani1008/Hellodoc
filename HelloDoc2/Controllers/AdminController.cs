@@ -2,6 +2,7 @@
 using BLL.Repositery;
 using DAL.Models;
 using DAL.ViewModel;
+using DAL.ViewModelProvider;
 using HelloDoc2.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
@@ -17,16 +18,18 @@ namespace DAL.Controllers
     {
         private readonly IAdminDashboard _adminDashboard;
         private readonly IProviderDashboard _providerDashboard;
+        private readonly IPatientDashboard _patientDashboard;
         private readonly HellodocContext _context;
         private readonly ILogin _login;
         private readonly IJWT _jwt;
 
         #region AdminController
-        public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt, IProviderDashboard providerDashboard)
+        public AdminController(HellodocContext context, IAdminDashboard adminDashboard, ILogin login, IJWT jwt, IProviderDashboard providerDashboard, IPatientDashboard patientDashboard)
         {
             _context = context;
             _adminDashboard = adminDashboard;
             _providerDashboard = providerDashboard;
+            _patientDashboard = patientDashboard;
             _login = login;
             _jwt = jwt;
         }
@@ -1931,5 +1934,24 @@ namespace DAL.Controllers
         }
         #endregion
 
+        #region Chat
+        public IActionResult Chat(int req, int ProviderId)
+        {
+            int? roleId = HttpContext.Session.GetInt32("RoleId");
+            int? AdminId = HttpContext.Session.GetInt32("AdminId");
+            ChatViewModel chatViewModel = new();
+            if (ProviderId == 0)
+            {
+                chatViewModel = _adminDashboard.GetPatientChatDetails(AdminId, req, roleId);
+            }
+            else
+            {
+                chatViewModel = _adminDashboard.GetProviderChatDetails(AdminId, ProviderId, req, roleId);
+            }
+            chatViewModel.ProviderId = ProviderId;
+            return PartialView("_chat", chatViewModel);
+        }
+
+        #endregion
     }
 }

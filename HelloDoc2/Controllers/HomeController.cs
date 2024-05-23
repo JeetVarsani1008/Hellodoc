@@ -18,23 +18,31 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using HelloDoc2.Auth;
 using Newtonsoft.Json.Linq;
+using DAL.ViewModelProvider;
+using HelloDoc2.hub;
+using Microsoft.AspNetCore.SignalR;
 namespace DAL.Controllers
 {
     public class HomeController : Controller
     {
         private IPatientRequest _patientRequest;
         private readonly IPatientDashboard _patientDashboard;
+        private readonly IAdminDashboard _adminDashboard;
         private readonly HellodocContext _context;
         private readonly ILogin _login;
         private readonly IJWT _jwt;
+        private readonly IHubContext<MessageHub> _notificationHubContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-
-        public HomeController(HellodocContext context, ILogin login, IPatientRequest _PatientRequest, IPatientDashboard patientDashboard, IJWT jwt)
+        public HomeController(HellodocContext context, ILogin login, IPatientRequest _PatientRequest, IPatientDashboard patientDashboard, IJWT jwt, IAdminDashboard adminDashboard, IHttpContextAccessor httpContextAccessor, IHubContext<MessageHub> notificationHubContext)
         {
             _context = context;
             _login = login;
             this._patientRequest = _PatientRequest;
             _patientDashboard = patientDashboard;
+            _adminDashboard = adminDashboard;
+            _httpContextAccessor = httpContextAccessor;
+            _notificationHubContext = notificationHubContext;
             _jwt = jwt;
         }
 
@@ -72,13 +80,19 @@ namespace DAL.Controllers
         public IActionResult Patient_Login(LoginVm loginVm)
         {
             AspNetUser user = _login.patientLogin(loginVm);
+            if(user != null)
+            {
+                int Id = user.Id;
+                HttpContext.Session.SetInt32("AspId", Id);
+            }
             if (ModelState.IsValid)
             {
                 if (user != null)
                 {
                     AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
                     //var user1 = _context.Users.FirstOrDefault(x => x.Email == loginVm.Email);
-
+                    int roleId = aspNetUserRole.RoleId;
+                    HttpContext.Session.SetInt32("RoleId", roleId);
                     if (aspNetUserRole.RoleId == 1 || aspNetUserRole.RoleId == 3)
                     {
                         //ModelState.AddModelError(String.Empty, "Cant Have access to this site");
@@ -546,5 +560,101 @@ namespace DAL.Controllers
             return Json(new { exists = emailExists });
         }
         #endregion
+
+        //for chat 
+        //#region Chat 
+        //public IActionResult Chat()
+        //{
+        //    ChatViewModel chatViewModel = new ChatViewModel();
+        //    return PartialView("_Chat",chatViewModel);
+        //}
+        //#endregion
+
+        #region Chat
+        public IActionResult Chat(int req, int adminId, int ProviderId)
+        {
+            int? RoleId = HttpContext.Session.GetInt32("RoleId");
+            int? aspNetUserId = HttpContext.Session.GetInt32("AspId");
+            ChatViewModel chatViewModel = new();
+            if (ProviderId != 0)
+            {
+                chatViewModel = _patientDashboard.GetProviderChatDetails(ProviderId, req, RoleId);
+            }
+            else
+            {
+                chatViewModel = _patientDashboard.GetAdminChatDetails(adminId, req, RoleId);
+            }
+            chatViewModel.ProviderId = ProviderId;
+            return PartialView("_chat", chatViewModel);
+        }
+
+        #endregion
+
+
+        #region SendToSpecificUser
+        public async Task<ActionResult> SendToSpecificUser(ChatViewModel chatViewModel)
+        {
+            int aspnetuserId = 0;
+            int currentAspNetUserId = HttpContext.Session.GetInt32("AspId") ?? 0;
+            if (chatViewModel.AdminAspNetUserId != null && chatViewModel.AdminId != 0 && chatViewModel.ProviderId == 0)
+            {
+                aspnetuserId = (int)chatViewModel.AdminAspNetUserId;
+                chatViewModel.sentBy = 2;
+                chatViewModel.ProviderId = null;
+                _adminDashboard.AddChats(chatViewModel);
+            }
+            else if (chatViewModel.ProviderAspNetUserId != null && chatViewModel.AdminId == 0 && chatViewModel.ProviderId != 0)
+            {
+                aspnetuserId = (int)chatViewModel.ProviderAspNetUserId;
+                chatViewModel.sentBy = 2;
+                chatViewModel.AdminId = null;
+                _adminDashboard.AddChats(chatViewModel);
+            }
+
+            else if (chatViewModel.PatientAspNetUserId != null && chatViewModel.AdminId != 0 && chatViewModel.ProviderId == 0)
+            {
+                aspnetuserId = (int)chatViewModel.PatientAspNetUserId;
+                chatViewModel.sentBy = 1;
+                chatViewModel.ProviderId = null;
+                _adminDashboard.AddChats(chatViewModel);
+            }
+            else if (chatViewModel.ProviderAspNetUserId != null && chatViewModel.AdminId != 0 && chatViewModel.ProviderId != 0)
+            {
+                aspnetuserId = (int)chatViewModel.ProviderAspNetUserId;
+                chatViewModel.sentBy = 1;
+                _adminDashboard.AddChats(chatViewModel);
+            }
+            else if (chatViewModel.AdminAspNetUserId != null && chatViewModel.AdminId != 0 && chatViewModel.ProviderId != 0)
+            {
+                aspnetuserId = (int)chatViewModel.AdminAspNetUserId;
+                chatViewModel.sentBy = 3;
+                _adminDashboard.AddChats(chatViewModel);
+
+            }
+            else if (chatViewModel.PatientAspNetUserId != null && chatViewModel.AdminId == 0 && chatViewModel.ProviderId != 0)
+            {
+                aspnetuserId = (int)chatViewModel.PatientAspNetUserId;
+                chatViewModel.sentBy = 3;
+                chatViewModel.AdminId = null;
+                _adminDashboard.AddChats(chatViewModel);
+            }
+
+            MessageHub hub = new MessageHub(_httpContextAccessor);
+            List<string> connections = MessageHub.GetUserConnections(aspnetuserId);
+            if (connections.Count > 0)
+            {
+                foreach (string connectionId in connections)
+                {
+                    await _notificationHubContext.Clients.Client(connectionId).SendAsync("ReceiveMessage", chatViewModel.Message, DateTime.Now.ToString("hh:mm tt"), false, chatViewModel.RequestId);
+                }
+            }
+            List<string> currentconnections = MessageHub.GetUserConnections(currentAspNetUserId);
+            await _notificationHubContext.Clients.Client(currentconnections[0]).SendAsync("ReceiveMessage", chatViewModel.Message, DateTime.Now.ToString("hh:mm tt"), true, chatViewModel.RequestId);
+
+            return Json(true);
+        }
+
+        #endregion
+
     }
 }

@@ -102,6 +102,9 @@ public partial class Physician
     [InverseProperty("PhysicianAspNetUsers")]
     public virtual AspNetUser? AspNetUser { get; set; }
 
+    [InverseProperty("Provider")]
+    public virtual ICollection<Chat> Chats { get; set; } = new List<Chat>();
+
     [ForeignKey("CreatedBy")]
     [InverseProperty("PhysicianCreatedByNavigations")]
     public virtual AspNetUser CreatedByNavigation { get; set; } = null!;

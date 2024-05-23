@@ -893,6 +893,7 @@ namespace HelloDoc2.Controllers
             }
         }
 
+        #region SubmitTimesheet
         [HttpPost]
         public IActionResult SubmitTimesheet(TimeSheetModel model, string operation)
         {
@@ -918,6 +919,7 @@ namespace HelloDoc2.Controllers
                 return RedirectToAction("Invoicing", new { IsAdmin = true, physicianId = model.PhysicianId, selectedDate = model.SelectedPeriod });
             }
         }
+        #endregion
     }
 }
 

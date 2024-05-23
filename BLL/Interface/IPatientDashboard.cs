@@ -1,5 +1,6 @@
 ﻿using DAL.Models;
 using DAL.ViewModel;
+using DAL.ViewModelProvider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace BLL.Interface
         List<RequestWiseFile> GetAllFilesByRequestId(int reqId);
 
         void UploadFile(int requestId, string fileName);
+        ChatViewModel GetProviderChatDetails(int ProviderId, int RequestId, int? roleId);
 
+        ChatViewModel GetAdminChatDetails(int AdminId, int RequestId, int? roleId);
     }
 }

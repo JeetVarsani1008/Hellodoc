@@ -1,0 +1,99 @@
+﻿@model DAL.ViewModelProvider.ChatViewModel;
+
+@{
+    string sender = "";
+    string sendertime = "";
+}
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"  aria-labelledby="offcanvasRightLabel" style="z-index: 10000;">
+    <div class="offcanvas-header" style="background-color: rgb(15, 172, 235);">
+        <div class="d-flex align-items-center">
+            <input type="hidden" id="ProviderAspNetUserId" value="@Model.ProviderAspNetUserId" />
+            <input type="hidden" id="AdminAspNetUserId" value="@Model.AdminAspNetUserId" />
+            <input type="hidden" id="PatientAspNetUserId" value="@Model.PatientAspNetUserId" />
+            <input type="hidden" id="AdminId" value="@Model.AdminId" />
+            <input type="hidden" id="RequestId" value="@Model.RequestId" />
+            <input type="hidden" id="ProviderId" value="@Model.ProviderId" />
+
+            <h5 id="offcanvasRightLabel" style="padding-top: 7px; color: white;">
+                @if (Model.ProviderPhoto != null)
+                {
+
+                    <img class="avatar" alt="Profile-picture"  src="~/Physician/@Model.ProviderId@Model.ProviderPhoto"  />
+                }
+                else
+                {
+                    <img class="avatar" alt="Profile-picture2" @* src="~/images/account.png" *@ />
+                }
+                @if (Model.ProviderId != 0 && Model.ProviderName != null)
+                {
+                    <h5 id="offcanvasRightLabel" class="pt-2">@Model.ProviderName</h5>
+                }
+                else if(Model.PatientName != null)
+                {
+                    <h5 id="offcanvasRightLabel" class="pt-2">@Model.PatientName</h5>
+                }
+                else 
+                {
+                    <h5 id="offcanvasRightLabel" class="pt-2">@Model.AdminName</h5>
+                }
+            </h5>
+        </div>
+
+        <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close" style="color: white;box-shadow: none !important;"><i class="bi bi-x" style="font-size: 29px !important;"></i></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-end p-4">
+
+        <ul class="chat-thread" id="chat-ul">
+            @if (Model.ListOfChats.Count > 0)
+            {
+                foreach (var data in Model.ListOfChats)
+                {
+                    sender = (data.IsSender == true ? "chat" : "o-chat");
+                    sendertime = (data.IsSender == true ? "chattime" : "O-chattime");
+                    <li class="@sender">@data.Message</li>
+                    <div class="@sendertime">@data.sentDate?.ToString("hh:mm tt")</div>
+                }
+            }
+        </ul>
+        <div class="d-flex justify-content-center align-items-center">
+            <input id="message-input" class="form-control me-2" type="text" placeholder="Type a message" />
+            <button class="btn btn-outline-primary colorbtn" type="button" onclick="sendChat()"><i class="bi bi-send head1icon" style="padding-left: 1px;"></i></button>
+        </div> 
+    </div>
+</div>
+<script>
+    function sendChat() {
+        var ProviderAspNetUserId = $("#ProviderAspNetUserId").val();
+        var PatientAspNetUserId = $("#PatientAspNetUserId").val();
+        var AdminAspNetUserId = $("#AdminAspNetUserId").val();
+        var Message = $("#message-input").val();
+        var adminId = $("#AdminId").val();
+        var requestId = $("#RequestId").val();
+        var providerId = $("#ProviderId").val();
+
+        var chatViewModel = {
+            ProviderAspNetUserId: ProviderAspNetUserId,
+            PatientAspNetUserId: PatientAspNetUserId,
+            AdminAspNetUserId: AdminAspNetUserId,
+            Message: Message,
+            ProviderId: providerId,
+            RequestId: requestId,
+            AdminId: adminId,
+        };
+
+        $.ajax({
+            method: "Post",
+            url: "/Home/SendToSpecificUser",
+            data: chatViewModel,
+            success: function (response) {
+                console.log(response);
+
+            },
+            error: function () {
+                console.log("Function Fail")
+            }
+        });
+    }
+</script> 

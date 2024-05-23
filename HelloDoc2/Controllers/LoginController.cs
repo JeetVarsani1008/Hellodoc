@@ -77,6 +77,8 @@ namespace DAL.Controllers
             if (user != null)
             {
                 AspNetUserRole aspNetUserRole = _login.findAspNetRole(user);
+                int roleId = aspNetUserRole.RoleId;
+                HttpContext.Session.SetInt32("RoleId",roleId);
                 if (aspNetUserRole == null)
                 {
                     TempData["error"] = "Can't have Access to this site";

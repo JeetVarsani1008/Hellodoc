@@ -102,11 +102,10 @@
                             }
 
                             <td class="d-flex dropdown">
-                                @if (Model.requestListAdminDash.Any(x => x.Status == 2 || x.Status == 3 || x.Status == 4 || x.Status == 5 || x.Status == 6 || x.Status == 7 || x.Status == 8 || x.Status == 9))
-                                {
-                                    <button class="btn btn-outline-primary me-2 text-white border-white">Patient</button>
-                                }
-                                <button class="btn btn-outline-primary ms-2 text-white border-white d-none d-md-block">Provider</button>
+
+                                <button class="btn btn-outline-primary me-2 text-white border-white" onclick="chat(@obj.RequestId,0)">Patient</button>
+                                
+                                <button class="btn btn-outline-primary ms-2 text-white border-white d-none d-md-block" onclick="chat(@obj.RequestId,@obj.PhysicianId)">Provider</button>
 
                             </td>
                             <td class="dropdown">
@@ -420,7 +419,9 @@
 
 <div id="contentDTYSupport"></div>
 
+@* for chat *@
 
+<div id="popupcontent"></div>
 <script>
 
     
@@ -616,7 +617,33 @@
         if(pageNumber <= max) {
 
         }
-    }
+    };
+
+    function chat(reqid, ProviderId) {
+
+        console.log("Clicked");
+        console.log(reqid);
+        console.log(ProviderId);
+
+
+        $.ajax({
+            url: '/Admin/Chat',
+            type: 'GET',
+            data: {
+                req: reqid,
+                ProviderId: ProviderId,
+            },
+            success: function (result) {
+
+                $('#popupcontent').html(result);
+                $('#offcanvasRight').offcanvas('show');
+
+            },
+            error: function () {
+                alert('Error loading partial view');
+            },
+        });
+    };
     
 </script>
 

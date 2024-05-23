@@ -74,3 +74,103 @@ th:nth-child(2), td:nth-child(2) {
     color: skyblue;
     border: 2px solid skyblue !important;
 }
+
+
+.chat-thread {
+    margin: 24px auto 0 auto;
+    padding: 0 20px 0 0;
+    list-style: none;
+    /*overflow-y: scroll;*/
+    overflow-x: hidden;
+    margin-bottom: 50px;
+}
+
+    .chat-thread li {
+        position: relative;
+        clear: both;
+        display: inline-block;
+        padding: 16px 40px 16px 20px;
+        margin: 10px 0 0px 0;
+        font: 16px/20px 'Noto Sans', sans-serif;
+        border-radius: 10px;
+        background-color: rgba(25,147,147,0.2);
+    }
+
+        .chat-thread li:after {
+            position: absolute;
+            top: 15px;
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 15px solid rgba(25,147,147,0.2);
+        }
+
+
+.chat {
+    animation: show-chat-odd 0.15s 1 ease-in;
+    -moz-animation: show-chat-odd 0.15s 1 ease-in;
+    -webkit-animation: show-chat-odd 0.15s 1 ease-in;
+    float: right;
+    margin-right: 10px !important;
+    overflow-wrap: anywhere;
+    margin-left: 50px !important;
+    color: #0AD5C1;
+}
+
+.o-chat {
+    animation: show-chat-even 0.15s 1 ease-in;
+    -moz-animation: show-chat-even 0.15s 1 ease-in;
+    -webkit-animation: show-chat-even 0.15s 1 ease-in;
+    float: left;
+    overflow-wrap: anywhere;
+    margin-left: 10px !important;
+    margin-right: 50px !important;
+    color: #0EC879;
+}
+
+.chattime {
+    display: flex;
+    margin-right: 15px;
+    justify-content: end;
+    width: 100%;
+    float: inline-end;
+    font-size: 13px;
+}
+
+.O-chattime {
+    display: flex;
+    margin-left: 15px;
+    justify-content: start;
+    width: 100%;
+    font-size: 13px;
+    float: inline-start;
+}
+
+.chat:after {
+    border-right: 15px solid transparent;
+    right: -15px;
+}
+
+.o-chat:after {
+    border-left: 15px solid transparent;
+    left: -15px;
+}
+
+#notificationDiv {
+    top: 10%;
+    position: absolute;
+    z-index: 1001 !important;
+    right: 3%;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    max-height: 350px;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+    #notificationDiv.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        animation: bounce 1s ease-in-out;
+    }

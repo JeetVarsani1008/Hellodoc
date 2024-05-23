@@ -92,6 +92,9 @@ public partial class Request
     public virtual ICollection<BlockRequest> BlockRequests { get; set; } = new List<BlockRequest>();
 
     [InverseProperty("Request")]
+    public virtual ICollection<Chat> Chats { get; set; } = new List<Chat>();
+
+    [InverseProperty("Request")]
     public virtual ICollection<EmailLog> EmailLogs { get; set; } = new List<EmailLog>();
 
     [InverseProperty("Request")]

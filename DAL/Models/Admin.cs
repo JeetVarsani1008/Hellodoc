@@ -67,6 +67,9 @@ public partial class Admin
     [InverseProperty("AdminAspNetUsers")]
     public virtual AspNetUser AspNetUser { get; set; } = null!;
 
+    [InverseProperty("Admin")]
+    public virtual ICollection<Chat> Chats { get; set; } = new List<Chat>();
+
     [ForeignKey("ModifiedBy")]
     [InverseProperty("AdminModifiedByNavigations")]
     public virtual AspNetUser? ModifiedByNavigation { get; set; }
